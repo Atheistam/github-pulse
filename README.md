@@ -13,8 +13,13 @@ entire public [GH Archive](https://www.gharchive.org/) event stream.
 - **🧠 Human signal** — repos where people actually did things (PRs, issues,
   reviews, stars, releases), bot pushes filtered out entirely.
 - **👤 Top actors / 🗣 languages / 🚀 releases** — who moved code, in what, and what shipped.
-- **🤖 Bot watch** — push-farms: repos with ≥40 pushes/hr from ≤2 actors.
-  Includes the % of ALL GitHub pushes that are farm spam each hour.
+- **🤖 Bot watch** — push-farms: repos whose activity is an automated push
+  loop (zero human signal, ≤2 actors). Detection is profile-based — the farms
+  adapt their push volume (40→30→25→24 pushes/hr) to duck any fixed
+  threshold, so we flag on *patterns*, not volume: auto-generated account
+  names, known farm actors (persistent ledger — repos rotate, actors persist),
+  and high-volume zero-human churners corroborated by history. Includes the
+  % of ALL GitHub pushes that are farm spam each hour.
 - **🧟 Botnet watch** — farms that come back hour after hour (persistent
   offenders across the last 12 hours).
 
@@ -38,8 +43,15 @@ scripts/verify.cjs   — headless Playwright check of the live site
 
 ## Data findings so far
 
-- ~1.4–2.5% of ALL GitHub pushes are push-farm spam.
-- `LiamBruhin/SillyStuff` pushed 452× in one hour from a single actor.
+- ~48% of ALL GitHub pushes are push-farm spam (detection v4, hour 18).
+- `LiamBruhin/SillyStuff` pushed 344× in one hour from a single actor, 13h straight.
+- Farms launder pushes through GitHub Actions (`github-actions[bot]`) and
+  rotate repo names (`vbpl-storage-tu-1` → `dp-2` → `dp-3`) — the durable
+  signal is the *owner account*, tracked in a persistent ledger.
+- Real-name farms (jvhoang, ugmoddev, zerotraceh1, elad-cmd) push 150–330×/hr
+  for 15–19 hours straight with zero human signal; they're flagged push-bot
+  once corroborated (2+ hours in history/ledger), push-loop before that, so a
+  solo dev's automated pipeline is never publicly called a bot on first sight.
 - CI-demo repos (e.g. `merge-demo/mergequeue-st`) churn hundreds of
   pushes/hour forever and will top naive "most active" rankings.
 
