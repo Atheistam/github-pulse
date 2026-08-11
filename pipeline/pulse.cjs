@@ -34,7 +34,7 @@ const path = require('path');
 
 const SITE_DATA = path.join(__dirname, '..', 'site', 'data');
 const HIST_DIR = path.join(SITE_DATA, 'history');
-const MAX_BACKFILL = 4; // max missing hours to fetch in one run
+const MAX_BACKFILL = Number(process.env.MAX_BACKFILL || 4); // max missing hours to fetch in one run
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -229,6 +229,16 @@ function buildSnapshot(hourLabel, agg) {
   const topHuman = all.filter((r) => humanScore(r) > 0).sort((a, b) => humanScore(b) - humanScore(a)).slice(0, 25)
     .map((r) => Object.assign({ human: humanScore(r) }, r));
   const topLangs = [...langs.values()].sort((a, b) => (b.events * 4 + b.stars * 2 + b.forks) - (a.events * 4 + a.stars * 2 + a.forks)).slice(0, 15);
+  // Bot watch: push-farms — suspiciously high push volume from almost no
+  // distinct actors (≥40 pushes, ≤2 actors). This is the signature of
+  // push-spam botnets that pollute the archive every hour.
+  const botWatch = all
+    .filter((r) => (r.pushes || 0) >= 40 && (r.actors || 0) <= 2)
+    .sort((a, b) => b.pushes - a.pushes)
+    .slice(0, 15)
+    .map((r) => Object.assign({ bot_score: Math.round((r.pushes || 0) / Math.max(r.actors || 1, 1)) }, r));
+  const totalPushes = all.reduce((n, r) => n + (r.pushes || 0), 0);
+  const spamPushes = botWatch.reduce((n, r) => n + (r.pushes || 0), 0);
   return {
     as_of: `${hourLabel.slice(0, 10)}T${pad(Number(hourLabel.slice(11)))}:00:00Z`,
     hour: hourLabel,
@@ -242,6 +252,8 @@ function buildSnapshot(hourLabel, agg) {
     top_actors: actorList,
     top_languages: topLangs,
     top_releases: releases.slice(0, 20),
+    bot_watch: botWatch,
+    push_spam_pct: totalPushes ? Math.round((spamPushes / totalPushes) * 1000) / 10 : 0,
   };
 }
 
@@ -331,6 +343,8 @@ function buildDigest(s) {
   const lang = (s.top_languages || [])[0];
   const rel = s.top_releases || [];
   const human = (s.top_human || [])[0];
+  const bots = s.bot_watch || [];
+  const bot0 = bots[0];
   const lines = [
     `📡 GITHUB PULSE — hour ${s.hour}`,
     `${s.events.toLocaleString()} events · ${s.repos_seen.toLocaleString()} repos`,
@@ -343,6 +357,7 @@ function buildDigest(s) {
     `🧠 human top: ${human ? `${human.repo} (${human.prs || 0} PRs, ${human.issues || 0} issues, +${human.stars || 0}★)` : 'n/a'}`,
     `🗣 top language: ${lang ? lang.language : 'n/a'}`,
     `🚀 releases: ${rel.length ? rel.length : 0} (${rel[0] ? rel[0].repo + ' ' + (rel[0].tag || '') : ''})`,
+    `🤖 bot watch: ${bots.length} push-farms · ${s.push_spam_pct != null ? s.push_spam_pct : 'n/a'}% of all pushes are spam${bot0 ? ` — top: ${bot0.repo} (${bot0.pushes} pushes, ${bot0.actors}👥)` : ''}`,
   ];
   return {
     hour: s.hour,
@@ -354,8 +369,50 @@ function buildDigest(s) {
     top_actor: actor || null,
     top_language: lang ? lang.language : null,
     releases: rel.length,
+    bot_farms: bots.length,
+    push_spam_pct: s.push_spam_pct,
+    top_bot: bot0 ? { repo: bot0.repo, pushes: bot0.pushes, actors: bot0.actors } : null,
     text: lines.join('\n'),
   };
+}
+
+/** RSS 2.0 feed of hourly digests — lets anyone subscribe to the radar. */
+function writeRss() {
+  const files = readHistoryIndex().sort().slice(-24).reverse();
+  const items = files.map((f) => {
+    let snap = null;
+    try { snap = JSON.parse(fs.readFileSync(path.join(HIST_DIR, f), 'utf8')); } catch { return null; }
+    const d = buildDigest(snap);
+    const date = new Date(d.as_of);
+    const rfc = isNaN(date) ? new Date().toUTCString() : date.toUTCString();
+    const desc = d.text.split('\n').map((l) =>
+      l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')).join('<br/>');
+    return `    <item>
+      <title>GitHub Pulse — hour ${escXml(d.hour)}</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-${escXml(d.hour)}</guid>
+      <pubDate>${rfc}</pubDate>
+      <description>${desc}</description>
+    </item>`;
+  }).filter(Boolean);
+  const feed = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>GitHub Pulse — hourly radar</title>
+    <link>https://github-pulse.surge.sh/</link>
+    <description>The busiest hour on GitHub, ranked: hottest repos, human signal, languages, releases and bot farms — fresh from the GH Archive every hour.</description>
+    <language>en-us</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+${items.join('\n')}
+  </channel>
+</rss>
+`;
+  fs.writeFileSync(path.join(SITE_DATA, 'digest.xml'), feed);
+  console.log(`[pulse] wrote digest.xml (${items.length} items)`);
+}
+
+function escXml(s) {
+  return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 function readHistoryIndex() {
@@ -421,6 +478,7 @@ async function main() {
   fs.writeFileSync(path.join(SITE_DATA, 'snapshot.json'), JSON.stringify(snap));
   const digest = buildDigest(snap);
   fs.writeFileSync(path.join(SITE_DATA, 'digest.json'), JSON.stringify(digest));
+  writeRss();
   console.log(`[pulse] wrote snapshot.json + digest.json (events=${snap.events}, repos=${snap.repos_seen})`);
   console.log(`[pulse] hottest: ${(snap.top_hot[0] || {}).repo} (heat ${(snap.top_hot[0] || {}).heat})`);
   console.log('[pulse] digest:\n' + digest.text);

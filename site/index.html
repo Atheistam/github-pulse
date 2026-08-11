@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="GitHub Pulse — hourly radar" href="data/digest.xml">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -87,9 +88,17 @@
     </section>
   </div>
 
+  <section class="panel" id="panel-bots">
+    <div class="panel-head">
+      <h2><span class="h-num">07</span> Bot watch</h2>
+      <span class="panel-sub" id="bot-sub">push-farms: high push volume, almost no humans</span>
+    </div>
+    <div class="table-wrap" id="bots-body"><div class="empty">loading…</div></div>
+  </section>
+
   <section class="panel" id="panel-history">
     <div class="panel-head">
-      <h2><span class="h-num">07</span> Hourly history</h2>
+      <h2><span class="h-num">08</span> Hourly history</h2>
       <span class="panel-sub">events per tracked hour</span>
     </div>
     <div id="history-body"><div class="empty">no history yet — this is the first sweep</div></div>
@@ -99,7 +108,7 @@
 <footer class="footer">
   <div class="wrap footer-inner">
     <span>autonomous build · data: <a href="https://www.gharchive.org/" target="_blank" rel="noopener">GH Archive</a> · refreshed every 3 hours</span>
-    <span class="mono" id="foot-clock">—</span>
+    <span class="footer-links"><a href="data/digest.xml" target="_blank" rel="noopener">rss</a> · <span class="mono" id="foot-clock">—</span></span>
   </div>
 </footer>
 

@@ -113,6 +113,25 @@
       : '<div class="empty">no actor data this hour</div>';
   }
 
+  function renderBots(s) {
+    const sub = $('bot-sub');
+    if (sub) sub.textContent = s.push_spam_pct != null
+      ? `push-farms: high push volume, almost no humans · ${s.push_spam_pct}% of ALL pushes this hour are farm spam`
+      : 'push-farms: high push volume, almost no humans';
+    const rows = (s.bot_watch || []).map((r, i) => `
+      <tr>
+        <td class="rank ${rankCls(i)}">${String(i + 1).padStart(2, '0')}</td>
+        <td>${repoCell(r)}</td>
+        <td class="num hot">${fmt.format(r.pushes || 0)}</td>
+        <td class="num">👥 ${fmt.format(r.actors || 0)}</td>
+        <td class="num">${fmt.format(r.events || 0)} ev</td>
+        <td>${chip(r.language)}</td>
+      </tr>`).join('');
+    $('bots-body').innerHTML = rows
+      ? `<table><thead><tr><th>#</th><th>repository</th><th style="text-align:right">pushes</th><th style="text-align:right">actors</th><th style="text-align:right">events</th><th>lang</th></tr></thead><tbody>${rows}</tbody></table>`
+      : '<div class="empty">no push-farms detected this hour — clean archive, for once</div>';
+  }
+
   function renderReleases(s) {
     const list = s.top_releases || [];
     $('releases-body').innerHTML = list.length
@@ -176,6 +195,7 @@
       renderLangs(s);
       renderNew(s);
       renderReleases(s);
+      renderBots(s);
       document.title = `GitHub Pulse — ${fmt.format(s.events || 0)} events in ${String(s.hour || '')}`;
     } catch (e) {
       const box = document.createElement('div');

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>GitHub Pulse — hourly radar</title>
+    <link>https://github-pulse.surge.sh/</link>
+    <description>The busiest hour on GitHub, ranked: hottest repos, human signal, languages, releases and bot farms — fresh from the GH Archive every hour.</description>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Aug 2026 10:15:40 GMT</lastBuildDate>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-11-9</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-11-9</guid>
+      <pubDate>Tue, 11 Aug 2026 09:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-11-9<br/>166,879 events · 41,395 repos<br/><br/>🔥 HOTTEST:<br/>  merge-demo/mergequeue-st — heat 64 (68 pushes, 1 PRs, +0★, 3👥)<br/>  PostHog/posthog — heat 63 (21 pushes, 0 PRs, +0★, 14👥)<br/>  hernandezolivia1629/lnliaa — heat 53 (95 pushes, 0 PRs, +0★, 1👥)<br/>  sanchezderek9521/simpix — heat 53 (99 pushes, 0 PRs, +0★, 1👥)<br/>  rhodeskendra21/gnnokr — heat 53 (115 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (8803 events)<br/>🧠 human top: openclaw/openclaw (1 PRs, 0 issues, +1★)<br/>🗣 top language: n/a<br/>🚀 releases: 14 (EPOS-ERIC/backoffice-service v4.1.5)<br/>🤖 bot watch: 15 push-farms · 1.4% of all pushes are spam — top: LiamBruhin/SillyStuff (239 pushes, 1👥)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-11-8</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-11-8</guid>
+      <pubDate>Tue, 11 Aug 2026 08:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-11-8<br/>160,774 events · 46,241 repos<br/><br/>🔥 HOTTEST:<br/>  jonathangana131-lab/Nembra — heat 56 (78 pushes, 0 PRs, +0★, 2👥)<br/>  jonathangana131-lab/UNRENDERED — heat 56 (83 pushes, 0 PRs, +0★, 2👥)<br/>  HaoyuYu-wx0/trnfvn-VQNIJF — heat 53 (59 pushes, 0 PRs, +0★, 1👥)<br/>  CbMgyzRefuS41/pkfnpm — heat 53 (52 pushes, 0 PRs, +0★, 1👥)<br/>  jimenezeddie8/yaqree — heat 53 (110 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (10808 events)<br/>🧠 human top: SAPTARSHI-coder/EaseMotion-css (2 PRs, 1 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 11 (tzxiaozhen88/RunFilesBuilder 26.8.11-1)<br/>🤖 bot watch: 15 push-farms · 1.8% of all pushes are spam — top: LorEnzzhhz/zenbox (333 pushes, 1👥)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-11-7</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-11-7</guid>
+      <pubDate>Tue, 11 Aug 2026 07:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-11-7<br/>164,675 events · 46,881 repos<br/><br/>🔥 HOTTEST:<br/>  jonathangana131-lab/UNRENDERED — heat 56 (65 pushes, 0 PRs, +0★, 2👥)<br/>  nagutabby/sveltekit-blog — heat 56 (60 pushes, 0 PRs, +0★, 2👥)<br/>  reynoldsnorman87/pismym — heat 53 (125 pushes, 0 PRs, +0★, 1👥)<br/>  petersonjeffrey5307/fccatn — heat 53 (161 pushes, 0 PRs, +0★, 1👥)<br/>  stevensbrandi55/vymwms — heat 53 (147 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (12021 events)<br/>🧠 human top: docker-hardened-images/log (2 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 8 (finogeeks/finsafe v0.9.36)<br/>🤖 bot watch: 15 push-farms · 1.9% of all pushes are spam — top: LiamBruhin/SillyStuff (314 pushes, 1👥)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-11-6</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-11-6</guid>
+      <pubDate>Tue, 11 Aug 2026 06:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-11-6<br/>166,177 events · 45,831 repos<br/><br/>🔥 HOTTEST:<br/>  merge-demo/mergequeue-st — heat 64 (57 pushes, 1 PRs, +0★, 3👥)<br/>  jonathangana131-lab/UNRENDERED — heat 56 (61 pushes, 0 PRs, +0★, 2👥)<br/>  merge-demo/mergequeue-bazel — heat 55 (49 pushes, 0 PRs, +0★, 2👥)<br/>  davissusan705/zutqqt — heat 53 (114 pushes, 0 PRs, +0★, 1👥)<br/>  jacksonkristy9470/ersqhx — heat 53 (72 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (11233 events)<br/>🧠 human top: NousResearch/hermes-agent (0 PRs, 0 issues, +2★)<br/>🗣 top language: n/a<br/>🚀 releases: 17 (Swedz/Extended-Industrialization 1.15.46-1.21.1)<br/>🤖 bot watch: 15 push-farms · 1.8% of all pushes are spam — top: LiamBruhin/SillyStuff (326 pushes, 1👥)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-11-5</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-11-5</guid>
+      <pubDate>Tue, 11 Aug 2026 05:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-11-5<br/>166,579 events · 44,244 repos<br/><br/>🔥 HOTTEST:<br/>  brownrichard71/pzfefl — heat 53 (63 pushes, 0 PRs, +0★, 1👥)<br/>  gordonjill9/gwowsr — heat 53 (92 pushes, 0 PRs, +0★, 1👥)<br/>  younganthony9/gzcwmg — heat 53 (73 pushes, 0 PRs, +0★, 1👥)<br/>  williamscarla2/mcavcp — heat 53 (64 pushes, 0 PRs, +0★, 1👥)<br/>  youngandres23/eckeag — heat 53 (69 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (13477 events)<br/>🧠 human top: airbytehq/airbyte (2 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 10 (rage726/flip-tracker-releases v2.4.1)<br/>🤖 bot watch: 15 push-farms · 2.1% of all pushes are spam — top: LiamBruhin/SillyStuff (364 pushes, 1👥)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-11-4</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-11-4</guid>
+      <pubDate>Tue, 11 Aug 2026 04:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-11-4<br/>165,481 events · 46,642 repos<br/><br/>🔥 HOTTEST:<br/>  jonathangana131-lab/Nembra — heat 56 (120 pushes, 0 PRs, +0★, 2👥)<br/>  merge-demo/mergequeue-bazel — heat 56 (52 pushes, 0 PRs, +0★, 2👥)<br/>  EffortlessMetrics/perl-lsp-swarm — heat 56 (26 pushes, 0 PRs, +0★, 3👥)<br/>  ComposioHQ/logo-cdn — heat 56 (45 pushes, 1 PRs, +0★, 2👥)<br/>  dixonlori53/gimvug — heat 53 (60 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (13904 events)<br/>🧠 human top: EffortlessMetrics/perl-lsp-swarm (0 PRs, 7 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 11 (crunchynapkin404/Recover v0.89.0)<br/>🤖 bot watch: 15 push-farms · 2.5% of all pushes are spam — top: LiamBruhin/SillyStuff (452 pushes, 1👥)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-11-3</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-11-3</guid>
+      <pubDate>Tue, 11 Aug 2026 03:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-11-3<br/>169,474 events · 37,655 repos<br/><br/>🔥 HOTTEST:<br/>  jonathangana131-lab/Nembra — heat 56 (64 pushes, 0 PRs, +0★, 2👥)<br/>  suarezscott845/daqhbz — heat 53 (61 pushes, 0 PRs, +0★, 1👥)<br/>  sullivanricardo34/sgnntg — heat 53 (60 pushes, 0 PRs, +0★, 1👥)<br/>  rodriguezjohn04/pdkcfz — heat 53 (103 pushes, 0 PRs, +0★, 1👥)<br/>  perkinsbrandon32/xaklwv — heat 53 (102 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (10090 events)<br/>🧠 human top: KanishJebaMathewM/Truxify (2 PRs, 3 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (nesquena/hermes-webui exp-v0.52.198)<br/>🤖 bot watch: 15 push-farms · 1.8% of all pushes are spam — top: ABYSSCORE-LLC/abysscore-backend (312 pushes, 1👥)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-11-2</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-11-2</guid>
+      <pubDate>Tue, 11 Aug 2026 02:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-11-2<br/>165,119 events · 44,232 repos<br/><br/>🔥 HOTTEST:<br/>  SAPTARSHI-coder/EaseMotion-css — heat 61 (2 pushes, 10 PRs, +0★, 3👥)<br/>  gutierrezjoshua329/oiopxp — heat 53 (149 pushes, 0 PRs, +0★, 1👥)<br/>  vazquezrobert3/gwayxj — heat 53 (108 pushes, 0 PRs, +0★, 1👥)<br/>  leonteresa1/lcluog — heat 53 (76 pushes, 0 PRs, +0★, 1👥)<br/>  grayian32/ijkxlt — heat 53 (143 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (13716 events)<br/>🧠 human top: karthikabinav/comment-auto-bot-28 (0 PRs, 2 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (slvn1shh/wot-snipe-bot-releases v1.80.0)<br/>🤖 bot watch: 15 push-farms · 2% of all pushes are spam — top: tsparticles/tsparticles (349 pushes, 1👥)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-11-1</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-11-1</guid>
+      <pubDate>Tue, 11 Aug 2026 01:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-11-1<br/>158,679 events · 42,688 repos<br/><br/>🔥 HOTTEST:<br/>  merge-demo/mergequeue-st — heat 71 (36 pushes, 4 PRs, +0★, 5👥)<br/>  NousResearch/hermes-agent — heat 57 (1 pushes, 2 PRs, +2★, 7👥)<br/>  gregorypaige4/pzvuxg — heat 53 (59 pushes, 0 PRs, +0★, 1👥)<br/>  johnsonlauren6/dpqoms — heat 53 (75 pushes, 0 PRs, +0★, 1👥)<br/>  hendersonrachel5777/sumhiw — heat 53 (69 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (16771 events)<br/>🧠 human top: FieldOps-Project/backend (0 PRs, 12 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (GhoulRegionInflate/zapret-telegram Zapret-Telegram)<br/>🤖 bot watch: 15 push-farms · 1.5% of all pushes are spam — top: tsparticles/tsparticles (303 pushes, 1👥)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-11-0</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-11-0</guid>
+      <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-11-0<br/>147,533 events · 39,797 repos<br/><br/>🔥 HOTTEST:<br/>  SabreOSS/opentelemetry-collector-contrib — heat 158 (0 pushes, 31 PRs, +0★, 1👥)<br/>  microsoft/winget-pkgs — heat 118 (3 pushes, 20 PRs, +0★, 5👥)<br/>  pcwiese/opentelemetry-collector-contrib — heat 103 (0 pushes, 20 PRs, +0★, 1👥)<br/>  merge-demo/mergequeue-st — heat 94 (26 pushes, 10 PRs, +0★, 6👥)<br/>  EffortlessMetrics/perl-lsp-swarm — heat 83 (28 pushes, 2 PRs, +0★, 6👥)<br/><br/>👤 busiest: github-actions[bot] (11657 events)<br/>🧠 human top: SabreOSS/opentelemetry-collector-contrib (31 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (juscribe/jus-station v0.6.18)<br/>🤖 bot watch: 15 push-farms · 1.8% of all pushes are spam — top: tsparticles/tsparticles (320 pushes, 1👥)</description>
+    </item>
+  </channel>
+</rss>
