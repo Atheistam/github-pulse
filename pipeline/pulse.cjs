@@ -109,8 +109,12 @@ function get(url, headers = {}) {
   });
 }
 
-const heatOf = (r) => (r.stars || 0) * 5 + (r.forks || 0) * 3 + (r.prs || 0) * 3 +
-  (r.issues || 0) * 2 + (r.pushes || 0) * 1 + (r.releases || 0) * 10;
+// Anti-spam heat: quality signals (stars/forks/PRs/issues/releases) weighted
+// highest, pushes capped (push-bots spam hundreds/hour), plus distinct-actor
+// diversity — 40 pushes from 12 humans beats 364 pushes from 1 bot.
+const heatOf = (r) => (r.stars || 0) * 8 + (r.forks || 0) * 5 + (r.prs || 0) * 5 +
+  (r.issues || 0) * 3 + (r.releases || 0) * 15 + Math.min(r.pushes || 0, 50) +
+  Math.min(r.actors || 0, 20) * 3;
 
 /** Stream one archive hour and aggregate. Returns raw aggregates (no API calls). */
 function processHour(hourLabel, localFile) {
@@ -142,7 +146,7 @@ function processHour(hourLabel, localFile) {
         const name = e.repo.name;
         let r = repos.get(name);
         if (!r) {
-          r = { repo: name, stars: 0, forks: 0, issues: 0, prs: 0, releases: 0, pushes: 0, events: 0, language: null, desc: null, url: `https://github.com/${name}` };
+          r = { repo: name, stars: 0, forks: 0, issues: 0, prs: 0, releases: 0, pushes: 0, reviews: 0, events: 0, actors: 0, _as: null, language: null, desc: null, url: `https://github.com/${name}` };
           repos.set(name, r);
         }
         r.events++;
@@ -165,12 +169,18 @@ function processHour(hourLabel, localFile) {
             });
             break;
           case 'PushEvent': r.pushes++; break;
+          case 'PullRequestReviewEvent':
+          case 'PullRequestReviewCommentEvent':
+          case 'IssueCommentEvent':
+          case 'CommitCommentEvent':
+            r.reviews++;
+            break;
         }
         if (e.repo.language && e.repo.language !== 'null') r.language = e.repo.language;
         if (e.payload && e.payload.description && !r.desc) r.desc = String(e.payload.description).slice(0, 200);
         if (e.repo.language && e.repo.language !== 'null') {
           let l = langs.get(e.repo.language);
-          if (!l) { l = { language: e.repo.language, stars: 0, forks: 0, events: 0 }; langs.set(e.repo.language, l); }
+          if (!l) { l = { language: e.repo.language, stars: 0, forks: 0, events: 0, repos: 0 }; langs.set(e.repo.language, l); }
           l.events++;
         }
         if (a) {
@@ -179,13 +189,16 @@ function processHour(hourLabel, localFile) {
           ac.events++;
           ac.repos.add(name);
           ac.repoCounts.set(name, (ac.repoCounts.get(name) || 0) + 1);
+          if (!r._as) r._as = new Set();
+          r._as.add(a);
         }
       });
 
       rl.on('close', () => {
+        for (const r of repos.values()) { r.actors = r._as ? r._as.size : 0; delete r._as; }
         for (const [lang, l] of langs) {
           for (const r of repos.values()) {
-            if (r.language === lang) { l.stars += r.stars; l.forks += r.forks; }
+            if (r.language === lang) { l.stars += r.stars; l.forks += r.forks; l.repos++; }
           }
         }
         const actorList = [...actors.values()].map((ac) => {
@@ -209,7 +222,13 @@ function buildSnapshot(hourLabel, agg) {
   const topHot = all.filter((r) => heatOf(r) > 0).sort(hotSort).slice(0, 25)
     .map((r) => Object.assign({ heat: heatOf(r) }, r));
   const topActive = all.sort((a, b) => b.events - a.events).slice(0, 25);
-  const topLangs = [...langs.values()].sort((a, b) => (b.stars * 3 + b.forks) - (a.stars * 3 + a.forks)).slice(0, 15);
+  // Human signal: rank purely on human events (PRs, issues, stars, forks,
+  // releases, reviews) — the push-bot noise is filtered out entirely.
+  const humanScore = (r) => (r.prs || 0) * 4 + (r.issues || 0) * 3 + (r.stars || 0) * 5 +
+    (r.forks || 0) * 3 + (r.releases || 0) * 8 + (r.reviews || 0) * 2;
+  const topHuman = all.filter((r) => humanScore(r) > 0).sort((a, b) => humanScore(b) - humanScore(a)).slice(0, 25)
+    .map((r) => Object.assign({ human: humanScore(r) }, r));
+  const topLangs = [...langs.values()].sort((a, b) => (b.events * 4 + b.stars * 2 + b.forks) - (a.events * 4 + a.stars * 2 + a.forks)).slice(0, 15);
   return {
     as_of: `${hourLabel.slice(0, 10)}T${pad(Number(hourLabel.slice(11)))}:00:00Z`,
     hour: hourLabel,
@@ -219,6 +238,7 @@ function buildSnapshot(hourLabel, agg) {
     vs_prev: null,
     top_hot: topHot,
     top_active: topActive,
+    top_human: topHuman,
     top_actors: actorList,
     top_languages: topLangs,
     top_releases: releases.slice(0, 20),
@@ -263,16 +283,18 @@ async function enrich(snapshot) {
   apply(snapshot.top_hot);
   apply(snapshot.top_active);
   apply(snapshot.top_releases);
-  // rebuild language aggregates from enriched repos
+  // Rebuild language aggregates from enriched top repos — the GH Archive has
+  // no repo.language field in this dataset, so API enrichment is the only
+  // language source. Rank by number of top repos per language.
   const langAgg = new Map();
   for (const r of [...(snapshot.top_hot || []), ...(snapshot.top_active || [])]) {
     if (!r.language) continue;
     let l = langAgg.get(r.language);
-    if (!l) { l = { language: r.language, stars: 0, forks: 0, repos: 0 }; langAgg.set(r.language, l); }
-    l.stars += r.stars || 0; l.forks += r.forks || 0; l.repos++;
+    if (!l) { l = { language: r.language, stars: 0, forks: 0, repos: 0, events: 0 }; langAgg.set(r.language, l); }
+    l.stars += r.stars || 0; l.forks += r.forks || 0; l.repos++; l.events += r.events || 0;
   }
   snapshot.top_languages = [...langAgg.values()]
-    .sort((a, b) => (b.stars * 3 + b.forks) - (a.stars * 3 + a.forks)).slice(0, 15);
+    .sort((a, b) => (b.repos * 10 + b.events) - (a.repos * 10 + a.events)).slice(0, 15);
   console.log(`[pulse] enrichment: fetched ${fetched}, rateLimited=${rateLimited}, cache=${Object.keys(meta).length}`);
   return snapshot;
 }
@@ -282,6 +304,7 @@ function applyTrends(snapshot, prev) {
   if (!prev) return;
   const hotRanks = new Map((prev.top_hot || []).map((r, i) => [r.repo, i]));
   const actRanks = new Map((prev.top_active || []).map((r, i) => [r.repo, i]));
+  const humanRanks = new Map((prev.top_human || []).map((r, i) => [r.repo, i]));
   const trendFor = (ranks, repo, idx) => {
     const p = ranks.get(repo);
     if (p === undefined) return { prev_rank: null, rank_delta: null, trend: 'new' };
@@ -290,6 +313,7 @@ function applyTrends(snapshot, prev) {
   };
   (snapshot.top_hot || []).forEach((r, i) => Object.assign(r, trendFor(hotRanks, r.repo, i)));
   (snapshot.top_active || []).forEach((r, i) => Object.assign(r, trendFor(actRanks, r.repo, i)));
+  (snapshot.top_human || []).forEach((r, i) => Object.assign(r, trendFor(humanRanks, r.repo, i)));
   snapshot.prev_hour = prev.hour;
   snapshot.vs_prev = {
     events_pct: prev.events ? Math.round(((snapshot.events - prev.events) / prev.events) * 1000) / 10 : null,
@@ -301,11 +325,12 @@ function applyTrends(snapshot, prev) {
 function buildDigest(s) {
   const hot = (s.top_hot || []).slice(0, 5).map((r) => {
     const t = r.trend === 'up' ? ` ▲${r.rank_delta}` : r.trend === 'new' ? ' 🆕' : r.trend === 'down' ? ` ▼${-r.rank_delta}` : '';
-    return `  ${r.repo} — heat ${r.heat} (${r.pushes} pushes, ${r.prs} PRs, +${r.stars}★)${t}`;
+    return `  ${r.repo} — heat ${r.heat} (${r.pushes} pushes, ${r.prs} PRs, +${r.stars}★, ${r.actors || 0}👥)${t}`;
   }).join('\n');
   const actor = (s.top_actors || [])[0];
   const lang = (s.top_languages || [])[0];
   const rel = s.top_releases || [];
+  const human = (s.top_human || [])[0];
   const lines = [
     `📡 GITHUB PULSE — hour ${s.hour}`,
     `${s.events.toLocaleString()} events · ${s.repos_seen.toLocaleString()} repos`,
@@ -315,6 +340,7 @@ function buildDigest(s) {
     hot,
     '',
     `👤 busiest: ${actor ? `${actor.actor} (${actor.events} events)` : 'n/a'}`,
+    `🧠 human top: ${human ? `${human.repo} (${human.prs || 0} PRs, ${human.issues || 0} issues, +${human.stars || 0}★)` : 'n/a'}`,
     `🗣 top language: ${lang ? lang.language : 'n/a'}`,
     `🚀 releases: ${rel.length ? rel.length : 0} (${rel[0] ? rel[0].repo + ' ' + (rel[0].tag || '') : ''})`,
   ];
@@ -324,7 +350,7 @@ function buildDigest(s) {
     events: s.events,
     repos_seen: s.repos_seen,
     vs_prev: s.vs_prev,
-    hottest: (s.top_hot || []).slice(0, 5).map((r) => ({ repo: r.repo, heat: r.heat, pushes: r.pushes, stars: r.stars, trend: r.trend, rank_delta: r.rank_delta })),
+    hottest: (s.top_hot || []).slice(0, 5).map((r) => ({ repo: r.repo, heat: r.heat, pushes: r.pushes, stars: r.stars, actors: r.actors, trend: r.trend, rank_delta: r.rank_delta })),
     top_actor: actor || null,
     top_language: lang ? lang.language : null,
     releases: rel.length,
@@ -383,7 +409,9 @@ async function main() {
   const agg = await processHour(latest, localFile);
   const snap = buildSnapshot(latest, agg);
   await enrich(snap);
-  const prevForTrends = prevSnap || (() => {
+  // If the last backfilled hour == latest, the backfill just wrote the same
+  // hour we're about to reprocess — fall back to the true previous hour.
+  const prevForTrends = (prevSnap && prevSnap.hour !== latest) ? prevSnap : (() => {
     const prevHour = prevHourLabel(latest);
     try { return JSON.parse(fs.readFileSync(path.join(HIST_DIR, `${prevHour}.json`), 'utf8')); }
     catch { return null; }

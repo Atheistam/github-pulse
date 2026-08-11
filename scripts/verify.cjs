@@ -17,6 +17,7 @@ const { chromium } = require('playwright');
     hours: document.getElementById('stat-hours').textContent,
     asof: document.getElementById('asof-badge').textContent,
     gainerRows: document.querySelectorAll('#gainers-body tbody tr').length,
+    humanRows: document.querySelectorAll('#human-body tbody tr').length,
     activeRows: document.querySelectorAll('#active-body tbody tr').length,
     actorCards: document.querySelectorAll('#new-body .card').length,
     langRows: document.querySelectorAll('#langs-body .lang-row').length,

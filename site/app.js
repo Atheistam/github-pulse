@@ -41,12 +41,13 @@
         <td>${repoCell(r)}</td>
         <td class="num hot">${fmt.format(r.heat || 0)}</td>
         <td class="num">${fmt.format(r.events || 0)} ev</td>
+        <td class="num">👥 ${fmt.format(r.actors || 0)}</td>
         <td class="num pos">+${fmt.format(r.stars || 0)}★</td>
         <td>${chip(r.language)}</td>
         <td>${trendBadge(r)}</td>
       </tr>`).join('');
     $('gainers-body').innerHTML = rows
-      ? `<table><thead><tr><th>#</th><th>repository</th><th style="text-align:right">heat</th><th style="text-align:right">events</th><th style="text-align:right">stars</th><th>lang</th><th>trend</th></tr></thead><tbody>${rows}</tbody></table>`
+      ? `<table><thead><tr><th>#</th><th>repository</th><th style="text-align:right">heat</th><th style="text-align:right">events</th><th style="text-align:right">actors</th><th style="text-align:right">stars</th><th>lang</th><th>trend</th></tr></thead><tbody>${rows}</tbody></table>`
       : '<div class="empty">quiet hour — no meaningful activity recorded</div>';
   }
 
@@ -64,18 +65,36 @@
       : '<div class="empty">no activity recorded this hour</div>';
   }
 
+  function renderHuman(s) {
+    const rows = (s.top_human || []).map((r, i) => `
+      <tr>
+        <td class="rank ${rankCls(i)}">${String(i + 1).padStart(2, '0')}</td>
+        <td>${repoCell(r)}</td>
+        <td class="num hot">${fmt.format(r.human || 0)}</td>
+        <td class="num">${fmt.format(r.prs || 0)}</td>
+        <td class="num">${fmt.format(r.issues || 0)}</td>
+        <td class="num">${fmt.format(r.reviews || 0)}</td>
+        <td class="num pos">+${fmt.format(r.stars || 0)}★</td>
+        <td>${chip(r.language)}</td>
+        <td>${trendBadge(r)}</td>
+      </tr>`).join('');
+    $('human-body').innerHTML = rows
+      ? `<table><thead><tr><th>#</th><th>repository</th><th style="text-align:right">score</th><th style="text-align:right">PRs</th><th style="text-align:right">issues</th><th style="text-align:right">reviews</th><th style="text-align:right">stars</th><th>lang</th><th>trend</th></tr></thead><tbody>${rows}</tbody></table>`
+      : '<div class="empty">no human-scale activity this hour</div>';
+  }
+
   function renderLangs(s) {
     const list = s.top_languages || [];
     if (!list.length) { $('langs-body').innerHTML = '<div class="empty">language data filling in — repos are being enriched</div>'; return; }
-    const max = Math.max(...list.map((l) => l.stars * 3 + l.forks), 1);
+    const max = Math.max(...list.map((l) => l.events || 0), 1);
     $('langs-body').innerHTML = list.map((l) => {
-      const score = l.stars * 3 + l.forks;
+      const score = l.events || 0;
       const pct = Math.max(4, Math.round((score / max) * 100));
       return `
       <div class="lang-row">
         <div class="lang-top">
           <span class="lang-name">${esc(l.language)}</span>
-          <span class="lang-meta">${fmt.format(l.stars)}★ · ${fmt.format(l.forks)}⑂ · ${fmt.format(l.repos)} repos</span>
+          <span class="lang-meta">${fmt.format(l.events)} ev · ${fmt.format(l.repos)} repos</span>
         </div>
         <div class="lang-bar"><div class="lang-fill" style="width:${pct}%"></div></div>
       </div>`;
@@ -152,6 +171,7 @@
       $('stat-events').textContent = fmt.format(s.events || 0);
       $('stat-repos').textContent = fmt.format(s.repos_seen || 0);
       renderGainers(s);
+      renderHuman(s);
       renderActive(s);
       renderLangs(s);
       renderNew(s);
