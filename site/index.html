@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GitHub Pulse — the internet's busiest hour on GitHub</title>
 <meta name="description" content="GitHub Pulse: a live radar of the fastest-growing repositories, most active projects, and languages on fire — computed fresh from the GH Archive every hour.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GitHub Pulse — the internet's busiest hour on GitHub">
+<meta property="og:description" content="Every hour we chew through the entire public GitHub event stream and rank the repos, languages and releases moving fastest right now. No curation, no bias — just the archive.">
+<meta property="og:url" content="https://github-pulse.surge.sh/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GitHub Pulse — the internet's busiest hour on GitHub">
+<meta name="twitter:description" content="Live radar of the hottest repos, languages and releases on GitHub — plus bot farms, updated hourly.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +48,7 @@
   <section class="panel" id="panel-gainers">
     <div class="panel-head">
       <h2><span class="h-num">01</span> Hottest repos</h2>
-      <span class="panel-sub">activity heat: stars×8 · forks×5 · PRs×5 · issues×3 · releases×15 · pushes (capped) · actors×3</span>
+      <span class="panel-sub">activity heat: stars×8 · forks×5 · PRs×5 · issues×3 · releases×15 · pushes (capped) · actors×3 · push-bots &amp; CI demos demoted</span>
     </div>
     <div class="table-wrap" id="gainers-body"><div class="empty">loading…</div></div>
   </section>
@@ -96,9 +103,17 @@
     <div class="table-wrap" id="bots-body"><div class="empty">loading…</div></div>
   </section>
 
+  <section class="panel" id="panel-botnets">
+    <div class="panel-head">
+      <h2><span class="h-num">08</span> 🧟 Botnet watch</h2>
+      <span class="panel-sub">push-farms that come back hour after hour — persistent, not one-off noise</span>
+    </div>
+    <div class="table-wrap" id="botnets-body"><div class="empty">loading…</div></div>
+  </section>
+
   <section class="panel" id="panel-history">
     <div class="panel-head">
-      <h2><span class="h-num">08</span> Hourly history</h2>
+      <h2><span class="h-num">09</span> Hourly history</h2>
       <span class="panel-sub">events per tracked hour</span>
     </div>
     <div id="history-body"><div class="empty">no history yet — this is the first sweep</div></div>

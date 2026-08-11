@@ -112,9 +112,33 @@ function get(url, headers = {}) {
 // Anti-spam heat: quality signals (stars/forks/PRs/issues/releases) weighted
 // highest, pushes capped (push-bots spam hundreds/hour), plus distinct-actor
 // diversity — 40 pushes from 12 humans beats 364 pushes from 1 bot.
-const heatOf = (r) => (r.stars || 0) * 8 + (r.forks || 0) * 5 + (r.prs || 0) * 5 +
-  (r.issues || 0) * 3 + (r.releases || 0) * 15 + Math.min(r.pushes || 0, 50) +
-  Math.min(r.actors || 0, 20) * 3;
+//
+// Flagging: repos whose "activity" is really an automated push loop get a
+// demotion multiplier so they can't top the hottest chart:
+//   push-bot — ≥40 pushes, ≤2 actors, ZERO human signals (PRs/issues/stars/
+//              forks/releases/reviews). The signature of a push-spam botnet.
+//   ci-demo   — demo/sandbox/training-named repo that is push-heavy from a
+//              handful of actors (e.g. mergequeue CI demo repos that churn
+//              hundreds of pushes/hr forever).
+function flagOf(r) {
+  const name = String(r.repo || '').toLowerCase();
+  // weighted human signal — a lone PR or issue shouldn't rescue a push loop
+  const human = (r.prs || 0) * 4 + (r.issues || 0) * 3 + (r.stars || 0) * 5 +
+    (r.forks || 0) * 3 + (r.releases || 0) * 8 + (r.reviews || 0) * 2;
+  const rawHuman = (r.prs || 0) + (r.issues || 0) + (r.stars || 0) + (r.forks || 0) + (r.releases || 0) + (r.reviews || 0);
+  if ((r.pushes || 0) >= 25 && (r.actors || 0) <= 2 && human < 10) return 'push-bot';
+  if (/mergequeue|merge-queue|merge-demo|octo-org|githubtraining|sandbox|playground|hello-world|ci-demo|test-repo/.test(name) &&
+      (r.pushes || 0) >= 10 && (r.actors || 0) <= 4 && rawHuman <= 2) return 'ci-demo';
+  return null;
+}
+const DEMOTE = { 'push-bot': 0.03, 'ci-demo': 0.1 };
+const heatOf = (r) => {
+  const f = flagOf(r);
+  const h = (r.stars || 0) * 8 + (r.forks || 0) * 5 + (r.prs || 0) * 5 +
+    (r.issues || 0) * 3 + (r.releases || 0) * 15 + Math.min(r.pushes || 0, 50) +
+    Math.min(r.actors || 0, 20) * 3;
+  return f ? Math.max(1, Math.round(h * DEMOTE[f])) : h;
+};
 
 /** Stream one archive hour and aggregate. Returns raw aggregates (no API calls). */
 function processHour(hourLabel, localFile) {
@@ -219,9 +243,11 @@ function buildSnapshot(hourLabel, agg) {
   const { repos, langs, releases, events, actorList } = agg;
   const all = [...repos.values()];
   const hotSort = (a, b) => heatOf(b) - heatOf(a);
+  const withFlag = (r, scoreKey) => Object.assign({ [scoreKey]: heatOf(r), flag: flagOf(r) }, r);
   const topHot = all.filter((r) => heatOf(r) > 0).sort(hotSort).slice(0, 25)
-    .map((r) => Object.assign({ heat: heatOf(r) }, r));
-  const topActive = all.sort((a, b) => b.events - a.events).slice(0, 25);
+    .map((r) => withFlag(r, 'heat'));
+  const topActive = all.sort((a, b) => b.events - a.events).slice(0, 25)
+    .map((r) => Object.assign({ flag: flagOf(r) }, r));
   // Human signal: rank purely on human events (PRs, issues, stars, forks,
   // releases, reviews) — the push-bot noise is filtered out entirely.
   const humanScore = (r) => (r.prs || 0) * 4 + (r.issues || 0) * 3 + (r.stars || 0) * 5 +
@@ -230,10 +256,10 @@ function buildSnapshot(hourLabel, agg) {
     .map((r) => Object.assign({ human: humanScore(r) }, r));
   const topLangs = [...langs.values()].sort((a, b) => (b.events * 4 + b.stars * 2 + b.forks) - (a.events * 4 + a.stars * 2 + a.forks)).slice(0, 15);
   // Bot watch: push-farms — suspiciously high push volume from almost no
-  // distinct actors (≥40 pushes, ≤2 actors). This is the signature of
+  // distinct actors (≥25 pushes, ≤2 actors). This is the signature of
   // push-spam botnets that pollute the archive every hour.
   const botWatch = all
-    .filter((r) => (r.pushes || 0) >= 40 && (r.actors || 0) <= 2)
+    .filter((r) => (r.pushes || 0) >= 25 && (r.actors || 0) <= 2)
     .sort((a, b) => b.pushes - a.pushes)
     .slice(0, 15)
     .map((r) => Object.assign({ bot_score: Math.round((r.pushes || 0) / Math.max(r.actors || 1, 1)) }, r));
@@ -345,6 +371,8 @@ function buildDigest(s) {
   const human = (s.top_human || [])[0];
   const bots = s.bot_watch || [];
   const bot0 = bots[0];
+  const nets = s.botnet_watch || [];
+  const net0 = nets[0];
   const lines = [
     `📡 GITHUB PULSE — hour ${s.hour}`,
     `${s.events.toLocaleString()} events · ${s.repos_seen.toLocaleString()} repos`,
@@ -358,6 +386,7 @@ function buildDigest(s) {
     `🗣 top language: ${lang ? lang.language : 'n/a'}`,
     `🚀 releases: ${rel.length ? rel.length : 0} (${rel[0] ? rel[0].repo + ' ' + (rel[0].tag || '') : ''})`,
     `🤖 bot watch: ${bots.length} push-farms · ${s.push_spam_pct != null ? s.push_spam_pct : 'n/a'}% of all pushes are spam${bot0 ? ` — top: ${bot0.repo} (${bot0.pushes} pushes, ${bot0.actors}👥)` : ''}`,
+    ...(nets.length ? [`🧟 botnet watch: ${nets.length} persistent farms (${nets[0].hours_seen}+ hrs) — top: ${net0.repo} (seen ${net0.hours_seen}h, ${net0.max_pushes} pushes/hr)`] : []),
   ];
   return {
     hour: s.hour,
@@ -372,13 +401,67 @@ function buildDigest(s) {
     bot_farms: bots.length,
     push_spam_pct: s.push_spam_pct,
     top_bot: bot0 ? { repo: bot0.repo, pushes: bot0.pushes, actors: bot0.actors } : null,
+    botnets: nets.length,
+    top_botnet: net0 ? { repo: net0.repo, hours_seen: net0.hours_seen, max_pushes: net0.max_pushes } : null,
     text: lines.join('\n'),
   };
 }
 
+/** Botnet watch: which push-farms are persistent, not one-off noise.
+ *  Scans the last N history hours and counts how often each farm appears
+ *  in bot_watch. Persistent farms (>=3 of last 12h) are true botnets —
+ *  the same repo pushing hundreds of times, hour after hour.
+ */
+function buildBotnetWatch(cur, lookbackHours = 12, minAppearances = 3) {
+  const files = readHistoryIndex()
+    .sort((a, b) => hourNum(a.replace(/\.json$/, '')) - hourNum(b.replace(/\.json$/, '')))
+    .filter((f) => f !== `${cur.hour}.json`)
+    .slice(-lookbackHours);
+  const seen = new Map(); // repo -> {hours: Set<hour>, lastPushes, lastActors}
+  for (const f of files) {
+    let snap = null;
+    try { snap = JSON.parse(fs.readFileSync(path.join(HIST_DIR, f), 'utf8')); } catch { continue; }
+    for (const b of snap.bot_watch || []) {
+      let e = seen.get(b.repo);
+      if (!e) { e = { hours: new Set(), lastPushes: 0, lastActors: 0, first_seen: snap.hour, last_seen: snap.hour }; seen.set(b.repo, e); }
+      e.hours.add(snap.hour);
+      if (b.pushes > e.lastPushes) { e.lastPushes = b.pushes; e.lastActors = b.actors; e.last_seen = snap.hour; }
+    }
+  }
+  // merge current hour
+  for (const b of cur.bot_watch || []) {
+    let e = seen.get(b.repo);
+    if (!e) { e = { hours: new Set(), lastPushes: 0, lastActors: 0, first_seen: cur.hour, last_seen: cur.hour }; seen.set(b.repo, e); }
+    e.hours.add(cur.hour);
+    if (b.pushes > e.lastPushes) { e.lastPushes = b.pushes; e.lastActors = b.actors; e.last_seen = cur.hour; }
+  }
+  const botnets = [...seen.entries()]
+    .filter(([, e]) => e.hours.size >= minAppearances)
+    .map(([repo, e]) => ({
+      repo,
+      hours_seen: e.hours.size,
+      window_hours: files.length + 1,
+      first_seen: e.first_seen,
+      last_seen: e.last_seen,
+      max_pushes: e.lastPushes,
+      max_actors: e.lastActors,
+      url: `https://github.com/${repo}`,
+    }))
+    .sort((a, b) => b.hours_seen - a.hours_seen)
+    .slice(0, 15);
+  // annotate current bot_watch entries with persistence info
+  for (const b of cur.bot_watch || []) {
+    const e = seen.get(b.repo);
+    if (e) { b.hours_seen = e.hours.size; b.first_seen = e.first_seen; }
+  }
+  return botnets;
+}
+
 /** RSS 2.0 feed of hourly digests — lets anyone subscribe to the radar. */
 function writeRss() {
-  const files = readHistoryIndex().sort().slice(-24).reverse();
+  const files = readHistoryIndex()
+    .sort((a, b) => hourNum(a.replace(/\.json$/, '')) - hourNum(b.replace(/\.json$/, '')))
+    .slice(-24).reverse();
   const items = files.map((f) => {
     let snap = null;
     try { snap = JSON.parse(fs.readFileSync(path.join(HIST_DIR, f), 'utf8')); } catch { return null; }
@@ -475,6 +558,9 @@ async function main() {
   })();
   applyTrends(snap, prevForTrends);
   fs.mkdirSync(SITE_DATA, { recursive: true });
+  // Botnet watch: scan the last 12 history hours (incl. this one, once it's
+  // written below it joins the next run's window) for persistent farms.
+  snap.botnet_watch = buildBotnetWatch(snap);
   fs.writeFileSync(path.join(SITE_DATA, 'snapshot.json'), JSON.stringify(snap));
   const digest = buildDigest(snap);
   fs.writeFileSync(path.join(SITE_DATA, 'digest.json'), JSON.stringify(digest));

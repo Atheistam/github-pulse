@@ -3,7 +3,11 @@ const { chromium } = require('playwright');
 
 (async () => {
   const url = 'https://github-pulse.surge.sh/';
-  const browser = await chromium.launch();
+  const browser = await chromium.launch({
+    // DNS-robust: the local (Tailscale) resolver intermittently fails on
+    // surge.sh — pin the edge IP so verification isn't flaky.
+    args: ['--host-resolver-rules=MAP github-pulse.surge.sh 159.203.50.177'],
+  });
   const page = await browser.newPage({ viewport: { width: 1440, height: 2200 } });
   const errors = [];
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
@@ -24,6 +28,10 @@ const { chromium } = require('playwright');
     relRows: document.querySelectorAll('#releases-body .rel').length,
     histRows: document.querySelectorAll('#history-body .hist-row').length,
     trendBadges: document.querySelectorAll('.trend').length,
+    flagBadges: document.querySelectorAll('.flag').length,
+    botRows: document.querySelectorAll('#bots-body tbody tr').length,
+    botnetRows: document.querySelectorAll('#botnets-body .hist-row').length,
+    botSub: document.getElementById('bot-sub').textContent,
     hotTitle: (document.querySelector('#panel-gainers h2') || {}).textContent,
     firstHot: (document.querySelector('#gainers-body tbody tr td:nth-child(2) a') || {}).textContent,
     firstActor: (document.querySelector('#new-body .card-name') || {}).textContent,

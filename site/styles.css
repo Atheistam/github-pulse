@@ -168,6 +168,20 @@ tbody tr:hover { background: var(--panel2); }
 .trend.new { color: #fbbf24; background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.35); }
 .trend.same { color: var(--faint); background: transparent; border: 1px solid var(--border2); }
 
+/* bot/demo flags + persistence tag */
+.flag {
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  border-radius: 6px; padding: 1px 6px; margin-left: 6px;
+  white-space: nowrap; vertical-align: 1px;
+}
+.flag-bot { color: #f87171; background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.4); }
+.flag-demo { color: #c084fc; background: rgba(192,132,252,0.1); border: 1px solid rgba(192,132,252,0.4); }
+.persist {
+  font-family: var(--mono); font-size: 10px; color: #fbbf24;
+  border: 1px solid rgba(251,191,36,0.4); background: rgba(251,191,36,0.08);
+  border-radius: 6px; padding: 1px 6px; margin-left: 8px; white-space: nowrap;
+}
+
 /* language bars */
 .lang-row { padding: 11px 22px; border-bottom: 1px solid var(--border); }
 .lang-row:last-child { border-bottom: none; }

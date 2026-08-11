@@ -31,7 +31,12 @@
 
   function repoCell(r) {
     const desc = r.desc ? `<span class="repo-desc">${esc(r.desc)}</span>` : '';
-    return `<div class="repo-cell"><a class="repo-name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.repo)}</a>${desc}</div>`;
+    const flag = r.flag === 'push-bot'
+      ? ' <span class="flag flag-bot" title="push-bot: ≥40 pushes from ≤2 actors, no human signal — demoted in heat">🤖 push-bot</span>'
+      : r.flag === 'ci-demo'
+        ? ' <span class="flag flag-demo" title="CI demo repo: push-heavy from few actors — demoted in heat">🧪 ci-demo</span>'
+        : '';
+    return `<div class="repo-cell"><a class="repo-name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.repo)}</a>${flag}${desc}</div>`;
   }
 
   function renderGainers(s) {
@@ -121,7 +126,7 @@
     const rows = (s.bot_watch || []).map((r, i) => `
       <tr>
         <td class="rank ${rankCls(i)}">${String(i + 1).padStart(2, '0')}</td>
-        <td>${repoCell(r)}</td>
+        <td>${repoCell(r)}${r.hours_seen ? `<span class="persist" title="seen in ${r.hours_seen} of the last 12 hours">seen ${r.hours_seen}h</span>` : ''}</td>
         <td class="num hot">${fmt.format(r.pushes || 0)}</td>
         <td class="num">👥 ${fmt.format(r.actors || 0)}</td>
         <td class="num">${fmt.format(r.events || 0)} ev</td>
@@ -130,6 +135,18 @@
     $('bots-body').innerHTML = rows
       ? `<table><thead><tr><th>#</th><th>repository</th><th style="text-align:right">pushes</th><th style="text-align:right">actors</th><th style="text-align:right">events</th><th>lang</th></tr></thead><tbody>${rows}</tbody></table>`
       : '<div class="empty">no push-farms detected this hour — clean archive, for once</div>';
+  }
+
+  function renderBotnets(s) {
+    const list = s.botnet_watch || [];
+    if (!list.length) { $('botnets-body').innerHTML = '<div class="empty">no persistent farms yet — the bots are still warming up</div>'; return; }
+    const max = Math.max(...list.map((n) => n.hours_seen || 0), 1);
+    $('botnets-body').innerHTML = list.map((n) => `
+      <div class="hist-row">
+        <span class="hist-hour"><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.repo)}</a></span>
+        <div class="hist-bar"><div class="hist-fill" style="width:${Math.max(3, Math.round(((n.hours_seen || 0) / max) * 100))}%"></div></div>
+        <span class="hist-count">${fmt.format(n.hours_seen || 0)}/${fmt.format(n.window_hours || 12)} hrs</span>
+      </div>`).join('');
   }
 
   function renderReleases(s) {
@@ -147,7 +164,8 @@
   }
 
   function renderHistory(items) {
-    const sorted = items.sort((a, b) => (a.hour < b.hour ? 1 : -1));
+    const hourNum = (h) => { const m = /^(\d{4}-\d{2}-\d{2})-(\d+)$/.exec(h || ''); return m ? Math.floor(Date.parse(m[1] + 'T00:00:00Z') / 86400000) * 24 + Number(m[2]) : 0; };
+    const sorted = items.sort((a, b) => hourNum(b.hour) - hourNum(a.hour));
     if (!sorted.length) {
       $('history-body').innerHTML = '<div class="empty">no history yet — this is the first sweep</div>';
       $('stat-hours').textContent = '1';
@@ -196,6 +214,7 @@
       renderNew(s);
       renderReleases(s);
       renderBots(s);
+      renderBotnets(s);
       document.title = `GitHub Pulse — ${fmt.format(s.events || 0)} events in ${String(s.hour || '')}`;
     } catch (e) {
       const box = document.createElement('div');
