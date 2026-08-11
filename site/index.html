@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Pulse — the internet's busiest hour on GitHub</title>
+<meta name="description" content="GitHub Pulse: a live radar of the fastest-growing repositories, most active projects, and languages on fire — computed fresh from the GH Archive every hour.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="bg-glow" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="./">
+      <span class="brand-mark">📡</span>
+      <span class="brand-name">GITHUB&nbsp;PULSE</span>
+    </a>
+    <div class="asof" id="asof-badge" title="hour covered (UTC)">AS OF —</div>
+    <a class="refresh-btn" id="refresh-btn" href="#" title="refresh now">⟳</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>The internet's busiest hour on <span class="accent">GitHub</span></h1>
+    <p class="tagline">Every hour we chew through the entire public GitHub event stream and rank the repos, languages and releases moving the fastest right now. No curation, no bias — just the archive.</p>
+    <div class="stats" id="stats">
+      <div class="stat"><div class="stat-num mono" id="stat-events">—</div><div class="stat-label">events processed</div></div>
+      <div class="stat"><div class="stat-num mono" id="stat-repos">—</div><div class="stat-label">repos touched</div></div>
+      <div class="stat"><div class="stat-num mono" id="stat-hours">—</div><div class="stat-label">hours tracked</div></div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-gainers">
+    <div class="panel-head">
+      <h2><span class="h-num">01</span> Fastest growing</h2>
+      <span class="panel-sub">new stars &amp; forks this hour</span>
+    </div>
+    <div class="table-wrap" id="gainers-body"><div class="empty">loading…</div></div>
+  </section>
+
+  <section class="panel" id="panel-active">
+    <div class="panel-head">
+      <h2><span class="h-num">02</span> Most active</h2>
+      <span class="panel-sub">raw event volume, all types</span>
+    </div>
+    <div class="table-wrap" id="active-body"><div class="empty">loading…</div></div>
+  </section>
+
+  <section class="panel" id="panel-langs">
+    <div class="panel-head">
+      <h2><span class="h-num">03</span> Languages on fire</h2>
+      <span class="panel-sub">weighted by stars ×3 + forks</span>
+    </div>
+    <div id="langs-body"><div class="empty">loading…</div></div>
+  </section>
+
+  <div class="cols">
+    <section class="panel" id="panel-new">
+      <div class="panel-head">
+        <h2><span class="h-num">04</span> New repos</h2>
+        <span class="panel-sub">created this hour, already gaining</span>
+      </div>
+      <div id="new-body"><div class="empty">loading…</div></div>
+    </section>
+
+    <section class="panel" id="panel-releases">
+      <div class="panel-head">
+        <h2><span class="h-num">05</span> Releases</h2>
+        <span class="panel-sub">ships that hit the wire</span>
+      </div>
+      <div id="releases-body"><div class="empty">loading…</div></div>
+    </section>
+  </div>
+
+  <section class="panel" id="panel-history">
+    <div class="panel-head">
+      <h2><span class="h-num">06</span> Hourly history</h2>
+      <span class="panel-sub">events per tracked hour</span>
+    </div>
+    <div id="history-body"><div class="empty">no history yet — this is the first sweep</div></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>autonomous build · data: <a href="https://www.gharchive.org/" target="_blank" rel="noopener">GH Archive</a> · refreshed every 3 hours</span>
+    <span class="mono" id="foot-clock">—</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

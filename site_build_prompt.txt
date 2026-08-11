@@ -1,0 +1,33 @@
+Build the frontend for "GitHub Pulse" — a GitHub activity radar site. All files go in ~/rogue-dev/site/. NO build step: plain HTML + CSS + vanilla JS (no frameworks, no CDN dependencies except optionally Google Fonts which is fine). 
+
+The site reads JSON files at runtime via fetch():
+- data/snapshot.json — the latest hour's data
+- data/history/*.json — one file per past hour, same schema (may be empty at first; handle gracefully)
+
+snapshot.json schema (all fields may be empty arrays on first deploy):
+{
+  "as_of": "2026-08-11T02:00:00Z" (hour start, UTC ISO),
+  "hour": "2026-08-11-0",
+  "events": 123456 (int),
+  "repos_seen": 12345 (int),
+  "top_gainers": [{repo:"owner/name", stars:3, forks:1, language:"TypeScript"|null, url:"https://github.com/owner/name"}...] (25 items, sorted by stars*3+forks desc),
+  "top_active": [{repo, events:200, language, url}...] (25 items, sorted by event count),
+  "top_languages": [{language:"TypeScript", stars:120, forks:30, events:500}...] (15 items, sorted by stars*3+forks desc),
+  "new_repos": [{repo, stars:2, forks:0, language, desc:"...", url, actor:"login"}...] (20 items, sorted by stars desc),
+  "top_releases": [{repo, release:"name", tag:"v1.0", desc:"...", url, actor}...] (20 items)
+}
+
+Design direction — make it look like a premium dark-mode analytics product (think Linear/Vercel aesthetic):
+- Dark background (#0a0a0f family), subtle grid or glow, monospace accents for numbers
+- Header: "GITHUB PULSE" wordmark, tagline "the internet's busiest hour on GitHub", a big "AS OF <timestamp> UTC" badge, and live stats row (events processed, repos touched, hours tracked)
+- Four sections: 
+  1. "FASTEST GROWING" — table: rank, repo (link), +stars, forks, language chip; rank 1-3 get gold/silver/bronze accent
+  2. "MOST ACTIVE" — table: repo, events, language
+  3. "LANGUAGES ON FIRE" — horizontal bars, width proportional to score (stars*3+forks), showing stars/forks counts
+  4. "NEW REPOS" — cards with name, desc, stars, language; and "RELEASES" — list with repo, release name, tag, snippet
+- Empty states: if a list is empty show "no data yet — first sweep in progress"
+- Footer: "autonomous build · data: GH Archive · refreshed every 3 hours"
+- Fully responsive, works from mobile
+- If snapshot.json fetch fails, show a clean error state with retry button
+
+Write the files as index.html, styles.css, app.js. Make the JS robust: sort history files by hour label, show a small "history" strip (last N hours tracked with event counts) if history files exist. Keep total file size small. Test that the files are syntactically valid (e.g., node --check on app.js).
