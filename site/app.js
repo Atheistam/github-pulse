@@ -32,10 +32,12 @@
   function repoCell(r) {
     const desc = r.desc ? `<span class="repo-desc">${esc(r.desc)}</span>` : '';
     const flag = r.flag === 'push-bot'
-      ? ' <span class="flag flag-bot" title="push-bot: ≥40 pushes from ≤2 actors, no human signal — demoted in heat">🤖 push-bot</span>'
-      : r.flag === 'ci-demo'
-        ? ' <span class="flag flag-demo" title="CI demo repo: push-heavy from few actors — demoted in heat">🧪 ci-demo</span>'
-        : '';
+      ? ' <span class="flag flag-bot" title="push-bot: all-push profile from ≤2 actors with zero human signal — auto-generated account name, known farm actor, or high-volume churner. Demoted from heat.">🤖 push-bot</span>'
+      : r.flag === 'push-loop'
+        ? ' <span class="flag flag-loop" title="suspicious push-loop: all-push profile from ≤2 actors, zero human signal, moderate volume — could be a farm or a solo import. Lightly demoted from heat.">⚠️ push-loop</span>'
+        : r.flag === 'ci-demo'
+          ? ' <span class="flag flag-demo" title="CI demo repo: push-heavy from few actors — demoted in heat">🧪 ci-demo</span>'
+          : '';
     return `<div class="repo-cell"><a class="repo-name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.repo)}</a>${flag}${desc}</div>`;
   }
 

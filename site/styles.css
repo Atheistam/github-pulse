@@ -175,6 +175,7 @@ tbody tr:hover { background: var(--panel2); }
   white-space: nowrap; vertical-align: 1px;
 }
 .flag-bot { color: #f87171; background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.4); }
+.flag-loop { color: #fbbf24; background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.4); }
 .flag-demo { color: #c084fc; background: rgba(192,132,252,0.1); border: 1px solid rgba(192,132,252,0.4); }
 .persist {
   font-family: var(--mono); font-size: 10px; color: #fbbf24;
