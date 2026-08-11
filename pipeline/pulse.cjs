@@ -490,6 +490,8 @@ function buildDigest(s) {
     top_bot: bot0 ? { repo: bot0.repo, pushes: bot0.pushes, actors: bot0.actors } : null,
     botnets: nets.length,
     top_botnet: net0 ? { repo: net0.repo, hours_seen: net0.hours_seen, max_pushes: net0.max_pushes } : null,
+    demoted_total: s.demoted_total != null ? s.demoted_total : (dem.length || 0),
+    suspicious_total: s.suspicious_total != null ? s.suspicious_total : 0,
     text: lines.join('\n'),
   };
 }

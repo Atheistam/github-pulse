@@ -5,13 +5,13 @@
     <link>https://github-pulse.surge.sh/</link>
     <description>The busiest hour on GitHub, ranked: hottest repos, human signal, languages, releases and bot farms — fresh from the GH Archive every hour.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Aug 2026 16:39:08 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2026 16:41:12 GMT</lastBuildDate>
     <item>
       <title>GitHub Pulse — hour 2026-08-11-15</title>
       <link>https://github-pulse.surge.sh/</link>
       <guid isPermaLink="false">github-pulse-2026-08-11-15</guid>
       <pubDate>Tue, 11 Aug 2026 15:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-11-15<br/>132,612 events · 30,379 repos<br/><br/>🔥 HOTTEST:<br/>  PostHog/posthog — heat 44 (7 pushes, 2 PRs, +0★, 9👥)<br/>  SAPTARSHI-coder/EaseMotion-css — heat 32 (8 pushes, 3 PRs, +0★, 2👥)<br/>  n8n-io/n8n — heat 29 (2 pushes, 3 PRs, +0★, 4👥)<br/>  datamole-ai/arscontexta — heat 22 (1 pushes, 0 PRs, +0★, 2👥)<br/>  Flaminis/Dalaran — heat 22 (0 pushes, 0 PRs, +2★, 2👥)<br/><br/>👤 busiest: github-actions[bot] (5055 events)<br/>🧠 human top: SAPTARSHI-coder/EaseMotion-css (3 PRs, 1 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 16 (Santiago-hang/Argon-Santiago v1.0.1)<br/>🤖 bot watch: 15 push-farms · 71.4% of all pushes are spam — top: betorj04/data34 (147 pushes, 1👥)<br/>🚫 demoted 2910 farm repos (+428 suspicious push-loops) from heat — top: betorj04/data34 (147 pushes, 1👥, push-bot)</description>
+      <description>📡 GITHUB PULSE — hour 2026-08-11-15<br/>132,612 events · 30,379 repos<br/>vs 2026-08-11-14: -14.3% events<br/><br/>🔥 HOTTEST:<br/>  PostHog/posthog — heat 44 (7 pushes, 2 PRs, +0★, 9👥)<br/>  SAPTARSHI-coder/EaseMotion-css — heat 32 (8 pushes, 3 PRs, +0★, 2👥) ▲5<br/>  n8n-io/n8n — heat 29 (2 pushes, 3 PRs, +0★, 4👥) ▲11<br/>  datamole-ai/arscontexta — heat 22 (1 pushes, 0 PRs, +0★, 2👥) 🆕<br/>  Flaminis/Dalaran — heat 22 (0 pushes, 0 PRs, +2★, 2👥) 🆕<br/><br/>👤 busiest: github-actions[bot] (5055 events)<br/>🧠 human top: SAPTARSHI-coder/EaseMotion-css (3 PRs, 1 issues, +0★)<br/>🗣 top language: JavaScript<br/>🚀 releases: 16 (Santiago-hang/Argon-Santiago v1.0.1)<br/>🤖 bot watch: 15 push-farms · 71.4% of all pushes are spam — top: betorj04/data34 (147 pushes, 1👥)<br/>🧟 botnet watch: 7 persistent farms (13+ hrs) — top: LiamBruhin/SillyStuff (seen 13h, 452 pushes/hr)<br/>🚫 demoted 2910 farm repos (+428 suspicious push-loops) from heat — top: betorj04/data34 (147 pushes, 1👥, push-bot)</description>
     </item>
     <item>
       <title>GitHub Pulse — hour 2026-08-11-14</title>
