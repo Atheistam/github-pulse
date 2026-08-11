@@ -21,23 +21,33 @@
 
   function rankCls(i) { return i === 0 ? 'r1' : i === 1 ? 'r2' : i === 2 ? 'r3' : ''; }
 
+  function trendBadge(r) {
+    if (!r || !r.trend) return '';
+    if (r.trend === 'up') return `<span class="trend up" title="up ${r.rank_delta} places">▲${r.rank_delta}</span>`;
+    if (r.trend === 'new') return `<span class="trend new" title="new to the list">NEW</span>`;
+    if (r.trend === 'down') return `<span class="trend down" title="down ${-r.rank_delta} places">▼${-r.rank_delta}</span>`;
+    return `<span class="trend same" title="unchanged">=</span>`;
+  }
+
   function repoCell(r) {
     const desc = r.desc ? `<span class="repo-desc">${esc(r.desc)}</span>` : '';
     return `<div class="repo-cell"><a class="repo-name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.repo)}</a>${desc}</div>`;
   }
 
   function renderGainers(s) {
-    const rows = (s.top_gainers || []).map((r, i) => `
+    const rows = (s.top_hot || s.top_gainers || []).map((r, i) => `
       <tr>
         <td class="rank ${rankCls(i)}">${String(i + 1).padStart(2, '0')}</td>
         <td>${repoCell(r)}</td>
+        <td class="num hot">${fmt.format(r.heat || 0)}</td>
+        <td class="num">${fmt.format(r.events || 0)} ev</td>
         <td class="num pos">+${fmt.format(r.stars || 0)}★</td>
-        <td class="num">+${fmt.format(r.forks || 0)}⑂</td>
         <td>${chip(r.language)}</td>
+        <td>${trendBadge(r)}</td>
       </tr>`).join('');
     $('gainers-body').innerHTML = rows
-      ? `<table><thead><tr><th>#</th><th>repository</th><th style="text-align:right">stars</th><th style="text-align:right">forks</th><th>lang</th></tr></thead><tbody>${rows}</tbody></table>`
-      : '<div class="empty">quiet hour — nobody gained stars yet</div>';
+      ? `<table><thead><tr><th>#</th><th>repository</th><th style="text-align:right">heat</th><th style="text-align:right">events</th><th style="text-align:right">stars</th><th>lang</th><th>trend</th></tr></thead><tbody>${rows}</tbody></table>`
+      : '<div class="empty">quiet hour — no meaningful activity recorded</div>';
   }
 
   function renderActive(s) {
@@ -47,9 +57,10 @@
         <td>${repoCell(r)}</td>
         <td class="num hot">${fmt.format(r.events || 0)}</td>
         <td>${chip(r.language)}</td>
+        <td>${trendBadge(r)}</td>
       </tr>`).join('');
     $('active-body').innerHTML = rows
-      ? `<table><thead><tr><th>#</th><th>repository</th><th style="text-align:right">events</th><th>lang</th></tr></thead><tbody>${rows}</tbody></table>`
+      ? `<table><thead><tr><th>#</th><th>repository</th><th style="text-align:right">events</th><th>lang</th><th>trend</th></tr></thead><tbody>${rows}</tbody></table>`
       : '<div class="empty">no activity recorded this hour</div>';
   }
 
@@ -72,15 +83,15 @@
   }
 
   function renderNew(s) {
-    const list = s.new_repos || [];
+    const list = s.top_actors || [];
     $('new-body').innerHTML = list.length
-      ? `<div class="card-grid">${list.map((r) => `
+      ? `<div class="card-grid">${list.map((a) => `
           <div class="card">
-            <a class="card-name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(shortName(r.repo))}</a>
-            <div class="card-desc">${esc(r.desc || 'no description yet')}</div>
-            <div class="card-meta"><span class="star">★ ${fmt.format(r.stars || 0)}</span>${chip(r.language)}</div>
+            <a class="card-name" href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.actor)}</a>
+            <div class="card-desc">${fmt.format(a.events)} events · ${fmt.format(a.repos)} repos</div>
+            <div class="card-meta"><span class="star">⚡ ${esc(a.top_repo ? a.top_repo.split('/').pop() : '—')}</span></div>
           </div>`).join('')}</div>`
-      : '<div class="empty">no repos created this hour — it was a quiet one</div>';
+      : '<div class="empty">no actor data this hour</div>';
   }
 
   function renderReleases(s) {

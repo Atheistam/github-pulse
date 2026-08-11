@@ -8,11 +8,12 @@ echo "== [pulse] refresh $(date -u +%Y-%m-%dT%H:%M:%SZ) =="
 node pipeline/pulse.cjs
 
 export PATH="$HOME/.local/bin:$PATH"
-TOKEN=$(surge token 2>/dev/null | tr -d '[:space:]')
-if [ -z "$TOKEN" ]; then
-  echo "!! no surge token — skipping deploy"
-  exit 1
-fi
-echo "$TOKEN" > "$HOME/.hermes/surge_token"
-SURGE_LOGIN=roguepulse@emalupe.com SURGE_TOKEN="$TOKEN" surge site site 2>&1 | tail -4
+# deploy via local CNAME (github-pulse.surge.sh)
+surge site publish 2>&1 | tail -4 || {
+  echo "!! 'surge site publish' failed — retrying with explicit domain"
+  surge site github-pulse.surge.sh 2>&1 | tail -4
+}
+# verify the deployment is actually live
+CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 https://github-pulse.surge.sh/)
+echo "== [pulse] live check: HTTP $CODE =="
 echo "== [pulse] done =="
