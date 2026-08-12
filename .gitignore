@@ -2,3 +2,4 @@
 site/data/
 *.png
 site_build_prompt.txt
+logs_*.txt
