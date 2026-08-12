@@ -28,7 +28,7 @@ auto-generated account names + a persistent ledger of known farm accounts
 You can see the live botnet watch: https://github-pulse.surge.sh
 RSS: https://github-pulse.surge.sh/data/digest.xml
 Code: it's a single zero-dependency Node script (pipeline/pulse.cjs),
-open-sourced in the repo.
+open-sourced: https://github.com/Atheistam/github-pulse
 
 Questions I'm curious about: what ARE these farms for? Why do they keep
 pushing to fresh repos forever? Anyone seen the pattern before?
@@ -47,7 +47,8 @@ to evade thresholds, launder pushes through GitHub Actions, and rotate repo
 names while keeping the same owner accounts.
 
 Live: https://github-pulse.surge.sh — includes a Bot Watch panel showing
-each hour's farms and the % of all pushes that are spam (currently ~48%).
+each hour's farms and the % of all pushes that are spam (currently ~36%,
+it was 48% six hours earlier — the farms ebb and flow, the detection holds).
 
 The data is real, from GH Archive. Open source, single script:
-https://github-pulse.surge.sh (repo link in footer)
+https://github.com/Atheistam/github-pulse

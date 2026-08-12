@@ -3,7 +3,7 @@
 A live radar of the busiest hour on GitHub, rebuilt every 3 hours from the
 entire public [GH Archive](https://www.gharchive.org/) event stream.
 
-**Live: https://github-pulse.surge.sh** · **RSS: https://github-pulse.surge.sh/data/digest.xml**
+**Live: https://github-pulse.surge.sh** · **RSS: https://github-pulse.surge.sh/data/digest.xml** · **Code: https://github.com/Atheistam/github-pulse**
 
 ## What it shows
 
@@ -27,7 +27,9 @@ entire public [GH Archive](https://www.gharchive.org/) event stream.
 
 1. `pipeline/pulse.cjs` (plain Node, zero deps) downloads the latest complete
    GH Archive hour (~20 MB gzipped), streams and aggregates ~160K events.
-2. Backfills any missing hours so history stays gapless.
+2. Backfills any missing hours so history stays gapless (v5: backfill now
+   crosses day boundaries — the old "start of today" cutoff left a permanent
+   gap on the first run of each day).
 3. Enriches top repos with language/description via the GitHub API (cached).
 4. Computes trends vs the previous hour, bot/botnet detection, digest, RSS.
 5. Deploys static files to Surge.sh. `scripts/refresh.sh` does the whole cycle.
@@ -43,13 +45,21 @@ scripts/verify.cjs   — headless Playwright check of the live site
 
 ## Data findings so far
 
-- ~48% of ALL GitHub pushes are push-farm spam (detection v4, hour 18).
-- `LiamBruhin/SillyStuff` pushed 344× in one hour from a single actor, 13h straight.
+- ~36% of ALL GitHub pushes are push-farm spam (hour 2026-08-12-0; was 48% at
+  hour 18 — farms ebb and flow, detection holds).
+- `LiamBruhin/SillyStuff` pushed 690× in a single hour from one actor, 13h+ straight.
 - Farms launder pushes through GitHub Actions (`github-actions[bot]`) and
   rotate repo names (`vbpl-storage-tu-1` → `dp-2` → `dp-3`) — the durable
-  signal is the *owner account*, tracked in a persistent ledger.
-- Real-name farms (jvhoang, ugmoddev, zerotraceh1, elad-cmd) push 150–330×/hr
-  for 15–19 hours straight with zero human signal; they're flagged push-bot
+  signal is the *owner account*, tracked in a persistent ledger (16.3K actors).
+- New farm wave (Aug 12): coordinated `trnfvn-`/`brnfvn-` repo names
+  (`CentiCloudStir/trnfvn-HLRODS`, `MicroEnvoyTwist/trnfvn-ZSRFLV`,
+  `YuqiGuo-cx0/brnfvn-UAOYZP`) pushing ~325–345×/hr from single actors —
+  caught on first sight by the profile rules.
+- Adaptation probe (v5): every hour, zero-human push-heavy repos are bucketed
+  by actor count (1-2 / 3-4 / 5-8 / 9+). The 3-4 actor bucket is tiny (6 repos,
+  ~104 pushes) — the farms have NOT yet split accounts to duck the ≤2-actor rule.
+- Real-name farms (jvhoang, ugmoddev, zerotraceh1, elad-cmd) push 150–690×/hr
+  for 20+ hours straight with zero human signal; they're flagged push-bot
   once corroborated (2+ hours in history/ledger), push-loop before that, so a
   solo dev's automated pipeline is never publicly called a bot on first sight.
 - CI-demo repos (e.g. `merge-demo/mergequeue-st`) churn hundreds of

@@ -120,7 +120,24 @@
       : '<div class="empty">no actor data this hour</div>';
   }
 
+  function renderBotStats(s) {
+    const el = $('bot-stats');
+    if (!el) return;
+    const fp = s.farm_probe || {};
+    const p34 = fp.actors_3_4 || { repos: 0, pushes: 0 };
+    const b = (n, l, t) => `<span class="bot-stat" title="${esc(t)}"><b>${n}</b> ${l}</span>`;
+    el.innerHTML = [
+      b(s.push_spam_pct != null ? s.push_spam_pct + '%' : '—', 'of ALL pushes are farm spam', 'share of every GitHub push this hour that came from confident push-bot farms'),
+      b(s.demoted_total != null ? fmt.format(s.demoted_total) : '—', 'farm repos demoted', 'repos flagged push-bot and demoted from heat ranking'),
+      b(s.suspicious_total != null ? fmt.format(s.suspicious_total) : '—', 'suspicious push-loops', 'zero-human push loops with real-looking names — demoted from heat but not publicly called bots'),
+      b(s.ledger_size != null ? fmt.format(s.ledger_size) : '—', 'actors in farm ledger', 'persistent ledger of known farm actors — repos rotate, actors persist'),
+      b(fmt.format(p34.repos), 'zero-human repos w/ 3-4 actors', 'adaptation probe: zero-human, ≥10 push repos using 3-4 accounts to duck the ≤2-actor rule. Small = farms have NOT split yet'),
+      b(fmt.format(p34.pushes), 'pushes from those', 'combined pushes from the 3-4 actor bucket'),
+    ].join('');
+  }
+
   function renderBots(s) {
+    renderBotStats(s);
     const sub = $('bot-sub');
     if (sub) sub.textContent = s.push_spam_pct != null
       ? `push-farms: high push volume, almost no humans · ${s.push_spam_pct}% of ALL pushes this hour are farm spam`
