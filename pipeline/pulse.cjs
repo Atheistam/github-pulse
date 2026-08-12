@@ -250,9 +250,31 @@ function flagOf(r, farmActors = null) {
   }
   if (/mergequeue|merge-queue|merge-demo|octo-org|githubtraining|sandbox|playground|hello-world|ci-demo|test-repo/.test(name) &&
       pushes >= 10 && actors <= 4 && rawHuman <= 2) return 'ci-demo';
+  // v5.2: STAR-BOMB RADAR — with pushes, PRs and issues all demoted (×0.05-0.3),
+  // stars (×8) are the last untaxed heat vector, so star-bombing is the obvious
+  // next adaptation. A repo whose ONLY activity is stars looks identical to a
+  // viral launch in a single archive hour, so the discriminator is the
+  // WATCHERS, not the repo:
+  //   · 'star-only' (informational, NOT demoted): ≥3 pure-lurker stars, zero
+  //     other activity. Surfaced in the star_radar panel — a legit repo that
+  //     hits HN/Reddit has exactly this profile for one hour.
+  //   · 'star-loop' (suspicious, ×0.3): star-only profile PLUS one of
+  //     (a) ≥2 watchers who co-starred ≥2 other bare repos this hour — the
+  //         correlated-lurker cluster is the farm fingerprint (organic traffic
+  //         doesn't share the same watcher pool across multiple empty repos),
+  //     (b) any confirmed known-farm actor among the watchers, or
+  //     (c) ≥5 pure-lurker stars on a repo that has NEVER appeared in any prior
+  //         hour's top lists (a bomb appears out of nowhere, then stops).
+  // A real viral repo survives the 0.3× shave (it tops charts with 30+ stars);
+  // a farm can't afford 5-20 fresh accounts per bomb per hour.
+  if (r._bare) {
+    if (r._coStarCount >= 2 || r._knownFarmStars >= 1) return 'star-loop';
+    if (r._starOnlyCount >= 5 && !KNOWN_REPOS.has(String(r.repo))) return 'star-loop';
+    if (r._starOnlyCount >= 3) return 'star-only';
+  }
   return null;
 }
-const DEMOTE = { 'push-bot': 0.05, 'push-loop': 0.3, 'ci-demo': 0.1, 'issue-loop': 0.3 };
+const DEMOTE = { 'push-bot': 0.05, 'push-loop': 0.3, 'ci-demo': 0.1, 'issue-loop': 0.3, 'star-loop': 0.3, 'star-only': 1 };
 // farmActors: Map<actor|owner, {lastSeen, hours:Set<hourLabel>}> persisted in
 // site/data/farm_actors.json. An entry is created when its repo is confidently
 // flagged push-bot (auto-gen name OR high-volume zero-human profile); shared
@@ -265,6 +287,11 @@ let FARM_ACTORS = new Map();
 // a real-looking name is a repeat farm operator, not a solo dev who tripped
 // the zero-human rule once. Rebuilt each run from history files.
 let CONFIRMED_FARM_OWNERS = new Set();
+// v5.2: repos seen in ANY prior hour's top lists (top_hot/top_active/top_human/
+// demoted/bot_watch). Used by the star-bomb radar: a star-only repo that has
+// never appeared before is a bomb shape; one with prior history is a project
+// that was already visible. Rebuilt once per run from history files.
+let KNOWN_REPOS = new Set();
 const FARM_ACTOR_MIN_HOURS = 2;
 const FARM_ACTOR_TTL_HOURS = 48;
 function pruneFarmActors(curHour) {
@@ -272,6 +299,21 @@ function pruneFarmActors(curHour) {
     if (hourNum(curHour) - hourNum(e.lastSeen) > FARM_ACTOR_TTL_HOURS) FARM_ACTORS.delete(a);
   }
 }
+// v5.2: rebuild KNOWN_REPOS from ALL history files' top lists — used by the
+// star-bomb radar's "appeared out of nowhere" test. Cheap: ~40 files × ~75
+// repos per file.
+function rebuildKnownRepos() {
+  KNOWN_REPOS = new Set();
+  const files = readHistoryIndex().filter((f) => f !== 'index.json');
+  for (const f of files) {
+    let snap = null;
+    try { snap = JSON.parse(fs.readFileSync(path.join(HIST_DIR, f), 'utf8')); } catch { continue; }
+    for (const list of [snap.top_hot, snap.top_active, snap.top_human, snap.demoted, snap.bot_watch]) {
+      for (const b of list || []) if (b && b.repo) KNOWN_REPOS.add(String(b.repo));
+    }
+  }
+}
+
 // Rebuild CONFIRMED_FARM_OWNERS from history: scan the last 24h of bot_watch
 // AND demoted entries, count appearances per repo OWNER — but only for owners
 // that look like OPERATORS (auto-gen name, or the owner itself is among the
@@ -344,13 +386,13 @@ function processHour(hourLabel, localFile) {
         const name = e.repo.name;
         let r = repos.get(name);
         if (!r) {
-          r = { repo: name, stars: 0, forks: 0, issues: 0, prs: 0, releases: 0, pushes: 0, reviews: 0, events: 0, actors: 0, _as: null, actor_names: [], _prActors: new Set(), _issActors: new Set(), _pushActors: new Set(), language: null, desc: null, url: `https://github.com/${name}` };
+          r = { repo: name, stars: 0, forks: 0, issues: 0, prs: 0, releases: 0, pushes: 0, reviews: 0, events: 0, actors: 0, _as: null, actor_names: [], _prActors: new Set(), _issActors: new Set(), _pushActors: new Set(), _starActors: new Set(), language: null, desc: null, url: `https://github.com/${name}` };
           repos.set(name, r);
         }
         r.events++;
         const a = e.actor ? (e.actor.login || '') : '';
         switch (e.type) {
-          case 'WatchEvent': r.stars++; break;
+          case 'WatchEvent': r.stars++; if (a) r._starActors.add(a); break;
           case 'ForkEvent': r.forks++; break;
           case 'IssuesEvent': r.issues++; if (a) r._issActors.add(a); break;
           case 'PullRequestEvent': r.prs++; if (a) r._prActors.add(a); break;
@@ -384,16 +426,40 @@ function processHour(hourLabel, localFile) {
         if (a) {
           if (r.actor_names.length < 8 && !r.actor_names.includes(a)) r.actor_names.push(a);
           let ac = actors.get(a);
-          if (!ac) { ac = { actor: a, events: 0, repos: new Set(), repoCounts: new Map() }; actors.set(a, ac); }
+          if (!ac) { ac = { actor: a, events: 0, repos: new Set(), repoCounts: new Map(), nonWatch: 0, starRepos: new Set() }; actors.set(a, ac); }
           ac.events++;
           ac.repos.add(name);
           ac.repoCounts.set(name, (ac.repoCounts.get(name) || 0) + 1);
+          // v5.2 star-bomb radar: track who ONLY stars (watch-only lurkers are
+          // the raw material of a star-bomb — a repo whose entire signal is
+          // stars from accounts that do nothing else all hour).
+          if (e.type === 'WatchEvent') ac.starRepos.add(name); else ac.nonWatch++;
           if (!r._as) r._as = new Set();
           r._as.add(a);
         }
       });
 
       rl.on('close', () => {
+        // v5.2 star-bomb radar stats: identify watch-only actors (their ONLY
+        // activity this hour is starring) and bare repos (stars but zero
+        // pushes/PRs/issues/releases/reviews). A watch-only actor that starred
+        // ≥2 bare repos in one hour is a co-starring cluster member — the
+        // farm fingerprint. Shared bots never count as watchers.
+        const bareRepos = new Set();
+        for (const r of repos.values()) {
+          if ((r.stars || 0) >= 3 && !(r.pushes || 0) && !(r.prs || 0) && !(r.issues || 0) &&
+              !(r.releases || 0) && !(r.reviews || 0)) bareRepos.add(r.repo);
+        }
+        const watchOnly = new Set();
+        for (const ac of actors.values()) if (ac.events > 0 && ac.nonWatch === 0) watchOnly.add(ac.actor);
+        const coStar = new Set();
+        for (const ac of actors.values()) {
+          if (ac.events > 0 && ac.nonWatch === 0) {
+            let bareStars = 0;
+            for (const rn of ac.starRepos) if (bareRepos.has(rn)) bareStars++;
+            if (bareStars >= 2) coStar.add(ac.actor);
+          }
+        }
         for (const r of repos.values()) {
           r.actors = r._as ? r._as.size : 0;
           const pushActors = r._pushActors || new Set();
@@ -407,6 +473,15 @@ function processHour(hourLabel, localFile) {
           r.selfISS = pushActors.size > 0 && nonBotIss.length > 0 && nonBotIss.every((a) => pushActors.has(a));
           r.pr_actors = [...(r._prActors || [])]; delete r._prActors;
           r.issue_actors = [...(r._issActors || [])]; delete r._issActors;
+          // v5.2 star-bomb radar per-repo stats (consumed by flagOf).
+          r._bare = bareRepos.has(r.repo);
+          r._starOnlyCount = r._bare ? [...(r._starActors || [])].filter((a) => watchOnly.has(a) && !isSharedBot(a)).length : 0;
+          r._coStarCount = r._bare ? [...(r._starActors || [])].filter((a) => coStar.has(a) && !isSharedBot(a)).length : 0;
+          r._knownFarmStars = r._bare ? [...(r._starActors || [])].filter((a) => {
+            const e = FARM_ACTORS.get(a.toLowerCase());
+            return e && e.hours.size >= FARM_ACTOR_MIN_HOURS;
+          }).length : 0;
+          delete r._starActors;
           delete r._pushActors;
           delete r._as;
         }
@@ -420,7 +495,7 @@ function processHour(hourLabel, localFile) {
           for (const [rn, n] of ac.repoCounts) { if (n > topN) { topN = n; topRepo = rn; } }
           return { actor: ac.actor, events: ac.events, repos: ac.repos.size, top_repo: topRepo, url: `https://github.com/${ac.actor}` };
         }).sort((a, b) => b.events - a.events).slice(0, 15);
-        resolve({ repos, langs, releases, events, parsed, actorList });
+        resolve({ repos, langs, releases, events, parsed, actorList, starStats: { watchOnly: watchOnly.size, coStar: coStar.size, bareRepos: bareRepos.size } });
       });
       rl.on('error', reject);
       gunzip.on('error', reject);
@@ -458,7 +533,7 @@ function buildSnapshot(hourLabel, agg) {
   const totalPushes = all.reduce((n, r) => n + (r.pushes || 0), 0);
   // spam share uses ALL confident push-bot repos' pushes (not just top-15)
   const allFlagged = all.filter((r) => flagOf(r, FARM_ACTORS) === 'push-bot');
-  const allSuspicious = all.filter((r) => ['push-loop', 'issue-loop'].includes(flagOf(r, FARM_ACTORS)));
+  const allSuspicious = all.filter((r) => ['push-loop', 'issue-loop', 'star-loop'].includes(flagOf(r, FARM_ACTORS)));
   const spamPushes = allFlagged.reduce((n, r) => n + (r.pushes || 0), 0);
   // Farm-actor ledger: record actors AND owners behind confident push-bot
   // farms so future runs demote any repo they touch (repos rotate, actors
@@ -471,7 +546,18 @@ function buildSnapshot(hourLabel, agg) {
   // trips the zero-human rule once is NOT blacklisted forever; the profile
   // rules re-catch them per-hour anyway.
   for (const b of [...allFlagged, ...allSuspicious]) {
-    const seedActors = (b.actor_names || []).map((a) => a.toLowerCase()).filter((a) => !isSharedBot(a));
+    const fl = flagOf(b, FARM_ACTORS);
+    const seedActors = [];
+    if (fl === 'star-loop') {
+      // Star-bombs are run by WATCH-ONLY lurker accounts whose only other
+      // activity is starring — seeding them would blacklist accounts that
+      // star thousands of legit repos and demote anything they touch. Only
+      // the OWNER is seeded, and only if it looks bulk-created.
+      const owner = String(b.repo || '').split('/')[0].toLowerCase();
+      if (owner && !isSharedBot(owner) && AUTONAME_OWNER.test(owner)) seedActors.push(owner);
+    } else {
+      seedActors.push(...(b.actor_names || []).map((a) => a.toLowerCase()).filter((a) => !isSharedBot(a)));
+    }
     // Seed the repo OWNER only if it looks like the OPERATOR, not any org:
     //  · auto-generated name (betorj04, smithhoward5868) — bulk-account fingerprint
     //  · owner itself is among the pushing actors (LiamBruhin, ugmoddev, jvhoang)
@@ -479,10 +565,12 @@ function buildSnapshot(hourLabel, agg) {
     // NOT get its flagship repo blacklisted via owner evidence — PostHog/posthog
     // was falsely flagged exactly this way (a side repo seeded 'posthog', then
     // the 10-18-actor main repo matched known-farm-owner).
-    const owner = String(b.repo || '').split('/')[0].toLowerCase();
-    const ownerPushesItself = (b.actor_names || []).some((a) => a.toLowerCase() === owner);
-    if (owner && !isSharedBot(owner) && (AUTONAME_OWNER.test(owner) || ownerPushesItself)) {
-      seedActors.push(owner);
+    if (fl !== 'star-loop') {
+      const owner = String(b.repo || '').split('/')[0].toLowerCase();
+      const ownerPushesItself = (b.actor_names || []).some((a) => a.toLowerCase() === owner);
+      if (owner && !isSharedBot(owner) && (AUTONAME_OWNER.test(owner) || ownerPushesItself)) {
+        seedActors.push(owner);
+      }
     }
     for (const a of seedActors) {
       let e = FARM_ACTORS.get(a);
@@ -521,6 +609,21 @@ function buildSnapshot(hourLabel, agg) {
     actors_5_8: probe(5, 8),
     actors_9_plus: probe(9, Infinity),
   };
+  const star_radar = (() => {
+    const starOnly = all.filter((r) => ['star-only', 'star-loop'].includes(flagOf(r, FARM_ACTORS)));
+    const loops = all.filter((r) => flagOf(r, FARM_ACTORS) === 'star-loop');
+    return {
+      repos: starOnly.length,
+      loops: loops.length,
+      watch_only_actors: (agg.starStats && agg.starStats.watchOnly) || 0,
+      co_star_actors: (agg.starStats && agg.starStats.coStar) || 0,
+      bare_repos: (agg.starStats && agg.starStats.bareRepos) || 0,
+      top: starOnly.sort((a, b) => (b.stars || 0) - (a.stars || 0)).slice(0, 5)
+        .map((r) => ({ repo: r.repo, stars: r.stars, watchers: r._starOnlyCount, co_star: r._coStarCount, flag: flagOf(r, FARM_ACTORS), url: `https://github.com/${r.repo}` })),
+      loops_top: loops.sort((a, b) => (b.stars || 0) - (a.stars || 0)).slice(0, 5)
+        .map((r) => ({ repo: r.repo, stars: r.stars, watchers: r._starOnlyCount, co_star: r._coStarCount, reason: r._knownFarmStars ? 'known-farm star' : r._coStarCount >= 2 ? 'co-star cluster' : 'out-of-nowhere' })),
+    };
+  })();
   return {
     as_of: `${hourLabel.slice(0, 10)}T${pad(Number(hourLabel.slice(11)))}:00:00Z`,
     hour: hourLabel,
@@ -539,6 +642,7 @@ function buildSnapshot(hourLabel, agg) {
     demoted,
     demoted_total: allFlagged.length,
     suspicious_total: allSuspicious.length,
+    star_radar,
     farm_probe,
     ledger_size: FARM_ACTORS.size,
     ledger_confirmed: [...FARM_ACTORS.values()].filter((e) => e.hours.size >= FARM_ACTOR_MIN_HOURS).length,
@@ -649,6 +753,7 @@ function buildDigest(s) {
     `🗣 top language: ${lang ? lang.language : 'n/a'}`,
     `🚀 releases: ${rel.length ? rel.length : 0} (${rel[0] ? rel[0].repo + ' ' + (rel[0].tag || '') : ''})`,
     `🤖 bot watch: ${bots.length} push-farms · ${s.push_spam_pct != null ? s.push_spam_pct : 'n/a'}% of all pushes are spam${bot0 ? ` — top: ${bot0.repo} (${bot0.pushes} pushes, ${bot0.actors}👥)` : ''}`,
+    ...(s.star_radar ? [`🔭 star-only radar: ${s.star_radar.repos} repos · ${s.star_radar.loops} star-loops · ${s.star_radar.watch_only_actors} pure-watcher accounts${s.star_radar.top[0] ? ` — top: ${s.star_radar.top[0].repo} (+${s.star_radar.top[0].stars}★, ${s.star_radar.top[0].watchers} lurker★)` : ''}`] : []),
     ...(nets.length ? [`🧟 botnet watch: ${nets.length} persistent farms (${nets[0].hours_seen}+ hrs) — top: ${net0.repo} (seen ${net0.hours_seen}h, ${net0.max_pushes} pushes/hr)`] : []),
     ...(dem.length ? [`🚫 demoted ${s.demoted_total != null ? s.demoted_total : dem.length} farm repos${s.suspicious_total ? ` (+${s.suspicious_total} suspicious push-loops)` : ''} from heat — top: ${dem[0].repo} (${dem[0].pushes} pushes, ${dem[0].actors}👥, ${dem[0].flag})`] : []),
   ];
@@ -805,6 +910,8 @@ async function main() {
   // are confirmed repeat offenders — real-looking names get the push-bot flag.
   rebuildConfirmedFarmOwners(latest);
   console.log(`[pulse] ${CONFIRMED_FARM_OWNERS.size} confirmed farm owners from history`);
+  rebuildKnownRepos();
+  console.log(`[pulse] ${KNOWN_REPOS.size} repos known from history (star-bomb radar)`);
 
   const known = new Set(readHistoryIndex().map((f) => f.replace(/\.json$/, '')));
 

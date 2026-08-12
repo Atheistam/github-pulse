@@ -37,9 +37,13 @@
         ? ' <span class="flag flag-loop" title="suspicious push-loop: all-push profile from ≤2 actors, zero human signal, moderate volume — could be a farm or a solo import. Lightly demoted from heat.">⚠️ push-loop</span>'
         : r.flag === 'issue-loop'
           ? ' <span class="flag flag-loop" title="suspicious issue-loop: ≥5 issues/PRs opened on the repo by its own operators with zero external signal — fakes human activity to rank on heat. Demoted.">⚠️ issue-loop</span>'
-          : r.flag === 'ci-demo'
-            ? ' <span class="flag flag-demo" title="CI demo repo: push-heavy from few actors — demoted in heat">🧪 ci-demo</span>'
-            : '';
+          : r.flag === 'star-loop'
+            ? ' <span class="flag flag-loop" title="suspicious star-loop: repo whose ONLY activity is stars — from ≥2 co-starring lurker clusters, known-farm actors, or a ≥5-star burst appearing out of nowhere. The star-bomb fingerprint. Demoted.">⚠️ star-loop</span>'
+            : r.flag === 'star-only'
+              ? ' <span class="flag flag-star" title="star-only: repo with ≥3 pure-watcher stars and zero other activity — looks like a viral launch OR a star-bomb. Informational: NOT demoted while evidence is ambiguous.">🔭 star-only</span>'
+              : r.flag === 'ci-demo'
+                ? ' <span class="flag flag-demo" title="CI demo repo: push-heavy from few actors — demoted in heat">🧪 ci-demo</span>'
+                : '';
     return `<div class="repo-cell"><a class="repo-name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.repo)}</a>${flag}${desc}</div>`;
   }
 
@@ -135,6 +139,11 @@
       b(s.ledger_size != null ? fmt.format(s.ledger_size) : '—', 'actors in farm ledger', 'persistent ledger of known farm actors — repos rotate, actors persist'),
       b(fmt.format(p34.repos), 'zero-human repos w/ 3-4 actors', 'adaptation probe: zero-human, ≥10 push repos using 3-4 accounts to duck the ≤2-actor rule. Small = farms have NOT split yet'),
       b(fmt.format(p34.pushes), 'pushes from those', 'combined pushes from the 3-4 actor bucket'),
+      ...(s.star_radar ? [
+        b(s.star_radar.loops, 'star-loops', 'star-bomb radar: repos whose ONLY activity is stars, from co-starring lurker clusters / known-farm actors / out-of-nowhere ≥5-star bursts. Demoted.'),
+        b(s.star_radar.repos - s.star_radar.loops, 'star-only (watching)', 'star-bomb radar: repos with ≥3 pure-watcher stars and zero other activity — informational, NOT demoted while ambiguous'),
+        b(s.star_radar.watch_only_actors, 'pure-watcher accounts', 'accounts whose only activity this whole hour was starring — the raw material of a star-bomb'),
+      ] : []),
     ].join('');
   }
 

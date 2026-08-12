@@ -31,6 +31,9 @@ const series = hours.map(h => ({
   farmPushes: (h.bot_watch || []).reduce((a, b) => a + (b.pushes || 0), 0),
   demoted: h.demoted_total || 0,
   suspicious: h.suspicious_total || 0,
+  starLoops: (h.star_radar && h.star_radar.loops) || 0,
+  starOnly: (h.star_radar && h.star_radar.repos - h.star_radar.loops) || 0,
+  watchers: (h.star_radar && h.star_radar.watch_only_actors) || 0,
 }));
 
 const totalEvents = series.reduce((a, s) => a + s.events, 0);
@@ -83,6 +86,11 @@ const hotList = [...hot.values()].sort((a, b) => b.appears - a.appears || b.heat
 const n = series.length;
 const firstLabel = series[0].hour;
 const lastLabel = series[n - 1].hour;
+
+// v5.2 star-bomb radar: latest radar state (from the newest hour that has one)
+const radarHours = hours.filter(h => h.star_radar);
+const curRadar = radarHours.length ? radarHours[radarHours.length - 1].star_radar : null;
+const starLoopTotal = series.reduce((a, s) => a + (s.starLoops || 0), 0);
 
 // ---------- helpers ----------
 const esc = (s) => String(s == null ? '' : s)
@@ -152,6 +160,7 @@ const timeline = [
   { when: 'Aug 12 · hours 10–12', title: 'The self-PR adaptation', body: 'With push-only repos demoted, farms open PRs on their own repos to fake human signal (quoctuan21112009-maker/pull-request hit #2 hottest). Detection flips from "any PR counts" to "PRs by the pusher don\'t".' },
   { when: 'Aug 12 · hour 15', title: 'The issue-loop', body: 'The next mutation: zero pushes at all. Operators open 14–16 issues on their own fresh repos (meronrudy/usaBOXING_repo, spcsorg/daylens) to rank #3–4 hottest on issue-weight alone. Caught the same hour — self-authored issues now demote like self-PRs.' },
   { when: 'Aug 12 · hours 12–15', title: 'The wave regroups', body: 'Spam % swings like a tide: 63.8% → 43.4% → back to 54.9%. The farms don\'t disappear — they shift volume between shifts of accounts. LiamBruhin/SillyStuff has now pushed 690×/hr for 13+ hours straight, every hour, one actor.' },
+  { when: 'Aug 12 · hour 18', title: 'Star-bomb radar (v5.2)', body: 'With pushes (×0.05–0.3), self-PRs and issue-loops (×0.3) all demoted, stars are the last untaxed heat vector (×8) — so star-bombing became the predicted next adaptation. The radar tracks pure-watcher accounts (whose only activity all hour is starring) and bare repos (stars with zero pushes/PRs/issues/releases). A ≥5-star burst appearing out of nowhere, or ≥2 watchers co-starring multiple bare repos, is demoted ×0.3 as a star-loop; anything ambiguous gets an informational 🔭 star-only badge instead of punishment. Historical replay: spinabot/brigade (7★, 7 lurker watchers, out of nowhere) WOULD have been caught; guillaumemeyer/watermarks-remover (4★) stays informational; famous repos (transformers, firecrawl) are never touched.' },
 ];
 
 // ---------- page ----------
@@ -282,27 +291,43 @@ td a:hover{color:var(--accent)}
   </section>
 
   <section class="panel">
-    <div class="panel-head"><h2><span class="h-num">03</span> The arms race</h2><span class="panel-sub">they read the radar and adapt — so does the radar</span></div>
+    <div class="panel-head"><h2><span class="h-num">03</span> The star-bomb radar</h2><span class="panel-sub">v5.2 — watching the last untaxed heat vector</span></div>
+    <div class="lede">Every heat vector the farms ever used — pushes, self-PRs, self-issues — now demotes them. That leaves <b>stars</b> (×8 heat) as the only remaining way to rank a repo, so star-bombing is the predicted next adaptation. The radar counts <b>pure-watcher accounts</b> (their only activity all hour is starring) and flags <b>bare repos</b> (stars with zero pushes/PRs/issues/releases). A repo whose stars come from co-starring lurker clusters, known-farm actors, or a ≥5★ burst that appears out of nowhere is demoted ×0.3 as a <b>star-loop</b>; ambiguous cases get an informational 🔭 badge instead of punishment — a legit viral repo is identical to a bomb for one hour, and we refuse to hide real launches.</div>
+    ${curRadar ? `<div class="stats" style="margin:18px 0">
+      <div class="stat"><div class="stat-num">${curRadar.loops}</div><div class="stat-label">star-loops demoted (latest hour)</div></div>
+      <div class="stat"><div class="stat-num">${curRadar.repos - curRadar.loops}</div><div class="stat-label">star-only repos under watch</div></div>
+      <div class="stat"><div class="stat-num">${fmt(curRadar.watch_only_actors)}</div><div class="stat-label">pure-watcher accounts</div></div>
+      <div class="stat"><div class="stat-num">${starLoopTotal}</div><div class="stat-label">star-loops caught (all hours)</div></div>
+    </div>` : ''}
+    ${radarHours.length > 1 ? lineChart(series, { key: 'starLoops', color: '#38bdf8', label: 'star-loops demoted per hour' }) : ''}
+    ${curRadar && curRadar.loops_top && curRadar.loops_top.length ? `<table style="margin-top:14px">
+      <tr><th>star-loop repo</th><th class="mono">stars</th><th class="mono">lurker watchers</th><th class="mono">co-stars</th><th>why</th></tr>
+      ${curRadar.loops_top.map(l => `<tr><td><a href="${esc(l.url || 'https://github.com/' + l.repo)}" rel="noopener">${esc(l.repo)}</a></td><td class="mono">+${l.stars}★</td><td class="mono">${l.watchers}</td><td class="mono">${l.co_star}</td><td class="dim">${esc(l.reason || '')}</td></tr>`).join('')}
+    </table>` : `<div class="lede" style="margin-top:14px">No star-loops in the latest hour — the radar is quiet, which is exactly what we want to see while it's watching.</div>`}
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h2><span class="h-num">04</span> The arms race</h2><span class="panel-sub">they read the radar and adapt — so does the radar</span></div>
     <div class="tl">
       ${timeline.map(t => `<div class="tl-item"><div class="when">${esc(t.when)}</div><h3>${esc(t.title)}</h3><p>${esc(t.body)}</p></div>`).join('')}
     </div>
   </section>
 
   <section class="panel">
-    <div class="panel-head"><h2><span class="h-num">04</span> Anatomy of a push-farm</h2></div>
+    <div class="panel-head"><h2><span class="h-num">05</span> Anatomy of a push-farm</h2></div>
     <div class="anatomy">
       <div class="an"><div class="k">accounts</div><p>Auto-generated names — word + digits (<span class="mono">smithhoward5868</span>, <span class="mono">conleyricky202</span>), or bulk prefixes (<span class="mono">trnfvn-</span>, <span class="mono">brnfvn-</span>).</p></div>
       <div class="an"><div class="k">repos</div><p>Fresh gibberish names, one per account or rotating. Zero stars, forks, issues, PRs, or releases — no human ever touches them.</p></div>
       <div class="an"><div class="k">behaviour</div><p>100–700 pushes/hour from 1–2 actors. Often a single commit re-pushed to keep the repo “active” forever.</p></div>
       <div class="an"><div class="k">evasion</div><p>Volume adapts to detection thresholds (40 → 30 → 25 → 24/hr). Some launder pushes through GitHub Actions bots, or open PRs on their own repos to fake human signal.</p></div>
-      <div class="an"><div class="k">newest trick</div><p>Aug 12: the issue-loop — zero pushes, the operator opens 14–16 issues on their own fresh repo to rank on activity alone. Caught by the self-signature rule the same hour it appeared.</p></div>
+      <div class="an"><div class="k">newest trick</div><p>Aug 12: the issue-loop — zero pushes, the operator opens 14–16 issues on their own fresh repo to rank on activity alone. Caught by the self-signature rule the same hour it appeared. Next in the queue: star-bombing — watched by the v5.2 star-only radar (pure-watcher clusters, out-of-nowhere ≥5★ bursts).</p></div>
       <div class="an"><div class="k">motive</div><p>Unclear. Candidates: GitHub-contribution SEO, Actions-compute reselling, profile inflation. We are still not sure — ask them.</p></div>
       <div class="an"><div class="k">tells</div><p>Zero human signal + ≤2 actors + name fingerprint + repeat appearances in the ledger. That combination is now the detector, not any threshold.</p></div>
     </div>
   </section>
 
   <section class="panel">
-    <div class="panel-head"><h2><span class="h-num">05</span> What survives the noise</h2><span class="panel-sub">the human GitHub is still in there</span></div>
+    <div class="panel-head"><h2><span class="h-num">06</span> What survives the noise</h2><span class="panel-sub">the human GitHub is still in there</span></div>
     <div class="lede">Repos that kept charting in the top-25 hottest across many hours, and the languages with the most event-weight. The farms can flood the raw push count, but they cannot fake a PR, a review, or a star — the human signal survives.</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px" class="two-col">
       <div>
@@ -323,7 +348,7 @@ td a:hover{color:var(--accent)}
   </section>
 
   <section class="panel">
-    <div class="panel-head"><h2><span class="h-num">06</span> Method &amp; limits</h2></div>
+    <div class="panel-head"><h2><span class="h-num">07</span> Method &amp; limits</h2></div>
     <div class="lede">Every hour the full GH Archive file for that hour is streamed (~150–170K events) and aggregated with zero dependencies. Spam judgement uses: absence of human interaction signals (PRs/issues/stars/forks/releases), actor counts, account-name fingerprints, and a persistent farm ledger with a 48-hour TTL (repos rotate, accounts persist).</div>
     <div class="note"><b>Honest caveats:</b> we see public events only — private activity, deleted repos and suspended accounts are invisible; Actions-generated traffic is a real signal source, so bots with <span class="mono">[bot]</span> suffixes are excluded unless they show farm behaviour; the percentage is of <i>pushes</i>, not events; and the farms adapt, so these numbers are a lower bound on the true share. Spam share may therefore be understated, not overstated.</div>
   </section>
