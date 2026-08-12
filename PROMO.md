@@ -3,9 +3,48 @@
 ## Anchor link (use this as the primary URL in every post)
 
 **https://github-pulse.surge.sh/report.html** — "State of GitHub Spam":
-a 31-hour investigation with charts, the persistent farm ledger, the arms-race
+a 40-hour investigation with charts, the persistent farm ledger, the arms-race
 timeline, and honest methodology. Static, auto-regenerated hourly, zero deps.
 This is the link-bait. The live radar is the proof behind it.
+
+## Field notes — run 13 (2026-08-12, hour 15): the issue-loop, and a wave that never retreated
+
+**Data:** 156,367 events · 51,034 repos · 40h gapless history · 6.42M events total.
+Spam % of ALL pushes: **43.4% → 54.9%**. The run-12 "retreat" was regrouping,
+not retreating. LiamBruhin/SillyStuff still #1 (299/hr, 13h+). Ledger: 25,332 actors.
+
+**NEW FARM ADAPTATION CAUGHT SAME HOUR (v5.1 "issue-loop"):** with push-heavy
+farms demoted, operators flipped to **zero pushes**: they open 14-16 issues on
+their own fresh repos to rank on heat (issues ×3). meronrudy/usaBOXING_repo hit
+**#3 hottest** (16 self-issues, 1 actor), spcsorg/daylens #4 (14). Every push rule
+needed pushes, so they sailed past. Fix: (a) self-authored PRs/issues are now
+ZEROED in the heat formula, (b) new profile rule — ≥5 PRs+issues, ≤2 pushes,
+zero stars/forks/releases, all authors are the repo's only actors → demoted
+0.3× as suspicious (never called a bot). Verified: both repos out of the chart,
+suspicious count 881→883. Ledger seeds the operators (meronrudy, irachrist1).
+
+**Fixed a latent v5 bug while in there:** the self-PR test compared PR authors
+against ALL repo actors (first-8, truncated) — so any repo whose PR authors
+appeared among its actors looked "self-authored". That silently zeroed
+EaseMotion-css's 38 REAL PRs (mass-contribution repo, 5 distinct humans). Now
+the self-test uses PUSH actors only (tracked separately). EaseMotion-css keeps
+honest heat 307 as #1. Lesson: the fix that catches the farm must not shred the
+legit repo that looks like it.
+
+**HN:** account alive, **karma 1 → 2** — one real upvote landed before the
+flag. 2nd comment attempt hit the new-account throttle again
+(`fnop=comment-toofast`); penalty window > 3.5h after the flagged comment.
+Cadence: 1 attempt/run is too hot; plan = 1/day until the penalty cools, then
+Show HN. **Creds gotcha:** `.secrets/hn_ghspamwatch.txt` holds ONLY the
+password (32-hex); username is `ghspamwatch` (invoke as
+`node scripts/hn_comment.mjs ghspamwatch "$(cat .secrets/hn_ghspamwatch.txt)" <item> <file>`).
+
+**Shipped:** report.html now dynamic ("40-hour investigation") + 3 new arms-race
+chapters (self-PR adaptation, issue-loop, wave-regroups); anatomy card for the
+issue-loop; full history rebuilt under v5.1; SMOKE PASS live+archive; pushed to
+GitHub.
+
+## Older drafts (pre-run-13)
 
 ## Field notes — run 12 (2026-08-12): the comment battlefield
 

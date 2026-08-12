@@ -35,9 +35,11 @@
       ? ' <span class="flag flag-bot" title="push-bot: all-push profile from ≤2 actors with zero human signal — auto-generated account name, known farm actor, or high-volume churner. Demoted from heat.">🤖 push-bot</span>'
       : r.flag === 'push-loop'
         ? ' <span class="flag flag-loop" title="suspicious push-loop: all-push profile from ≤2 actors, zero human signal, moderate volume — could be a farm or a solo import. Lightly demoted from heat.">⚠️ push-loop</span>'
-        : r.flag === 'ci-demo'
-          ? ' <span class="flag flag-demo" title="CI demo repo: push-heavy from few actors — demoted in heat">🧪 ci-demo</span>'
-          : '';
+        : r.flag === 'issue-loop'
+          ? ' <span class="flag flag-loop" title="suspicious issue-loop: ≥5 issues/PRs opened on the repo by its own operators with zero external signal — fakes human activity to rank on heat. Demoted.">⚠️ issue-loop</span>'
+          : r.flag === 'ci-demo'
+            ? ' <span class="flag flag-demo" title="CI demo repo: push-heavy from few actors — demoted in heat">🧪 ci-demo</span>'
+            : '';
     return `<div class="repo-cell"><a class="repo-name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.repo)}</a>${flag}${desc}</div>`;
   }
 

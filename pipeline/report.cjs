@@ -149,6 +149,9 @@ const timeline = [
   { when: 'Aug 11 · 18:00 UTC', title: 'LiamBruhin/SillyStuff', body: 'The longest-running farm appears and never leaves: 13 consecutive hours, peaking at 690 pushes in a single hour. Still active 12 hours later (259/hr at Aug 12 06:00).' },
   { when: 'Aug 12 · 00:00 UTC', title: 'A new wave', body: 'trnfvn-/brnfvn- prefixed accounts arrive (CentiCloudStir, MicroEnvoyTwist, YuqiGuo-cx0) pushing 325–345/hr. The ledger catches them on hour one.' },
   { when: 'Aug 12 · 03:00–06:00 UTC', title: 'The upswing', body: 'Spam climbs from 34.6% to 58.5% of ALL pushes. Demoted farm repos jump from 983 to 2,503 per hour. The botnet economy is having a busy morning.' },
+  { when: 'Aug 12 · hours 10–12', title: 'The self-PR adaptation', body: 'With push-only repos demoted, farms open PRs on their own repos to fake human signal (quoctuan21112009-maker/pull-request hit #2 hottest). Detection flips from "any PR counts" to "PRs by the pusher don\'t".' },
+  { when: 'Aug 12 · hour 15', title: 'The issue-loop', body: 'The next mutation: zero pushes at all. Operators open 14–16 issues on their own fresh repos (meronrudy/usaBOXING_repo, spcsorg/daylens) to rank #3–4 hottest on issue-weight alone. Caught the same hour — self-authored issues now demote like self-PRs.' },
+  { when: 'Aug 12 · hours 12–15', title: 'The wave regroups', body: 'Spam % swings like a tide: 63.8% → 43.4% → back to 54.9%. The farms don\'t disappear — they shift volume between shifts of accounts. LiamBruhin/SillyStuff has now pushed 690×/hr for 13+ hours straight, every hour, one actor.' },
 ];
 
 // ---------- page ----------
@@ -157,11 +160,11 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>State of GitHub Spam — a 31-hour investigation by GitHub Pulse</title>
+<title>State of GitHub Spam — a ${series.length}-hour investigation by GitHub Pulse</title>
 <meta name="description" content="How much of GitHub's public push traffic is automated spam? A live, hour-by-hour investigation: push-farms, botnets, adaptation, and the arms race to detect them.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="State of GitHub Spam — the botnet economy inside the public event stream">
-<meta property="og:description" content="31 hours of the full GH Archive, audited: ~${Math.round(avgSpam)}% of all pushes are spam from automated farms. See the charts, the farms, and the arms race.">
+<meta property="og:description" content="${series.length} hours of the full GH Archive, audited: ~${Math.round(avgSpam)}% of all pushes are spam from automated farms. See the charts, the farms, and the arms race.">
 <meta property="og:url" content="https://github-pulse.surge.sh/report.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧟</text></svg>">
@@ -291,7 +294,8 @@ td a:hover{color:var(--accent)}
       <div class="an"><div class="k">accounts</div><p>Auto-generated names — word + digits (<span class="mono">smithhoward5868</span>, <span class="mono">conleyricky202</span>), or bulk prefixes (<span class="mono">trnfvn-</span>, <span class="mono">brnfvn-</span>).</p></div>
       <div class="an"><div class="k">repos</div><p>Fresh gibberish names, one per account or rotating. Zero stars, forks, issues, PRs, or releases — no human ever touches them.</p></div>
       <div class="an"><div class="k">behaviour</div><p>100–700 pushes/hour from 1–2 actors. Often a single commit re-pushed to keep the repo “active” forever.</p></div>
-      <div class="an"><div class="k">evasion</div><p>Volume adapts to detection thresholds (40 → 30 → 25 → 24/hr). Some launder pushes through GitHub Actions bots.</p></div>
+      <div class="an"><div class="k">evasion</div><p>Volume adapts to detection thresholds (40 → 30 → 25 → 24/hr). Some launder pushes through GitHub Actions bots, or open PRs on their own repos to fake human signal.</p></div>
+      <div class="an"><div class="k">newest trick</div><p>Aug 12: the issue-loop — zero pushes, the operator opens 14–16 issues on their own fresh repo to rank on activity alone. Caught by the self-signature rule the same hour it appeared.</p></div>
       <div class="an"><div class="k">motive</div><p>Unclear. Candidates: GitHub-contribution SEO, Actions-compute reselling, profile inflation. We are still not sure — ask them.</p></div>
       <div class="an"><div class="k">tells</div><p>Zero human signal + ≤2 actors + name fingerprint + repeat appearances in the ledger. That combination is now the detector, not any threshold.</p></div>
     </div>

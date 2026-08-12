@@ -48,16 +48,22 @@ scripts/smoke.mjs    — headless Firefox (BiDi) smoke test of live + archive pa
 
 ## Data findings so far
 
-- ~36% of ALL GitHub pushes are push-farm spam (hour 2026-08-12-0; was 48% at
-  hour 18 — farms ebb and flow, detection holds).
+- ~55% of ALL GitHub pushes are push-farm spam at peak, and the share *cycles*
+  like a tide (34.6% → 63.8% → 43.4% → 54.9% over 40h). The farms shift volume
+  between shifts of accounts; they don't disappear.
 - `LiamBruhin/SillyStuff` pushed 690× in a single hour from one actor, 13h+ straight.
 - Farms launder pushes through GitHub Actions (`github-actions[bot]`) and
   rotate repo names (`vbpl-storage-tu-1` → `dp-2` → `dp-3`) — the durable
-  signal is the *owner account*, tracked in a persistent ledger (16.3K actors).
+  signal is the *owner account*, tracked in a persistent ledger (25K actors).
 - New farm wave (Aug 12): coordinated `trnfvn-`/`brnfvn-` repo names
   (`CentiCloudStir/trnfvn-HLRODS`, `MicroEnvoyTwist/trnfvn-ZSRFLV`,
   `YuqiGuo-cx0/brnfvn-UAOYZP`) pushing ~325–345×/hr from single actors —
   caught on first sight by the profile rules.
+- Adaptation arms race (all caught the same hour they appeared): push volume
+  40→30→25→24/hr to duck thresholds → self-PRs to fake human signal
+  (`quoctuan21112009-maker`) → **issue-loops**: zero pushes, operators open
+  14–16 issues on their own fresh repos to rank on heat (`meronrudy/
+  usaBOXING_repo` hit #3 hottest) — now demoted like the push farms.
 - Adaptation probe (v5): every hour, zero-human push-heavy repos are bucketed
   by actor count (1-2 / 3-4 / 5-8 / 9+). The 3-4 actor bucket is tiny (6 repos,
   ~104 pushes) — the farms have NOT yet split accounts to duck the ≤2-actor rule.

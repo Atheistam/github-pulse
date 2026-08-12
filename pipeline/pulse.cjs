@@ -163,15 +163,19 @@ const isSharedBot = (a) => SHARED_BOTS.has(a) || /\[bot\]$/.test(a);
 // authored by someone OTHER than the pushers. Shared bots stay human-ish:
 // docker-hardened-images/log is a real project whose dhi-app[bot] opens the
 // PRs — a [bot] account is legit automation, never a farm impersonation.
+// v5.1: the self-test now compares against PUSH actors only (tracked per repo
+// as push_actors during aggregation). v5 compared against actor_names — which
+// contains actors of ALL event types (capped at 8) — so any repo whose PR
+// authors merely APPEAR among its actors looked "self-authored". That
+// mis-flagged mass-contribution repos (EaseMotion-css: 38 real PRs from 5
+// distinct contributors zeroed as fake) and the outcome depended on
+// actor_names truncation order. The self-flags are precomputed at
+// aggregation close (r.selfPR / r.selfISS).
 function prsAreSelfFlag(r) {
-  const pushers = r.actor_names || [];
-  const nonBot = (r.pr_actors || []).filter((a) => !isSharedBot(a));
-  return nonBot.length > 0 && nonBot.every((a) => pushers.includes(a));
+  return !!r.selfPR;
 }
 function issAreSelfFlag(r) {
-  const pushers = r.actor_names || [];
-  const nonBot = (r.issue_actors || []).filter((a) => !isSharedBot(a));
-  return nonBot.length > 0 && nonBot.every((a) => pushers.includes(a));
+  return !!r.selfISS;
 }
 function flagOf(r, farmActors = null) {
   const name = String(r.repo || '').toLowerCase();
@@ -226,11 +230,29 @@ function flagOf(r, farmActors = null) {
   if ((knownFarmTouch || ownerHistoryConfirmed) && rawHuman <= 2 && pushes >= 5 && actors <= 2) {
     return autoGen ? 'push-bot' : 'push-loop';
   }
+  // v5.1: ISSUE-LOOP ADAPTATION — with push-heavy farms demoted, operators
+  // switched to faking human signal with ZERO pushes: the operator opens 5-16
+  // issues/PRs on their own fresh repo (meronrudy/usaBOXING_repo: 16 self-
+  // issues → #3 hottest; spcsorg/daylens: 14 → #4). Every push rule needs
+  // pushes, so a pure self-signal loop sailed past them and ranked on heat
+  // (issues ×3). Fingerprint: ≥5 PRs+issues, ≤2 pushes, zero stars/forks/
+  // releases, and ALL non-bot PR/issue authors (≤2 of them) are the repo's
+  // only non-bot actors — nobody outside the loop touched it. Demoted as
+  // suspicious, never called a bot (a solo dev triaging their own repo opens
+  // 1-2 issues/hour, never 5+ with zero other activity).
+  const sigActors = [...new Set([...(r.pr_actors || []), ...(r.issue_actors || [])])].filter((a) => !isSharedBot(a));
+  const nonBotActors = (r.actor_names || []).filter((a) => !isSharedBot(a));
+  if (sigActors.length > 0 && sigActors.length <= 2 && nonBotActors.length <= 2 &&
+      sigActors.every((a) => nonBotActors.includes(a)) &&
+      (r.prs || 0) + (r.issues || 0) >= 5 && pushes <= 2 &&
+      (r.stars || 0) + (r.forks || 0) + (r.releases || 0) === 0) {
+    return 'issue-loop';
+  }
   if (/mergequeue|merge-queue|merge-demo|octo-org|githubtraining|sandbox|playground|hello-world|ci-demo|test-repo/.test(name) &&
       pushes >= 10 && actors <= 4 && rawHuman <= 2) return 'ci-demo';
   return null;
 }
-const DEMOTE = { 'push-bot': 0.05, 'push-loop': 0.3, 'ci-demo': 0.1 };
+const DEMOTE = { 'push-bot': 0.05, 'push-loop': 0.3, 'ci-demo': 0.1, 'issue-loop': 0.3 };
 // farmActors: Map<actor|owner, {lastSeen, hours:Set<hourLabel>}> persisted in
 // site/data/farm_actors.json. An entry is created when its repo is confidently
 // flagged push-bot (auto-gen name OR high-volume zero-human profile); shared
@@ -282,8 +304,12 @@ function rebuildConfirmedFarmOwners(curHour) {
 }
 const heatOf = (r) => {
   const f = flagOf(r, FARM_ACTORS);
-  const h = (r.stars || 0) * 8 + (r.forks || 0) * 5 + (r.prs || 0) * 5 +
-    (r.issues || 0) * 3 + (r.releases || 0) * 15 + Math.min(r.pushes || 0, 50) +
+  // v5.1: self-authored PRs/issues are fake signal — never count them toward
+  // heat (a farm opening its own issues must not rank #3 hottest).
+  const prs = prsAreSelfFlag(r) ? 0 : (r.prs || 0);
+  const iss = issAreSelfFlag(r) ? 0 : (r.issues || 0);
+  const h = (r.stars || 0) * 8 + (r.forks || 0) * 5 + prs * 5 + iss * 3 +
+    (r.releases || 0) * 15 + Math.min(r.pushes || 0, 50) +
     Math.min(r.actors || 0, 20) * 3;
   return f ? Math.max(1, Math.round(h * DEMOTE[f])) : h;
 };
@@ -318,7 +344,7 @@ function processHour(hourLabel, localFile) {
         const name = e.repo.name;
         let r = repos.get(name);
         if (!r) {
-          r = { repo: name, stars: 0, forks: 0, issues: 0, prs: 0, releases: 0, pushes: 0, reviews: 0, events: 0, actors: 0, _as: null, actor_names: [], _prActors: new Set(), _issActors: new Set(), language: null, desc: null, url: `https://github.com/${name}` };
+          r = { repo: name, stars: 0, forks: 0, issues: 0, prs: 0, releases: 0, pushes: 0, reviews: 0, events: 0, actors: 0, _as: null, actor_names: [], _prActors: new Set(), _issActors: new Set(), _pushActors: new Set(), language: null, desc: null, url: `https://github.com/${name}` };
           repos.set(name, r);
         }
         r.events++;
@@ -340,7 +366,7 @@ function processHour(hourLabel, localFile) {
               actor: a,
             });
             break;
-          case 'PushEvent': r.pushes++; break;
+          case 'PushEvent': r.pushes++; if (a) r._pushActors.add(a); break;
           case 'PullRequestReviewEvent':
           case 'PullRequestReviewCommentEvent':
           case 'IssueCommentEvent':
@@ -369,9 +395,20 @@ function processHour(hourLabel, localFile) {
 
       rl.on('close', () => {
         for (const r of repos.values()) {
-          r.actors = r._as ? r._as.size : 0; delete r._as;
-          r.pr_actors = [...r._prActors]; delete r._prActors;
-          r.issue_actors = [...r._issActors]; delete r._issActors;
+          r.actors = r._as ? r._as.size : 0;
+          const pushActors = r._pushActors || new Set();
+          // v5.1 self-flags: a PR/issue is fake signal only if authored by the
+          // repo's own PUSHERS (the farm operator pushes AND opens its own
+          // PRs). Contributors who don't push (mass-contribution repos) are
+          // real humans and must count.
+          const nonBotPr = [...(r._prActors || [])].filter((a) => !isSharedBot(a));
+          const nonBotIss = [...(r._issActors || [])].filter((a) => !isSharedBot(a));
+          r.selfPR = pushActors.size > 0 && nonBotPr.length > 0 && nonBotPr.every((a) => pushActors.has(a));
+          r.selfISS = pushActors.size > 0 && nonBotIss.length > 0 && nonBotIss.every((a) => pushActors.has(a));
+          r.pr_actors = [...(r._prActors || [])]; delete r._prActors;
+          r.issue_actors = [...(r._issActors || [])]; delete r._issActors;
+          delete r._pushActors;
+          delete r._as;
         }
         for (const [lang, l] of langs) {
           for (const r of repos.values()) {
@@ -421,7 +458,7 @@ function buildSnapshot(hourLabel, agg) {
   const totalPushes = all.reduce((n, r) => n + (r.pushes || 0), 0);
   // spam share uses ALL confident push-bot repos' pushes (not just top-15)
   const allFlagged = all.filter((r) => flagOf(r, FARM_ACTORS) === 'push-bot');
-  const allSuspicious = all.filter((r) => flagOf(r, FARM_ACTORS) === 'push-loop');
+  const allSuspicious = all.filter((r) => ['push-loop', 'issue-loop'].includes(flagOf(r, FARM_ACTORS)));
   const spamPushes = allFlagged.reduce((n, r) => n + (r.pushes || 0), 0);
   // Farm-actor ledger: record actors AND owners behind confident push-bot
   // farms so future runs demote any repo they touch (repos rotate, actors
