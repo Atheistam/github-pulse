@@ -1,0 +1,4 @@
+.DS_Store
+site/data/
+*.png
+site_build_prompt.txt

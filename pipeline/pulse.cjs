@@ -34,7 +34,7 @@ const path = require('path');
 
 const SITE_DATA = path.join(__dirname, '..', 'site', 'data');
 const HIST_DIR = path.join(SITE_DATA, 'history');
-const MAX_BACKFILL = Number(process.env.MAX_BACKFILL || 4); // max missing hours to fetch in one run
+const MAX_BACKFILL = Number(process.env.MAX_BACKFILL || 12); // max missing hours to fetch in one run
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -432,6 +432,28 @@ function buildSnapshot(hourLabel, agg) {
     .sort((a, b) => (b.pushes || 0) - (a.pushes || 0))
     .slice(0, 15)
     .map((r) => ({ repo: r.repo, flag: flagOf(r, FARM_ACTORS), pushes: r.pushes, actors: r.actors, human: (r.prs || 0) + (r.issues || 0) + (r.stars || 0) + (r.forks || 0) + (r.releases || 0) + (r.reviews || 0), actor_names: r.actor_names }));
+  // Farm adaptation probe — farms duck the ≤2-actor rule by splitting pushes
+  // across 3-6 fresh accounts (predicted next adaptation). Bucket
+  // zero-human push-heavy repos by actor count every hour so a shift toward
+  // multi-actor farms shows up immediately, not after they top the charts.
+  const probe = (min, max) => {
+    const bucket = all.filter((r) =>
+      (r.pushes || 0) >= 10 &&
+      (r.prs || 0) + (r.issues || 0) + (r.stars || 0) + (r.forks || 0) + (r.releases || 0) + (r.reviews || 0) === 0 &&
+      r.actors >= min && r.actors <= max);
+    return {
+      repos: bucket.length,
+      pushes: bucket.reduce((n, r) => n + (r.pushes || 0), 0),
+      top: bucket.sort((a, b) => (b.pushes || 0) - (a.pushes || 0)).slice(0, 5)
+        .map((r) => ({ repo: r.repo, pushes: r.pushes, actors: r.actors })),
+    };
+  };
+  const farm_probe = {
+    actors_1_2: probe(1, 2),
+    actors_3_4: probe(3, 4),
+    actors_5_8: probe(5, 8),
+    actors_9_plus: probe(9, Infinity),
+  };
   return {
     as_of: `${hourLabel.slice(0, 10)}T${pad(Number(hourLabel.slice(11)))}:00:00Z`,
     hour: hourLabel,
@@ -450,6 +472,9 @@ function buildSnapshot(hourLabel, agg) {
     demoted,
     demoted_total: allFlagged.length,
     suspicious_total: allSuspicious.length,
+    farm_probe,
+    ledger_size: FARM_ACTORS.size,
+    ledger_confirmed: [...FARM_ACTORS.values()].filter((e) => e.hours.size >= FARM_ACTOR_MIN_HOURS).length,
   };
 }
 
@@ -717,19 +742,23 @@ async function main() {
   const known = new Set(readHistoryIndex().map((f) => f.replace(/\.json$/, '')));
 
   // Backfill plan: walk backward from the latest complete hour, collecting
-  // missing hours until we hit the earliest known hour or the start of today
-  // (or MAX_BACKFILL missing hours). Known hours in between are skipped, so
-  // gaps in the middle of history get filled, not just the newest hour.
+  // missing hours until we hit the earliest known hour (or MAX_BACKFILL
+  // missing hours). Known hours in between are skipped, so gaps in the
+  // middle of history get filled, not just the newest hour.
+  // v5 fix: the old "start of today" break left a permanent gap (previous
+  // day's 19-23h were never backfilled once a run crossed a day boundary).
+  // Now we walk across day boundaries, bounded by the earliest known hour
+  // and a hard sanity cap (72h) so a fresh site can't trigger a huge crawl.
   const earliestKnown = known.size ? [...known].sort((a, b) => hourNum(a) - hourNum(b))[0] : null;
   const earliestKnownNum = earliestKnown ? hourNum(earliestKnown) : null;
-  const todayStartNum = hourNum(latest.slice(0, 10) + '-0');
   const missing = [];
   let cur = latest;
-  while (missing.length < MAX_BACKFILL) {
-    if (hourNum(cur) < todayStartNum) break;
+  let walked = 0;
+  while (missing.length < MAX_BACKFILL && walked < 72) {
     if (earliestKnownNum !== null && hourNum(cur) <= earliestKnownNum && known.has(cur)) break;
     if (!known.has(cur)) missing.unshift(cur);
     cur = prevHourLabel(cur);
+    walked++;
   }
   if (missing.length) console.log(`[pulse] backfilling missing hours: ${missing.join(', ')}`);
 
