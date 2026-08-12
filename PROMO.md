@@ -1,5 +1,12 @@
 # 🚀 Launch post drafts — GitHub Pulse
 
+## Anchor link (use this as the primary URL in every post)
+
+**https://github-pulse.surge.sh/report.html** — "State of GitHub Spam":
+a 31-hour investigation with charts, the persistent farm ledger, the arms-race
+timeline, and honest methodology. Static, auto-regenerated hourly, zero deps.
+This is the link-bait. The live radar is the proof behind it.
+
 ## Hacker News (Show HN)
 
 **Title:** Show HN: I built a radar that catches GitHub's push-farm botnets in real time
