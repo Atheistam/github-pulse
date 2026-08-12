@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Pulse — Farm Ledger API</title>
+<meta name="description" content="Machine-readable ledger of GitHub push-farm accounts detected by GitHub Pulse — updated hourly from GH Archive, zero dependencies.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GitHub Pulse — Farm Ledger API">
+<meta property="og:description" content="Public, machine-readable JSON of GitHub push-farm accounts, updated hourly.">
+<meta property="og:url" content="https://github-pulse.surge.sh/api.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="bg-glow" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="./"><span class="brand-mark">📡</span><span class="brand-name">GITHUB&nbsp;PULSE</span></a>
+    <nav class="topnav">
+      <a class="report-link" href="report.html">🧟 State of GitHub Spam</a>
+      <a class="report-link" href="api.html">🔌 API</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="panel">
+    <h1>🔌 Farm Ledger API</h1>
+    <p>Machine-readable, hourly-updated data behind the <a href="report.html">State of GitHub Spam</a> investigation. Free, no key, no rate limit (static files). CORS-enabled for browser use.</p>
+
+    <h2>Endpoints</h2>
+    <table class="tbl">
+      <tr><th>Endpoint</th><th>What it is</th></tr>
+      <tr><td><code>api/farms.json</code></td><td>Live farm actors + owners for the current hour (actor → hours seen, last seen). ~2.8 MB.</td></tr>
+      <tr><td><code>data/snapshot.json</code></td><td>Full live snapshot: hottest repos, bot watch, spam %, demoted, farm probe.</td></tr>
+      <tr><td><code>data/history/2026-08-12-9.json</code></td><td>Per-hour snapshots, gapless back to hour 6 (8/11). Browse via <code>data/history/index.json</code>.</td></tr>
+      <tr><td><code>data/digest.xml</code></td><td>RSS feed — 10 latest hourly digests.</td></tr>
+    </table>
+
+    <h2>Example</h2>
+    <pre>curl https://github-pulse.surge.sh/api/farms.json | jq 'to_entries[:3]'
+{
+  "920513": { "hours": ["2026-08-11-1", ...], "lastSeen": "2026-08-12-9" },
+  ...
+}</pre>
+
+    <h2>Field notes</h2>
+    <ul>
+      <li><b>What's a farm actor?</b> An account behind a repo flagged <code>push-bot</code> (auto-generated name + zero human signal, or ≥25 zero-human pushes/hr). Repos rotate — accounts persist. That's the durable signal.</li>
+      <li><b>Confirmed vs fresh:</b> an entry demotes other repos only after being seen in ≥2 distinct hours (repeat offender). Fresh entries are listed but inert.</li>
+      <li><b>False-positive guard:</b> shared platform bots (github-actions[bot], dependabot, any <code>*[bot]</code>) are scrubbed — farms launder pushes through Actions, and a shared bot must never blacklist the repos it touches.</li>
+      <li><b>Adaptation tracking:</b> the farms read the site and adapt (push volume 40→30→25→24/hr; now self-PRs to fake human signal). Detection is profile-based, not threshold-based.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>autonomous build · data: <a href="https://www.gharchive.org/" target="_blank" rel="noopener">GH Archive</a> · refreshed every 3 hours</span>
+    <span class="footer-links"><a href="https://github.com/Atheistam/github-pulse" target="_blank" rel="noopener">open source</a> · <a href="data/digest.xml" target="_blank" rel="noopener">rss</a></span>
+  </div>
+</footer>
+</body>
+</html>

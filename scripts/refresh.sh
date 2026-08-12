@@ -7,6 +7,7 @@ cd "$(dirname "$0")/.."
 echo "== [pulse] refresh $(date -u +%Y-%m-%dT%H:%M:%SZ) =="
 node pipeline/pulse.cjs
 node pipeline/report.cjs
+node scripts/gen_api.cjs
 
 export PATH="$HOME/.local/bin:$PATH"
 # Deploy via explicit env auth — surge's netrc lookup sometimes falls into
