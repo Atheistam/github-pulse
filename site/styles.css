@@ -79,6 +79,12 @@ body {
   transition: all 0.2s;
 }
 .refresh-btn:hover { color: var(--text); border-color: var(--accent); transform: rotate(90deg); }
+.report-link {
+  color: var(--dim); text-decoration: none; font-size: 12px;
+  font-family: var(--mono); border: 1px solid var(--border2); border-radius: 999px;
+  padding: 5px 12px; transition: all 0.2s; white-space: nowrap;
+}
+.report-link:hover { color: var(--text); border-color: rgba(248,113,113,0.5); }
 
 /* archive banner */
 .archive-banner {
