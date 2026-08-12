@@ -3,7 +3,7 @@
 A live radar of the busiest hour on GitHub, rebuilt every 3 hours from the
 entire public [GH Archive](https://www.gharchive.org/) event stream.
 
-**Live: https://github-pulse.surge.sh** · **RSS: https://github-pulse.surge.sh/data/digest.xml** · **Code: https://github.com/Atheistam/github-pulse**
+**Live: https://github-pulse.surge.sh** · **RSS: https://github-pulse.surge.sh/data/digest.xml** · **API: https://github-pulse.surge.sh/api/farms.json** · **Code: https://github.com/Atheistam/github-pulse**
 
 ## What it shows
 
