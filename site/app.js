@@ -193,7 +193,7 @@
     const max = Math.max(...sorted.map((s) => s.events), 1);
     $('history-body').innerHTML = sorted.map((s) => `
       <div class="hist-row">
-        <span class="hist-hour">${esc(s.hour)}</span>
+        <span class="hist-hour"><a class="hist-link" href="?hour=${encodeURIComponent(s.hour)}" title="browse this hour's full snapshot — repos, actors, bot watch, everything">${esc(s.hour)} ▸</a></span>
         <div class="hist-bar"><div class="hist-fill" style="width:${Math.max(3, Math.round((s.events / max) * 100))}%"></div></div>
         <span class="hist-count">${fmt.format(s.events)} ev</span>
       </div>`).join('');
@@ -217,13 +217,44 @@
     }
   }
 
+  function setArchiveBanner(active, hour) {
+    const el = $('archive-banner');
+    if (!el) return;
+    if (active) {
+      $('archive-hour').textContent = hour;
+      el.hidden = false;
+    } else {
+      el.hidden = true;
+    }
+  }
+
+  async function fetchSnapshot(hour) {
+    const url = hour
+      ? 'data/history/' + encodeURIComponent(hour) + '.json'
+      : 'data/snapshot.json';
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return res.json();
+  }
+
   async function load() {
     try {
-      const res = await fetch('data/snapshot.json', { cache: 'no-store' });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      const s = await res.json();
+      const want = new URLSearchParams(location.search).get('hour');
+      let s;
+      let archived = false;
+      if (want) {
+        try {
+          s = await fetchSnapshot(want);
+          if (String(s.hour) !== String(want)) throw new Error('mismatch');
+          archived = true;
+        } catch (e) {
+          console.warn('archive hour not found, falling back to live:', want);
+        }
+      }
+      if (!s) { s = await fetchSnapshot(null); }
+      setArchiveBanner(archived, want || null);
       $('asof-badge').textContent = 'AS OF ' + String(s.as_of || '').replace('T', ' ').replace('Z', ' UTC');
-      $('asof-badge').classList.add('live');
+      $('asof-badge').classList.toggle('live', !archived);
       $('stat-events').textContent = fmt.format(s.events || 0);
       $('stat-repos').textContent = fmt.format(s.repos_seen || 0);
       renderGainers(s);
@@ -234,7 +265,9 @@
       renderReleases(s);
       renderBots(s);
       renderBotnets(s);
-      document.title = `GitHub Pulse — ${fmt.format(s.events || 0)} events in ${String(s.hour || '')}`;
+      document.title = archived
+        ? `GitHub Pulse — archive ${String(s.hour || '')} (${fmt.format(s.events || 0)} events)`
+        : `GitHub Pulse — ${fmt.format(s.events || 0)} events in ${String(s.hour || '')}`;
     } catch (e) {
       const box = document.createElement('div');
       box.className = 'error-box';
@@ -249,7 +282,15 @@
     $('foot-clock').textContent = d.toISOString().slice(11, 19) + ' UTC · local ' + d.toLocaleTimeString();
   }
 
-  $('refresh-btn').addEventListener('click', (e) => { e.preventDefault(); load(); loadHistory(); });
+  $('refresh-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    if (new URLSearchParams(location.search).get('hour')) {
+      // in archive mode: refresh = jump back to the live radar
+      location.href = './';
+      return;
+    }
+    load(); loadHistory();
+  });
 
   load();
   loadHistory();

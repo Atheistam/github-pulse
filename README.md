@@ -22,6 +22,9 @@ entire public [GH Archive](https://www.gharchive.org/) event stream.
   % of ALL GitHub pushes that are farm spam each hour.
 - **🧟 Botnet watch** — farms that come back hour after hour (persistent
   offenders across the last 12 hours).
+- **📼 Archive** — every hour since launch is kept; click any hour in the
+  history panel (or visit `/?hour=2026-08-11-0`) to browse a frozen snapshot
+  of exactly what GitHub looked like that hour.
 
 ## How it works
 
@@ -39,8 +42,8 @@ entire public [GH Archive](https://www.gharchive.org/) event stream.
 ```
 pipeline/pulse.cjs   — data pipeline (aggregate → rank → digest → RSS)
 site/                — static site (index.html, app.js, styles.css, data/)
-scripts/refresh.sh   — one-shot refresh + deploy
-scripts/verify.cjs   — headless Playwright check of the live site
+scripts/refresh.sh   — one-shot refresh + deploy (surge auth via env vars)
+scripts/smoke.mjs    — headless Firefox (BiDi) smoke test of live + archive pages
 ```
 
 ## Data findings so far
