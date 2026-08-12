@@ -3,3 +3,5 @@ site/data/
 *.png
 site_build_prompt.txt
 logs_*.txt
+.secrets/
+hn_*.png

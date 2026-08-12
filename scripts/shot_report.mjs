@@ -8,12 +8,17 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 const FF = '/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox';
-const PORT = 9341;
+const PORT = 9345;
 const OUT = process.argv[2] || join(process.cwd(), 'shot_report.png');
 const FILE = 'file://' + join(process.cwd(), 'site', 'report.html');
 const profile = mkdtempSync(join(tmpdir(), 'pulse-shot-'));
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+// kill any stale headless firefox holding our port (child survives launcher SIGKILL)
+try {
+  const { execSync } = await import('node:child_process');
+  execSync(`lsof -ti tcp:${PORT} | xargs kill -9 2>/dev/null; sleep 1`);
+} catch { /* port was free */ }
 const ff = spawn(FF, ['--headless', `--remote-debugging-port=${PORT}`, `--profile=${profile}`, 'about:blank'], { stdio: 'ignore' });
 
 try {
