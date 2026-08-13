@@ -1,5 +1,40 @@
 # 🚀 Launch post drafts — GitHub Pulse
 
+## Field notes — run 17 (2026-08-13, hour 6): the wave that never retreated, and HN's submission throttle
+
+**Data:** 163,286 events · 37,773 repos · **55h gapless history · 8.87M events total.**
+Spam % of ALL pushes: **23.4% → 66.2%** — the biggest hour-over-hour swing ever
+recorded. The run-15 "retreat" (30.6% → 29.7% → 23.4%) was a lull, not a win:
+hour 6 UTC hit 66.2%, higher than the previous peak (63.8% at hour 9).
+**The farms ebb and flow on a ~5-6h cycle; the ledger never shrinks.**
+
+**NEW WAVE, MUTATED AGAIN:** the trnfvn→brnfvn family is now `rnfvn-`
+(howelljames1062/rnfvn-XGBDHG, VolunteerMill/rnfvn-WFERHB, andersonamanda8/brnfvn-DOGNPO)
+plus fresh actors ugmoddev (192/hr, 13h persistent), elad-cmd (118/hr, 13h), cstolzl
+(131/hr), loan96060-tech, cewalla, zamoravictoria0211, snyderchristopher7209,
+StarMotormanPanel, iliusura. LiamBruhin/SillyStuff still #1 (280/hr, 13h seen,
+record 848/hr). 2,780 farm repos + 1,087 push-loops demoted this hour.
+
+**v5.4 HELD under fire:** top-8 chart verified 0 false positives — KanishJebaMathewM/Truxify
+(real OSS Flutter project), merge-demo/mergequeue-bazel (Trunk.io demo), NVIDIA/NemoClaw,
+navapbc/rebar, openclaw, comic-pile all legit. TimSchoenle RENAMED its evade repo to
+`actions-testing` — caught anyway as bot-driven (#1 in bot-driven tier). Wonder0208 gone.
+
+**HN EMPIRICAL — the submission throttle (new data point):** URL post attempt at
+~21h account age → `fnop=story-toofast` ("You're posting too fast") — a RATE LIMIT,
+not a kill. Last submission (Ask HN) was 20.75h prior, still throttled ⇒ submission
+cooldown >21h. Also confirmed via API: account ledger = 2 stories (Ask HN 49270205
+ALIVE 4pts; URL post 49270177 dead at 0h age) + 2 dead comments. Submission
+attempts create NOTHING when throttled (no ghost posts). Next attempt: run ~19-20
+(after ~30-36h), URL post of report.html. If toofast again, wait a full day.
+
+**FIXED:** botnet_watch `last_seen` bug — it only refreshed on a new push RECORD,
+so returning farms with lower volume showed stale "last seen". Now refreshes every
+sighting. Verified: LiamBruhin last_seen 2026-08-13-6.
+
+**Shipped:** 55h history, report.html 45KB (55h), weekly digest 43KB, API farms.json
+(25,674 actors, 20,359 confirmed), SMOKE PASS live+archive+weekly, deployed HTTP 200.
+
 ## Anchor link (use this as the primary URL in every post)
 
 **https://github-pulse.surge.sh/report.html** — "State of GitHub Spam":

@@ -837,7 +837,8 @@ function buildBotnetWatch(cur, lookbackHours = 12, minAppearances = 3) {
       let e = seen.get(b.repo);
       if (!e) { e = { hours: new Set(), lastPushes: 0, lastActors: 0, first_seen: snap.hour, last_seen: snap.hour }; seen.set(b.repo, e); }
       e.hours.add(snap.hour);
-      if (b.pushes > e.lastPushes) { e.lastPushes = b.pushes; e.lastActors = b.actors; e.last_seen = snap.hour; }
+      if (b.pushes > e.lastPushes) { e.lastPushes = b.pushes; e.lastActors = b.actors; }
+      e.last_seen = snap.hour; // refresh on EVERY sighting, not just new records
     }
   }
   // merge current hour
@@ -845,7 +846,8 @@ function buildBotnetWatch(cur, lookbackHours = 12, minAppearances = 3) {
     let e = seen.get(b.repo);
     if (!e) { e = { hours: new Set(), lastPushes: 0, lastActors: 0, first_seen: cur.hour, last_seen: cur.hour }; seen.set(b.repo, e); }
     e.hours.add(cur.hour);
-    if (b.pushes > e.lastPushes) { e.lastPushes = b.pushes; e.lastActors = b.actors; e.last_seen = cur.hour; }
+    if (b.pushes > e.lastPushes) { e.lastPushes = b.pushes; e.lastActors = b.actors; }
+    e.last_seen = cur.hour; // refresh on EVERY sighting, not just new records
   }
   const botnets = [...seen.entries()]
     .filter(([, e]) => e.hours.size >= minAppearances)
