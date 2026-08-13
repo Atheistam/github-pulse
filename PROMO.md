@@ -1,5 +1,40 @@
 # 🚀 Launch post drafts — GitHub Pulse
 
+## Field notes — run 21 (2026-08-13, hour 18): CADENCE BROKEN at h18 (43.6%), lead-time rule double-miss, minting collapsed to 80/hr
+
+**Data:** 161,260 events · 61,374 repos · **67h gapless · 10.81M events.** Spam %
+of ALL pushes: **43.6% at hour 18** (wave SURGING +12.4pt from h17's 31.2% lull).
+
+**HYPOTHESIS TEST — 3h cadence MISSED.** Predicted 5th peak ~h18 at ~60%
+(66.2→62.8→53.0→60.2 run). Actual h18: **43.6% — no peak.** First clean miss
+after 4 consecutive cadence hits. Peaks now: h6 66.2, h9 62.8, h12 53.0, h15 60.2,
+h18 43.6 ✗. AND the lead-time rule double-missed: h16 (601) + h17 (948) minted
+1,549 fresh accounts — well over the ≥500 factory threshold that preceded every
+≥55% surge — yet h18 only reached 43.6%. Two readings: (a) the surge is DELAYED
+(h19/h20 — factory accounts may be banked, not burned), or (b) the op is genuinely
+degrading. Tiebreaker datapoint: **h18 minting collapsed to 80/hr** (vs 601/948
+prior two hours) — first time the factory itself stalled. Watch h19/h20 hard:
+if spam lands ≥55% there, it's a delayed surge (rule holds with 2-3h lead);
+if it stays <50%, "farms losing steam" becomes publishable. v5.7 cadence panel
+stayed truthful automatically (peaks ≥50% only — h18 correctly absent).
+
+**FARM INTEL:** itaalo67/epg_picons new #1 push-farm (495 pushes/hr, 1 actor).
+LiamBruhin/SillyStuff still 13h+ persistent but push rate halved (848→428/hr) —
+first real sign of fatigue in the old guard. Ledger 26,210 actors (21,542
+confirmed). Top-5 hottest legit & clean (EaseMotion-css heat 142 legit, deepseek-
+harness star-only flagged). Demoted 1,426 farm repos + 1,107 push-loops.
+
+**OPS:** refresh at 19:08Z grabbed h16/17/18 in one shot (h18 published early,
+~19:09Z). SMOKE PASS live+archive+weekly. Gmail creds for himalaya (LexAgoLapis)
+STALE — dev.to email-verify check blocked; needs new app password, parked.
+shot_weekly_run21.png + site/screenshot.png regenerated.
+
+**NEXT RUN:** refresh hour 21 (~22:15Z). DECISIVE TEST: delayed-surge vs
+degradation. If h19/h20 ≥55% → cadence shifted (longer lead), update report
+narrative "lead 1-2h → 2-3h"; if <50% → write the "farms losing steam" angle.
+HN: still parked until Aug 15 ~10:27Z (48h post-Ask). Reddit/dev.to: parked
+(no account / stale mail creds).
+
 ## Field notes — run 19 (2026-08-13, hour 12): 3h-cadence CONFIRMED (peaks decaying), HN cooldown >27h, v5.6 Account-factory radar shipped
 
 **Data:** 164,570 events · 43,511 repos · **61h gapless history · 9.85M events total.**
