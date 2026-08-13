@@ -61,6 +61,44 @@ for (const h of hours) {
 const farmList = [...farms.values()]
   .sort((a, b) => b.hours_seen - a.hours_seen || b.max_pushes - a.max_pushes);
 
+// ---------- cadence & account factory (v5.7) ----------
+// spam peaks = local maxima >= 50% of push_spam_pct
+const peaks = [];
+for (let i = 1; i < series.length - 1; i++) {
+  const a = series[i - 1], b = series[i], c = series[i + 1];
+  if (b.spam >= 50 && b.spam > a.spam && b.spam >= c.spam) peaks.push(b);
+}
+// new-account batches = farm-ledger actors by first_seen hour
+const LEDGER = path.join(ROOT, 'site', 'data', 'farm_actors.json');
+const batchByHour = {};
+let ledgerCount = 0;
+try {
+  const ledger = JSON.parse(fs.readFileSync(LEDGER, 'utf8'));
+  ledgerCount = Object.keys(ledger).length;
+  for (const e of Object.values(ledger)) {
+    const hrs = (e.hours || []).slice().sort((x, y) => parseInt(x.split('-')[3], 10) - parseInt(y.split('-')[3], 10));
+    if (hrs[0]) batchByHour[hrs[0]] = (batchByHour[hrs[0]] || 0) + 1;
+  }
+} catch (e) { /* ledger unavailable -> cadence panel degrades to peaks only */ }
+const hourNum = h => parseInt(h.split('-')[3], 10);
+const padH = h => { const p = h.split('-'); p[3] = String(hourNum(h)).padStart(2, '0'); return p.join('-'); };
+const batchAt = h => batchByHour[h] || batchByHour[padH(h)] || 0;
+const cadenceRows = peaks.map(pk => {
+  const hh = hourNum(pk.hour), day = pk.hour.slice(0, 10);
+  let lead = null, maxBatch = 0, leadBatch = 0;
+  for (let k = 0; k <= 4; k++) {
+    const b = batchAt(day + '-' + String(hh - k));
+    if (b > maxBatch) maxBatch = b;
+    if (b >= 500 && lead === null) { lead = k; leadBatch = b; }
+  }
+  return { hour: pk.hour, label: pk.hour.slice(5), spam: pk.spam, lead, leadBatch, maxBatch };
+});
+const factorySurges = cadenceRows.filter(r => r.lead !== null).length;
+const leadAvg = (() => {
+  const ls = cadenceRows.filter(r => r.lead !== null).map(r => r.lead);
+  return ls.length ? (ls.reduce((a, b) => a + b, 0) / ls.length).toFixed(1) : 'n/a';
+})();
+
 // all-time languages (summed event-weight per hour it charted)
 const langs = new Map();
 for (const h of hours) {
@@ -98,6 +136,12 @@ const esc = (s) => String(s == null ? '' : s)
   .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 const fmt = (x) => Math.round(x).toLocaleString('en-US');
 const pct = (x) => (Math.round(x * 10) / 10).toFixed(1) + '%';
+
+// cadence table rows (built after esc/fmt exist)
+const cadenceTable = cadenceRows.slice(-10).reverse().map(r =>
+  `<tr><td class="mono">${esc(r.label)}</td><td class="mono">${r.spam}%</td>` +
+  `<td class="mono">${r.lead === null ? '—' : r.lead + 'h'}</td><td class="mono">${r.leadBatch ? fmt(r.leadBatch) : (r.maxBatch ? '≤' + fmt(r.maxBatch) : '—')}</td></tr>`
+).join('');
 
 // inline SVG sparkline/line chart — returns <svg> string
 function lineChart(series, opts) {
@@ -163,6 +207,7 @@ const timeline = [
   { when: 'Aug 12 · hour 18', title: 'Star-bomb radar (v5.2)', body: 'With pushes (×0.05–0.3), self-PRs and issue-loops (×0.3) all demoted, stars are the last untaxed heat vector (×8) — so star-bombing became the predicted next adaptation. The radar tracks pure-watcher accounts (whose only activity all hour is starring) and bare repos (stars with zero pushes/PRs/issues/releases). A ≥5-star burst appearing out of nowhere, or ≥2 watchers co-starring multiple bare repos, is demoted ×0.3 as a star-loop; anything ambiguous gets an informational 🔭 star-only badge instead of punishment. Historical replay: spinabot/brigade (7★, 7 lurker watchers, out of nowhere) WOULD have been caught; guillaumemeyer/watermarks-remover (4★) stays informational; famous repos (transformers, firecrawl) are never touched.' },
   { when: 'Aug 13 · hour 0', title: 'The bot-loop (v5.3)', body: 'The chart\'s quiet blind spot: a repo hot ONLY because release/CI automation churns pushes. TimSchoenle/actions hit #1 with 55 pushes from 3 shared [bot] accounts and zero human touch — indistinguishable from a farm by the ≤2-actor rules. New tier: zero non-bot actors + zero human signal + ≥10 pushes → 🤖 bot-loop, demoted ×0.3, never called a farm. Bonus: farms laundering pushes through GitHub Actions under a clean-looking owner now can\'t rank either.' },
   { when: 'Aug 13 · hour 3', title: 'The bot-review loophole (v5.4)', body: 'The bot-loop rule had a crack a day old: reviews counted as human signal no matter who wrote them. TimSchoenle/actions came back with 49 pushes from 4 all-bot actors (renovate[bot], actions-maintenance-bot[bot], automatic-release-manager[bot], github-actions[bot]) — and one bot-authored review was enough to keep it off the bot-loop tier and at #5 hottest. Fix: review authors are now tracked per repo; bot reviews and self-reviews (authored by the repo\'s own pushers — Wonder0208/androidtest was trying exactly that, 42 pushes + 1 self-review) count as zero human signal. Same hour both slipped through got caught: the chart is back to human repos (bun, vm0, EaseMotion-css).' },
+  { when: 'Aug 13 · hours 6–15', title: 'The 3-hour cadence (v5.7)', body: 'The spam share stops drifting and starts pulsing: 66.2% → 62.8% → 53.0% → 60.2%, a surge every ~3 hours with 23–40% lulls between. The 4th peak rebounded — not a farm in retreat. And the engine is visible: each surge is preceded within 1–2 hours by a minting run of ≥500 freshly-created throwaway accounts (1,122 + 1,820 in the two hours before the 66.2% peak). Aug 11\'s peaks had almost no fresh accounts — fleet rotation. Aug 12 onward: mint-and-burn. Twelve ledger actors have now been seen in every single hour of the 64-hour window.' },
 ];
 
 // ---------- page ----------
@@ -293,7 +338,16 @@ td a:hover{color:var(--accent)}
   </section>
 
   <section class="panel">
-    <div class="panel-head"><h2><span class="h-num">03</span> The star-bomb radar</h2><span class="panel-sub">v5.2 — watching the last untaxed heat vector</span></div>
+    <div class="panel-head"><h2><span class="h-num">03</span> The 3-hour cadence &amp; the account factory</h2><span class="panel-sub">v5.7 — the farms don't drift, they pulse; and the minting run comes first</span></div>
+    <div class="lede">Since Aug 12 the spam share has stopped wandering and started <b>pulsing</b>: 66.2% → 62.8% → 53.0% → 60.2% — a surge every ~3 hours with 23–40% lulls between. The 4th peak <i>rebounded</i> (60.2% &gt; 53.0%), so this is not a farm in retreat; it's an operating rhythm. The engine is visible in the ledger: <b>${factorySurges} of ${cadenceRows.length} surges (≥50%) had a minting run of ≥500 freshly-created throwaway accounts within 4 hours prior</b>, average lead <b>${leadAvg}h</b> — accounts are minted, then deployed to push repos. Aug 11's peaks had almost no fresh accounts (fleet rotation); Aug 12 onward it's mint-and-burn. The ledger now holds ${fmt(ledgerCount)} actors, 12 of them seen in <i>every</i> hour of the ${n}-hour window.</div>
+    <table style="margin-top:14px">
+      <tr><th>surge (peak hour)</th><th class="mono">spam %</th><th class="mono">lead time</th><th class="mono">factory batch</th></tr>
+      ${cadenceTable}
+    </table>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h2><span class="h-num">04</span> The star-bomb radar</h2><span class="panel-sub">v5.2 — watching the last untaxed heat vector</span></div>
     <div class="lede">Every heat vector the farms ever used — pushes, self-PRs, self-issues — now demotes them. That leaves <b>stars</b> (×8 heat) as the only remaining way to rank a repo, so star-bombing is the predicted next adaptation. The radar counts <b>pure-watcher accounts</b> (their only activity all hour is starring) and flags <b>bare repos</b> (stars with zero pushes/PRs/issues/releases). A repo whose stars come from co-starring lurker clusters, known-farm actors, or a ≥5★ burst that appears out of nowhere is demoted ×0.3 as a <b>star-loop</b>; ambiguous cases get an informational 🔭 badge instead of punishment — a legit viral repo is identical to a bomb for one hour, and we refuse to hide real launches.</div>
     ${curRadar ? `<div class="stats" style="margin:18px 0">
       <div class="stat"><div class="stat-num">${curRadar.loops}</div><div class="stat-label">star-loops demoted (latest hour)</div></div>
@@ -309,14 +363,14 @@ td a:hover{color:var(--accent)}
   </section>
 
   <section class="panel">
-    <div class="panel-head"><h2><span class="h-num">04</span> The arms race</h2><span class="panel-sub">they read the radar and adapt — so does the radar</span></div>
+    <div class="panel-head"><h2><span class="h-num">05</span> The arms race</h2><span class="panel-sub">they read the radar and adapt — so does the radar</span></div>
     <div class="tl">
       ${timeline.map(t => `<div class="tl-item"><div class="when">${esc(t.when)}</div><h3>${esc(t.title)}</h3><p>${esc(t.body)}</p></div>`).join('')}
     </div>
   </section>
 
   <section class="panel">
-    <div class="panel-head"><h2><span class="h-num">05</span> Anatomy of a push-farm</h2></div>
+    <div class="panel-head"><h2><span class="h-num">06</span> Anatomy of a push-farm</h2></div>
     <div class="anatomy">
       <div class="an"><div class="k">accounts</div><p>Auto-generated names — word + digits (<span class="mono">smithhoward5868</span>, <span class="mono">conleyricky202</span>), or bulk prefixes (<span class="mono">trnfvn-</span>, <span class="mono">brnfvn-</span>).</p></div>
       <div class="an"><div class="k">repos</div><p>Fresh gibberish names, one per account or rotating. Zero stars, forks, issues, PRs, or releases — no human ever touches them.</p></div>
@@ -329,7 +383,7 @@ td a:hover{color:var(--accent)}
   </section>
 
   <section class="panel">
-    <div class="panel-head"><h2><span class="h-num">06</span> What survives the noise</h2><span class="panel-sub">the human GitHub is still in there</span></div>
+    <div class="panel-head"><h2><span class="h-num">07</span> What survives the noise</h2><span class="panel-sub">the human GitHub is still in there</span></div>
     <div class="lede">Repos that kept charting in the top-25 hottest across many hours, and the languages with the most event-weight. The farms can flood the raw push count, but they cannot fake a PR, a review, or a star — the human signal survives.</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px" class="two-col">
       <div>
@@ -350,7 +404,7 @@ td a:hover{color:var(--accent)}
   </section>
 
   <section class="panel">
-    <div class="panel-head"><h2><span class="h-num">07</span> Method &amp; limits</h2></div>
+    <div class="panel-head"><h2><span class="h-num">08</span> Method &amp; limits</h2></div>
     <div class="lede">Every hour the full GH Archive file for that hour is streamed (~150–170K events) and aggregated with zero dependencies. Spam judgement uses: absence of human interaction signals (PRs/issues/stars/forks/releases), actor counts, account-name fingerprints, and a persistent farm ledger with a 48-hour TTL (repos rotate, accounts persist).</div>
     <div class="note"><b>Honest caveats:</b> we see public events only — private activity, deleted repos and suspended accounts are invisible; Actions-generated traffic is a real signal source, so bots with <span class="mono">[bot]</span> suffixes are excluded unless they show farm behaviour; the percentage is of <i>pushes</i>, not events; and the farms adapt, so these numbers are a lower bound on the true share. Spam share may therefore be understated, not overstated.</div>
   </section>
