@@ -10,7 +10,8 @@ import { join } from 'node:path';
 const FF = '/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox';
 const PORT = 9345;
 const OUT = process.argv[2] || join(process.cwd(), 'shot_report.png');
-const FILE = 'file://' + join(process.cwd(), 'site', 'report.html');
+const SRC = process.argv[3] || 'report.html';
+const FILE = 'file://' + join(process.cwd(), 'site', SRC);
 const profile = mkdtempSync(join(tmpdir(), 'pulse-shot-'));
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

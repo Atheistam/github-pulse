@@ -47,6 +47,10 @@ const totalDemoted = series.reduce((a, s) => a + s.demoted, 0);
 const totalSuspicious = series.reduce((a, s) => a + s.suspicious, 0);
 const totalBotLoop = series.reduce((a, s) => a + (s.botLoop || 0), 0);
 
+// farm-wave phase from the last hours of spam share
+const { classifyWave } = require('./wave.cjs');
+const wave = classifyWave(series);
+
 // hot-chart regulars: sustained presence across the window
 const hot = new Map();
 for (const h of hours) {
@@ -276,6 +280,7 @@ td a:hover{color:var(--accent)}
       <div class="stat"><div class="stat-num">${fmt(totalEvents)}</div><div class="stat-label">events ingested</div></div>
       <div class="stat"><div class="stat-num">${fmt(totalRepos)}</div><div class="stat-label">repo-hours seen</div></div>
       <div class="stat"><div class="stat-num ${cur.spam > 50 ? 'warn' : 'good'}">${pct(cur.spam)}</div><div class="stat-label">push spam · latest hour</div></div>
+      <div class="stat"><div class="stat-num ${wave.phase === 'SURGING' || wave.phase === 'PEAK' ? 'warn' : ''}">${wave.emoji} ${wave.phase}</div><div class="stat-label">farm wave · ${wave.delta >= 0 ? '+' : ''}${wave.delta}pt/1h</div></div>
       <div class="stat"><div class="stat-num ${avgSpam > 50 ? 'warn' : ''}">${pct(avgSpam)}</div><div class="stat-label">avg spam share</div></div>
       <div class="stat"><div class="stat-num warn">${fmt(totalDemoted)}</div><div class="stat-label">farm repos demoted</div></div>
       <div class="stat"><div class="stat-num gold">${farmList.length}</div><div class="stat-label">persistent farms</div></div>
@@ -284,7 +289,7 @@ td a:hover{color:var(--accent)}
 
   <div class="panel">
     <div class="panel-head"><h2>Spam pressure</h2><span class="h-num">push_spam_pct / hour</span></div>
-    <div class="panel-sub">Share of ALL push events that came from confidently-flagged push-farm repos. Peak ${pct(maxSpam.spam)} at ${maxSpam.label}.</div>
+    <div class="panel-sub"><b>${wave.emoji} ${wave.phase}</b> — ${wave.desc}. Peak ${pct(maxSpam.spam)} at ${maxSpam.label}. Farms ebb and flow in synchronized bursts; the wave classifier reads the last 2 hours of the series.</div>
     ${lineChart(series, { key: 'spam', color: '#f87171', unit: '%', fill: true, label: 'spam share per hour' })}
   </div>
 

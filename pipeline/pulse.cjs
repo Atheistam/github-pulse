@@ -35,6 +35,7 @@ const path = require('path');
 const SITE_DATA = path.join(__dirname, '..', 'site', 'data');
 const HIST_DIR = path.join(SITE_DATA, 'history');
 const MAX_BACKFILL = Number(process.env.MAX_BACKFILL || 12); // max missing hours to fetch in one run
+const { classifyWave } = require('../scripts/wave.cjs');
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -1025,6 +1026,22 @@ async function main() {
     fs.writeFileSync(FARM_FILE, JSON.stringify(out));
   }
   const digest = buildDigest(snap);
+  // Attach farm-wave phase (current hour + previous hour from disk) and
+  // surface it in the Telegram-ready text right before bot watch.
+  {
+    const waveSeries = [{ hour: snap.hour, spam: snap.push_spam_pct || 0 }];
+    try {
+      const prevF = path.join(HIST_DIR, `${prevHourLabel(snap.hour)}.json`);
+      if (fs.existsSync(prevF)) {
+        const p = JSON.parse(fs.readFileSync(prevF, 'utf8'));
+        waveSeries.unshift({ hour: p.hour, spam: p.push_spam_pct || 0 });
+      }
+    } catch {}
+    const wave = classifyWave(waveSeries);
+    digest.wave = wave;
+    const waveLine = `🌊 farm wave: ${wave.phase} (${wave.delta >= 0 ? '+' : ''}${wave.delta}pt/1h → ${wave.last}% of pushes are spam)`;
+    digest.text = digest.text.replace('🤖 bot watch:', waveLine + '\n🤖 bot watch:');
+  }
   fs.writeFileSync(path.join(SITE_DATA, 'digest.json'), JSON.stringify(digest));
   writeRss();
   console.log(`[pulse] wrote snapshot.json + digest.json (events=${snap.events}, repos=${snap.repos_seen})`);

@@ -103,7 +103,8 @@ try {
     hasCharts: document.querySelectorAll('svg.chart').length,
     tableRows: document.querySelectorAll('table tr').length,
     hasSpam: document.body.textContent.includes('Spam pressure'),
-    hasFarms: document.body.textContent.includes('Farm evolution')
+    hasFarms: document.body.textContent.includes('Farm evolution'),
+    hasWave: document.body.textContent.includes('farm wave')
   })`);
 
   ws.close();
@@ -123,6 +124,7 @@ try {
   if (!weeklyObj.tableRows) fails.push('weekly: no table rows');
   if (!weeklyObj.hasSpam) fails.push('weekly: missing spam panel');
   if (!weeklyObj.hasFarms) fails.push('weekly: missing farm panel');
+  if (!weeklyObj.hasWave) fails.push('weekly: missing farm-wave chip');
 
   console.log('== archive ==', arch);
   console.log('== live ==', live);

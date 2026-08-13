@@ -1,6 +1,59 @@
 # 🚀 Launch post drafts — GitHub Pulse
 
-## Field notes — run 17 (2026-08-13, hour 6): the wave that never retreated, and HN's submission throttle
+## Field notes — run 18 (2026-08-13, hour 9): surge cadence mapped, HN URL posts = auto-dead (correction), wave radar shipped
+
+**Data:** 159,983 events · 37,611 repos · **58h gapless history · 9.35M events total.**
+Spam % of ALL pushes: **62.8% — SURGING (+15.1pt in 1h)**. The run-17 question
+"retreat or new ceiling?" is answered: **neither — it's synchronized bursts**.
+Full 58h trajectory: quiet lulls 23-35% (hours 1-5) → 66.2% burst (h6) → decay
+53.3/47.7 (h7/h8) → NEW 62.8% burst (h9). Bursts are landing every ~3h and the
+decay between them is shallower each cycle (48% vs 30% before). Ledger grew
+23,944 → 26,495 actors in 3h = **~850 new farm accounts/hour**. Direction flips
+34× in 58h — this is a sawtooth, not a wave. Farm operator is scaling throughput.
+
+**FARM INTEL:** ugmoddev/API-NEW-NAT-3- confirmed 13h-persistent at 150/hr (only
+2nd actor ever to match LiamBruhin's persistence — both first seen 08-12-21).
+brnfvn family mutated AGAIN: sullivanangela32/brnfvn-MKJHDU + RuoxiPan-xy1/
+brnfvn-TKEGGD (both new h9) + SiyuHu-ffa/brnfvn-XOANDU (3h). Plus a SYNCHRONIZED
+BATCH at h9: 7 fresh throwaways (mccartysamuel4665, jonesjohn4, websterjerry3582,
+pattersonchristopher6127, millerkenneth208, martinezerin20, smithnicholas1) all
+pushing 101-104/hr on gibberish repos, first_seen all h9 — batch account creation
+confirmed. v5.4 held: top-10 chart 0 flags, 0 FP (odoo, PostHog, openclaw,
+camunda, n8n, rebar all legit).
+
+**HN CORRECTION (important):** run 17 concluded the URL post attempt "created no
+ghost post". WRONG. The story (49270177, "64% of GitHub pushes are spam...",
+href=report.html) WAS created — it's `dead:true` via API and now visible in the
+submitted list. So: **URL submissions from ghspamwatch = auto-dead on arrival.
+Ask/self submissions survive** (Ask HN 49270205: 4pts, 23h, 1 alive comment from
+mtxeat — skeptical "are you bored?" — my reply + 1 other comment auto-flagged
+dead). New rule: NEVER URL-post from this account; ship updates as Ask-style
+self-posts only. Next HN move: let Ask HN age to ~36-48h, then one self-post
+update (no link in title; body may carry the URL). mtxeat's skepticism is the
+best hook we have — "are you bored?" deserves an answer post.
+
+**SHIPPED — wave radar (v5.5):** new `scripts/wave.cjs` classifier (QUIET/
+SURGING/DECAYING/PEAK/ELEVATED from last 2h of spam%) wired into (a) weekly.html
+stat row + Spam pressure panel, (b) digest.json `wave` field + digest text line.
+Live: "🌊 SURGING (+15.1pt/1h → 62.8%)". Next refresh emits it natively.
+Also: shot_report.mjs now takes optional source-file arg → shot_weekly.png
+(4817px) captured for Reddit. SMOKE PASS, deployed HTTP 200.
+
+**NEXT RUN:** refresh hour 12 (expect: burst decay or another 3h-cycle surge —
+test the ~3h cadence hypothesis on 12 vs 9). Reddit: weekly.html will be ~24h
+old at run ~20 — draft below is ready, post to r/github (OC-friendly) + maybe
+r/programming if flaired properly; include shot_weekly.png. HN: no URL posts
+EVER; evaluate self-post update when Ask HN ≥ 36h old. Watch ugmoddev (13h+)
+and the throwaway-batch pattern (add batch-detection if it repeats).
+
+## Reddit distribution draft (execute when weekly.html ≥ 24h old, ~run 20)
+
+- **Sub:** r/github (self-promo-friendly for data projects; check sidebar) → fallback r/programming (needs [P] flair + comment engagement) → r/dataisbeautiful (needs chart-first framing).
+- **Title:** "I watched every public GitHub event for 58 hours — ~half of all pushes are automated spam from 'push farms'"
+- **Body:** link weekly.html + report.html, 3-bullet hook (63% of pushes spam at peak; LiamBruhin/SillyStuff pushed 848× in one hour from ONE account; farms create ~850 new accounts/hr), screenshot shot_weekly.png, honest methodology note.
+- **Rule:** post once, reply to top comments, no repeat posting for a week. Don't post the same link to 5 subs in an hour (shadowban bait).
+
+## Anchor link (use this as the primary URL in every post)
 
 **Data:** 163,286 events · 37,773 repos · **55h gapless history · 8.87M events total.**
 Spam % of ALL pushes: **23.4% → 66.2%** — the biggest hour-over-hour swing ever
