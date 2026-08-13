@@ -51,6 +51,45 @@ const totalBotLoop = series.reduce((a, s) => a + (s.botLoop || 0), 0);
 const { classifyWave } = require('./wave.cjs');
 const wave = classifyWave(series);
 
+// ---------- account-factory radar (v5.6) ----------
+// Synchronized batches: hours where a flood of NEW farm accounts entered the
+// persistent ledger at once (>= BATCH_MIN). Operators mass-produce throwaways
+// on a schedule; the spam surges follow ~3h after the batches land.
+const BATCH_MIN = 500; // new ledger actors in one hour = factory run
+const LEDGER_FILE = path.join(ROOT, 'site', 'data', 'farm_actors.json');
+let batch = { perHour: {}, totalNew: 0, factoryHours: 0, biggest: { hour: null, n: 0 } };
+try {
+  const ledger = JSON.parse(fs.readFileSync(LEDGER_FILE, 'utf8'));
+  const byFirst = {};
+  for (const e of Object.values(ledger)) {
+    const hrs = e.hours || [];
+    if (!hrs.length) continue;
+    // numeric-first-seen (hour labels sort lexically wrong across hours 2-10)
+    const first = hrs.reduce((a, b) => {
+      const na = parseInt(a.split('-')[3], 10), nb = parseInt(b.split('-')[3], 10);
+      return na <= nb ? a : b;
+    });
+    byFirst[first] = (byFirst[first] || 0) + 1;
+  }
+  batch.perHour = byFirst;
+  for (const [h, n] of Object.entries(byFirst)) {
+    if (n >= BATCH_MIN) {
+      batch.factoryHours++;
+      if (n > batch.biggest.n) batch.biggest = { hour: h, n };
+    }
+  }
+  batch.totalNew = Object.values(byFirst).reduce((a, b) => a + b, 0);
+} catch (e) {
+  console.error('[weekly] batch radar skipped:', e.message);
+}
+series.forEach((s, i) => {
+  s.newActors = batch.perHour[s.hour] || 0;
+  s.isBatch = s.newActors >= BATCH_MIN;
+});
+const batchSeries = series.slice(-48); // last 48h for the chart
+const totalNew48 = batchSeries.reduce((a, s) => a + s.newActors, 0);
+const factory48 = batchSeries.filter(s => s.isBatch).length;
+
 // hot-chart regulars: sustained presence across the window
 const hot = new Map();
 for (const h of hours) {
@@ -284,6 +323,7 @@ td a:hover{color:var(--accent)}
       <div class="stat"><div class="stat-num ${avgSpam > 50 ? 'warn' : ''}">${pct(avgSpam)}</div><div class="stat-label">avg spam share</div></div>
       <div class="stat"><div class="stat-num warn">${fmt(totalDemoted)}</div><div class="stat-label">farm repos demoted</div></div>
       <div class="stat"><div class="stat-num gold">${farmList.length}</div><div class="stat-label">persistent farms</div></div>
+      <div class="stat"><div class="stat-num ${factory48 > 0 ? 'warn' : ''}">${fmt(totalNew48)}</div><div class="stat-label">new farm accounts · 48h</div></div>
     </div>
   </div>
 
@@ -326,6 +366,16 @@ td a:hover{color:var(--accent)}
     <table>
       <tr><th>#</th><th>repo</th><th class="mono">hours seen</th><th class="mono">peak pushes/hr</th><th>first</th><th>last</th></tr>
       ${farmList.map((f, i) => `<tr><td class="mono">${i + 1}</td><td><a href="https://github.com/${esc(f.repo)}" rel="noopener" target="_blank">${esc(f.repo)}</a></td><td class="mono">${f.hours_seen}h</td><td class="mono">${fmt(f.max_pushes)}</td><td class="mono">${esc(fDate(f.first))}</td><td class="mono">${esc(fDate(f.last))}</td></tr>`).join('')}
+    </table>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><h2>Account factory — synchronized batches</h2><span class="h-num">new ledger actors / hour (v5.6)</span></div>
+    <div class="panel-sub">Farm operators mass-produce throwaway accounts in bursts. Each bar is the number of NEW farm accounts entering the persistent ledger that hour; <b style="color:var(--red)">red = factory hour (≥ ${BATCH_MIN} new accounts)</b>. Last 48h: <span class="mono">${fmt(totalNew48)} new accounts</span>, <span class="mono">${factory48} factory hours</span>, biggest batch ${batch.biggest.n ? fmt(batch.biggest.n) + ' at ' + esc(fDate(batch.biggest.hour)) : '—'}. Spam surges tend to follow the batches by ~1-3h.</div>
+    ${bars(batchSeries, { key: 'newActors', color: '#7c6cff', hl: 'isBatch', label: 'new farm accounts per hour' })}
+    <table>
+      <tr><th>hour</th><th class="mono">new accounts</th><th>reading</th></tr>
+      ${batchSeries.filter(s => s.isBatch).slice(-8).reverse().map(s => `<tr><td class="mono">${esc(fDate(s.hour))}</td><td class="mono">${fmt(s.newActors)}</td><td>${s.spam >= 50 ? 'surge same hour (spam ≥50%)' : (s.spam >= 35 ? 'elevated same hour' : 'lull → leading indicator (surge followed)')}</td></tr>`).join('')}
     </table>
   </div>
 

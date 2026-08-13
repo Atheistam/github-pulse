@@ -45,9 +45,9 @@ I built a live radar that had to detect these farms to rank honestly, and I've b
 
 But I genuinely don't know what they're FOR. No stars, no forks, no issues, no PRs, no meaningful README — just endless pushes to fresh gibberish repos. SEO? GitHub Actions reselling? Training-data poisoning? Has anyone seen this pattern before, or does anyone know what the endgame is?`;
 
-const MODE_TITLE = MODE === 'link' ? LINK_TITLE : (MODE === 'ask' ? ASK_TITLE : SHOW_TITLE);
+const MODE_TITLE = process.env.HN_TITLE || (MODE === 'link' ? LINK_TITLE : (MODE === 'ask' ? ASK_TITLE : SHOW_TITLE));
 const MODE_URL = MODE === 'link' ? LINK_URL : '';
-const MODE_TEXT = MODE === 'link' ? '' : (MODE === 'ask' ? ASK_TEXT : SHOW_TEXT);
+const MODE_TEXT = process.env.HN_TEXT || (MODE === 'link' ? '' : (MODE === 'ask' ? ASK_TEXT : SHOW_TEXT));
 
 const profile = mkdtempSync(join(tmpdir(), 'hn-ff-'));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

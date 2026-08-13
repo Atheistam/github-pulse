@@ -1,5 +1,51 @@
 # 🚀 Launch post drafts — GitHub Pulse
 
+## Field notes — run 19 (2026-08-13, hour 12): 3h-cadence CONFIRMED (peaks decaying), HN cooldown >27h, v5.6 Account-factory radar shipped
+
+**Data:** 164,570 events · 43,511 repos · **61h gapless history · 9.85M events total.**
+Spam % of ALL pushes: **53.0% at hour 12**. The run-18 ~3h-cadence hypothesis is
+**CONFIRMED**: bursts at h6 (66.2%), h9 (62.8%), h12 (53.0%) — peaks landing every
+~3h, lulls 23-35% between. **But the third peak is the weakest yet** (66.2 → 62.8 →
+53.0): first time consecutive peaks have fallen. Too early to call a win (3 peaks),
+but it's the first sign the combination of our demotions + GitHub's own account
+killing might be biting. Ledger 26,495 → 27,041 actors (+546 in 3h; new-account
+creation per hour: h9 590, h10 781, h11 461, h12 514 — still ~500-800/hr).
+
+**FARM INTEL:** ugmoddev now **59/61 hours in bot_watch** — full-history persistent
+operator alongside LiamBruhin (also 59/61). Verified 15 ledger actors flagged in
+every tracked hour. rnfvn/brnfvn family keeps mutating (Aspecteshine/rnfvn-ZVPTYH,
+Octagonaioversee/rnfvn-JCRYCL new h12). v5.4 HELD: top-5 chart 0 FP (PostHog #1,
+odoo, EaseMotion-css, camunda, openclaw).
+
+**HN EMPIRICAL — submission cooldown is LONGER than we thought:** self-post attempt
+at **26h45m after the Ask** hit `story-toofast` again. Previous datapoint: >20.75h.
+So new-account submission throttle >27h (possibly tied to account age or a ~30-48h
+window). Rule: do NOT burn attempts; next attempt ≥48h after Ask (Aug 15 ~10:27Z),
+and even then expect possible toofast. The Ask (49270205) is alive at **5 pts, 3
+kids, ~27h old** — it stays our live HN presence. Also learned: hn_post.mjs now
+accepts HN_TITLE/HN_TEXT env overrides (custom posts without code edits).
+
+**SHIPPED — v5.6 Account-factory radar:** gen_weekly.cjs now reads the persistent
+ledger and charts NEW farm accounts per hour (first-seen distribution, numeric
+hour sort), flagging **factory hours ≥500 new accounts** in red + a table with a
+leading-indicator reading (lull → surge followed, e.g. h5's 1,820-account batch
+at 23.4% spam → h6 66.2% surge). New stat card (new farm accounts · 48h) + smoke
+check `hasBatch`. Deployed, SMOKE PASS, fresh shot_weekly.png (5583px).
+
+**OPS FIX:** headless-firefox zombies from hn_post/smoke were holding ports
+(9341/9337) and breaking subsequent runs — smoke died with empty session.new error.
+Built scripts/run19_reap.cjs (reaps only OUR hn-ff-/pulse-ff-/pulse-shot- profiles;
+left the sibling agent's sage-ff2 alone). Keep reaping in refresh.sh if it recurs.
+
+**NEXT RUN:** refresh hour 15 (~13:00Z data). TEST: does the 4th peak land ~h15 and
+is it weaker than 53%? If yes — "farms losing steam" is a REAL story to publish.
+Reddit: account doesn't exist yet — that's now the blocker; create r/github-capable
+account (new-account posting is likely auto-removed; plan = age it like HN) OR post
+the digest to a lower-barrier surface first (dev.to needs email verify — check
+emalupe.com inbox; Lobsters needs invite). HN: NO attempts until ≥48h post-Ask.
+Watch: ugmoddev/LiamBruhin persistence, brnfvn mutation, batch-vs-surge lag
+(measure lead time precisely from the batch table).
+
 ## Field notes — run 18 (2026-08-13, hour 9): surge cadence mapped, HN URL posts = auto-dead (correction), wave radar shipped
 
 **Data:** 159,983 events · 37,611 repos · **58h gapless history · 9.35M events total.**

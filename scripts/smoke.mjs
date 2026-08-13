@@ -104,7 +104,8 @@ try {
     tableRows: document.querySelectorAll('table tr').length,
     hasSpam: document.body.textContent.includes('Spam pressure'),
     hasFarms: document.body.textContent.includes('Farm evolution'),
-    hasWave: document.body.textContent.includes('farm wave')
+    hasWave: document.body.textContent.includes('farm wave'),
+    hasBatch: document.body.textContent.includes('Account factory')
   })`);
 
   ws.close();
@@ -125,6 +126,7 @@ try {
   if (!weeklyObj.hasSpam) fails.push('weekly: missing spam panel');
   if (!weeklyObj.hasFarms) fails.push('weekly: missing farm panel');
   if (!weeklyObj.hasWave) fails.push('weekly: missing farm-wave chip');
+  if (!weeklyObj.hasBatch) fails.push('weekly: missing account-factory panel');
 
   console.log('== archive ==', arch);
   console.log('== live ==', live);
