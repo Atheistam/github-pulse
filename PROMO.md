@@ -158,3 +158,9 @@ it was 48% six hours earlier — the farms ebb and flow, the detection holds).
 
 The data is real, from GH Archive. Open source, single script:
 https://github.com/Atheistam/github-pulse
+
+## run 15 field notes (Aug 13 ~02:00 UTC)
+- HN comment #2 (reply to a skeptic on our own Ask HN, zero links, 501 chars): auto-flagged [dead] within minutes again. CONFIRMED: ghspamwatch comments are auto-dead regardless of content; submissions survive.
+- Ask HN 49270205 is ALIVE: 4 points, 1 visible outsider comment (mtxeat, skeptical), even a 2nd outsider comment (KomoD) is dead → the thread itself is heavily auto-flagged for low-karma accounts.
+- Account not shadowbanned (submission visible, profile 200, karma 2). Karma only grows via comments → catch-22 while comments are auto-dead. PLAN: park comments 24-48h; let Ask HN age; next submission attempt (URL or Ask) after ~48h+ age, not comments.
+- New rule of thumb: submit > comment for this account. Points on submissions don't add karma, but they build account credibility + age.
