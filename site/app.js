@@ -41,7 +41,9 @@
             ? ' <span class="flag flag-loop" title="suspicious star-loop: repo whose ONLY activity is stars — from ≥2 co-starring lurker clusters, known-farm actors, or a ≥5-star burst appearing out of nowhere. The star-bomb fingerprint. Demoted.">⚠️ star-loop</span>'
             : r.flag === 'star-only'
               ? ' <span class="flag flag-star" title="star-only: repo with ≥3 pure-watcher stars and zero other activity — looks like a viral launch OR a star-bomb. Informational: NOT demoted while evidence is ambiguous.">🔭 star-only</span>'
-              : r.flag === 'ci-demo'
+              : r.flag === 'bot-loop'
+                ? ' <span class="flag flag-demo" title="bot-loop: repo hot ONLY because shared platform bots (release/CI automation) churn pushes — zero non-bot actors, zero human signal. Demoted ×0.3; automation, not a farm.">🤖 bot-loop</span>'
+                : r.flag === 'ci-demo'
                 ? ' <span class="flag flag-demo" title="CI demo repo: push-heavy from few actors — demoted in heat">🧪 ci-demo</span>'
                 : '';
     return `<div class="repo-cell"><a class="repo-name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.repo)}</a>${flag}${desc}</div>`;

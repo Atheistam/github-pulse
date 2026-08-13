@@ -5,13 +5,55 @@
     <link>https://github-pulse.surge.sh/</link>
     <description>The busiest hour on GitHub, ranked: hottest repos, human signal, languages, releases and bot farms — fresh from the GH Archive every hour.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Aug 2026 19:17:48 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 02:04:52 GMT</lastBuildDate>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-13-0</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-13-0</guid>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-13-0<br/>164,364 events · 59,096 repos<br/>vs 2026-08-12-23: -1.5% events<br/><br/>🔥 HOTTEST:<br/>  TimSchoenle/actions-testing — heat 58 (75 pushes, 1 PRs, +0★, 1👥) 🆕<br/>  navapbc/rebar — heat 47 (38 pushes, 0 PRs, +0★, 3👥) ▲2<br/>  PostHog/posthog — heat 40 (25 pushes, 0 PRs, +0★, 5👥)<br/>  darwinandres23213/proyecto_ficha_3064241 — heat 40 (5 pushes, 1 PRs, +0★, 10👥) 🆕<br/>  kirodotdev/KiroCrew — heat 39 (10 pushes, 1 PRs, +0★, 8👥) ▲10<br/><br/>👤 busiest: github-actions[bot] (21554 events)<br/>🧠 human top: JoshCLWren/comic-pile (0 PRs, 7 issues, +0★)<br/>🗣 top language: Python<br/>🚀 releases: 20 (sageview/italics-releases v0.1.9)<br/>🤖 bot watch: 15 push-farms · 43.6% of all pushes are spam — top: LiamBruhin/SillyStuff (656 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 45 pure-watcher accounts<br/>🤖 bot-driven: 1 repos (pure automation churn, demoted ×0.3) — top: TimSchoenle/actions<br/>🧟 botnet watch: 13 persistent farms (13+ hrs) — top: LiamBruhin/SillyStuff (seen 13h, 763 pushes/hr)<br/>🚫 demoted 638 farm repos (+890 suspicious push-loops) from heat — top: LiamBruhin/SillyStuff (656 pushes, 1👥, push-bot)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-12-23</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-12-23</guid>
+      <pubDate>Wed, 12 Aug 2026 23:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-12-23<br/>166,857 events · 67,783 repos<br/><br/>🔥 HOTTEST:<br/>  merge-demo/mergequeue-bazel — heat 72 (74 pushes, 2 PRs, +0★, 4👥)<br/>  merge-demo/mergequeue-st — heat 63 (174 pushes, 2 PRs, +0★, 1👥)<br/>  PostHog/posthog — heat 61 (31 pushes, 0 PRs, +0★, 10👥)<br/>  navapbc/rebar — heat 59 (52 pushes, 0 PRs, +0★, 3👥)<br/>  radixark/miles — heat 59 (59 pushes, 0 PRs, +0★, 3👥)<br/><br/>👤 busiest: github-actions[bot] (25052 events)<br/>🧠 human top: AKJUS/wrapdb (0 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (BareBits/electrum_clink v0.0.3)<br/>🤖 bot watch: 15 push-farms · 33.4% of all pushes are spam — top: LiamBruhin/SillyStuff (763 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 52 pure-watcher accounts<br/>🚫 demoted 722 farm repos (+998 suspicious push-loops) from heat — top: LiamBruhin/SillyStuff (763 pushes, 1👥, push-bot)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-12-22</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-12-22</guid>
+      <pubDate>Wed, 12 Aug 2026 22:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-12-22<br/>162,556 events · 63,047 repos<br/><br/>🔥 HOTTEST:<br/>  merge-demo/mergequeue-st — heat 86 (122 pushes, 6 PRs, +0★, 2👥)<br/>  PostHog/posthog — heat 56 (32 pushes, 0 PRs, +0★, 8👥)<br/>  navapbc/rebar — heat 46 (37 pushes, 0 PRs, +0★, 3👥)<br/>  pytorch/pytorch — heat 45 (18 pushes, 0 PRs, +0★, 9👥)<br/>  kirodotdev/KiroCrew — heat 40 (9 pushes, 2 PRs, +0★, 7👥)<br/><br/>👤 busiest: github-actions[bot] (23556 events)<br/>🧠 human top: merge-demo/mergequeue-st (6 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (mcclowes/barred v1.1.4)<br/>🤖 bot watch: 15 push-farms · 38.7% of all pushes are spam — top: LiamBruhin/SillyStuff (659 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 56 pure-watcher accounts<br/>🚫 demoted 832 farm repos (+898 suspicious push-loops) from heat — top: LiamBruhin/SillyStuff (659 pushes, 1👥, push-bot)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-12-21</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-12-21</guid>
+      <pubDate>Wed, 12 Aug 2026 21:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-12-21<br/>161,759 events · 59,941 repos<br/><br/>🔥 HOTTEST:<br/>  SAPTARSHI-coder/EaseMotion-css — heat 117 (96 pushes, 11 PRs, +0★, 4👥)<br/>  PostHog/posthog — heat 111 (50 pushes, 2 PRs, +0★, 17👥)<br/>  navapbc/rebar — heat 59 (67 pushes, 0 PRs, +0★, 3👥)<br/>  ai-dynamo/dynamo — heat 51 (27 pushes, 0 PRs, +0★, 8👥)<br/>  merge-demo/mergequeue-bazel — heat 41 (20 pushes, 3 PRs, +0★, 2👥)<br/><br/>👤 busiest: github-actions[bot] (20000 events)<br/>🧠 human top: SAPTARSHI-coder/EaseMotion-css (11 PRs, 4 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 15 (EepyBerry/lagrange v0.5.2b)<br/>🤖 bot watch: 15 push-farms · 42.1% of all pushes are spam — top: LiamBruhin/SillyStuff (590 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 62 pure-watcher accounts<br/>🚫 demoted 797 farm repos (+832 suspicious push-loops) from heat — top: LiamBruhin/SillyStuff (590 pushes, 1👥, push-bot)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-12-20</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-12-20</guid>
+      <pubDate>Wed, 12 Aug 2026 20:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-12-20<br/>164,049 events · 60,271 repos<br/><br/>🔥 HOTTEST:<br/>  PostHog/posthog — heat 86 (56 pushes, 0 PRs, +0★, 12👥)<br/>  navapbc/rebar — heat 59 (57 pushes, 0 PRs, +0★, 3👥)<br/>  adityaprakashiitbombay-cloud/pragyan-institute-portal — heat 53 (47 pushes, 0 PRs, +0★, 2👥)<br/>  vercel/workflow — heat 46 (11 pushes, 1 PRs, +0★, 10👥)<br/>  SAPTARSHI-coder/EaseMotion-css — heat 42 (3 pushes, 6 PRs, +0★, 3👥)<br/><br/>👤 busiest: github-actions[bot] (18492 events)<br/>🧠 human top: SAPTARSHI-coder/EaseMotion-css (6 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (edwardgko/flashlab-releases v0.1.61)<br/>🤖 bot watch: 15 push-farms · 38.3% of all pushes are spam — top: LiamBruhin/SillyStuff (504 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 54 pure-watcher accounts<br/>🚫 demoted 832 farm repos (+1413 suspicious push-loops) from heat — top: winson-00178005/build-eye (584 pushes, 1👥, push-loop)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-12-19</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-12-19</guid>
+      <pubDate>Wed, 12 Aug 2026 19:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-12-19<br/>161,216 events · 62,112 repos<br/><br/>🔥 HOTTEST:<br/>  PostHog/posthog — heat 85 (34 pushes, 0 PRs, +0★, 17👥)<br/>  navapbc/rebar — heat 52 (43 pushes, 0 PRs, +0★, 3👥)<br/>  tenstorrent/tt-metal — heat 38 (8 pushes, 0 PRs, +0★, 10👥)<br/>  getsentry/sentry — heat 38 (8 pushes, 0 PRs, +0★, 10👥)<br/>  gajus/bamboocss — heat 38 (2 pushes, 0 PRs, +0★, 2👥)<br/><br/>👤 busiest: github-actions[bot] (17634 events)<br/>🧠 human top: SandeepVashishtha/Eventra (10 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (Haembina/dosiary-releases v1.14.0)<br/>🤖 bot watch: 15 push-farms · 41.9% of all pushes are spam — top: LiamBruhin/SillyStuff (481 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 40 pure-watcher accounts<br/>🚫 demoted 896 farm repos (+936 suspicious push-loops) from heat — top: LiamBruhin/SillyStuff (481 pushes, 1👥, push-bot)</description>
+    </item>
     <item>
       <title>GitHub Pulse — hour 2026-08-12-18</title>
       <link>https://github-pulse.surge.sh/</link>
       <guid isPermaLink="false">github-pulse-2026-08-12-18</guid>
       <pubDate>Wed, 12 Aug 2026 18:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-12-18<br/>158,869 events · 65,074 repos<br/>vs 2026-08-12-17: +0.3% events<br/><br/>🔥 HOTTEST:<br/>  PostHog/posthog — heat 84 (48 pushes, 0 PRs, +0★, 12👥) ▲1<br/>  merge-demo/mergequeue-bazel — heat 73 (48 pushes, 2 PRs, +0★, 5👥) ▲1<br/>  SandeepVashishtha/Eventra — heat 45 (6 pushes, 6 PRs, +0★, 3👥) 🆕<br/>  getsentry/sentry — heat 41 (11 pushes, 0 PRs, +0★, 10👥)<br/>  BuilderIO/agent-native — heat 34 (7 pushes, 0 PRs, +0★, 4👥) 🆕<br/><br/>👤 busiest: github-actions[bot] (17863 events)<br/>🧠 human top: SandeepVashishtha/Eventra (6 PRs, 0 issues, +0★)<br/>🗣 top language: HTML<br/>🚀 releases: 20 (BuilderIO/agent-native @agent-native/toolkit@0.14.1)<br/>🤖 bot watch: 15 push-farms · 36.6% of all pushes are spam — top: xolirx/list-check (493 pushes, 1👥)<br/>🧟 botnet watch: 12 persistent farms (13+ hrs) — top: LiamBruhin/SillyStuff (seen 13h, 442 pushes/hr)<br/>🚫 demoted 861 farm repos (+1018 suspicious push-loops) from heat — top: xolirx/list-check (493 pushes, 1👥, push-bot)</description>
+      <description>📡 GITHUB PULSE — hour 2026-08-12-18<br/>158,869 events · 65,074 repos<br/>vs 2026-08-12-17: +0.3% events<br/><br/>🔥 HOTTEST:<br/>  PostHog/posthog — heat 84 (48 pushes, 0 PRs, +0★, 12👥) ▲1<br/>  merge-demo/mergequeue-bazel — heat 73 (48 pushes, 2 PRs, +0★, 5👥) ▲1<br/>  SandeepVashishtha/Eventra — heat 45 (6 pushes, 6 PRs, +0★, 3👥) 🆕<br/>  getsentry/sentry — heat 41 (11 pushes, 0 PRs, +0★, 10👥)<br/>  BuilderIO/agent-native — heat 34 (7 pushes, 0 PRs, +0★, 4👥) 🆕<br/><br/>👤 busiest: github-actions[bot] (17863 events)<br/>🧠 human top: SandeepVashishtha/Eventra (6 PRs, 0 issues, +0★)<br/>🗣 top language: HTML<br/>🚀 releases: 20 (BuilderIO/agent-native @agent-native/toolkit@0.14.1)<br/>🤖 bot watch: 15 push-farms · 36.6% of all pushes are spam — top: xolirx/list-check (493 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 53 pure-watcher accounts<br/>🧟 botnet watch: 12 persistent farms (13+ hrs) — top: LiamBruhin/SillyStuff (seen 13h, 442 pushes/hr)<br/>🚫 demoted 861 farm repos (+1018 suspicious push-loops) from heat — top: xolirx/list-check (493 pushes, 1👥, push-bot)</description>
     </item>
     <item>
       <title>GitHub Pulse — hour 2026-08-12-17</title>
@@ -131,48 +173,6 @@
       <guid isPermaLink="false">github-pulse-2026-08-12-1</guid>
       <pubDate>Wed, 12 Aug 2026 01:00:00 GMT</pubDate>
       <description>📡 GITHUB PULSE — hour 2026-08-12-1<br/>167,165 events · 73,009 repos<br/><br/>🔥 HOTTEST:<br/>  konflux-ci/testrepo — heat 49 (37 pushes, 0 PRs, +0★, 4👥)<br/>  AlexanderMattTurner/agent-glovebox — heat 44 (35 pushes, 0 PRs, +0★, 3👥)<br/>  navapbc/rebar — heat 38 (29 pushes, 0 PRs, +0★, 3👥)<br/>  bleugreen/axon — heat 29 (5 pushes, 0 PRs, +0★, 3👥)<br/>  stablyai/orca — heat 28 (8 pushes, 0 PRs, +1★, 4👥)<br/><br/>👤 busiest: github-actions[bot] (34235 events)<br/>🧠 human top: midnghtsapphire/revvel-standards (2 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (theo-vt/FreeCAD weekly-2026.08.12)<br/>🤖 bot watch: 15 push-farms · 32.2% of all pushes are spam — top: LiamBruhin/SillyStuff (612 pushes, 1👥)<br/>🚫 demoted 811 farm repos (+903 suspicious push-loops) from heat — top: LiamBruhin/SillyStuff (612 pushes, 1👥, push-bot)</description>
-    </item>
-    <item>
-      <title>GitHub Pulse — hour 2026-08-12-0</title>
-      <link>https://github-pulse.surge.sh/</link>
-      <guid isPermaLink="false">github-pulse-2026-08-12-0</guid>
-      <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-12-0<br/>167,071 events · 65,973 repos<br/>vs 2026-08-11-23: -1.6% events<br/><br/>🔥 HOTTEST:<br/>  Comfy-Org/ComfyUI_frontend — heat 74 (25 pushes, 2 PRs, +0★, 12👥) ▲7<br/>  merge-demo/mergequeue-st — heat 69 (158 pushes, 2 PRs, +0★, 3👥) ▼1<br/>  pmktest/conformance — heat 64 (46 pushes, 3 PRs, +0★, 1👥) 🆕<br/>  SzeChunYiu/ccb-testbeam — heat 56 (44 pushes, 0 PRs, +0★, 2👥) 🆕<br/>  SandeepVashishtha/Eventra — heat 51 (27 pushes, 3 PRs, +0★, 2👥) 🆕<br/><br/>👤 busiest: github-actions[bot] (22137 events)<br/>🧠 human top: microsoft/winget-pkgs (5 PRs, 0 issues, +0★)<br/>🗣 top language: Python<br/>🚀 releases: 20 (JackOfNoneTrades/WawelAuth 1.0.5)<br/>🤖 bot watch: 15 push-farms · 36.1% of all pushes are spam — top: LiamBruhin/SillyStuff (690 pushes, 1👥)<br/>🧟 botnet watch: 15 persistent farms (13+ hrs) — top: LiamBruhin/SillyStuff (seen 13h, 690 pushes/hr)<br/>🚫 demoted 884 farm repos (+1015 suspicious push-loops) from heat — top: LiamBruhin/SillyStuff (690 pushes, 1👥, push-bot)</description>
-    </item>
-    <item>
-      <title>GitHub Pulse — hour 2026-08-11-23</title>
-      <link>https://github-pulse.surge.sh/</link>
-      <guid isPermaLink="false">github-pulse-2026-08-11-23</guid>
-      <pubDate>Tue, 11 Aug 2026 23:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-11-23<br/>169,863 events · 64,873 repos<br/><br/>🔥 HOTTEST:<br/>  merge-demo/mergequeue-st — heat 72 (164 pushes, 2 PRs, +0★, 4👥)<br/>  CurateLabs/graphforge — heat 61 (53 pushes, 1 PRs, +0★, 2👥)<br/>  PostHog/posthog — heat 61 (19 pushes, 3 PRs, +0★, 9👥)<br/>  openclaw/openclaw — heat 52 (17 pushes, 1 PRs, +0★, 10👥)<br/>  radixark/miles — heat 52 (37 pushes, 0 PRs, +0★, 5👥)<br/><br/>👤 busiest: github-actions[bot] (22067 events)<br/>🧠 human top: iamacoffeepot/aether (0 PRs, 6 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (bolagnaise/PowerSync v2.12.1076)<br/>🤖 bot watch: 15 push-farms · 37.4% of all pushes are spam — top: LiamBruhin/SillyStuff (660 pushes, 1👥)<br/>🚫 demoted 1095 farm repos (+913 suspicious push-loops) from heat — top: LiamBruhin/SillyStuff (660 pushes, 1👥, push-bot)</description>
-    </item>
-    <item>
-      <title>GitHub Pulse — hour 2026-08-11-22</title>
-      <link>https://github-pulse.surge.sh/</link>
-      <guid isPermaLink="false">github-pulse-2026-08-11-22</guid>
-      <pubDate>Tue, 11 Aug 2026 22:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-11-22<br/>163,869 events · 60,271 repos<br/><br/>🔥 HOTTEST:<br/>  merge-demo/mergequeue-st — heat 80 (170 pushes, 3 PRs, +0★, 5👥)<br/>  PostHog/posthog — heat 68 (32 pushes, 0 PRs, +0★, 12👥)<br/>  valerielinc-ops/frontaliere-si-o-no — heat 59 (103 pushes, 0 PRs, +0★, 2👥)<br/>  openclaw/openclaw — heat 54 (19 pushes, 1 PRs, +0★, 9👥)<br/>  Ayushh-Sharmaa/NexaSphere — heat 46 (0 pushes, 5 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (21097 events)<br/>🧠 human top: Ayushh-Sharmaa/NexaSphere (5 PRs, 6 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 18 (lance-format/lance v11.0.0-beta.6)<br/>🤖 bot watch: 15 push-farms · 41.1% of all pushes are spam — top: LiamBruhin/SillyStuff (601 pushes, 1👥)<br/>🚫 demoted 1131 farm repos (+865 suspicious push-loops) from heat — top: LiamBruhin/SillyStuff (601 pushes, 1👥, push-bot)</description>
-    </item>
-    <item>
-      <title>GitHub Pulse — hour 2026-08-11-21</title>
-      <link>https://github-pulse.surge.sh/</link>
-      <guid isPermaLink="false">github-pulse-2026-08-11-21</guid>
-      <pubDate>Tue, 11 Aug 2026 21:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-11-21<br/>158,941 events · 55,966 repos<br/><br/>🔥 HOTTEST:<br/>  merge-demo/mergequeue-st — heat 90 (137 pushes, 5 PRs, +0★, 5👥)<br/>  jonathangana131-lab/Nembra — heat 63 (91 pushes, 2 PRs, +0★, 1👥)<br/>  openedx/openedx-translations — heat 59 (82 pushes, 0 PRs, +0★, 3👥)<br/>  vjeux/fcp-headless-transitions — heat 49 (30 pushes, 2 PRs, +0★, 3👥)<br/>  openclaw/openclaw — heat 44 (15 pushes, 1 PRs, +0★, 8👥)<br/><br/>👤 busiest: github-actions[bot] (15844 events)<br/>🧠 human top: Ayushh-Sharmaa/NexaSphere (2 PRs, 10 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 18 (hugocoliveira/BuscaMaterial v2.5)<br/>🤖 bot watch: 15 push-farms · 41% of all pushes are spam — top: xolirx/list-check (512 pushes, 1👥)<br/>🚫 demoted 1132 farm repos (+1104 suspicious push-loops) from heat — top: xolirx/list-check (512 pushes, 1👥, push-bot)</description>
-    </item>
-    <item>
-      <title>GitHub Pulse — hour 2026-08-11-20</title>
-      <link>https://github-pulse.surge.sh/</link>
-      <guid isPermaLink="false">github-pulse-2026-08-11-20</guid>
-      <pubDate>Tue, 11 Aug 2026 20:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-11-20<br/>159,290 events · 57,023 repos<br/><br/>🔥 HOTTEST:<br/>  merge-demo/mergequeue-st — heat 82 (118 pushes, 4 PRs, +0★, 4👥)<br/>  PostHog/posthog — heat 78 (30 pushes, 0 PRs, +0★, 16👥)<br/>  merge-demo/mergequeue-bazel — heat 64 (56 pushes, 1 PRs, +0★, 3👥)<br/>  openclaw/openclaw — heat 51 (12 pushes, 2 PRs, +1★, 7👥)<br/>  vjeux/fcp-headless-transitions — heat 45 (36 pushes, 0 PRs, +0★, 3👥)<br/><br/>👤 busiest: github-actions[bot] (15447 events)<br/>🧠 human top: merge-demo/mergequeue-st (4 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 15 (brikdesigns/brik-bds v0.155.1)<br/>🤖 bot watch: 15 push-farms · 44.1% of all pushes are spam — top: LiamBruhin/SillyStuff (433 pushes, 1👥)<br/>🚫 demoted 1166 farm repos (+894 suspicious push-loops) from heat — top: winson-00178005/build-eye (468 pushes, 1👥, push-loop)</description>
-    </item>
-    <item>
-      <title>GitHub Pulse — hour 2026-08-11-19</title>
-      <link>https://github-pulse.surge.sh/</link>
-      <guid isPermaLink="false">github-pulse-2026-08-11-19</guid>
-      <pubDate>Tue, 11 Aug 2026 19:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-11-19<br/>155,818 events · 52,216 repos<br/><br/>🔥 HOTTEST:<br/>  PostHog/posthog — heat 77 (32 pushes, 0 PRs, +0★, 15👥)<br/>  openedx/openedx-translations — heat 64 (48 pushes, 2 PRs, +0★, 2👥)<br/>  voc0der/Skip-Game-Launcher — heat 59 (51 pushes, 0 PRs, +0★, 2👥)<br/>  SAPTARSHI-coder/EaseMotion-css — heat 44 (12 pushes, 4 PRs, +0★, 3👥)<br/>  openclaw/openclaw — heat 39 (10 pushes, 1 PRs, +0★, 8👥)<br/><br/>👤 busiest: github-actions[bot] (13668 events)<br/>🧠 human top: SAPTARSHI-coder/EaseMotion-css (4 PRs, 1 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (stevemcqueenz/pfQuest-Reforged v1.0.37)<br/>🤖 bot watch: 15 push-farms · 43% of all pushes are spam — top: LiamBruhin/SillyStuff (352 pushes, 1👥)<br/>🚫 demoted 1101 farm repos (+1072 suspicious push-loops) from heat — top: LiamBruhin/SillyStuff (352 pushes, 1👥, push-bot)</description>
     </item>
   </channel>
 </rss>

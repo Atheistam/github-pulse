@@ -250,6 +250,24 @@ function flagOf(r, farmActors = null) {
   }
   if (/mergequeue|merge-queue|merge-demo|octo-org|githubtraining|sandbox|playground|hello-world|ci-demo|test-repo/.test(name) &&
       pushes >= 10 && actors <= 4 && rawHuman <= 2) return 'ci-demo';
+  // v5.3: BOT-LOOP — the hottest chart's blind spot. A repo whose ONLY
+  // activity is shared-platform-bot pushes (release/CI automation) ranks on
+  // pure churn: TimSchoenle/actions topped an hour with 55 pushes from 3
+  // [bot] accounts and zero human touch. Demoted ×0.3, badged 🤖, never
+  // called a farm, never seeded (shared bots can't seed; a real owner with
+  // any non-bot actor is untouched). Also catches farms that launder pushes
+  // through GitHub Actions under a clean-looking owner — bots only, can't rank.
+  // PRs/issues count as human signal ONLY if authored by a non-bot (a PR from
+  // automatic-release-manager[bot] is still automation churn), and the
+  // per-actor check guards against actor_names truncation on crowded repos.
+  if (nonBotActors.length === 0 && pushes >= 10) {
+    const humanPr = (r.pr_actors || []).some((a) => !isSharedBot(a));
+    const humanIss = (r.issue_actors || []).some((a) => !isSharedBot(a));
+    const humanSig = (prsAreSelfFlag(r) ? 0 : (humanPr ? (r.prs || 0) : 0)) +
+      (issAreSelfFlag(r) ? 0 : (humanIss ? (r.issues || 0) : 0)) +
+      (r.stars || 0) + (r.forks || 0) + (r.releases || 0) + (r.reviews || 0);
+    if (humanSig === 0) return 'bot-loop';
+  }
   // v5.2: STAR-BOMB RADAR — with pushes, PRs and issues all demoted (×0.05-0.3),
   // stars (×8) are the last untaxed heat vector, so star-bombing is the obvious
   // next adaptation. A repo whose ONLY activity is stars looks identical to a
@@ -274,7 +292,7 @@ function flagOf(r, farmActors = null) {
   }
   return null;
 }
-const DEMOTE = { 'push-bot': 0.05, 'push-loop': 0.3, 'ci-demo': 0.1, 'issue-loop': 0.3, 'star-loop': 0.3, 'star-only': 1 };
+const DEMOTE = { 'push-bot': 0.05, 'push-loop': 0.3, 'ci-demo': 0.1, 'issue-loop': 0.3, 'star-loop': 0.3, 'star-only': 1, 'bot-loop': 0.3 };
 // farmActors: Map<actor|owner, {lastSeen, hours:Set<hourLabel>}> persisted in
 // site/data/farm_actors.json. An entry is created when its repo is confidently
 // flagged push-bot (auto-gen name OR high-volume zero-human profile); shared
@@ -534,6 +552,7 @@ function buildSnapshot(hourLabel, agg) {
   // spam share uses ALL confident push-bot repos' pushes (not just top-15)
   const allFlagged = all.filter((r) => flagOf(r, FARM_ACTORS) === 'push-bot');
   const allSuspicious = all.filter((r) => ['push-loop', 'issue-loop', 'star-loop'].includes(flagOf(r, FARM_ACTORS)));
+  const allBotLoop = all.filter((r) => flagOf(r, FARM_ACTORS) === 'bot-loop');
   const spamPushes = allFlagged.reduce((n, r) => n + (r.pushes || 0), 0);
   // Farm-actor ledger: record actors AND owners behind confident push-bot
   // farms so future runs demote any repo they touch (repos rotate, actors
@@ -545,7 +564,7 @@ function buildSnapshot(hourLabel, agg) {
   // repos it touches. The ≥2-distinct-hours gate stays: a real solo dev who
   // trips the zero-human rule once is NOT blacklisted forever; the profile
   // rules re-catch them per-hour anyway.
-  for (const b of [...allFlagged, ...allSuspicious]) {
+  for (const b of [...allFlagged, ...allSuspicious, ...allBotLoop]) {
     const fl = flagOf(b, FARM_ACTORS);
     const seedActors = [];
     if (fl === 'star-loop') {
@@ -581,7 +600,7 @@ function buildSnapshot(hourLabel, agg) {
   }
   pruneFarmActors(hourLabel);
   // Demotion transparency: what got demoted out of the heat ranking this hour.
-  const demoted = [...allFlagged, ...allSuspicious]
+  const demoted = [...allFlagged, ...allSuspicious, ...allBotLoop]
     .sort((a, b) => (b.pushes || 0) - (a.pushes || 0))
     .slice(0, 15)
     .map((r) => ({ repo: r.repo, flag: flagOf(r, FARM_ACTORS), pushes: r.pushes, actors: r.actors, human: (prsAreSelfFlag(r) ? 0 : (r.prs || 0)) + (issAreSelfFlag(r) ? 0 : (r.issues || 0)) + (r.stars || 0) + (r.forks || 0) + (r.releases || 0) + (r.reviews || 0), actor_names: r.actor_names }));
@@ -642,6 +661,8 @@ function buildSnapshot(hourLabel, agg) {
     demoted,
     demoted_total: allFlagged.length,
     suspicious_total: allSuspicious.length,
+    bot_loop_total: allBotLoop.length,
+    bot_loop_top: allBotLoop.length ? allBotLoop.sort((a, b) => (b.pushes || 0) - (a.pushes || 0))[0].repo : null,
     star_radar,
     farm_probe,
     ledger_size: FARM_ACTORS.size,
@@ -754,6 +775,7 @@ function buildDigest(s) {
     `🚀 releases: ${rel.length ? rel.length : 0} (${rel[0] ? rel[0].repo + ' ' + (rel[0].tag || '') : ''})`,
     `🤖 bot watch: ${bots.length} push-farms · ${s.push_spam_pct != null ? s.push_spam_pct : 'n/a'}% of all pushes are spam${bot0 ? ` — top: ${bot0.repo} (${bot0.pushes} pushes, ${bot0.actors}👥)` : ''}`,
     ...(s.star_radar ? [`🔭 star-only radar: ${s.star_radar.repos} repos · ${s.star_radar.loops} star-loops · ${s.star_radar.watch_only_actors} pure-watcher accounts${s.star_radar.top[0] ? ` — top: ${s.star_radar.top[0].repo} (+${s.star_radar.top[0].stars}★, ${s.star_radar.top[0].watchers} lurker★)` : ''}`] : []),
+    ...(s.bot_loop_total ? [`🤖 bot-driven: ${s.bot_loop_total} repos (pure automation churn, demoted ×0.3)${s.bot_loop_top ? ` — top: ${s.bot_loop_top}` : ''}`] : []),
     ...(nets.length ? [`🧟 botnet watch: ${nets.length} persistent farms (${nets[0].hours_seen}+ hrs) — top: ${net0.repo} (seen ${net0.hours_seen}h, ${net0.max_pushes} pushes/hr)`] : []),
     ...(dem.length ? [`🚫 demoted ${s.demoted_total != null ? s.demoted_total : dem.length} farm repos${s.suspicious_total ? ` (+${s.suspicious_total} suspicious push-loops)` : ''} from heat — top: ${dem[0].repo} (${dem[0].pushes} pushes, ${dem[0].actors}👥, ${dem[0].flag})`] : []),
   ];
