@@ -177,11 +177,22 @@ function prsAreSelfFlag(r) {
 function issAreSelfFlag(r) {
   return !!r.selfISS;
 }
+// v5.4: BOT REVIEWS ARE NOT HUMAN SIGNAL — review/comment events from shared
+// bots (renovate[bot] approving its own dependency bumps, release-manager bots
+// commenting on their release PRs) are automation churn, same as bot PRs.
+// TimSchoenle/actions escaped the v5.3 bot-loop rule on a single review from
+// one of its 4 all-bot actors. Self-reviews (authored by the repo's own
+// pushers, r.selfREV) are fake signal and zeroed too. Reviews count ONLY
+// when authored by an outside human.
+function humanReviews(r) {
+  if (r.selfREV) return 0;
+  return (r.review_actors || []).some((a) => !isSharedBot(a)) ? (r.reviews || 0) : 0;
+}
 function flagOf(r, farmActors = null) {
   const name = String(r.repo || '').toLowerCase();
   // rawHuman excludes self-authored PRs/issues (fake signal, doesn't rescue a push loop)
   const rawHuman = (prsAreSelfFlag(r) ? 0 : (r.prs || 0)) + (issAreSelfFlag(r) ? 0 : (r.issues || 0)) +
-    (r.stars || 0) + (r.forks || 0) + (r.releases || 0) + (r.reviews || 0);
+    (r.stars || 0) + (r.forks || 0) + (r.releases || 0) + humanReviews(r);
   const pushes = r.pushes || 0;
   const actors = r.actors || 0;
   const owner = name.split('/')[0];
@@ -265,7 +276,7 @@ function flagOf(r, farmActors = null) {
     const humanIss = (r.issue_actors || []).some((a) => !isSharedBot(a));
     const humanSig = (prsAreSelfFlag(r) ? 0 : (humanPr ? (r.prs || 0) : 0)) +
       (issAreSelfFlag(r) ? 0 : (humanIss ? (r.issues || 0) : 0)) +
-      (r.stars || 0) + (r.forks || 0) + (r.releases || 0) + (r.reviews || 0);
+      (r.stars || 0) + (r.forks || 0) + (r.releases || 0) + humanReviews(r);
     if (humanSig === 0) return 'bot-loop';
   }
   // v5.2: STAR-BOMB RADAR — with pushes, PRs and issues all demoted (×0.05-0.3),
@@ -404,7 +415,7 @@ function processHour(hourLabel, localFile) {
         const name = e.repo.name;
         let r = repos.get(name);
         if (!r) {
-          r = { repo: name, stars: 0, forks: 0, issues: 0, prs: 0, releases: 0, pushes: 0, reviews: 0, events: 0, actors: 0, _as: null, actor_names: [], _prActors: new Set(), _issActors: new Set(), _pushActors: new Set(), _starActors: new Set(), language: null, desc: null, url: `https://github.com/${name}` };
+          r = { repo: name, stars: 0, forks: 0, issues: 0, prs: 0, releases: 0, pushes: 0, reviews: 0, events: 0, actors: 0, _as: null, actor_names: [], _prActors: new Set(), _issActors: new Set(), _revActors: new Set(), _pushActors: new Set(), _starActors: new Set(), language: null, desc: null, url: `https://github.com/${name}` };
           repos.set(name, r);
         }
         r.events++;
@@ -432,6 +443,7 @@ function processHour(hourLabel, localFile) {
           case 'IssueCommentEvent':
           case 'CommitCommentEvent':
             r.reviews++;
+            if (a) r._revActors.add(a);
             break;
         }
         if (e.repo.language && e.repo.language !== 'null') r.language = e.repo.language;
@@ -489,8 +501,15 @@ function processHour(hourLabel, localFile) {
           const nonBotIss = [...(r._issActors || [])].filter((a) => !isSharedBot(a));
           r.selfPR = pushActors.size > 0 && nonBotPr.length > 0 && nonBotPr.every((a) => pushActors.has(a));
           r.selfISS = pushActors.size > 0 && nonBotIss.length > 0 && nonBotIss.every((a) => pushActors.has(a));
+          // v5.4: self-REVIEWS are fake signal too — a review/comment authored
+          // by the repo's own pushers (Wonder0208/androidtest: 42 pushes + 1
+          // self-review was the ONLY thing keeping it out of the zero-human
+          // push-bot profile). Mirror the selfPR/selfISS treatment.
+          const nonBotRev = [...(r._revActors || [])].filter((a) => !isSharedBot(a));
+          r.selfREV = pushActors.size > 0 && nonBotRev.length > 0 && nonBotRev.every((a) => pushActors.has(a));
           r.pr_actors = [...(r._prActors || [])]; delete r._prActors;
           r.issue_actors = [...(r._issActors || [])]; delete r._issActors;
+          r.review_actors = [...(r._revActors || [])]; delete r._revActors;
           // v5.2 star-bomb radar per-repo stats (consumed by flagOf).
           r._bare = bareRepos.has(r.repo);
           r._starOnlyCount = r._bare ? [...(r._starActors || [])].filter((a) => watchOnly.has(a) && !isSharedBot(a)).length : 0;
@@ -535,7 +554,7 @@ function buildSnapshot(hourLabel, agg) {
   // releases, reviews) — the push-bot noise is filtered out entirely.
   // v5: also exclude self-PR farms (fake human signal authored by the pusher).
   const humanScore = (r) => (prsAreSelfFlag(r) ? 0 : (r.prs || 0)) * 4 + (issAreSelfFlag(r) ? 0 : (r.issues || 0)) * 3 +
-    (r.stars || 0) * 5 + (r.forks || 0) * 3 + (r.releases || 0) * 8 + (r.reviews || 0) * 2;
+    (r.stars || 0) * 5 + (r.forks || 0) * 3 + (r.releases || 0) * 8 + humanReviews(r) * 2;
   const topHuman = all.filter((r) => humanScore(r) > 0).sort((a, b) => humanScore(b) - humanScore(a)).slice(0, 25)
     .map((r) => Object.assign({ human: humanScore(r) }, r));
   const topLangs = [...langs.values()].sort((a, b) => (b.events * 4 + b.stars * 2 + b.forks) - (a.events * 4 + a.stars * 2 + a.forks)).slice(0, 15);

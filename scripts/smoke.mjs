@@ -96,9 +96,19 @@ try {
     botStats: document.querySelectorAll('#bot-stats .bot-stat').length
   })`);
 
+  // 6) ---- WEEKLY DIGEST ----
+  await navigate(`${BASE}/weekly.html`);
+  const weekly = await evalJs(`JSON.stringify({
+    title: document.title,
+    hasCharts: document.querySelectorAll('svg.chart').length,
+    tableRows: document.querySelectorAll('table tr').length,
+    hasSpam: document.body.textContent.includes('Spam pressure'),
+    hasFarms: document.body.textContent.includes('Farm evolution')
+  })`);
+
   ws.close();
 
-  const archObj = JSON.parse(arch), liveObj = JSON.parse(live);
+  const archObj = JSON.parse(arch), liveObj = JSON.parse(live), weeklyObj = JSON.parse(weekly);
   if (archObj.bannerHidden !== false) fails.push('archive banner not shown');
   if (archObj.archiveHour !== '2026-08-11-0') fails.push('archive hour label wrong: ' + archObj.archiveHour);
   if (!archObj.gainerRows) fails.push('no gainer rows in archive');
@@ -108,9 +118,15 @@ try {
   if (liveObj.bannerHidden !== true) fails.push('live page shows archive banner');
   if (liveObj.asofLive !== true) fails.push('live badge not marked live');
   if (liveObj.histLinks < 10) fails.push('live: too few history links: ' + liveObj.histLinks);
+  if (!weeklyObj.title.includes('48h Digest')) fails.push('weekly title wrong: ' + weeklyObj.title);
+  if (!weeklyObj.hasCharts) fails.push('weekly: no svg charts');
+  if (!weeklyObj.tableRows) fails.push('weekly: no table rows');
+  if (!weeklyObj.hasSpam) fails.push('weekly: missing spam panel');
+  if (!weeklyObj.hasFarms) fails.push('weekly: missing farm panel');
 
   console.log('== archive ==', arch);
   console.log('== live ==', live);
+  console.log('== weekly ==', weekly);
   if (fails.length) { console.error('FAIL:', fails.join(' | ')); process.exit(1); }
   console.log('SMOKE PASS');
 } catch (e) {
