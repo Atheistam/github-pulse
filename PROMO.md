@@ -1,5 +1,26 @@
 # 🚀 Launch post drafts — GitHub Pulse
 
+## Field notes — run 26 (2026-08-14, hours 10–12): DOUBLE BREACH → FASTEST COLLAPSE EVER → factory re-arms at a record 2,002/hr
+
+**Data:** 85h gapless · 13.71M events (13,713,499). Backfilled h10–h12 of Aug 14. Spam: **h10 53.5% (SECOND consecutive ≥50% breach)** → h11 47.2% → **h12 25.7% (COLLAPSE)**.
+
+**VERDICT — the lead-time rule survives a second live test; the full cycle is now observed end-to-end twice:**
+- The h8 breach didn't fade: h8 55.6 → h9 51.2 → **h10 53.5%** — three of four hours ≥50%, the first back-to-back ≥50% pair since Aug 13.
+- h11 47.2%, then **h12 25.7% — the fastest collapse on record: -21.5pt in one hour** (previous record -15.5pt), the second-lowest hour ever (low: 23.4%, Aug 13 h5).
+- **In the SAME hour as the collapse, the factory minted 2,002 fresh accounts — a record, nearly 2× the previous peak (1,175 at h3).** Mint → deploy → surge → collapse → re-arm, twice in a row, visible in the ledger.
+- **Live test queued:** 2,002 minted at h12 → next ≥50% surge window h13–h16 per the rule → the next refresh (run 27) lands inside it.
+
+**The rotation is now HOURLY at the top of the farm chart:**
+- h10: brand-new lowercase-gibberish batch (matkcrais 202, truilab-da 189, mouses61drg 186, mchaelheses2 183, lesiron-c 183) — the sweeneyrachel batch vanished from the top-5 overnight.
+- h11: ugmoddev re-ramps to 206/hr (first top-5 appearance since h8) + elad-cmd 186 + fresh cmackek10 / gibsonjoanna203 / fisherdakota9601.
+- h12: loganfoxdale 227 new #1 + a fresh template-A batch (williamsjacob1 152, kellersarah23 149, evansdonald487 143, thomaskatherine300 141).
+- **Naming generators: THREE templates in THREE hours** (gibberish → hyphen+digits, winson-00178005-style → firstname+lastname+digits). The fingerprinting dodge is now on an hourly cadence.
+- Demotions: h10 1,646 / h11 1,630 / h12 1,064 farm repos. Ledger 24,684 actors (18,150 confirmed).
+
+**Ship:** report.html v5.12 — panel 03 subtitle + VERDICT block rewritten ("the rule survived a second test"), new timeline entry 'Double breach, fastest collapse, record re-arm (v5.12)'. Deployed HTTP 200, SMOKE PASS (live+archive+weekly), screenshots shot_report_run26.png / shot_weekly_run26.png, run26_analysis.cjs + run26_stats.cjs (biggest-1h-drop / all-time low / breach-count stats).
+
+**HN:** still parked (Ask HN 49270205 alive, 5 pts). Next submission attempt Aug 15 ~10:22Z (account 72h+, karma ≥5) — treat as test, expect auto-dead per the mapped boundary.
+
 ## Field notes — run 25 (2026-08-14, hours 7–9): RULE CONFIRMED — the ≥50% breach landed at h8 (55.6%), predicted ~6h out from the minting rate. HN story posted and auto-dead within 2 min (documented, not a loss — the boundary is now mapped)
 
 **Data:** 82h gapless · 13.24M events (13,239,989). Backfilled h7–h9 of Aug 14 (162,710 / 159,347 / 162,059 events). Spam: h7 43.7% (pause) → **h8 55.6% (formal ≥50% breach, first in 17 hours)** → h9 51.2%.
