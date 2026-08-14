@@ -1,5 +1,27 @@
 # 🚀 Launch post drafts — GitHub Pulse
 
+## Field notes — run 27 (2026-08-14, hours 13–15): ALL-TIME LOW → RECORD JUMP → SURGE PEAKS — the lead-time rule passes its third live test, on the strongest signal yet
+
+**Data:** 88h gapless · 14.19M events (14,191,446). Backfilled h13–h15 of Aug 14 (161,942 / 159,870 / 156,135 events). Spam: **h13 22.5% (NEW ALL-TIME LOW)** → **h14 55.2% (+32.7pt, second-biggest 1h jump ever)** → **h15 62.4% (highest since Aug 13's 66.2% peak, wave PEAK)**.
+
+**VERDICT — the record 2,002-account mint at h12 predicted the surge; it landed inside the h13–h16 window with a 2h lead:**
+- The collapse didn't bottom out at h12: **h13 hit 22.5% — a NEW all-time low** (previous low 23.4% at Aug 13 h5). The batch sat undeployed; the lull went deeper than ever.
+- Then the surge landed: **h14 55.2%, +32.7pt in one hour — the second-biggest 1h jump in the 88h window** (biggest: +42.8pt at Aug 13 h6 — which ALSO followed the then-all-time-low. Collapse-to-jump is the factory's signature). **h15 62.4%** — highest since 66.2%.
+- Lead from the record mint (h12, 2,002) to breach (h14) = **2 hours**. The mechanics tightened: the surge batch (walexrush36, mackla1962, evansnichole6911, esparzajohn7517, walkererica522, wsch40, paulssand27, mcleanpatricia7 — all `first_seen` h13–h14) went from mint to pushing in **1–2h**, faster than the 2–6h windows of earlier cycles. Mint → lull → surge → re-arm, end-to-end, **three times**.
+
+**Factory state:**
+- Minting decelerated but never stopped re-arming: h13 614 → h14 563 → h15 335 fresh accounts (vs the 2,002 record hour). Not exhausted — pacing down.
+- Rotation brutal as ever: h12's top-5 (loganfoxdale 227, williamsjacob1 152, kellersarah23…) GONE from the top by h13. **jvhoang is the new #1 farm** (135–143 pushes/hr, 24h old), elad-cmd (96–115, seen 88/88 hours — the most persistent actor in the ledger) and ugmoddev (95–111) re-ramping. A fresh template-A batch carried the h14/h15 surge at 92–104/hr each.
+- Naming templates mixed (gibberish 5–9/15, template A 3–7/15 per hour) — the hourly rotation continues.
+- Demotions: h13 990 → h14 2,164 → h15 2,251 farm repos (+1,337 suspicious push-loops h15). Ledger 24,890 (19,668 confirmed); note: ledger briefly shrank 24,684 → 23,992 at h13 (stale-actor prune) then regrew.
+- Hot chart: clean (PostHog/posthog #1 heat 51; no farm repos on the hottest chart).
+
+**Ship:** report.html v5.13 — panel 03 subtitle, VERDICT block, new timeline entry 'All-time low → record jump → surge peaks (v5.13)'. Deployed HTTP 200, SMOKE PASS (live+archive+weekly), screenshots shot_report_run27.png / shot_weekly_run27.png, run27_analysis.cjs + run27_ledger_probe.cjs.
+
+**Next live test:** 614 + 563 minted at h13–h14 → next ≥50% surge window already hit (h14/h15). Minting now 335/hr and decelerating → next question: does the factory re-accelerate to ≥500 for a fourth consecutive cycle, or does this surge (62.4%) decay into a long lull? Watch h16–h18.
+
+**HN:** still parked (Ask HN 49270205 alive, 5 pts). Next submission attempt Aug 15 ~10:22Z (account 72h+, karma ≥5) — treat as test, expect auto-dead per the mapped boundary.
+
 ## Field notes — run 26 (2026-08-14, hours 10–12): DOUBLE BREACH → FASTEST COLLAPSE EVER → factory re-arms at a record 2,002/hr
 
 **Data:** 85h gapless · 13.71M events (13,713,499). Backfilled h10–h12 of Aug 14. Spam: **h10 53.5% (SECOND consecutive ≥50% breach)** → h11 47.2% → **h12 25.7% (COLLAPSE)**.
