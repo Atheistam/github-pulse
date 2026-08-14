@@ -462,3 +462,11 @@ https://github.com/Atheistam/github-pulse
 - VERIFIED: both off the chart; top 5 = EaseMotion-css, openclaw, comic-pile, rebar, oven-sh/bun (real repos). 0 false positives on regression list. Demoted 671→672, spam 30.6% (wave still retreating), bot-driven 2→3.
 - BUILT: weekly.html (48h Digest) — hot-chart regulars, human-chart regulars, one-hour risers, persistent farm ledger, spam trend chart, enforcement bars, star-radar bars, language mix. 42KB self-contained, hooked into refresh.sh, nav link on index, smoke-tested (SMOKE PASS incl. weekly checks).
 - HN: Ask HN 49270205 ALIVE at 4 pts / 1 comment after ~20h (score stable, not dead). Comments still parked per run-15 discipline (auto-dead confirmed). Next: submission attempt (not comment) after ~48h account age — T-minus ~1 day.
+
+## run 28 field notes (Aug 14 ~19:00 UTC) — v5.14: the cycle compresses
+- REFRESH h16-h18 → 91h gapless, 14.69M events. Post-peak decay hypothesis FALSIFIED: h16 43.0% (-19.4pt) → h17 42.6% flat → h18 59.5% (+16.9pt) RE-BREACH. Peak-to-peak cadence tightened ~5-6h → ~2-3h (h14 55.2% → h18 59.5%).
+- 4TH CONSECUTIVE LIVE TEST PASSED, tightest lead yet: h17 minted 1,004 → h18 breach 1h later. Mint-and-burn now industrial: mint h17, deploy h18, rotate before h20.
+- VETERAN CLASS CONFIRMED: ugmoddev pushed 95-157/hr every hour h12-h18 (10h+ continuous, first long-lived farm). elad-cmd (96-139) + jvhoang (122-143) persisting. Surge batches rotate out 1-2h (only wsch40 intermittently returned).
+- Naming: template A (name+digits) dominant again at h18 (romerosabrina6, colemanjeffrey5, weaverjames3017, gonzalezmichael31) after mixed h16 (gibberish phb4000/spiith88tuwis) + h17 (winson-00178005 hyphen holdout).
+- Ledger 25,372 (20,513 confirmed); demotions 1,407/1,524/1,983. Deployed HTTP 200, SMOKE PASS x3, shots shot_report_run28/shot_weekly_run28, run28_analysis.cjs, pushed fde6d3c.
+- HN: parked per plan (Ask 49270205 5pts; next submission Aug 15 ~10:22Z = 72h+ age test).
