@@ -15,11 +15,18 @@ const FILE = 'file://' + join(process.cwd(), 'site', SRC);
 const profile = mkdtempSync(join(tmpdir(), 'pulse-shot-'));
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-// kill any stale headless firefox holding our port (child survives launcher SIGKILL)
+// kill any stale headless firefox holding our port (child survives launcher SIGKILL).
+// loop: verify the port is ACTUALLY free before spawning, because a dying instance
+// can keep answering the endpoint probe and hand us a broken session.
 try {
   const { execSync } = await import('node:child_process');
-  execSync(`lsof -ti tcp:${PORT} | xargs kill -9 2>/dev/null; sleep 1`);
-} catch { /* port was free */ }
+  for (let i = 0; i < 10; i++) {
+    let p = '';
+    try { p = String(execSync(`lsof -ti tcp:${PORT} || true`)).trim(); } catch { /* none */ }
+    if (!p) break;
+    execSync(`kill -9 ${p.replace(/\n/g, ' ')} 2>/dev/null || true; sleep 1`);
+  }
+} catch { /* port free */ }
 const ff = spawn(FF, ['--headless', `--remote-debugging-port=${PORT}`, `--profile=${profile}`, 'about:blank'], { stdio: 'ignore' });
 
 try {

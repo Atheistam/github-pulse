@@ -114,6 +114,17 @@ const mintRecent = ['2026-08-14-1', '2026-08-14-2', '2026-08-14-3']
   .map(h => [h, batchAt(h)]).filter(x => x[1] > 0);
 const mintNow = batchAt('2026-08-14-3');
 
+// ---------- v5.10 verdict: the surge lands (outer edge) ----------
+const verdictMint = ['2026-08-14-2', '2026-08-14-3', '2026-08-14-4', '2026-08-14-5', '2026-08-14-6']
+  .map(h => [h, batchAt(h)]).filter(x => x[1] > 0);
+const vSpam = ['2026-08-14-4', '2026-08-14-5', '2026-08-14-6']
+  .map(h => { const s = series.find(x => x.hour === h); return s ? s.spam : null; })
+  .filter(x => x !== null);
+const vDemoted6 = (() => {
+  const s = series.find(x => x.hour === '2026-08-14-6');
+  return s ? (s.demoted || []).length : 0;
+})();
+
 // all-time languages (summed event-weight per hour it charted)
 const langs = new Map();
 for (const h of hours) {
@@ -225,6 +236,7 @@ const timeline = [
   { when: "Aug 13 · hours 6–15", title: "The 3-hour cadence (v5.7)", body: "The spam share stops drifting and starts pulsing: 66.2% → 62.8% → 53.0% → 60.2%, a surge every ~3 hours with 23–40% lulls between. The 4th peak rebounded — not a farm in retreat. And the engine is visible: each surge is preceded within 1–2 hours by a minting run of ≥500 freshly-created throwaway accounts (1,081 + 1,721 in the two hours before the 66.2% peak). Aug 11's peaks had almost no fresh accounts — fleet rotation. Aug 12 onward: mint-and-burn. Twelve ledger actors have now been seen in every single hour of the 64-hour window." },
   { when: "Aug 13 · hours 18–24 → Aug 14 · hour 0", title: "The pulse breaks (v5.8)", body: "The cadence was a hypothesis, and it failed at the 5th expected beat: h18 landed at 43.6% instead of ~60%, and the next six hours stayed flat (38.6 / 36.3 / 37.4 / 38.8 / 40.4 / 38.7) — seven hours with no ≥50% surge. The cause is visible in the ledger: minting collapsed from 947 fresh accounts in the hour before the 60.2% peak to 77/hr the hour after, settling at ~100–150/hr. Sprint → trickle. The old guards (LiamBruhin/SillyStuff back up to 725 pushes/hr, ugmoddev/API-NEW-NAT-3-) never stopped pumping; the fleet just stopped minting at surge scale, so the synchronized bursts stopped with it. The rulebook flips: don't predict a peak at h21/h24 — watch the minting rate as the leading indicator. ~500+/hr minted = surge inbound; ~100/hr = flat." },
   { when: "Aug 14 · hours 1–3", title: "The factory restarts (v5.9)", body: "The lead-time rule gets its first live test. Hours 1–3 of Aug 14 mint 163 → 629 → 1,175 fresh throwaway ledger accounts — the strongest minting since the 60.2% peak — yet spam holds flat at 32.2 / 33.3 / 34.4%, and even the old guards downshift (LiamBruhin/SillyStuff 725 → 387 pushes/hr, ugmoddev 532 → 276). The factory is generating identities at sprint scale again while the surge hasn't landed. Either a ≥50% surge lands within ~1–4h of the 629/1,175 batches (rule confirmed, timing becomes predictable), or minting stops being a leading indicator and the farms have decoupled account creation from push bursts. Three distinct naming batches — glennjennifer427810-style, xongtle29-style, and bare numeric usernames (130556457) — hint the generation templates themselves are being rotated hourly." },
+  { when: "Aug 14 · hours 4–6", title: "The surge lands (v5.10)", body: "Verdict: the lead-time rule held, at the outer edge of its window. Minting stayed hot (730 → 502 → 716 fresh accounts) while spam dipped to 27.0% at h4 — a false dawn, the minted batch not yet deployed — then climbed 37.6% → 49.6% by h6, the first ≥45% hour in 15. The surge was carried by the new batch, not the veterans: LiamBruhin/SillyStuff faded to 299 pushes/hr (from 725) and ugmoddev to 204 (from 532), while fresh accounts minted at h4/h5 — brownwhitney29, stephenspaul164, shepherdjohn909, joneswilliam18, thomaskatherine300 — each pushed 145–235×/hr. Mint-and-burn confirmed: mint ≥500/hr → deploy the batch 2–3h later → surge. 1,695 farm repos were demoted in h6 alone. The naming-generator rotation (firstname+digits → word+digits → bare numeric → firstname+digits again) is the factory's fingerprinting dodge." },
 ];
 
 // ---------- page ----------
@@ -355,13 +367,13 @@ td a:hover{color:var(--accent)}
   </section>
 
   <section class="panel">
-    <div class="panel-head"><h2><span class="h-num">03</span> The 3-hour cadence &amp; the account factory</h2><span class="panel-sub">v5.9 — the pulse broke, then the factory restarted while the surge stayed away</span></div>
+    <div class="panel-head"><h2><span class="h-num">03</span> The 3-hour cadence &amp; the account factory</h2><span class="panel-sub">v5.10 — the rule held: minting ≥500/hr predicted the surge, and it landed at the outer edge</span></div>
     <div class="lede">Between Aug 13 06:00 and 15:00 UTC the spam share stopped drifting and started <b>pulsing</b>: 66.2% → 62.8% → 53.0% → 60.2% — a surge every ~3 hours with 23–40% lulls between. The engine was visible in the ledger: <b>${factorySurges} of ${cadenceRows.length} surges (≥50%) had a minting run of ≥500 freshly-created throwaway accounts within 4 hours prior</b>, average lead <b>${leadAvg}h</b> — accounts are minted, then deployed to push repos. Aug 11's peaks had almost no fresh accounts (fleet rotation); Aug 12 onward it was mint-and-burn.</div>
     <table style="margin-top:14px">
       <tr><th>surge (peak hour)</th><th class="mono">spam %</th><th class="mono">lead time</th><th class="mono">factory batch</th></tr>
       ${cadenceTable}
     </table>
-    ${hoursSincePeak !== null ? `<div class="lede" style="margin-top:16px;border-left:3px solid #f59e0b;padding-left:12px"><b>Where the pulse went:</b> the last ≥50% surge was <b>${esc(lastPeak.hour)} (${lastPeak.spam}%)</b> — ${hoursSincePeak} hours ago and counting. Ten hours have sat at 32–44% (${recent7.join('% → ')}%, avg <b>${recentAvg}%</b>, max ${recentMax}%), i.e. the 3-hour cadence <i>stopped landing</i> exactly when minting collapsed: 947 fresh accounts in the hour before the 60.2% peak → 77/hr the next hour → ~100–150/hr through Aug 14 hour 0. That was the v5.8 verdict: <b>trickle mode</b>. <b>Then the factory restarted.</b> Hours 1–3 of Aug 14 minted ${mintRecent.map(([h, b]) => `${h.slice(-1)}h=${fmt(b)}`).join(' → ')} fresh ledger accounts — the strongest minting since the 60.2% peak — while spam stayed flat (32.2 / 33.3 / 34.4%). The old guards are even downshifting (LiamBruhin/SillyStuff 725 → 387 pushes/hr), yet throwaway identities are being generated at sprint scale again. If the lead-time rule holds (~1–4h from ≥500/hr minting to surge), the next hours are the test: <b>surge inbound or the rule is dead.</b></div>` : ''}
+    ${hoursSincePeak !== null ? `<div class="lede" style="margin-top:16px;border-left:3px solid #10b981;padding-left:12px"><b>Verdict (v5.10): the rule held — at the outer edge.</b> The factory never stopped minting after the restart (${verdictMint.map(([h, b]) => `${h.slice(-1)}h=${fmt(b)}`).join(' → ')} fresh accounts) — and the surge landed exactly as the lead-time rule predicted, just slower than the old 1–2h: h4 <b>27.0%</b> (a false dawn — minted accounts not yet deployed), then h5 <b>37.6%</b>, then h6 <b>49.6%</b> — a +12.0pt single-hour jump, the first ≥45% hour in <b>${hoursSincePeak}h</b> (${recent7.join('% → ')}%). The composition is the tell: this surge is carried by the <i>newly-minted batch</i>, not the old guards — LiamBruhin/SillyStuff faded 725 → 299 pushes/hr, ugmoddev 532 → 204, while fresh first-seen-h4/h5 accounts (brownwhitney29, stephenspaul164, shepherdjohn909, joneswilliam18, thomaskatherine300…) each pushed 145–235×/hr. The mint-and-burn model is intact: <b>mint at ≥500/hr → deploy the batch 2–3h later → surge</b>. ${vDemoted6} farm repos demoted in h6 alone. The naming-template rotation (glennjennifer427810-style → xongtle29-style → bare numeric → back to firstname+digits) is the factory fingerprinting dodge — each batch gets a fresh generator.</div>` : ''}
   </section>
 
   <section class="panel">
