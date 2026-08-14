@@ -1,5 +1,22 @@
 # 🚀 Launch post drafts — GitHub Pulse
 
+## Field notes — run 23 (2026-08-14, hours 1–3): THE FACTORY RESTARTS while the pulse stays flat — live test of the lead-time rule
+
+**Data:** 76h gapless · 12.26M events. Backfilled h1–h3 of Aug 14 (162,335 / 166,634 / 162,046 events). Spam: 32.2 → 33.3 → 34.4% — the 10th straight hour under 45%, 20h since the last ≥50% surge (h15 Aug 13, 60.2%).
+
+**The restart:** minting (chronologically-corrected new ledger actors/hr) = h1 163 → h2 629 → h3 1,175 — the strongest minting since the 60.2% peak, after the 77→~110/hr trickle. The v5.8 rule said ≥500 minted/hr = surge inbound within 1–4h. h2 (629) and h3 (1,175) both clear it. Verdict window: h4–h6 of Aug 14. If a ≥50% surge lands → rule CONFIRMED (timing becomes predictable, great HN material). If it doesn't → minting is decoupled from push bursts; the farms switched to mint-and-hold or identity-rotation without surge-scale pushes.
+
+**Farm-level truth under the flatline:**
+- Old guards DOWN-SHIFTING: LiamBruhin/SillyStuff 725 → 650 → 626 → 387 pushes/hr (h0→h3); ugmoddev 532 → 494 → 434 → 276. Highest persistent farm push rate has HALVED since run 22.
+- Minting decoupled from pushing: accounts are minted at sprint scale but pushed at trickle scale per actor — the fleet is burning identities faster than it pushes with them.
+- Naming-template rotation per hour: h1 = firstname+lastname+digits (glennjennifer427810, jacksonaustin239); h2 = lowercase+digits (xongtle29, alriobradan91); h3 = bare numeric usernames (130556457, vankimienly99). Three generation templates in three hours — the factory rotates generators to dodge name-pattern fingerprints.
+- itaalo67 (the h18–19 #1, 675/hr) = confirmed one-hit wonder, gone h20+. KleirRampage45 (h0 debut, 394/hr) also faded from the top-4 by h1. Fadil123-hah/DILZXJASHER persists (391→335→297→181, declining).
+- Farm count held at 15/hr all window; 21,192 confirmed ledger actors, 27,089 total (was 20,701 confirmed at run 22 — +491 in 3h).
+
+**Shipped:** report.html v5.9 — panel 03 epilogue rewritten ("Then the factory restarted… surge inbound or the rule is dead"), new timeline entry 'The factory restarts (v5.9)', minting numbers updated to h1–h3. Deployed HTTP 200, SMOKE PASS (live+archive+weekly), screenshots regenerated (shot_report_run23.png, shot_weekly_run23.png).
+
+**HN:** still parked — Ask HN 49270205 alive (5 pts), next submission attempt ~Aug 15 10:27Z (48h age). If the rule confirms at h4–h6, the launch story writes itself: "I predicted the surge from the account-minting rate — here's the timestamp."
+
 ## Field notes — run 22 (2026-08-14, hour 0): DECISIVE TEST RESULT — the 3-hour cadence is DEAD. Seven straight hours at 36–44% (no ≥50% surge since h15). Minting collapsed 948/hr → 80/hr → ~110/hr. Verdict: not retreat, TRICKLE MODE. report.html v5.8 epilogue panel + timeline entry shipped.
 
 **Data:** 73h gapless · 11.77M events. Backfilled h19–23 + h0 (6 hours, one run). Spam: h18 43.6 → h19 38.6 → h20 36.3 → h21 37.4 → h22 38.8 → h23 40.4 → h0 38.7 — the flattest 7-hour window since Aug 11.
