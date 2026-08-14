@@ -99,6 +99,16 @@ const leadAvg = (() => {
   return ls.length ? (ls.reduce((a, b) => a + b, 0) / ls.length).toFixed(1) : 'n/a';
 })();
 
+// ---------- v5.8 epilogue: the cadence breaks ----------
+const lastPeak = peaks.length ? peaks[peaks.length - 1] : null;
+const hoursSincePeak = lastPeak ? series.length - 1 - series.findIndex(s => s.hour === lastPeak.hour) : null;
+const recent7 = series.slice(-7).map(s => s.spam);
+const recentAvg = recent7.length ? (recent7.reduce((a, b) => a + b, 0) / recent7.length).toFixed(1) : null;
+const recentMax = recent7.length ? Math.max(...recent7) : null;
+const mintRecent = ['2026-08-13-17', '2026-08-13-18', '2026-08-14-0']
+  .map(h => [h, batchAt(h)]).filter(x => x[1] > 0);
+const mintNow = batchAt('2026-08-14-0');
+
 // all-time languages (summed event-weight per hour it charted)
 const langs = new Map();
 for (const h of hours) {
@@ -207,7 +217,8 @@ const timeline = [
   { when: 'Aug 12 · hour 18', title: 'Star-bomb radar (v5.2)', body: 'With pushes (×0.05–0.3), self-PRs and issue-loops (×0.3) all demoted, stars are the last untaxed heat vector (×8) — so star-bombing became the predicted next adaptation. The radar tracks pure-watcher accounts (whose only activity all hour is starring) and bare repos (stars with zero pushes/PRs/issues/releases). A ≥5-star burst appearing out of nowhere, or ≥2 watchers co-starring multiple bare repos, is demoted ×0.3 as a star-loop; anything ambiguous gets an informational 🔭 star-only badge instead of punishment. Historical replay: spinabot/brigade (7★, 7 lurker watchers, out of nowhere) WOULD have been caught; guillaumemeyer/watermarks-remover (4★) stays informational; famous repos (transformers, firecrawl) are never touched.' },
   { when: 'Aug 13 · hour 0', title: 'The bot-loop (v5.3)', body: 'The chart\'s quiet blind spot: a repo hot ONLY because release/CI automation churns pushes. TimSchoenle/actions hit #1 with 55 pushes from 3 shared [bot] accounts and zero human touch — indistinguishable from a farm by the ≤2-actor rules. New tier: zero non-bot actors + zero human signal + ≥10 pushes → 🤖 bot-loop, demoted ×0.3, never called a farm. Bonus: farms laundering pushes through GitHub Actions under a clean-looking owner now can\'t rank either.' },
   { when: 'Aug 13 · hour 3', title: 'The bot-review loophole (v5.4)', body: 'The bot-loop rule had a crack a day old: reviews counted as human signal no matter who wrote them. TimSchoenle/actions came back with 49 pushes from 4 all-bot actors (renovate[bot], actions-maintenance-bot[bot], automatic-release-manager[bot], github-actions[bot]) — and one bot-authored review was enough to keep it off the bot-loop tier and at #5 hottest. Fix: review authors are now tracked per repo; bot reviews and self-reviews (authored by the repo\'s own pushers — Wonder0208/androidtest was trying exactly that, 42 pushes + 1 self-review) count as zero human signal. Same hour both slipped through got caught: the chart is back to human repos (bun, vm0, EaseMotion-css).' },
-  { when: 'Aug 13 · hours 6–15', title: 'The 3-hour cadence (v5.7)', body: 'The spam share stops drifting and starts pulsing: 66.2% → 62.8% → 53.0% → 60.2%, a surge every ~3 hours with 23–40% lulls between. The 4th peak rebounded — not a farm in retreat. And the engine is visible: each surge is preceded within 1–2 hours by a minting run of ≥500 freshly-created throwaway accounts (1,122 + 1,820 in the two hours before the 66.2% peak). Aug 11\'s peaks had almost no fresh accounts — fleet rotation. Aug 12 onward: mint-and-burn. Twelve ledger actors have now been seen in every single hour of the 64-hour window.' },
+  { when: "Aug 13 · hours 6–15", title: "The 3-hour cadence (v5.7)", body: "The spam share stops drifting and starts pulsing: 66.2% → 62.8% → 53.0% → 60.2%, a surge every ~3 hours with 23–40% lulls between. The 4th peak rebounded — not a farm in retreat. And the engine is visible: each surge is preceded within 1–2 hours by a minting run of ≥500 freshly-created throwaway accounts (1,122 + 1,820 in the two hours before the 66.2% peak). Aug 11's peaks had almost no fresh accounts — fleet rotation. Aug 12 onward: mint-and-burn. Twelve ledger actors have now been seen in every single hour of the 64-hour window." },
+  { when: "Aug 13 · hours 18–24 → Aug 14 · hour 0", title: "The pulse breaks (v5.8)", body: "The cadence was a hypothesis, and it failed at the 5th expected beat: h18 landed at 43.6% instead of ~60%, and the next six hours stayed flat (38.6 / 36.3 / 37.4 / 38.8 / 40.4 / 38.7) — seven hours with no ≥50% surge. The cause is visible in the ledger: minting collapsed from 948 fresh accounts in the hour before the 60.2% peak to 80/hr the hour after, settling at ~100–150/hr. Sprint → trickle. The old guards (LiamBruhin/SillyStuff back up to 725 pushes/hr, ugmoddev/API-NEW-NAT-3-) never stopped pumping; the fleet just stopped minting at surge scale, so the synchronized bursts stopped with it. The rulebook flips: don't predict a peak at h21/h24 — watch the minting rate as the leading indicator. ~500+/hr minted = surge inbound; ~100/hr = flat." },
 ];
 
 // ---------- page ----------
@@ -338,12 +349,13 @@ td a:hover{color:var(--accent)}
   </section>
 
   <section class="panel">
-    <div class="panel-head"><h2><span class="h-num">03</span> The 3-hour cadence &amp; the account factory</h2><span class="panel-sub">v5.7 — the farms don't drift, they pulse; and the minting run comes first</span></div>
-    <div class="lede">Since Aug 12 the spam share has stopped wandering and started <b>pulsing</b>: 66.2% → 62.8% → 53.0% → 60.2% — a surge every ~3 hours with 23–40% lulls between. The 4th peak <i>rebounded</i> (60.2% &gt; 53.0%), so this is not a farm in retreat; it's an operating rhythm. The engine is visible in the ledger: <b>${factorySurges} of ${cadenceRows.length} surges (≥50%) had a minting run of ≥500 freshly-created throwaway accounts within 4 hours prior</b>, average lead <b>${leadAvg}h</b> — accounts are minted, then deployed to push repos. Aug 11's peaks had almost no fresh accounts (fleet rotation); Aug 12 onward it's mint-and-burn. The ledger now holds ${fmt(ledgerCount)} actors, 12 of them seen in <i>every</i> hour of the ${n}-hour window.</div>
+    <div class="panel-head"><h2><span class="h-num">03</span> The 3-hour cadence &amp; the account factory</h2><span class="panel-sub">v5.8 — the pulse ran for four surges… then the factory stalled and the pulse broke</span></div>
+    <div class="lede">Between Aug 13 06:00 and 15:00 UTC the spam share stopped drifting and started <b>pulsing</b>: 66.2% → 62.8% → 53.0% → 60.2% — a surge every ~3 hours with 23–40% lulls between. The engine was visible in the ledger: <b>${factorySurges} of ${cadenceRows.length} surges (≥50%) had a minting run of ≥500 freshly-created throwaway accounts within 4 hours prior</b>, average lead <b>${leadAvg}h</b> — accounts are minted, then deployed to push repos. Aug 11's peaks had almost no fresh accounts (fleet rotation); Aug 12 onward it was mint-and-burn.</div>
     <table style="margin-top:14px">
       <tr><th>surge (peak hour)</th><th class="mono">spam %</th><th class="mono">lead time</th><th class="mono">factory batch</th></tr>
       ${cadenceTable}
     </table>
+    ${hoursSincePeak !== null ? `<div class="lede" style="margin-top:16px;border-left:3px solid #f59e0b;padding-left:12px"><b>Where the pulse went:</b> the last ≥50% surge was <b>${esc(lastPeak.hour)} (${lastPeak.spam}%)</b> — ${hoursSincePeak} hours ago and counting. The seven hours since have sat at ${recent7.join('% → ')}% (avg <b>${recentAvg}%</b>, max ${recentMax}%), i.e. the 3-hour cadence <i>stopped landing</i> exactly when minting collapsed: 948 fresh accounts in the hour before the 60.2% peak → 80/hr the next hour → ${mintNow}/hr now. The factory didn't die — it downshifted from sprint (600–950 accounts/hr) to maintenance (~100–150/hr), and the synchronized surges went with it. Old guards (LiamBruhin/SillyStuff, ugmoddev) are still pumping; fresh throwaway names keep appearing. Verdict: not retreat, <b>trickle mode</b>. If the minting rate climbs back past ~500/hr, expect the pulse to resume.</div>` : ''}
   </section>
 
   <section class="panel">

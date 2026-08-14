@@ -1,5 +1,24 @@
 # 🚀 Launch post drafts — GitHub Pulse
 
+## Field notes — run 22 (2026-08-14, hour 0): DECISIVE TEST RESULT — the 3-hour cadence is DEAD. Seven straight hours at 36–44% (no ≥50% surge since h15). Minting collapsed 948/hr → 80/hr → ~110/hr. Verdict: not retreat, TRICKLE MODE. report.html v5.8 epilogue panel + timeline entry shipped.
+
+**Data:** 73h gapless · 11.77M events. Backfilled h19–23 + h0 (6 hours, one run). Spam: h18 43.6 → h19 38.6 → h20 36.3 → h21 37.4 → h22 38.8 → h23 40.4 → h0 38.7 — the flattest 7-hour window since Aug 11.
+
+**The falsified hypothesis:** run 20-21 predicted a 5th ≥55% peak at h18 and a 6th at h21 (3h cadence: 66.2 / 62.8 / 53.0 / 60.2). Both missed. The cadence died exactly when the account factory downshifted: minting (new ledger actors/hr) = h16 601 → h17 948 → h18 80 → h19-h23 ~104-151 → h0 136. Sprint → trickle. Surges needed ≥500 minted/hr; at ~100/hr the synchronized bursts stopped landing.
+
+**Farm-level truth under the flatline:**
+- LiamBruhin/SillyStuff did NOT fatigue — it re-ramped 428 → 725 pushes/hr by h0 (still #1 farm).
+- ugmoddev/API-NEW-NAT-3- steady at 400-600/hr; zerotraceh1/er-forge-probe climbing 318 → 544/hr.
+- itaalo67/epg_picons: one-hit wonder — #1 at h18 (495) / h19 (675), GONE from top-4 by h20.
+- h0 debut: KleirRampage45/hermes-agent (394/hr) + Fadil123-hah/DILZXJASHER (391/hr) — farm names keep rotating even at trickle volume.
+- Fleet = 15 push-farms tracked every hour; ledger 25,827 actors (21,105 confirmed); demoted 1,144-1,248/hr steady.
+
+**NEW OPERATING RULE (replaces 3h-cadence prediction):** minting rate is the leading indicator. ≥500 new ledger actors/hr → surge inbound within 1-4h. ~100/hr → flat. Next runs: watch h1-h3 minting; if it climbs past 400+, expect the pulse to resume — the old guards never stopped pumping.
+
+**Tooling:** run22_analysis.cjs (cadence-death window, farm persistence, minting). report.cjs v5.8 — panel 03 lede rewritten (pulse ran h6-h15, then broke), amber "Where the pulse went" epilogue box (auto-computed: hoursSincePeak, recent7 avg/max, mintNow), timeline entry "The pulse breaks (v5.8)". smoke.mjs hardened: (a) polls for history links (73 files fetch async — was a race), (b) kills stale headless Firefox holding port 9337 (caused silent "session not created" failure once). Deployed HTTP 200, SMOKE PASS (archive 73 links, live 73, weekly 5 charts), shot_weekly_run22.png + screenshot.png fresh.
+
+**HN:** still parked — Ask HN 49270205 alive (5 pts, mtxeat comment), URL posts auto-dead, submission cooldown >27h; next submission attempt ~Aug 15 10:27Z (48h age). Story to tell: "the farms are real, they pulse on a 3-hour cycle, and I watched the pulse break when the account factory stalled."
+
 ## Field notes — run 21 (2026-08-13, hour 18): CADENCE BROKEN at h18 (43.6%), lead-time rule double-miss, minting collapsed to 80/hr
 
 **Data:** 161,260 events · 61,374 repos · **67h gapless · 10.81M events.** Spam %

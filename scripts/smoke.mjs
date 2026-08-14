@@ -16,6 +16,12 @@ const profile = mkdtempSync(join(tmpdir(), 'pulse-ff-'));
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// kill any stale headless firefox holding our port (child survives launcher SIGKILL)
+try {
+  const { execSync } = await import('node:child_process');
+  execSync(`lsof -ti tcp:${PORT} | xargs kill -9 2>/dev/null; sleep 1`);
+} catch { /* port was free */ }
+
 const ff = spawn(FF, [
   '--headless', `--remote-debugging-port=${PORT}`,
   `--profile=${profile}`, 'about:blank',
@@ -70,6 +76,14 @@ try {
 
   // 4) ---- ARCHIVE MODE ----
   await navigate(`${BASE}/?hour=2026-08-11-0`);
+  // history links render async (73 per-hour files fetched with no-store);
+  // poll until they appear so the check isn't a race.
+  let archHist = 0;
+  for (let i = 0; i < 30; i++) {
+    archHist = Number(await evalJs(`document.querySelectorAll('.hist-link').length`)) || 0;
+    if (archHist >= 10) break;
+    await sleep(500);
+  }
   const arch = await evalJs(`JSON.stringify({
     title: document.title,
     bannerHidden: document.getElementById('archive-banner').hidden,
@@ -87,6 +101,11 @@ try {
 
   // 5) ---- LIVE MODE ----
   await navigate(`${BASE}/`);
+  for (let i = 0; i < 30; i++) {
+    archHist = Number(await evalJs(`document.querySelectorAll('.hist-link').length`)) || 0;
+    if (archHist >= 10) break;
+    await sleep(500);
+  }
   const live = await evalJs(`JSON.stringify({
     bannerHidden: document.getElementById('archive-banner').hidden,
     asof: document.getElementById('asof-badge').textContent,
