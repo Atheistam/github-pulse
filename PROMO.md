@@ -4,7 +4,7 @@
 
 **Data:** 73h gapless · 11.77M events. Backfilled h19–23 + h0 (6 hours, one run). Spam: h18 43.6 → h19 38.6 → h20 36.3 → h21 37.4 → h22 38.8 → h23 40.4 → h0 38.7 — the flattest 7-hour window since Aug 11.
 
-**The falsified hypothesis:** run 20-21 predicted a 5th ≥55% peak at h18 and a 6th at h21 (3h cadence: 66.2 / 62.8 / 53.0 / 60.2). Both missed. The cadence died exactly when the account factory downshifted: minting (new ledger actors/hr) = h16 601 → h17 948 → h18 80 → h19-h23 ~104-151 → h0 136. Sprint → trickle. Surges needed ≥500 minted/hr; at ~100/hr the synchronized bursts stopped landing.
+**The falsified hypothesis:** run 20-21 predicted a 5th ≥55% peak at h18 and a 6th at h21 (3h cadence: 66.2 / 62.8 / 53.0 / 60.2). Both missed. The cadence died exactly when the account factory downshifted: minting (new ledger actors/hr, chronologically-corrected) = h16 595 → h17 947 → h18 77 → h19-h23 ~100-148 → h0 136. Sprint → trickle. Surges needed ≥500 minted/hr; at ~100/hr the synchronized bursts stopped landing.
 
 **Farm-level truth under the flatline:**
 - LiamBruhin/SillyStuff did NOT fatigue — it re-ramped 428 → 725 pushes/hr by h0 (still #1 farm).

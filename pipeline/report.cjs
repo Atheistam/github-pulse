@@ -14,7 +14,11 @@ const OUT = path.join(ROOT, 'site', 'report.html');
 
 const files = fs.readdirSync(HIST)
   .filter(f => /^\d{4}-\d{2}-\d{2}-\d+\.json$/.test(f))
-  .sort();
+  .sort((a, b) => {
+    // chronological, not lexicographic: 2026-08-13-19 < 2026-08-13-2
+    const key = f => { const p = f.replace('.json', '').split('-'); return Date.parse(p.slice(0, 3).join('-') + 'T00:00:00Z') / 86400000 * 24 + Number(p[3]); };
+    return key(a) - key(b);
+  });
 if (!files.length) { console.error('no history files'); process.exit(1); }
 
 const hours = files.map(f => JSON.parse(fs.readFileSync(path.join(HIST, f), 'utf8')));
@@ -76,7 +80,8 @@ try {
   const ledger = JSON.parse(fs.readFileSync(LEDGER, 'utf8'));
   ledgerCount = Object.keys(ledger).length;
   for (const e of Object.values(ledger)) {
-    const hrs = (e.hours || []).slice().sort((x, y) => parseInt(x.split('-')[3], 10) - parseInt(y.split('-')[3], 10));
+    const key = h => { const p = h.split('-'); return Date.parse(p.slice(0, 3).join('-') + 'T00:00:00Z') / 86400000 * 24 + Number(p[3]); };
+    const hrs = (e.hours || []).slice().sort((x, y) => key(x) - key(y)); // chronological: hour labels are NOT zero-padded
     if (hrs[0]) batchByHour[hrs[0]] = (batchByHour[hrs[0]] || 0) + 1;
   }
 } catch (e) { /* ledger unavailable -> cadence panel degrades to peaks only */ }
@@ -217,8 +222,8 @@ const timeline = [
   { when: 'Aug 12 · hour 18', title: 'Star-bomb radar (v5.2)', body: 'With pushes (×0.05–0.3), self-PRs and issue-loops (×0.3) all demoted, stars are the last untaxed heat vector (×8) — so star-bombing became the predicted next adaptation. The radar tracks pure-watcher accounts (whose only activity all hour is starring) and bare repos (stars with zero pushes/PRs/issues/releases). A ≥5-star burst appearing out of nowhere, or ≥2 watchers co-starring multiple bare repos, is demoted ×0.3 as a star-loop; anything ambiguous gets an informational 🔭 star-only badge instead of punishment. Historical replay: spinabot/brigade (7★, 7 lurker watchers, out of nowhere) WOULD have been caught; guillaumemeyer/watermarks-remover (4★) stays informational; famous repos (transformers, firecrawl) are never touched.' },
   { when: 'Aug 13 · hour 0', title: 'The bot-loop (v5.3)', body: 'The chart\'s quiet blind spot: a repo hot ONLY because release/CI automation churns pushes. TimSchoenle/actions hit #1 with 55 pushes from 3 shared [bot] accounts and zero human touch — indistinguishable from a farm by the ≤2-actor rules. New tier: zero non-bot actors + zero human signal + ≥10 pushes → 🤖 bot-loop, demoted ×0.3, never called a farm. Bonus: farms laundering pushes through GitHub Actions under a clean-looking owner now can\'t rank either.' },
   { when: 'Aug 13 · hour 3', title: 'The bot-review loophole (v5.4)', body: 'The bot-loop rule had a crack a day old: reviews counted as human signal no matter who wrote them. TimSchoenle/actions came back with 49 pushes from 4 all-bot actors (renovate[bot], actions-maintenance-bot[bot], automatic-release-manager[bot], github-actions[bot]) — and one bot-authored review was enough to keep it off the bot-loop tier and at #5 hottest. Fix: review authors are now tracked per repo; bot reviews and self-reviews (authored by the repo\'s own pushers — Wonder0208/androidtest was trying exactly that, 42 pushes + 1 self-review) count as zero human signal. Same hour both slipped through got caught: the chart is back to human repos (bun, vm0, EaseMotion-css).' },
-  { when: "Aug 13 · hours 6–15", title: "The 3-hour cadence (v5.7)", body: "The spam share stops drifting and starts pulsing: 66.2% → 62.8% → 53.0% → 60.2%, a surge every ~3 hours with 23–40% lulls between. The 4th peak rebounded — not a farm in retreat. And the engine is visible: each surge is preceded within 1–2 hours by a minting run of ≥500 freshly-created throwaway accounts (1,122 + 1,820 in the two hours before the 66.2% peak). Aug 11's peaks had almost no fresh accounts — fleet rotation. Aug 12 onward: mint-and-burn. Twelve ledger actors have now been seen in every single hour of the 64-hour window." },
-  { when: "Aug 13 · hours 18–24 → Aug 14 · hour 0", title: "The pulse breaks (v5.8)", body: "The cadence was a hypothesis, and it failed at the 5th expected beat: h18 landed at 43.6% instead of ~60%, and the next six hours stayed flat (38.6 / 36.3 / 37.4 / 38.8 / 40.4 / 38.7) — seven hours with no ≥50% surge. The cause is visible in the ledger: minting collapsed from 948 fresh accounts in the hour before the 60.2% peak to 80/hr the hour after, settling at ~100–150/hr. Sprint → trickle. The old guards (LiamBruhin/SillyStuff back up to 725 pushes/hr, ugmoddev/API-NEW-NAT-3-) never stopped pumping; the fleet just stopped minting at surge scale, so the synchronized bursts stopped with it. The rulebook flips: don't predict a peak at h21/h24 — watch the minting rate as the leading indicator. ~500+/hr minted = surge inbound; ~100/hr = flat." },
+  { when: "Aug 13 · hours 6–15", title: "The 3-hour cadence (v5.7)", body: "The spam share stops drifting and starts pulsing: 66.2% → 62.8% → 53.0% → 60.2%, a surge every ~3 hours with 23–40% lulls between. The 4th peak rebounded — not a farm in retreat. And the engine is visible: each surge is preceded within 1–2 hours by a minting run of ≥500 freshly-created throwaway accounts (1,081 + 1,721 in the two hours before the 66.2% peak). Aug 11's peaks had almost no fresh accounts — fleet rotation. Aug 12 onward: mint-and-burn. Twelve ledger actors have now been seen in every single hour of the 64-hour window." },
+  { when: "Aug 13 · hours 18–24 → Aug 14 · hour 0", title: "The pulse breaks (v5.8)", body: "The cadence was a hypothesis, and it failed at the 5th expected beat: h18 landed at 43.6% instead of ~60%, and the next six hours stayed flat (38.6 / 36.3 / 37.4 / 38.8 / 40.4 / 38.7) — seven hours with no ≥50% surge. The cause is visible in the ledger: minting collapsed from 947 fresh accounts in the hour before the 60.2% peak to 77/hr the hour after, settling at ~100–150/hr. Sprint → trickle. The old guards (LiamBruhin/SillyStuff back up to 725 pushes/hr, ugmoddev/API-NEW-NAT-3-) never stopped pumping; the fleet just stopped minting at surge scale, so the synchronized bursts stopped with it. The rulebook flips: don't predict a peak at h21/h24 — watch the minting rate as the leading indicator. ~500+/hr minted = surge inbound; ~100/hr = flat." },
 ];
 
 // ---------- page ----------
@@ -355,7 +360,7 @@ td a:hover{color:var(--accent)}
       <tr><th>surge (peak hour)</th><th class="mono">spam %</th><th class="mono">lead time</th><th class="mono">factory batch</th></tr>
       ${cadenceTable}
     </table>
-    ${hoursSincePeak !== null ? `<div class="lede" style="margin-top:16px;border-left:3px solid #f59e0b;padding-left:12px"><b>Where the pulse went:</b> the last ≥50% surge was <b>${esc(lastPeak.hour)} (${lastPeak.spam}%)</b> — ${hoursSincePeak} hours ago and counting. The seven hours since have sat at ${recent7.join('% → ')}% (avg <b>${recentAvg}%</b>, max ${recentMax}%), i.e. the 3-hour cadence <i>stopped landing</i> exactly when minting collapsed: 948 fresh accounts in the hour before the 60.2% peak → 80/hr the next hour → ${mintNow}/hr now. The factory didn't die — it downshifted from sprint (600–950 accounts/hr) to maintenance (~100–150/hr), and the synchronized surges went with it. Old guards (LiamBruhin/SillyStuff, ugmoddev) are still pumping; fresh throwaway names keep appearing. Verdict: not retreat, <b>trickle mode</b>. If the minting rate climbs back past ~500/hr, expect the pulse to resume.</div>` : ''}
+    ${hoursSincePeak !== null ? `<div class="lede" style="margin-top:16px;border-left:3px solid #f59e0b;padding-left:12px"><b>Where the pulse went:</b> the last ≥50% surge was <b>${esc(lastPeak.hour)} (${lastPeak.spam}%)</b> — ${hoursSincePeak} hours ago and counting. The seven hours since have sat at ${recent7.join('% → ')}% (avg <b>${recentAvg}%</b>, max ${recentMax}%), i.e. the 3-hour cadence <i>stopped landing</i> exactly when minting collapsed: 947 fresh accounts in the hour before the 60.2% peak → 77/hr the next hour → ${mintNow}/hr now. The factory didn't die — it downshifted from sprint (600–950 accounts/hr) to maintenance (~100–150/hr), and the synchronized surges went with it. Old guards (LiamBruhin/SillyStuff, ugmoddev) are still pumping; fresh throwaway names keep appearing. Verdict: not retreat, <b>trickle mode</b>. If the minting rate climbs back past ~500/hr, expect the pulse to resume.</div>` : ''}
   </section>
 
   <section class="panel">

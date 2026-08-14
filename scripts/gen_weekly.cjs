@@ -14,7 +14,11 @@ const OUT = path.join(ROOT, 'site', 'weekly.html');
 
 const files = fs.readdirSync(HIST)
   .filter(f => /^\d{4}-\d{2}-\d{2}-\d+\.json$/.test(f))
-  .sort();
+  .sort((a, b) => {
+    // chronological, not lexicographic: 2026-08-13-19 < 2026-08-13-2
+    const key = f => { const p = f.replace('.json', '').split('-'); return Date.parse(p.slice(0, 3).join('-') + 'T00:00:00Z') / 86400000 * 24 + Number(p[3]); };
+    return key(a) - key(b);
+  });
 if (!files.length) { console.error('no history files'); process.exit(1); }
 
 const hours = files.map(f => JSON.parse(fs.readFileSync(path.join(HIST, f), 'utf8')));
