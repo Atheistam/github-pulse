@@ -481,3 +481,15 @@ https://github.com/Atheistam/github-pulse
 - Naming rotation accelerated: template A 9/10 at h18 → gibberish 7/10 at h23. New disguises: bot-suffix accounts (nekovach-commits/StockPredictions), legit-looking repos (SoliSpirit/proxy-list).
 - Report v5.15: panel-03 subtitle + red VERDICT (regime flip) + timeline entry 'The siege'. Deployed HTTP 200, SMOKE PASS x3, shots run29, run29_analysis.cjs.
 - HN: still parked (Ask 49270205; next submit Aug 15 ~10:22Z = 72h+ age test).
+
+## run 30 field notes (Aug 15 ~04:15 UTC) — v5.16: THE SIEGE IS THE NEW STEADY STATE
+- REFRESH h1-h3 → 100h gapless, 16.17M events. RECORD DID NOT COLLAPSE: 71.4% (h0) → 65.5% (h1, 3rd-highest ever) → 55.7% → 54.4%. No h12-style -21.5pt crash; landed on a NEW FLOOR of 54-56% — double the 27% lulls of the burst-and-rest era.
+- STREAK NOW 10 CONSECUTIVE >=50% HOURS (h18 → h3), still active — previous max was 7. The siege is the regime, not an event.
+- FACTORY "IDLE" = 2-HOUR PAUSE, not abandonment: minting 18 → 46 → 575 → 708 (h0-h3). But minting now happens DURING the plateau (h2/h3), not 1-6h before a surge → LEAD-TIME RULE FORMALLY DEAD (5th consecutive violation of its prediction logic).
+- ugmoddev = 15 of 16 hours (h13 → h3, only h19 missed), rate RISING from 95-157/hr to a 166-270/hr band. Single most persistent farm in 100h of tracking. No fatigue after 15h.
+- ONE-HIT WONDERS CONFIRMED: srjordan6 (245/hr debut at h0) gone by h1; disguise repos (nekovach-commits/StockPredictions, SoliSpirit/proxy-list) were single-hour costumes. Disguise pattern did NOT spread.
+- Naming rotates hourly: template A at h1 (zimmermanharold3760, parkernicole5597...) → A+gibberish at h2 (acoorendduller19, puppy95soad...) → gibberish at h3 (chprotoo, favc17, cburgegro...).
+- h3 = SYNCHRONIZED SQUAD: 7+ actors all within 126-130 pushes/hr — one script, deployed together. Uniform rate = fresh batch fingerprint.
+- Ledger 26,719 (22,116 confirmed); demotions 2,460/2,451/1,776; suspicious loops 1,622 at h3.
+- Report v5.16: red VERDICT rewrite (siege = steady state, lead-time rule dead) + timeline entry 'The siege holds'. Deployed HTTP 200, SMOKE PASS, shots run30, run30_analysis.cjs.
+- HN: Ask 49270205 alive 5pts/1 comment; 72h+ age test-submit window opens ~10:22Z — queued for next run.

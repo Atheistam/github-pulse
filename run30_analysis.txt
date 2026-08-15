@@ -1,0 +1,89 @@
+=== LAST HOUR IN HISTORY: 2026-08-15-3 (n=100 hours) ===
+
+=== (a)+(f) SPAM TRAJECTORY h16 -> h3 (regime-flip follow-up) ===
+2026-08-14-16  spam=   43%  minted=  414  demoted=1407  events=161270
+2026-08-14-17  spam= 42.6%  minted= 1004  demoted=1524  events=167076  (-0.4pt)
+2026-08-14-18  spam= 59.5%  minted=  349  demoted=1983  events=165563  (+16.9pt)  <-- >=50% BREACH
+2026-08-14-19  spam= 62.1%  minted=  139  demoted=1956  events=162979  (+2.6pt)  <-- >=50% BREACH
+2026-08-14-20  spam=   64%  minted=   92  demoted=2033  events=163888  (+1.9pt)  <-- >=50% BREACH
+2026-08-14-21  spam= 64.6%  minted=  190  demoted=2015  events=160880  (+0.6pt)  <-- >=50% BREACH
+2026-08-14-22  spam= 52.6%  minted=  572  demoted=1902  events=167777  (-12.0pt)  <-- >=50% BREACH
+2026-08-14-23  spam= 50.5%  minted=  482  demoted=1870  events=166914  (-2.1pt)  <-- >=50% BREACH
+2026-08-15-0  spam= 71.4%  minted=   18  demoted=2624  events=167974  (+20.9pt)  <-- >=50% BREACH
+2026-08-15-1  spam= 65.5%  minted=   46  demoted=2460  events=163187  (-5.9pt)  <-- >=50% BREACH
+2026-08-15-2  spam= 55.7%  minted=  575  demoted=2451  events=164790  (-9.8pt)  <-- >=50% BREACH
+2026-08-15-3  spam= 54.4%  minted=  708  demoted=1776  events=167090  (-1.3pt)  <-- >=50% BREACH
+
+=== (a) STREAK: consecutive >=50% hours (longest runs in 100h) ===
+longest streak: 10 consecutive hours ending 2026-08-15-3
+current streak: 10 consecutive hours ending 2026-08-15-3
+
+=== ALL-TIME EXTREMES (100h) ===
+lowest 3: 2026-08-14-13 22.5% | 2026-08-13-5 23.4% | 2026-08-14-12 25.7%
+highest 5: 2026-08-15-0 71.4% | 2026-08-13-6 66.2% | 2026-08-15-1 65.5% | 2026-08-14-21 64.6% | 2026-08-14-20 64%
+biggest 1h jump: +42.8pt at 2026-08-13-6 | biggest 1h drop: -21.5pt at 2026-08-14-12
+
+=== (c)+(d) VETERAN PERSISTENCE: hourly push rates h12 -> h3 ===
+ugmoddev       12:0  13:189  14:95  15:111  16:142  17:157  18:134  19:0  20:135  21:139  22:268  23:270  0:243  1:185  2:236  3:166
+elad-cmd       12:0  13:0  14:96  15:115  16:139  17:0  18:0  19:140  20:138  21:144  22:115  23:104  0:127  1:0  2:0  3:0
+jvhoang        12:0  13:0  14:143  15:135  16:0  17:122  18:0  19:0  20:0  21:0  22:0  23:0  0:0  1:0  2:0  3:0
+LiamBruhin     12:0  13:0  14:0  15:0  16:0  17:0  18:0  19:0  20:0  21:0  22:0  23:0  0:0  1:0  2:0  3:0
+wsch40         12:0  13:0  14:91  15:103  16:133  17:0  18:126  19:0  20:0  21:0  22:0  23:100  0:0  1:0  2:0  3:0
+srjordan6      12:0  13:0  14:0  15:0  16:0  17:0  18:0  19:0  20:0  21:0  22:0  23:0  0:245  1:0  2:0  3:0
+twoai-content  12:0  13:0  14:0  15:0  16:0  17:0  18:0  19:0  20:0  21:0  22:0  23:0  0:0  1:0  2:0  3:0
+
+=== (c) ugmoddev DETAIL: botnet_watch entry h3 ===
+{"repo":"ugmoddev/API-NEW-NAT-3-","hours_seen":12,"window_hours":13,"first_seen":"2026-08-14-15","last_seen":"2026-08-15-3","max_pushes":236,"max_actors":1,"url":"https://github.com/ugmoddev/API-NEW-NAT-3-"}
+{"repo":"ugmoddev/noti-api-server","hours_seen":3,"window_hours":13,"first_seen":"2026-08-14-22","last_seen":"2026-08-15-0","max_pushes":115,"max_actors":1,"url":"https://github.com/ugmoddev/noti-api-server"}
+
+=== (e) DISGUISE WATCH: specific repos in bot_watch/demoted h1-h3 ===
+2026-08-15-0: bot:nekovach-commits/StockPredictions(86/hr)  bot:SoliSpirit/proxy-list(85/hr)  demoted:nekovach-commits/StockPredictions(86)  demoted:SoliSpirit/proxy-list(85)
+2026-08-15-1: no disguise hits
+2026-08-15-2: no disguise hits
+2026-08-15-3: no disguise hits
+
+=== (b) MINTING h1-h3: factory still idle? ===
+2026-08-14-20  minted=92
+2026-08-14-21  minted=190
+2026-08-14-22  minted=572
+2026-08-14-23  minted=482
+2026-08-15-0  minted=18
+2026-08-15-1  minted=46
+2026-08-15-2  minted=575
+2026-08-15-3  minted=708
+
+=== TOP FARMS h1-h3 (fresh vs veteran mix) ===
+
+2026-08-15-1:
+   185/hr ugmoddev           ugmoddev/API-NEW-NAT-3-  seen undefinedh FRESH
+   139/hr zimmermanharold3760 zimmermanharold3760/odhhjd  seen undefinedh FRESH
+   138/hr parkernicole5597   parkernicole5597/xambfg  seen undefinedh FRESH
+   136/hr kellybrandy220     kellybrandy220/eortve  seen undefinedh FRESH
+   135/hr thomasashley07     thomasashley07/lgkauf  seen undefinedh FRESH
+   135/hr gallagheraaron630  gallagheraaron630/cnleno  seen undefinedh FRESH
+   134/hr morganmonica580    morganmonica580/hsxnfx  seen undefinedh FRESH
+   133/hr oconnelledward2    oconnelledward2/rnffts  seen undefinedh FRESH
+
+2026-08-15-2:
+   236/hr ugmoddev           ugmoddev/API-NEW-NAT-3-  seen undefinedh FRESH
+   183/hr acoorendduller19   acoorendduller19/onlpck  seen undefinedh FRESH
+   174/hr johnsonkatherine40 johnsonkatherine40/upborh  seen undefinedh FRESH
+   174/hr youngvanessa8578   youngvanessa8578/edpvrx  seen undefinedh FRESH
+   173/hr brownsarah3318     brownsarah3318/kjolly  seen undefinedh FRESH
+   173/hr burkedouglas1      burkedouglas1/cfyuzr  seen undefinedh FRESH
+   172/hr weaverjames3017    weaverjames3017/jsvxkh  seen undefinedh FRESH
+   165/hr puppy95soad        puppy95soad/ftjvam  seen undefinedh FRESH
+
+2026-08-15-3:
+   166/hr ugmoddev           ugmoddev/API-NEW-NAT-3-  seen 12h VETERAN
+   130/hr chprotoo           chprotoo/ukwsnr  seen 1h FRESH
+   130/hr favc17             favc17/lixrff  seen 1h FRESH
+   129/hr cburgegro          cburgegro/bzfsdw  seen 1h FRESH
+   129/hr dinalhengobies     dinalhengobies/urtwdv  seen 1h FRESH
+   129/hr artbakersondhruz   artbakersondhruz/ipnebi  seen 1h FRESH
+   128/hr vya318             vya318/ltjtpt  seen 1h FRESH
+   126/hr ligovanmelod       ligovanmelod/jmwuki  seen 1h FRESH
+
+=== MINT-DEPLOY LEAD (rule demoted?): mint>=500 hours vs breaches h1-h3 ===
+last 6 mint>=500: 2026-08-14-13 (614), 2026-08-14-14 (563), 2026-08-14-17 (1004), 2026-08-14-22 (572), 2026-08-15-2 (575), 2026-08-15-3 (708)
+breaches h16+:  2026-08-14-18, 2026-08-14-19, 2026-08-14-20, 2026-08-14-21, 2026-08-14-22, 2026-08-14-23, 2026-08-15-0, 2026-08-15-1, 2026-08-15-2, 2026-08-15-3
