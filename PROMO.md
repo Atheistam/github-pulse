@@ -503,3 +503,14 @@ Hours 4-6 Aug 15 backfilled → 103h gapless, 16.68M events. Deployed HTTP 200, 
 - elad-cmd re-ramped 104-134/hr (9h seen). New repo tell: 6-char gibberish (avzkvn, vpjsdm, bqoued).
 - Ledger 28,830 (23,661 confirmed); demotions 1501/1647/2146; loops 2,464 at h6.
 - HN: Ask 49270205 alive 5pts/1 comment @ 68.6h age. 72h+ test-submit queued for ~13:05Z run.
+
+## RUN 32 FIELD NOTES (2026-08-15 ~10:05Z) — v5.18
+Hours 7-9 Aug 15 backfilled → 106h gapless, 17.18M events. Deployed HTTP 200, SMOKE PASS x3, shots run32.
+- THE RULE IS REBORN — VERDICT CONFIRMED: h6 minted 1,497 (biggest since 2,002) DURING the lull → h7 DIPPED to 32.2% (−16.1pt, batch undeployed — exact replay of h12→h13: 2,002 mint → 22.5% all-time low) → h8 breached 56.0% (+23.8pt, 6th-biggest 1h jump in 106h) → h9 64.4% (5th-highest hour ever), wave SURGING. Mint-to-breach = 2h.
+- REFINED RULE: mint ≥500 during lull → next-hour dip (batch parked) → ≥50% breach within 2h. Passed live on the first test since v5.16 declared it dead.
+- FACTORY: biggest-ever 2-hour mint (h6 1,497 + h7 1,084 = 2,581 fresh accounts) → decelerated 576 → 355 (deploy-then-re-arm). Minting has NOT stopped for 10 straight hours.
+- SURGE CARRIERS: RETURNING VETERAN zerotraceh1/er-forge-probe (top farm h22-h23 @ 185-194/hr, absent h0-h7, back 137/131) + NEW base64-style sync squad (J8F8k93gAj26, VPvZkLZTNHf19, ZGXVQhXOjKD29, aLGR5RKc89, 1gRU847VX48 all 74-79/hr) + standing army (ugmoddev 20/21h @ 180-194/hr 2 repos; elad-cmd 80-85).
+- h6 squad (jaievicenory10/mistiane808/tras82deep) gone by h7 — 3rd consecutive sync squad = one-hit wonders. Janfindl survived 3h (105/76/90) — longest-lived squad member yet.
+- NAMING: 3 generators in 3 hours — lowercase gibberish (h7, 5-6-char repos kajxbi/pdstsf) → NEW base64-alphanumeric (h8) → template A + gibberish + base64 (h9).
+- Demotions 1508/2379/2657 (h9 = 2nd-biggest demotion hour ever, record 2,624 at h0); loops 1,928; ledger 29,387 (25,073 confirmed).
+- HN: Ask 49270205 alive 5pts, now 3 comments (mtxeat skeptic alive; my reply + KomoD dead — comments still auto-dead). Karma 2, account 72.7h. TEST-SUBMIT (URL, boundary exercise) queued for ~13:05Z run.
