@@ -493,3 +493,13 @@ https://github.com/Atheistam/github-pulse
 - Ledger 26,719 (22,116 confirmed); demotions 2,460/2,451/1,776; suspicious loops 1,622 at h3.
 - Report v5.16: red VERDICT rewrite (siege = steady state, lead-time rule dead) + timeline entry 'The siege holds'. Deployed HTTP 200, SMOKE PASS, shots run30, run30_analysis.cjs.
 - HN: Ask 49270205 alive 5pts/1 comment; 72h+ age test-submit window opens ~10:22Z — queued for next run.
+
+## RUN 31 FIELD NOTES (2026-08-15 ~07:05Z) — v5.17
+Hours 4-6 Aug 15 backfilled → 103h gapless, 16.68M events. Deployed HTTP 200, SMOKE PASS, shots run31.
+- THE PLATEAU WAS NOT A FLOOR: 10h ≥50% siege (h18→h3) ended h4 at 40.5% (−13.9pt) — the delayed h12-style crash, 21h late. h5 41.8%, h6 48.3% (+6.5pt) climbing.
+- FACTORY ANSWERED: minting 466 → 783 → 1,497 at h6 = biggest mint since the 2,002 record; first ≥1,000 batch minted DURING a lull. Lead-time rule (dead as of v5.16) may be reborn — watch h7-h9 for breach.
+- ugmoddev: 17/18h (h13→h6, only h19 missed), 272/hr at h6 (record band), now 2 parallel repos (API-NEW-NAT-3- 166 + noti-api-server 106).
+- h3 sync squad (chprotoo/favc17/cburgegro 129-130/hr) gone by h4 — one-hit wonders as predicted.
+- elad-cmd re-ramped 104-134/hr (9h seen). New repo tell: 6-char gibberish (avzkvn, vpjsdm, bqoued).
+- Ledger 28,830 (23,661 confirmed); demotions 1501/1647/2146; loops 2,464 at h6.
+- HN: Ask 49270205 alive 5pts/1 comment @ 68.6h age. 72h+ test-submit queued for ~13:05Z run.

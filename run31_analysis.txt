@@ -1,0 +1,119 @@
+=== LAST HOUR IN HISTORY: 2026-08-15-6 (n=103 hours) ===
+
+=== (a) SPAM TRAJECTORY h23 -> h6 (streak stress test) ===
+2026-08-14-23  spam= 50.5%  minted=  482  demoted=1870  events=166914  <-- >=50% BREACH
+2026-08-15-0  spam= 71.4%  minted=   18  demoted=2624  events=167974  (+20.9pt)  <-- >=50% BREACH
+2026-08-15-1  spam= 65.5%  minted=   46  demoted=2460  events=163187  (-5.9pt)  <-- >=50% BREACH
+2026-08-15-2  spam= 55.7%  minted=  575  demoted=2451  events=164790  (-9.8pt)  <-- >=50% BREACH
+2026-08-15-3  spam= 54.4%  minted=  708  demoted=1776  events=167090  (-1.3pt)  <-- >=50% BREACH
+2026-08-15-4  spam= 40.5%  minted=  466  demoted=1501  events=168677  (-13.9pt)
+2026-08-15-5  spam= 41.8%  minted=  783  demoted=1647  events=169982  (+1.3pt)
+2026-08-15-6  spam= 48.3%  minted= 1497  demoted=2146  events=169192  (+6.5pt)
+
+=== (a) STREAK ANALYSIS: consecutive >=50% hours ===
+longest streak: 10 consecutive hours ending 2026-08-15-3
+current streak: 0 consecutive hours ending 2026-08-15-3
+
+=== ALL-TIME EXTREMES (103h) ===
+lowest 3: 2026-08-14-13 22.5% | 2026-08-13-5 23.4% | 2026-08-14-12 25.7%
+highest 5: 2026-08-15-0 71.4% | 2026-08-13-6 66.2% | 2026-08-15-1 65.5% | 2026-08-14-21 64.6% | 2026-08-14-20 64%
+
+=== (b) VETERAN PERSISTENCE: hourly push rates h0 -> h6 ===
+ugmoddev       0:243  1:185  2:236  3:166  4:212  5:228  6:272
+elad-cmd       0:127  1:0  2:0  3:0  4:123  5:134  6:104
+jvhoang        0:0  1:0  2:0  3:0  4:0  5:0  6:0
+LiamBruhin     0:0  1:0  2:0  3:0  4:0  5:0  6:0
+wsch40         0:0  1:0  2:0  3:0  4:0  5:0  6:0
+srjordan6      0:245  1:0  2:0  3:0  4:0  5:0  6:0
+twoai-content  0:0  1:0  2:0  3:0  4:0  5:0  6:0
+chprotoo       0:0  1:0  2:0  3:130  4:0  5:0  6:0
+favc17         0:0  1:0  2:0  3:130  4:0  5:0  6:0
+cburgegro      0:0  1:0  2:0  3:129  4:0  5:0  6:0
+
+=== (b) ugmoddev FULL TRACE h13 -> h6 ===
+hours with activity: 17/18  longest continuous: 11 ending 2026-08-15-6
+13:189  14:95  15:111  16:142  17:157  18:134  19:0  20:135  21:139  22:268  23:270  0:243  1:185  2:236  3:166  4:212  5:228  6:272
+
+=== (c) H3 SYNC SQUAD TRACE (chprotoo/favc17/cburgegro + h3 top fresh actors) ===
+2026-08-15-3: chprotoo:130  favc17:130  cburgegro:129  ugmoddev:166  dinalhengobies:129  artbakersondhruz:129  vya318:128  ligovanmelod:126  Fadil123-hah:125  yewly-discian:125  lucraso:125  mirkerub89:124
+2026-08-15-4: ugmoddev:212
+2026-08-15-5: ugmoddev:228
+2026-08-15-6: ugmoddev:272
+
+=== (d) NAMING TEMPLATE HOUR-BY-HOUR h0 -> h6 (top 6 fresh actors) ===
+2026-08-15-0: srjordan6(245)  ugmoddev(150)  elad-cmd(127)  Fadil123-hah(115)  thierbradeskinde(94)  ugmoddev(93)
+2026-08-15-1: ugmoddev(185)  zimmermanharold3760(139)  parkernicole5597(138)  kellybrandy220(136)  thomasashley07(135)  gallagheraaron630(135)
+2026-08-15-2: ugmoddev(236)  acoorendduller19(183)  johnsonkatherine40(174)  youngvanessa8578(174)  brownsarah3318(173)  burkedouglas1(173)
+2026-08-15-3: ugmoddev(166)  chprotoo(130)  favc17(130)  cburgegro(129)  dinalhengobies(129)  artbakersondhruz(129)
+2026-08-15-4: ugmoddev(212)  elad-cmd(123)  sgressf1(122)  liukristina30(118)  cecolsch5128(116)  cooperkristen16(116)
+2026-08-15-5: ugmoddev(228)  coxwilliam434(151)  williamsbernard846(149)  powellkenneth592(148)  matalisa4(144)  meyerleslie704(143)
+2026-08-15-6: ugmoddev(166)  jaievicenory10(114)  mistiane808(109)  tras82deep(108)  ugmoddev(106)  Janfindl(105)
+
+=== (e) WAVE RADAR h0 -> h6 ===
+2026-08-15-0: wave=n/a  spam=71.4%
+2026-08-15-1: wave=n/a  spam=65.5%
+2026-08-15-2: wave=n/a  spam=55.7%
+2026-08-15-3: wave=n/a  spam=54.4%
+2026-08-15-4: wave=n/a  spam=40.5%
+2026-08-15-5: wave=n/a  spam=41.8%
+2026-08-15-6: wave=n/a  spam=48.3%
+
+=== TOP FARMS h4-h6 (fresh vs veteran mix) ===
+
+2026-08-15-4:
+   212/hr ugmoddev           ugmoddev/API-NEW-NAT-3-  seen undefinedh FRESH
+   123/hr elad-cmd           elad-cmd/psycho-usage  seen undefinedh FRESH
+   122/hr sgressf1           sgressf1/avzkvn  seen undefinedh FRESH
+   118/hr liukristina30      liukristina30/vpjsdm  seen undefinedh FRESH
+   116/hr cecolsch5128       cecolsch5128/bqoued  seen undefinedh FRESH
+   116/hr cooperkristen16    cooperkristen16/iunpkj  seen undefinedh FRESH
+   115/hr dughervinbugbo     dughervinbugbo/qkeuck  seen undefinedh FRESH
+   114/hr rikanole           rikanole/rhktqh  seen undefinedh FRESH
+   113/hr somuya17           somuya17/dlimdt  seen undefinedh FRESH
+   112/hr drain27wbere       drain27wbere/rsrrek  seen undefinedh FRESH
+
+2026-08-15-5:
+   228/hr ugmoddev           ugmoddev/API-NEW-NAT-3-  seen undefinedh FRESH
+   151/hr coxwilliam434      coxwilliam434/jglkhw  seen undefinedh FRESH
+   149/hr williamsbernard846 williamsbernard846/snxiog  seen undefinedh FRESH
+   148/hr powellkenneth592   powellkenneth592/txiejo  seen undefinedh FRESH
+   144/hr matalisa4          matalisa4/kjrzba  seen undefinedh FRESH
+   143/hr meyerleslie704     meyerleslie704/jzbgpn  seen undefinedh FRESH
+   141/hr frostleslie89      frostleslie89/jwsegs  seen undefinedh FRESH
+   141/hr freemandeborah835  freemandeborah835/veoiaj  seen undefinedh FRESH
+   139/hr allenelizabeth2071 allenelizabeth2071/maqglj  seen undefinedh FRESH
+   138/hr perryalejandro403  perryalejandro403/dvgcum  seen undefinedh FRESH
+
+2026-08-15-6:
+   166/hr ugmoddev           ugmoddev/API-NEW-NAT-3-  seen 12h VETERAN
+   114/hr jaievicenory10     jaievicenory10/kcdadr  seen 1h FRESH
+   109/hr mistiane808        mistiane808/jmrjhq  seen 1h FRESH
+   108/hr tras82deep         tras82deep/ihzxnx  seen 1h FRESH
+   106/hr ugmoddev           ugmoddev/noti-api-server  seen 4h mid
+   105/hr Janfindl           Janfindl/AFL_Live  seen 1h FRESH
+   104/hr elad-cmd           elad-cmd/psycho-usage  seen 9h VETERAN
+   103/hr mciris-los7        mciris-los7/lyvqky  seen 1h FRESH
+   101/hr leodriale242       leodriale242/fvcdez  seen 1h FRESH
+   101/hr amstri             amstri/divuwi  seen 1h FRESH
+
+=== MINTING vs BREACHES h16+ (lead-time rule: formally dead?) ===
+last 8 mint>=500: 2026-08-14-13 (614), 2026-08-14-14 (563), 2026-08-14-17 (1004), 2026-08-14-22 (572), 2026-08-15-2 (575), 2026-08-15-3 (708), 2026-08-15-5 (783), 2026-08-15-6 (1497)
+breaches h16+:  2026-08-14-18, 2026-08-14-19, 2026-08-14-20, 2026-08-14-21, 2026-08-14-22, 2026-08-14-23, 2026-08-15-0, 2026-08-15-1, 2026-08-15-2, 2026-08-15-3
+minting h0-h6:   0:18  1:46  2:575  3:708  4:466  5:783  6:1497
+
+=== LEDGER: hours_seen TOP 15 actors (all-time persistence) ===
+103h twang35                2026-08-11-0 -> 2026-08-15-6
+103h ugmoddev               2026-08-11-0 -> 2026-08-15-6
+103h elad-cmd               2026-08-11-0 -> 2026-08-15-6
+103h vndel                  2026-08-11-0 -> 2026-08-15-6
+103h tamzid2001             2026-08-11-0 -> 2026-08-15-6
+103h solispirit             2026-08-11-0 -> 2026-08-15-6
+103h gaston1799             2026-08-11-0 -> 2026-08-15-6
+103h infernusscripts        2026-08-11-0 -> 2026-08-15-6
+103h mac-lang-volpe         2026-08-11-0 -> 2026-08-15-6
+103h loganfoxdale           2026-08-11-0 -> 2026-08-15-6
+103h xiaoandy1974g          2026-08-11-0 -> 2026-08-15-6
+103h raguram-jedlik         2026-08-11-0 -> 2026-08-15-6
+103h noppitlabs             2026-08-11-0 -> 2026-08-15-6
+103h shofynix               2026-08-11-0 -> 2026-08-15-6
+103h hobakpi                2026-08-11-0 -> 2026-08-15-6
