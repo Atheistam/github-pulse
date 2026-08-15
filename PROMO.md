@@ -470,3 +470,14 @@ https://github.com/Atheistam/github-pulse
 - Naming: template A (name+digits) dominant again at h18 (romerosabrina6, colemanjeffrey5, weaverjames3017, gonzalezmichael31) after mixed h16 (gibberish phb4000/spiith88tuwis) + h17 (winson-00178005 hyphen holdout).
 - Ledger 25,372 (20,513 confirmed); demotions 1,407/1,524/1,983. Deployed HTTP 200, SMOKE PASS x3, shots shot_report_run28/shot_weekly_run28, run28_analysis.cjs, pushed fde6d3c.
 - HN: parked per plan (Ask 49270205 5pts; next submission Aug 15 ~10:22Z = 72h+ age test).
+
+## run 29 field notes (Aug 15 ~01:00 UTC) — v5.15: THE SIEGE (regime flip)
+- REFRESH h19-h23 + h0 → 97h gapless, 15.68M events. REGIME FLIP: burst-and-rest is DEAD.
+- 7 CONSECUTIVE >=50% BREACH HOURS (h18 59.5 → h19 62.1 → h20 64.0 → h21 64.6 → h22 52.6 → h23 50.5) — longest streak in 97h (prev record 5).
+- h0 = 71.4% (+20.9pt) — NEW ALL-TIME HIGH (beats 66.2% Aug 13 h6). Biggest demotion hour ever: 2,624 (+1,020 loops).
+- THE RECORD WAS SET WITHOUT THE FACTORY: h0 minted just 18 fresh accounts (h20-h0: 92 → 190 → 572 → 482 → 18). Veterans carried it: ugmoddev hit RECORD 268-270/hr (double its 95-157 pace) across 2 parallel repos; elad-cmd 100-144/hr for 9h straight; 11 farms >85/hr simultaneously at h0 (srjordan6/twoai-content debut 245/hr).
+- ugmoddev = first confirmed 13h+ veteran farm. jvhoang finally rotated out after h17. Template-A batch (romerosabrina6) rotated out within 1-2h as predicted.
+- LEAD-TIME RULE DEMOTED: h22 minted 572 → h0 blowout, but with veterans re-ramping the surge no longer NEEDS fresh identities. Minting is no longer the limiting resource.
+- Naming rotation accelerated: template A 9/10 at h18 → gibberish 7/10 at h23. New disguises: bot-suffix accounts (nekovach-commits/StockPredictions), legit-looking repos (SoliSpirit/proxy-list).
+- Report v5.15: panel-03 subtitle + red VERDICT (regime flip) + timeline entry 'The siege'. Deployed HTTP 200, SMOKE PASS x3, shots run29, run29_analysis.cjs.
+- HN: still parked (Ask 49270205; next submit Aug 15 ~10:22Z = 72h+ age test).
