@@ -1,0 +1,57 @@
+RUN 33 ANALYSIS (2026-08-15 ~13:10Z) — hours 10-12 Aug 15 · 109h gapless · 17,687,127 events
+========================================================================================
+
+(a) SURGE DECAY OR EXTEND? — EXTENDED AS A PLATEAU (5h streak, gentle bleed)
+    h6 48.3% → h7 32.2% (dip) → h8 56.0% → h9 64.4% → h10 62.8% → h11 62.4% → h12 61.0%
+    - 5 consecutive ≥50% hours (h8-h12), decaying only −1.4pt/hr from the 64.4% peak.
+    - NO post-peak collapse: contrast the h14→h16 cycle (55.2 → 62.4 → 43.0, −19.4pt crash).
+    - 2nd siege-like plateau in 36h, at a HIGHER level: 61-64% vs the 54-56% of the h18-h3 siege.
+    - The mint(1,497)→dip(32.2%)→breach(56.0%) signature repeated exactly; the wave then held.
+    - 44 of 109 hours have been ≥50% spam. Streak (current): 5.
+
+(b) MINTING — RE-ARMED MID-SURGE
+    1,497 → 1,084 → 576 → 355 → 220 (h10 bottom) → 497 → 590 (h12)
+    - 3rd time the factory has minted DURING a plateau instead of before one (h2/h3 and h11/h12).
+    - Lead-time rule stays buried: minting is now steady-state supply, not a leading indicator.
+    - Minting has run 12 straight hours without pause.
+
+(c) SQUADS & CARRIERS
+    - zerotraceh1/er-forge-probe: 5h run (137/131/139/104) → GONE at h12. Run ended.
+    - base64 squad (J8F8k93gAj26, VPvZkLZTNHf19, ZGXVQhXOjKD29, aLGR5RKc89, 1gRU847VX48): h8 only
+      → 4th consecutive synchronized squad confirmed as one-hit wonders.
+    - NEW PATTERN — VETERANS GO SHIFT-BASED:
+        elad-cmd:  0 / 80 / 85 / 0 / 0 / 83   (active h8-9, silent h10-11, back h12)
+        Janfindl: 76 / 90 /  0 / 0 / 103 / 99 (same shift shape; longest-lived squad member, 6h span)
+      First evidence the farms cycle VETERANS too, not just fresh squads. Previously both were
+      near-continuous. This is a real adaptation: intermittent presence dodges "hours-seen" metrics.
+
+(d) ugmoddev — 23 OF 24 HOURS, ALL 109 HOURS IN LEDGER
+    08-14 h13→h12: 189 95 111 142 157 134 0 135 139 268 270 243 185 236 166 212 228 272 180 187 194 104 129 117
+    - Only h19 (Aug 14) missed. Present in EVERY one of the 109 tracked hours per ledger.
+    - Rate finally eased: 180-194 (h7-h9) → 104-129 (h10-h12). Deceleration, not death.
+    - ugmoddev is the single most persistent farm ever tracked: 109/109 hours.
+
+(e) NAMING — MIXED WITHIN HOURS NOW
+    h10: winson-00178005, zerotraceh1, n-anderson7540, liamjackson22694 (template A)
+    h11: ugmoddev, zerotraceh1, Janfindl, MtbWRjeYFXojr67 (base64-style), emmzle607
+    h12: loganfoxdale, ugmoddev, Janfindl, noahanderson828871 (template A), paxpylen (gibberish)
+    - No single dominant template; generators now mixed inside a single hour. Fingerprinting dodge continues.
+
+DEMOTIONS / LEDGER
+    - Demoted repos: 2,475 / 2,569 / 2,815 — h12's 2,815 = 2nd-biggest demotion hour EVER
+      (record 3,095 at Aug 11 h1; run 32's claim of 2,624 at h0 as record was wrong — corrected).
+    - Ledger: 28,674 actors (24,131 confirmed per farms.json).
+    - Wave radar at h12: PEAK (61%).
+
+HN (see PROMO.md "RUN 33 HN BREAKTHROUGH")
+    - URL post 49310247 ALIVE (dead:None) at 72h+ account age — first surviving URL post.
+      Score 1, on /newest, Algolia-indexed, anonymous-visible. Alive at +10min check.
+    - Ask 49270205 still alive (5 pts, 1 visible comment).
+
+NEXT RUN CHECKS (h13-h15, ~16:10Z)
+    1. Does the plateau hold past 5h, or does it finally crash (h13 22.5%-style or −20pt)?
+    2. Minting: does the 590 re-arm continue or does the factory finally pause?
+    3. Shift-based veterans: do elad-cmd/Janfindl keep the 2-on/2-off rhythm?
+    4. zerotraceh1: cycler pattern (h22-23 → gone → h8-11 → gone) — when does it return?
+    5. HN: is 49310247 still alive at ~3h age? If yes → promotion mode: comment test + engage.
+    6. ugmoddev rate: hold 100+ or fade below? 110th hour?
