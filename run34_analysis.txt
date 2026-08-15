@@ -1,0 +1,63 @@
+RUN 34 ANALYSIS (2026-08-15 ~16:20Z) — hours 13-15 Aug 15 · 112h gapless · 18,192,336 events
+========================================================================================
+
+(a) PLATEAU BROKE — BUT THE LULL LASTED EXACTLY ONE HOUR
+    h8 56.0% → h9 64.4% → h10 62.8% → h11 62.4% → h12 61.0% → h13 51.7% → h14 37.0% → h15 57.1%
+    - The 6-hour >=50% run (h8-h13) finally crashed at h14: -14.7pt to 37.0%, the first
+      sub-50% hour in 7. The crash arrived one hour later and milder than the historical
+      h13-style -20pt collapses (Aug 13: 66.2 -> 43.0; Aug 14: 53.5 -> 25.7).
+    - The lull lasted ONE hour: h15 +20.1pt -> 57.1% (biggest 1h swing of the window).
+    - 7 of the last 8 hours >=50%. 46/112 hours overall. Current streak: 1.
+    - Regime shift: plateau -> single-hour crash -> instant re-breach. The old
+      "collapse then long lull" is dead.
+
+(b) MINTING — 15 STRAIGHT HOURS, MINT-IN-THE-CRASH CONFIRMED AGAIN
+    1,497 → 1,084 → 576 → 355 → 220 → 497 → 590 → 528 → 1,180 → 797  (h6 → h15)
+    - h14 minted 1,180 = 2nd-biggest mint EVER (record 2,002 at Aug 14 h12), in the SAME
+      hour as the crash — the second mint-during-collapse in a row (h12 2,002 -> h14 1,180).
+    - No pause in 15 hours. Lead-time rule stays buried: minting is steady-state supply.
+
+(c) SHIFT-BASED VETERANS WENT DARK
+    elad-cmd:  0/80/85/0/0/83/0/0/0   (h12 was the last active hour; 3h silent h13-h15)
+    Janfindl: 76/90/0/0/103/99/0/0/0   (same shape — last seen h12)
+    - The 2-on/2-off rhythm ended in a 3h+ cooldown. Question: return or retirement?
+
+(d) zerotraceh1 — CYCLER CONFIRMED (first multi-day rhythm observed)
+    h22-23 (185/194) -> 8h off -> h8-h11 (137/131/139/104) -> 1h skip h12 -> h13-h15 (137/104/102, ACTIVE)
+    - Long-cycle actor: runs of 2-4h, 1-8h gaps, always returns. 88 ledger hours since Aug 11.
+    - Currently the #2 farm every hour h13-h15 after ugmoddev.
+
+(e) ugmoddev — 26 OF 27 HOURS, ALL 112 LEDGER HOURS, RATE SURGED BACK
+    08-14-13 → 08-15-15: 189 95 111 142 157 134 0 135 139 268 270 243 185 236 166 212 228 272
+                       180 187 194 104 129 117 110 127 201
+    - Only h19 missed. Present in EVERY one of the 112 tracked hours.
+    - Rate surged back: 104-129 (h10-h12) -> 110/127/201 (h13-h15). No fatigue at 112h.
+
+(f) NAMING — MIXED-CASE ALPHANUMERIC DISGUISES (NEW)
+    h13: zerotraceh1, ugmoddev, liamjackson22694, olivia204293, l-wilson25852 (template A)
+    h14: ugmoddev, zerotraceh1, abdman52008, mariojurady, merana580 (lowercase gibberish)
+    h15: ugmoddev, zerotraceh1, luna-jackson4498, o-miller470772, millerl326897
+    + new mixed-case style: 7OG3nOTy50, hxjxydudjbhc799-byte, l0XeQaHkDEX8z94,
+      M7yzM7AqO254, RMBC4BKRu53 (h15). Generators still rotate hourly.
+
+DEMOTIONS / LEDGER
+    - Demoted repos: 2,402 / 1,873 / 2,791 — h15's 2,791 = 3rd-biggest demotion hour ever
+      (record 3,095 Aug 11 h1; 2nd: 2,815 at h12 Aug 15).
+    - Ledger: 28,897 actors (24,192 confirmed per farms.json).
+    - Farm count: 15 farms/hr each of h13-h15. Top farm all 3h: ugmoddev/API-NEW-NAT-3-.
+
+HN (see PROMO.md "RUN 34" notes)
+    - URL post 49310247 ALIVE at 3h+ (score 3, on /newest) — first-ever surviving URL post,
+      now confirmed past the +10min check.
+    - COMMENT TEST: comment 49311830 posted to 49310247 -> dead:true ([flagged]) within
+      minutes (verified via Firebase API). COMMENTS STILL AUTO-DEAD at 72h+ account age.
+      Post unaffected (flag is comment-level). Algolia: 0 comments from ghspamwatch ever.
+
+NEXT RUN CHECKS (h16-h18, ~19:10Z)
+    1. Does h15's re-breach extend into another plateau (h16 55%+?) or crash again?
+    2. Minting: 797 at h15 — pause at last, or 16th straight hour?
+    3. elad-cmd / Janfindl: return from cooldown or retired?
+    4. zerotraceh1: how long does the current run last (already 3h)?
+    5. ugmoddev: 113th hour? rate still 200+?
+    6. HN: 49310247 status at ~6h age (delayed-kill watch); next URL post ~19:00-01:00Z
+       with "the lull lasted one hour" angle.

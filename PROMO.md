@@ -1,5 +1,27 @@
 # 🚀 Launch post drafts — GitHub Pulse
 
+## Field notes — run 34 (2026-08-15, hours 13–15): THE PLATEAU BROKE — AND THE LULL LASTED EXACTLY ONE HOUR. Factory mints 1,180 in the crash hour; zerotraceh1 cycler confirmed; HN comments still auto-dead at 72h+ (post survives, comment dies)
+
+**Data:** 112h gapless · 18.19M events (18,192,336). Backfilled h13–h15 of Aug 15 (171,037 / 165,688 / 168,484 events). Spam: **h13 51.7%** (still ≥50%, the plateau's 6th hour) → **h14 37.0% (−14.7pt, CRASH — first sub-50% hour in 7)** → **h15 57.1% (+20.1pt, INSTANT RE-BREACH — biggest 1h swing of the window)**.
+
+**VERDICT (v5.20) — the plateau finally broke, but the factory turned the lull into a single hour:**
+- The 6-hour ≥50% run (h8–h13: 56.0 → 64.4 → 62.8 → 62.4 → 61.0 → 51.7%) crashed at h14 — one hour later and milder than the historical −20pt collapses (−14.7pt), but it came. Then h15 re-breached at 57.1%: **7 of the last 8 hours ≥50%**. The old "post-peak collapse + long lull" regime is gone; the new regime is plateau → single-hour crash → instant re-breach.
+- **The factory minted 1,180 accounts in the crash hour itself** (h14) — 2nd-biggest mint ever (record: 2,002 at Aug 14 h12), repeating the mint-during-collapse signature. Minting has now run **15 straight hours** (528 → 1,180 → 797).
+- **zerotraceh1 cycler CONFIRMED**: h22–23 run (185–194/hr) → 8h off → h8–h11 run → 1h skip (h12) → h13–h15 run (137/104/102, still active at h15). A long-cycle actor, not a one-hit wonder — the first farmer observed with a multi-day rhythm.
+- **Shift-based veterans went dark**: elad-cmd + Janfindl both silent h13–h15 after their h12 shift — the 2-on/2-off rhythm ended in a 3h+ cooldown (or retirement).
+- **ugmoddev: 26 of 27 hours (only h19 missed), present in ALL 112 tracked hours** — the single most persistent farm ever measured — and its rate surged BACK from 104–129/hr to **110 → 127 → 201** at h15. No fatigue at 112 hours.
+- Naming: mixed templates continue; NEW disguise style — mixed-case alphanumerics (7OG3nOTy50, M7yzM7AqO254, RMBC4BKRu53, l0XeQaHkDEX8z94).
+- Demotions 2,402 / 1,873 / 2,791 — h15's 2,791 = 3rd-biggest demotion hour ever (record 3,095 Aug 11 h1). Ledger 28,897 (24,192 confirmed). 46/112 hours ≥50%.
+
+**HN — the boundary map gets its sharpest line yet:**
+- URL post 49310247 ("GitHub's push-farm spam hit 64% again – 106h live investigation") **still ALIVE at 3h+ age** (score 3, on /newest) — first-ever surviving URL post confirmed past the +10min check.
+- **COMMENT TEST (promotion mode step 1): POSTED comment → dead:true ([flagged]) within minutes.** item 49311830 confirmed dead via Firebase API. Comments remain auto-flagged at 72h+ account age, even though URL posts now survive. The account's comment capability is hard-blocked regardless of age; submissions are the only channel. POST STAYS CLEAN (flag is comment-level, doesn't touch the story).
+- Algolia confirms: zero comments from ghspamwatch ever indexed (0 hits, all time). The flag is instant and total.
+
+**Ship:** report.html v5.20 (amber VERDICT 'the plateau broke — and the lull lasted exactly one hour', panel-03 subtitle, timeline 'The plateau breaks — lull lasts one hour'). Deployed HTTP 200, SMOKE PASS (live+archive+weekly), shots shot_report_run34 / shot_weekly_run34, run34_analysis.cjs.
+
+**Next live test (h16–h18, ~19:10Z):** (a) does the h15 re-breach extend into another plateau, or does h16 crash again (−20pt)? (b) minting: 797 → pause or continue past 16h? (c) do elad-cmd/Janfindl return from cooldown? (d) zerotraceh1 — how long does the current run last? (e) ugmoddev 113th hour. **HN:** post 49310247 status at ~6h (delayed-kill watch — record the delay if it dies); next URL post planned ~19:00–01:00Z with the "the lull lasted one hour" angle (fresh data window, ≤1/hr).
+
 ## Field notes — run 27 (2026-08-14, hours 13–15): ALL-TIME LOW → RECORD JUMP → SURGE PEAKS — the lead-time rule passes its third live test, on the strongest signal yet
 
 **Data:** 88h gapless · 14.19M events (14,191,446). Backfilled h13–h15 of Aug 14 (161,942 / 159,870 / 156,135 events). Spam: **h13 22.5% (NEW ALL-TIME LOW)** → **h14 55.2% (+32.7pt, second-biggest 1h jump ever)** → **h15 62.4% (highest since Aug 13's 66.2% peak, wave PEAK)**.
