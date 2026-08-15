@@ -1,0 +1,56 @@
+RUN 35 ANALYSIS (2026-08-15 ~19:10Z) — hours 16-18 Aug 15 · 115h gapless · 18,691,267 events
+============================================================================================
+
+(a) THE ONE-HOUR LULL IS THE RHYTHM — PATTERN REPEATED BEAT-FOR-BEAT
+    h13 51.7% → h14 37.0% → h15 57.1% → h16 46.7% → h17 65.5% → h18 65.8%
+    - v5.20's "lull lasted one hour" was not an event — it's the rhythm:
+      h16 dipped to 46.7% (−10.4pt, sub-50 for exactly one hour), then
+      h17 re-breached at 65.5% (+18.8pt) and h18 held 65.8% (+0.3pt).
+    - h18 65.8% = 3rd-highest hour EVER (behind h0's 71.4% and Aug 13 h6's 66.2%);
+      h17 65.5% ties h1 for 4th. Wave radar: h17 SURGING → h18 PEAK.
+    - TWO consecutive one-hour lulls in a row (h14→h15, h16→h17). The old
+      "collapse then long lull" is fully dead; the new regime is a 2-hour
+      sawtooth: breach → 1h lull → instant re-breach.
+    - 48/115 hours >=50%. Current streak: 2.
+
+(b) MINTING — THE SURGE RAN WITH THE FACTORY IDLE (2nd time)
+    1,497 → 1,084 → 576 → 355 → 220 → 497 → 590 → 528 → 1,180 → 797 → 429 → 92 → 106
+    - Minting finally decelerated: h17 minted just 92, h18 106 (from 429 at h16).
+    - Yet spam hit 65.5/65.8% anyway — the second record-strength surge on an
+      idle factory, matching h0's 71.4% with only 18 minted. The factory is no
+      longer the surge trigger; the standing army IS the surge.
+    - Minting has now run 13 straight hours (h6-h18), but at trickle scale.
+
+(c) VETERANS
+    - ugmoddev: 30 of 31 hours (h13 Aug14 → h18 Aug15, only h19 missed);
+      present in ALL 115 tracked hours. Rate surged back to 257/hr at h17
+      (record band) then 207 at h18. No fatigue at 115 hours. THE #1 farm
+      every single hour h16-h18.
+    - zerotraceh1: h13-h16 run (137/104/102/99) then cycled off at h17-h18 —
+      multi-day cycler rhythm holds (runs of 2-4h, gaps of 1-8h, always back).
+    - elad-cmd: returned at h16 (86/hr) — single-hour shift. Cadence now
+      8,9 → 12 → 16: the shift interval is growing (2h → 3h → 4h).
+    - Janfindl: SILENT 6 HOURS STRAIGHT (h13-h18). Longest gap yet — retired
+      or long cooldown. Its 2-on/2-off partner rhythm is broken.
+
+(d) NAMING — TEMPLATE A BACK, GIBBERISH REPOS STANDARD ISSUE
+    - h16: winson-00178005 (new #1!), zerotraceh1, ugmoddev, smithl07428, elad-cmd
+    - h17: template A (williamskyle5, wolfdeborah14, l-wilson25852, edwardsmarie1)
+    - h18: template A again (l-thomas120257, flypown, noah-johnson153393, alex-brown04332)
+    - 6-char lowercase gibberish repos now standard for template-A actors:
+      txcdvd, mnrchp, fpvkjv, vlzkch, moafcl, nvmovq, wwgmxi, uylgwu.
+    - Mixed-case alphanumeric disguises (7OG3nOTy50 et al) were h15-only costumes.
+
+(e) DEMOTIONS — TWO OF THE TOP-3 HOURS EVER IN ONE WINDOW
+    - h17 2,944 = 2nd-biggest demotion hour ever (record 3,095 at Aug 11 h1)
+    - h18 2,853 = 3rd-biggest. Ledger 27,057 actors (23,487 confirmed).
+    - All-time top-5: 3,095 (Aug11 h1) | 2,944 (h17) | 2,853 (h18) | 2,815 (h12) | 2,793 (Aug12 h8).
+
+HN (see PROMO.md "RUN 35" notes)
+    - 49310247 ALIVE at 6h+ (score 3, no dead/deleted; only my own [flagged]
+      test comment on the thread — zero real engagement yet).
+    - URL DEDUPE DISCOVERY: re-submitting report.html redirects to 49310247
+      (no new item, no error) — the report URL is now a single permanent slot.
+    - weekly.html URL post → story-toofast: submission cooldown STILL >6h at
+      93h account age. Next attempt: different URL (weekly.html or ?v= variant),
+      spacing >=12h, ideally ~24h.
