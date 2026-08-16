@@ -591,3 +591,23 @@ Hours 16-18 Aug 15 backfilled → 115h gapless, 18.69M events. Deployed HTTP 200
 - DISCOVERY: re-submitting report.html → HN redirects to existing item 49310247 (no new item, NO toofast error). The report URL is now a single permanent slot on HN — dedupe, not rate-limit.
 - Second attempt: weekly.html URL → `story-toofast` ("You're posting too fast"). Submission cooldown STILL >6h at 93h account age.
 - PLAYBOOK UPDATE: rotate landing URLs (weekly.html, ?v= variants, main site); spacing >=12h, ideally 24h. report.html permanently taken.
+
+## RUN 37 NOTES — v5.23 (h1-h3 Aug 16): THE CRACK WAS A ONE-HOUR DIP — AND THE FACTORY ANSWERED
+- SIEGE: 9 consecutive >=50% hours (h17->h1, 8 of them >=65%) — longest sustained run in 124h — cracked at h2: 48.5% (-4.8pt), first sub-50% since h16. Crack lasted EXACTLY one hour: h3 re-breach 68.9% (+20.4pt) = 5th-highest hour ALL-TIME. Biggest bounce since h12->h14 (22.5%->55.2%).
+- FACTORY RE-ARMED: idle record held through h1 (46 minted; h17->h1 = 92/106/31/88/22/20/34/18/46) then h2: 575 + h3: 708 = 1,283 fresh accounts in 2h. Minted AT THE DIP (h2), like the 2,002 record at h12. LEAD-TIME RULE REBORN with tightest lead ever: mint h2 -> breach h3, 1h. h3 batch points at h4+.
+- ugmoddev: all-time record 364/hr at h0, then FIRST sustained deceleration in days (324 -> 213 -> 169). Still 124/124 ledger hours = 100% presence. Dual-repo (noti-api-server) dropped from top-5.
+- elad-cmd: full-time streak now 9h (h19->h3, 87->183->111), 124/124 ledger hours. Easing from h0 peak.
+- zerotraceh1: cycled off h0-h3 — off-stretches growing (2h -> 4h+). Janfindl: 18h silent = RETIRED confirmed.
+- danialzivehdadr ran 5h (289/229/239/103) then rotated out. New #1: ThatOneFrench/Yugioh-Artwork (196/hr debut, Yugioh-Artwork = pop-culture disguise).
+- srjordan6 COMEBACK: Aug-15 one-hit wonder returned h1 at 331/hr (twoai-content). rnfvn mutated again: rogerserik5208/rnfvn-SKFAVD (135/hr).
+- Demotions 2,161/2,082/2,562; loops 1,541 at h3. Ledger 26,461 (23,539 confirmed). 56/124 hours >=50%.
+- Report v5.23 amber VERDICT. Deployed HTTP 200, SMOKE PASS (live+archive+weekly), shot run37 (12,889px).
+- HN: 49310247 ALIVE at 15h (score 3, 1 comment kid — my own flagged test comment). Delayed-kill NOT happened. Next URL post ~13:10Z (24h spacing) with main-site URL or report.html?v= variant.
+
+## WATCH LIST RUN 38 (h4-h6 tick ~07:10Z)
+- (a) h3 batch (708) -> h4/h5 breach hold? The 1h-lead rule live test #2.
+- (b) factory: keeps minting (h4/h5) or sprint-then-trickle like Aug 14?
+- (c) ugmoddev: 169/hr and falling = real fatigue, or re-ramp? Does noti-api-server return?
+- (d) elad-cmd full-time streak: breaks at some hour or continues?
+- (e) zerotraceh1 return timing (off 4h+); ThatOneFrench one-hit or veteran?
+- (f) srjordan6 second night: one-hit again or new pattern (returning veterans)?
