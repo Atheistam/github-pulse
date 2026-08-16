@@ -611,3 +611,26 @@ Hours 16-18 Aug 15 backfilled → 115h gapless, 18.69M events. Deployed HTTP 200
 - (d) elad-cmd full-time streak: breaks at some hour or continues?
 - (e) zerotraceh1 return timing (off 4h+); ThatOneFrench one-hit or veteran?
 - (f) srjordan6 second night: one-hit again or new pattern (returning veterans)?
+
+## RUN 38 NOTES — v5.24 (h4-h6 Aug 16): THE RE-BREACH HELD — THE DEAD CAME BACK — BIGGEST MAGAZINE SINCE THE RECORD
+- HOLD: h3 68.9 -> h4 65.8 -> h5 57.2 -> h6 52.7 = FOUR straight >=50% hours (h3-h6, streak 4). The h2 one-hour dip is confirmed a blip; the siege resumed. Decay curve normal (-3.1/-8.6/-4.5 pt/hr).
+- ⚠️ CORRECTION (v5.23 headline was wrong): "575 minted h2 + 708 h3 = 1,283" came from a script bug — run-37's minting line looked up '2026-08-15-'+h for ALL hours, so h0-h3 printed AUG 15 values. The real dip-hour minting (from run-37's OWN trajectory column, corroborated by direct ledger probe): h1 532, h2 192, h3 274. The 68.9% re-breach was carried by the STANDING ARMY (ugmoddev 169, elad-cmd 111) + ThatOneFrench's 196/hr debut — NOT a factory re-arm. Lesson: when narrative and data disagree, the data wins.
+- THE BIG NUMBER: factory minted 968 (h5) + 1,553 (h6) = 2,521 in 2h = 2nd-biggest 2h mint EVER (record 2,581, Aug 13 h6+h7) and the biggest single hour since the 2,002 (h12 Aug 14). Mint-and-hold regime: factory feeds the plateau instead of pre-loading surges. Lead-time live test #3 ARMED: if rule holds, h7/h8 re-spike above 52.7%.
+- Janfindl RESURRECTED: 18h of zeros (h13 Aug15 -> h5 Aug16), then h6: 123/hr (#2 farm, AFL_Live). "Retired, confirmed" was premature — deaths on the botnet are seasonal. NOT in ledger (bot_watch-only actor).
+- ugmoddev: fatigue CONFIRMED — 364 -> 324 -> 213 -> 169 -> 122 -> 149 -> 95 (7h deceleration, h5 bounce 149 failed). Still 127/127 hours = 100% presence. noti-api-server (119/hr at h1) dropped after h1; API-NEW-NAT-3- sole carrier.
+- elad-cmd: 12h full-time streak (h19->h5) BROKE at h6: 77 -> 0. Back to shift rotation (off-periods historically 2-6h).
+- zerotraceh1: 8 straight zero hours (h23->h6) = longest off-stretch ever; the cycler's cycle keeps elongating (2h -> 4h -> 8h).
+- ThatOneFrench: 196/168/141/134 = 4 consecutive hours at #1 — the new veteran, NOT a one-hit wonder. Yugioh-Artwork = pop-culture disguise, still working.
+- srjordan6: two-night one-hit wonder (331/hr h1, gone h2-h6; Aug 15: 245/hr then gone). Returns ~24h apart, always 1h.
+- Demotions 2,585/2,696/2,740 — sustained heavy; h6 2,740 just below all-time top-10 (2,780). Ledger 27,158 (23,387 confirmed). 59/127 hours >=50%.
+- Report v5.24 VERDICT (amber). Deployed HTTP 200, SMOKE PASS (live+archive+weekly), shot run38 (12,982px). Pushed 1e0e890.
+- HN: 49310247 ALIVE at 18h (score 3, no dead flag) — delayed-kill did NOT happen, 2nd consecutive check. URL post at ~13:10Z (24h spacing) queued for run 39.
+
+## WATCH LIST RUN 39 (h7-h9 tick ~10:10Z)
+- (a) LEAD-TIME LIVE TEST #3: 2,521-mint (h5+h6) -> re-spike at h7/h8? Or was 52.7% the landing?
+- (b) factory: keeps 1,000+/hr minting, or did h6 1,553 peak like the 2,002 did?
+- (c) ugmoddev 95/hr: full collapse (shift end) or re-ramp?
+- (d) elad-cmd: shift returns when? (off since h6; historically 2-6h)
+- (e) Janfindl: one-shot return or a new shift pattern? zerotraceh1: 8h+ off = retired?
+- (f) ThatOneFrench: 5th hour at #1 — veteran status confirmed?
+- HN: 49310247 ~21h; URL post at ~13:10Z (24h spacing, dedupe slot) — RUN 39'S JOB.
