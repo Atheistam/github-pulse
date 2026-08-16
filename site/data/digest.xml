@@ -5,13 +5,34 @@
     <link>https://github-pulse.surge.sh/</link>
     <description>The busiest hour on GitHub, ranked: hottest repos, human signal, languages, releases and bot farms — fresh from the GH Archive every hour.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Aug 2026 04:08:51 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 07:07:02 GMT</lastBuildDate>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-16-6</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-16-6</guid>
+      <pubDate>Sun, 16 Aug 2026 06:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-16-6<br/>169,193 events · 24,885 repos<br/><br/>🔥 HOTTEST:<br/>  jonathangana131-lab/Nembra — heat 28 (19 pushes, 0 PRs, +0★, 3👥)<br/>  12britz/awesome-free-models — heat 22 (0 pushes, 0 PRs, +2★, 2👥)<br/>  tayal-sarthak/edfcore — heat 22 (4 pushes, 0 PRs, +0★, 1👥)<br/>  RedHatQE/openshift-virtualization-tests — heat 20 (1 pushes, 2 PRs, +0★, 3👥)<br/>  Tim4Lu/NewsAppKotlinAgrregator- — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (6137 events)<br/>🧠 human top: 12britz/awesome-free-models (0 PRs, 0 issues, +2★)<br/>🗣 top language: n/a<br/>🚀 releases: 14 (Tim4Lu/NewsAppKotlinAgrregator- v171)<br/>🤖 bot watch: 15 push-farms · 37.6% of all pushes are spam — top: ThatOneFrench/Yugioh-Artwork (134 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 29 pure-watcher accounts<br/>🤖 bot-driven: 1 repos (pure automation churn, demoted ×0.3) — top: docker-hardened-images/log<br/>🚫 demoted 2144 farm repos (+3438 suspicious push-loops) from heat — top: ThatOneFrench/Yugioh-Artwork (134 pushes, 1👥, push-bot)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-16-5</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-16-5</guid>
+      <pubDate>Sun, 16 Aug 2026 05:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-16-5<br/>170,116 events · 25,266 repos<br/><br/>🔥 HOTTEST:<br/>  kenwoo9y/forge-ts-example — heat 83 (0 pushes, 16 PRs, +0★, 1👥)<br/>  Mottl/bincode — heat 48 (0 pushes, 9 PRs, +0★, 1👥)<br/>  JoshCLWren/comic-pile — heat 38 (9 pushes, 4 PRs, +0★, 3👥)<br/>  openclaw/openclaw — heat 35 (2 pushes, 3 PRs, +0★, 5👥)<br/>  deepseek-ai/deepseek-harness — heat 33 (0 pushes, 0 PRs, +3★, 3👥)<br/><br/>👤 busiest: github-actions[bot] (7471 events)<br/>🧠 human top: kenwoo9y/forge-ts-example (16 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (fastogt/fastoshop v1.14.0)<br/>🤖 bot watch: 15 push-farms · 57.2% of all pushes are spam — top: ugmoddev/API-NEW-NAT-3- (149 pushes, 1👥)<br/>🔭 star-only radar: 1 repos · 0 star-loops · 95 pure-watcher accounts — top: deepseek-ai/deepseek-harness (+3★, 3 lurker★)<br/>🚫 demoted 2696 farm repos (+2095 suspicious push-loops) from heat — top: ugmoddev/API-NEW-NAT-3- (149 pushes, 1👥, push-bot)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-16-4</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-16-4</guid>
+      <pubDate>Sun, 16 Aug 2026 04:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-16-4<br/>172,784 events · 26,352 repos<br/><br/>🔥 HOTTEST:<br/>  deepseek-ai/deepseek-harness — heat 22 (0 pushes, 0 PRs, +2★, 2👥)<br/>  JoshCLWren/comic-pile — heat 20 (4 pushes, 2 PRs, +0★, 2👥)<br/>  openclaw/openclaw — heat 20 (3 pushes, 1 PRs, +0★, 3👥)<br/>  oven-sh/bun — heat 19 (7 pushes, 0 PRs, +0★, 4👥)<br/>  github/gh-aw — heat 19 (10 pushes, 0 PRs, +0★, 3👥)<br/><br/>👤 busiest: github-actions[bot] (8347 events)<br/>🧠 human top: deepseek-ai/deepseek-harness (0 PRs, 0 issues, +2★)<br/>🗣 top language: n/a<br/>🚀 releases: 8 (iEsclyDev/InstaReport v9.0.1)<br/>🤖 bot watch: 15 push-farms · 65.8% of all pushes are spam — top: ThatOneFrench/Yugioh-Artwork (168 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 33 pure-watcher accounts<br/>🚫 demoted 2585 farm repos (+1635 suspicious push-loops) from heat — top: ThatOneFrench/Yugioh-Artwork (168 pushes, 1👥, push-bot)</description>
+    </item>
     <item>
       <title>GitHub Pulse — hour 2026-08-16-3</title>
       <link>https://github-pulse.surge.sh/</link>
       <guid isPermaLink="false">github-pulse-2026-08-16-3</guid>
       <pubDate>Sun, 16 Aug 2026 03:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-16-3<br/>171,389 events · 27,128 repos<br/><br/>🔥 HOTTEST:<br/>  deepseek-ai/deepseek-harness — heat 27 (0 pushes, 0 PRs, +1★, 3👥)<br/>  kirodotdev/KiroCrew — heat 22 (3 pushes, 2 PRs, +0★, 3👥)<br/>  suhaimitoamy/Amy-fx-pro — heat 22 (1 pushes, 0 PRs, +0★, 2👥)<br/>  tall-1997/Label-Printer — heat 22 (1 pushes, 0 PRs, +0★, 2👥)<br/>  porksphere/comical-app — heat 21 (0 pushes, 0 PRs, +0★, 2👥)<br/><br/>👤 busiest: github-actions[bot] (8635 events)<br/>🧠 human top: deepseek-ai/deepseek-harness (0 PRs, 0 issues, +1★)<br/>🗣 top language: n/a<br/>🚀 releases: 7 (ll0410/deepseek-harness-launcher v1.0.2)<br/>🤖 bot watch: 15 push-farms · 64.1% of all pushes are spam — top: ThatOneFrench/Yugioh-Artwork (196 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 24 pure-watcher accounts<br/>🚫 demoted 2443 farm repos (+1660 suspicious push-loops) from heat — top: ThatOneFrench/Yugioh-Artwork (196 pushes, 1👥, push-bot)</description>
+      <description>📡 GITHUB PULSE — hour 2026-08-16-3<br/>171,389 events · 27,128 repos<br/>vs 2026-08-16-2: +1.2% events<br/><br/>🔥 HOTTEST:<br/>  deepseek-ai/deepseek-harness — heat 27 (0 pushes, 0 PRs, +1★, 3👥)<br/>  kirodotdev/KiroCrew — heat 22 (3 pushes, 2 PRs, +0★, 3👥) 🆕<br/>  suhaimitoamy/Amy-fx-pro — heat 22 (1 pushes, 0 PRs, +0★, 2👥) 🆕<br/>  tall-1997/Label-Printer — heat 22 (1 pushes, 0 PRs, +0★, 2👥) 🆕<br/>  porksphere/comical-app — heat 21 (0 pushes, 0 PRs, +0★, 2👥) 🆕<br/><br/>👤 busiest: github-actions[bot] (8635 events)<br/>🧠 human top: deepseek-ai/deepseek-harness (0 PRs, 0 issues, +1★)<br/>🗣 top language: JavaScript<br/>🚀 releases: 7 (ll0410/deepseek-harness-launcher v1.0.2)<br/>🤖 bot watch: 15 push-farms · 68.9% of all pushes are spam — top: ThatOneFrench/Yugioh-Artwork (196 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 24 pure-watcher accounts<br/>🧟 botnet watch: 8 persistent farms (13+ hrs) — top: ugmoddev/API-NEW-NAT-3- (seen 13h, 222 pushes/hr)<br/>🚫 demoted 2562 farm repos (+1541 suspicious push-loops) from heat — top: ThatOneFrench/Yugioh-Artwork (196 pushes, 1👥, push-bot)</description>
     </item>
     <item>
       <title>GitHub Pulse — hour 2026-08-16-2</title>
@@ -152,27 +173,6 @@
       <guid isPermaLink="false">github-pulse-2026-08-15-7</guid>
       <pubDate>Sat, 15 Aug 2026 07:00:00 GMT</pubDate>
       <description>📡 GITHUB PULSE — hour 2026-08-15-7<br/>167,295 events · 24,131 repos<br/><br/>🔥 HOTTEST:<br/>  0xDarkMatter/claude-mods — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/>  HarrisonOfTheNorth/WASM-EnvironmentalModule-Kv-Get — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/>  cbz-tools/cbz-tools-viewer — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/>  LingyiChen-AI/JadeAI — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/>  Chyona/live-mixer — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (6513 events)<br/>🧠 human top: 0xDarkMatter/claude-mods (0 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 6 (0xDarkMatter/claude-mods v3.7.0)<br/>🤖 bot watch: 15 push-farms · 32.2% of all pushes are spam — top: ugmoddev/API-NEW-NAT-3- (105 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 27 pure-watcher accounts<br/>🚫 demoted 1508 farm repos (+2965 suspicious push-loops) from heat — top: ugmoddev/API-NEW-NAT-3- (105 pushes, 1👥, push-bot)</description>
-    </item>
-    <item>
-      <title>GitHub Pulse — hour 2026-08-15-6</title>
-      <link>https://github-pulse.surge.sh/</link>
-      <guid isPermaLink="false">github-pulse-2026-08-15-6</guid>
-      <pubDate>Sat, 15 Aug 2026 06:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-15-6<br/>169,192 events · 32,228 repos<br/>vs 2026-08-15-5: -0.5% events<br/><br/>🔥 HOTTEST:<br/>  awesome-dsh-plugin/awesome-dsh-plugin — heat 24 (2 pushes, 1 PRs, +1★, 3👥) ▲1<br/>  tadanobutubutu/screeps — heat 24 (9 pushes, 0 PRs, +0★, 5👥) 🆕<br/>  openclaw/openclaw — heat 23 (8 pushes, 0 PRs, +0★, 4👥) ▲1<br/>  NousResearch/hermes-agent — heat 22 (2 pushes, 0 PRs, +1★, 4👥) ▲1<br/>  kenzok8/compile-package — heat 21 (0 pushes, 0 PRs, +0★, 2👥) 🆕<br/><br/>👤 busiest: github-actions[bot] (10103 events)<br/>🧠 human top: awesome-dsh-plugin/awesome-dsh-plugin (1 PRs, 0 issues, +1★)<br/>🗣 top language: JavaScript<br/>🚀 releases: 15 (locolocoer/audioPlayer v1.1.4)<br/>🤖 bot watch: 15 push-farms · 48.3% of all pushes are spam — top: ugmoddev/API-NEW-NAT-3- (166 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 27 pure-watcher accounts<br/>🧟 botnet watch: 7 persistent farms (12+ hrs) — top: ugmoddev/API-NEW-NAT-3- (seen 12h, 236 pushes/hr)<br/>🚫 demoted 2146 farm repos (+2464 suspicious push-loops) from heat — top: ugmoddev/API-NEW-NAT-3- (166 pushes, 1👥, push-bot)</description>
-    </item>
-    <item>
-      <title>GitHub Pulse — hour 2026-08-15-5</title>
-      <link>https://github-pulse.surge.sh/</link>
-      <guid isPermaLink="false">github-pulse-2026-08-15-5</guid>
-      <pubDate>Sat, 15 Aug 2026 05:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-15-5<br/>169,982 events · 35,950 repos<br/><br/>🔥 HOTTEST:<br/>  deepseek-ai/deepseek-harness — heat 55 (0 pushes, 0 PRs, +5★, 5👥)<br/>  awesome-dsh-plugin/awesome-dsh-plugin — heat 30 (0 pushes, 1 PRs, +2★, 3👥)<br/>  KanishJebaMathewM/Truxify — heat 26 (7 pushes, 2 PRs, +0★, 3👥)<br/>  openclaw/openclaw — heat 25 (3 pushes, 2 PRs, +0★, 4👥)<br/>  NousResearch/hermes-agent — heat 24 (2 pushes, 2 PRs, +0★, 4👥)<br/><br/>👤 busiest: github-actions[bot] (13092 events)<br/>🧠 human top: deepseek-ai/deepseek-harness (0 PRs, 0 issues, +5★)<br/>🗣 top language: n/a<br/>🚀 releases: 17 (LobbyChen/MusicLite Beta0.6.2)<br/>🤖 bot watch: 15 push-farms · 41.8% of all pushes are spam — top: ugmoddev/API-NEW-NAT-3- (228 pushes, 1👥)<br/>🔭 star-only radar: 1 repos · 0 star-loops · 36 pure-watcher accounts — top: deepseek-ai/deepseek-harness (+5★, 5 lurker★)<br/>🚫 demoted 1647 farm repos (+2274 suspicious push-loops) from heat — top: ugmoddev/API-NEW-NAT-3- (228 pushes, 1👥, push-bot)</description>
-    </item>
-    <item>
-      <title>GitHub Pulse — hour 2026-08-15-4</title>
-      <link>https://github-pulse.surge.sh/</link>
-      <guid isPermaLink="false">github-pulse-2026-08-15-4</guid>
-      <pubDate>Sat, 15 Aug 2026 04:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-15-4<br/>168,677 events · 34,716 repos<br/><br/>🔥 HOTTEST:<br/>  trinhtanphat/QS3D-BricsCAD — heat 41 (17 pushes, 0 PRs, +0★, 3👥)<br/>  oven-sh/bun — heat 30 (15 pushes, 0 PRs, +0★, 5👥)<br/>  NousResearch/hermes-agent — heat 25 (8 pushes, 1 PRs, +0★, 4👥)<br/>  navalsingh9/naval-sem — heat 22 (1 pushes, 0 PRs, +0★, 2👥)<br/>  Ask-Y-Data-Products/hub-drill — heat 21 (0 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (13297 events)<br/>🧠 human top: Ask-Y-Data-Products/hub-drill (0 PRs, 6 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 15 (FyreDay/Archipelago-MinaTheHollower v1.0.0)<br/>🤖 bot watch: 15 push-farms · 40.5% of all pushes are spam — top: ugmoddev/API-NEW-NAT-3- (212 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 40 pure-watcher accounts<br/>🤖 bot-driven: 1 repos (pure automation churn, demoted ×0.3) — top: docker-hardened-images/log<br/>🚫 demoted 1501 farm repos (+2073 suspicious push-loops) from heat — top: ugmoddev/API-NEW-NAT-3- (212 pushes, 1👥, push-bot)</description>
     </item>
   </channel>
 </rss>

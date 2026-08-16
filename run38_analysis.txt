@@ -1,0 +1,140 @@
+=== LAST HOUR IN HISTORY: 2026-08-16-6 (n=127 hours) ===
+
+=== (a) SPAM TRAJECTORY h1 -> h6 Aug16 (re-breach hold? lead-time test #2) ===
+2026-08-16-1  spam= 53.3%  minted=  532  demoted=2161  events=167894  <-- >=50%
+2026-08-16-2  spam= 48.5%  minted=  192  demoted=2082  events=169389  (-4.8pt)
+2026-08-16-3  spam= 68.9%  minted=  274  demoted=2562  events=171389  (+20.4pt)  <-- >=50%
+2026-08-16-4  spam= 65.8%  minted=  131  demoted=2585  events=172784  (-3.1pt)  <-- >=50%
+2026-08-16-5  spam= 57.2%  minted=  968  demoted=2696  events=170116  (-8.6pt)  <-- >=50%
+2026-08-16-6  spam= 52.7%  minted= 1553  demoted=2740  events=169193  (-4.5pt)  <-- >=50%
+
+=== (b) MINTING h13 Aug15 -> h6 Aug16 (sprint or trickle?) — exact-hour lookups ===
+13:528(c0)  14:1180(c0)  15:797(c0)  16:429(c0)  17:92(c0)  18:106(c0)  19:31(c0)  20:88(c0)  21:22(c0)  22:20(c0)  23:34(c0)  0:50(c0)  1:532(c0)  2:192(c0)  3:274(c0)  4:131(c0)  5:968(c0)  6:1553(c0)
+
+=== (a) BREACH STREAK (full history) ===
+current streak: 4 consecutive hours ending 2026-08-16-6
+total >=50% hours: 59/127; last 15: 2026-08-15-13, 2026-08-15-15, 2026-08-15-17, 2026-08-15-18, 2026-08-15-19, 2026-08-15-20, 2026-08-15-21, 2026-08-15-22, 2026-08-15-23, 2026-08-16-0, 2026-08-16-1, 2026-08-16-3, 2026-08-16-4, 2026-08-16-5, 2026-08-16-6
+
+=== ALL-TIME EXTREMES ===
+lowest 3: 2026-08-14-13 22.5% | 2026-08-13-5 23.4% | 2026-08-14-12 25.7%
+highest 10: 2026-08-15-0 71.4% | 2026-08-15-20 69.7% | 2026-08-15-22 69% | 2026-08-16-3 68.9% | 2026-08-15-23 68.6% | 2026-08-15-21 68.3% | 2026-08-15-19 67.5% | 2026-08-13-6 66.2% | 2026-08-15-18 65.8% | 2026-08-16-4 65.8%
+
+=== (c/d/e/f) VETERAN TRACE h1 -> h6 ===
+ugmoddev           1:324  2:213  3:169  4:122  5:149  6:95
+elad-cmd           1:138  2:122  3:111  4:106  5:77  6:0
+zerotraceh1        1:0  2:0  3:0  4:0  5:0  6:0
+Janfindl           1:0  2:0  3:0  4:0  5:0  6:123
+ThatOneFrench      1:0  2:0  3:196  4:168  5:141  6:134
+srjordan6          1:331  2:0  3:0  4:0  5:0  6:0
+danialzivehdadr    1:239  2:103  3:0  4:0  5:0  6:0
+winson-00178005    1:0  2:0  3:0  4:0  5:0  6:0
+2awillican988      1:0  2:0  3:0  4:0  5:0  6:80
+rite83danil        1:0  2:0  3:0  4:0  5:0  6:77
+nathydia           1:0  2:0  3:0  4:0  5:84  6:0
+carroweimer        1:0  2:0  3:0  4:112  5:0  6:0
+
+=== (c) ugmoddev DUAL-REPO trace h1 -> h6 ===
+2026-08-16-1  API-NEW-NAT-3-:205  noti-api-server:119
+2026-08-16-2  API-NEW-NAT-3-:213
+2026-08-16-3  API-NEW-NAT-3-:169
+2026-08-16-4  API-NEW-NAT-3-:122
+2026-08-16-5  API-NEW-NAT-3-:149
+2026-08-16-6  API-NEW-NAT-3-:95
+
+=== (d) elad-cmd FULL TRACE (full-time streak check) ===
+08-13-19:247  08-13-20:262  08-13-21:287  08-13-22:272  08-13-23:322  08-14-0:339  08-14-1:282  08-14-2:286  08-14-3:173  08-14-4:181  08-14-5:201  08-14-6:144  08-14-7:149  08-14-8:192  08-14-9:0  08-14-10:169  08-14-11:186  08-14-12:0  08-14-13:0  08-14-14:96  08-14-15:115  08-14-16:139  08-14-17:0  08-14-18:0  08-14-19:140  08-14-20:138  08-14-21:144  08-14-22:115  08-14-23:104  08-15-0:127  08-15-1:0  08-15-2:0  08-15-3:0  08-15-4:123  08-15-5:134  08-15-6:104  08-15-7:0  08-15-8:80  08-15-9:85  08-15-10:0  08-15-11:0  08-15-12:83  08-15-13:0  08-15-14:0  08-15-15:0  08-15-16:86  08-15-17:0  08-15-18:0  08-15-19:87  08-15-20:111  08-15-21:126  08-15-22:153  08-15-23:131  08-16-0:183  08-16-1:138  08-16-2:122  08-16-3:111  08-16-4:106  08-16-5:77  08-16-6:0
+
+=== (e) Janfindl FULL TRACE (resurrection timeline) ===
+08-14-7:0  08-14-8:0  08-14-9:0  08-14-10:0  08-14-11:0  08-14-12:0  08-14-13:0  08-14-14:0  08-14-15:0  08-14-16:0  08-14-17:0  08-14-18:0  08-14-19:0  08-14-20:0  08-14-21:0  08-14-22:0  08-14-23:0  08-15-0:0  08-15-1:0  08-15-2:0  08-15-3:0  08-15-4:0  08-15-5:0  08-15-6:105  08-15-7:76  08-15-8:90  08-15-9:0  08-15-10:0  08-15-11:103  08-15-12:99  08-15-13:0  08-15-14:0  08-15-15:0  08-15-16:0  08-15-17:0  08-15-18:0  08-15-19:0  08-15-20:0  08-15-21:0  08-15-22:0  08-15-23:0  08-16-0:0  08-16-1:0  08-16-2:0  08-16-3:0  08-16-4:0  08-16-5:0  08-16-6:123
+
+=== (e) ThatOneFrench FULL TRACE (one-hit or veteran?) ===
+08-15-7:0  08-15-8:0  08-15-9:0  08-15-10:0  08-15-11:0  08-15-12:0  08-15-13:0  08-15-14:0  08-15-15:0  08-15-16:0  08-15-17:0  08-15-18:0  08-15-19:0  08-15-20:0  08-15-21:0  08-15-22:0  08-15-23:0  08-16-0:0  08-16-1:0  08-16-2:0  08-16-3:196  08-16-4:168  08-16-5:141  08-16-6:134
+
+=== (f) srjordan6 FULL TRACE (returning-veteran pattern?) ===
+08-15-1:0  08-15-2:0  08-15-3:0  08-15-4:0  08-15-5:0  08-15-6:0  08-15-7:0  08-15-8:0  08-15-9:0  08-15-10:0  08-15-11:0  08-15-12:0  08-15-13:0  08-15-14:0  08-15-15:0  08-15-16:0  08-15-17:0  08-15-18:0  08-15-19:0  08-15-20:0  08-15-21:0  08-15-22:0  08-15-23:0  08-16-0:0  08-16-1:331  08-16-2:0  08-16-3:0  08-16-4:0  08-16-5:0  08-16-6:0
+
+=== (e) zerotraceh1 FULL TRACE (return timing) ===
+08-14-7:0  08-14-8:0  08-14-9:0  08-14-10:0  08-14-11:0  08-14-12:0  08-14-13:0  08-14-14:0  08-14-15:0  08-14-16:0  08-14-17:0  08-14-18:0  08-14-19:0  08-14-20:0  08-14-21:0  08-14-22:185  08-14-23:194  08-15-0:0  08-15-1:0  08-15-2:0  08-15-3:0  08-15-4:0  08-15-5:0  08-15-6:0  08-15-7:0  08-15-8:137  08-15-9:131  08-15-10:139  08-15-11:104  08-15-12:0  08-15-13:137  08-15-14:104  08-15-15:102  08-15-16:99  08-15-17:0  08-15-18:0  08-15-19:120  08-15-20:151  08-15-21:146  08-15-22:135  08-15-23:218  08-16-0:0  08-16-1:0  08-16-2:0  08-16-3:0  08-16-4:0  08-16-5:0  08-16-6:0
+
+=== (d) LEDGER PERSISTENCE (key actors) ===
+ugmoddev           first:2026-08-11-0 last:2026-08-16-6 hours:127 confirmed:undefined
+elad-cmd           first:2026-08-11-0 last:2026-08-16-6 hours:127 confirmed:undefined
+zerotraceh1        first:2026-08-11-0 last:2026-08-16-0 hours:97 confirmed:undefined
+Janfindl           NOT IN LEDGER
+ThatOneFrench      NOT IN LEDGER
+srjordan6          first:2026-08-11-11 last:2026-08-16-4 hours:25 confirmed:undefined
+danialzivehdadr    first:2026-08-15-21 last:2026-08-16-2 hours:6 confirmed:undefined
+
+=== (e) NAMING TEMPLATES h2-h6 (top-15 farm actors) ===
+2026-08-16-2  ThatOneFrench, ugmoddev, imolension, kartheryagopanda, alexgire
+2026-08-16-3  ThatOneFrench, ugmoddev, elad-cmd, nskyei, toogeqmc
+2026-08-16-4  ThatOneFrench, ugmoddev, carroweimer, avamoore86757, linuskonwang
+2026-08-16-5  ugmoddev, ThatOneFrench, winson-00178005, nathydia, BavAV4sv56
+2026-08-16-6  ThatOneFrench, Janfindl, ugmoddev, 2awillican988, rite83danil
+
+=== FARMS h4-h6 (bot_watch top-5 per hour) ===
+2026-08-16-4  n=15  ThatOneFrench/Yugioh-Artwork(168)  ugmoddev/API-NEW-NAT-3-(122)  carroweimer/qqqxwj(112)  avamoore86757/hmpsmq(111)  linuskonwang/ncsnff(108)
+2026-08-16-5  n=15  ugmoddev/API-NEW-NAT-3-(149)  ThatOneFrench/Yugioh-Artwork(141)  nathydia/klvdlz(84)  eshidpiatagare/qlhfcn(81)  tiberpeao/gznzzy(80)
+2026-08-16-6  n=15  ThatOneFrench/Yugioh-Artwork(134)  Janfindl/AFL_Live(123)  ugmoddev/API-NEW-NAT-3-(95)  2awillican988/hwyzwl(80)  rite83danil/paveer(77)
+
+=== BOTNET WATCH h4-h6 (persistent farms) ===
+2026-08-16-4  -
+2026-08-16-5  -
+2026-08-16-6  ugmoddev/API-NEW-NAT-3-(seen 13h)  elad-cmd/psycho-usage(seen 11h)  ugmoddev/noti-api-server(seen 6h)  zerotraceh1/er-forge-probe(seen 5h)  danialzivehdadr/qwen-codep(seen 4h)  ThatOneFrench/Yugioh-Artwork(seen 4h)  YKLHL123/images(seen 3h)  cstolzl/kazbac(seen 3h)  jacksonl642000/airood(seen 3h)
+
+=== DEMOTIONS — all-time top 10 ===
+2026-08-11-1 3095 | 2026-08-15-19 3011 | 2026-08-15-17 2944 | 2026-08-15-18 2853 | 2026-08-15-20 2852 | 2026-08-15-12 2815 | 2026-08-12-8 2793 | 2026-08-15-15 2791 | 2026-08-12-9 2781 | 2026-08-13-6 2780
+
+=== DIGEST (latest) ===
+{
+ "hour": "2026-08-16-6",
+ "as_of": "2026-08-16T06:00:00Z",
+ "events": 169193,
+ "repos_seen": 24885,
+ "vs_prev": {
+  "events_pct": -0.5,
+  "repos_pct": -1.5
+ },
+ "hottest": [
+  {
+   "repo": "jonathangana131-lab/Nembra",
+   "heat": 28,
+   "pushes": 19,
+   "stars": 0,
+   "actors": 3,
+   "trend": "new",
+   "rank_delta": null
+  },
+  {
+   "repo": "12britz/awesome-free-models",
+   "heat": 22,
+   "pushes": 0,
+   "stars": 2,
+   "actors": 2,
+   "trend": "new",
+   "rank_delta": null
+  },
+  {
+   "repo": "tayal-sarthak/edfcore",
+   "heat": 22,
+   "pushes": 4,
+   "stars": 0,
+   "actors": 1,
+   "trend": "new",
+   "rank_delta": null
+  },
+  {
+   "repo": "RedHatQE/openshift-virtualization-tests",
+   "heat": 20,
+   "pushes": 1,
+   "stars": 0,
+   "actors": 3,
+   "trend": "new",
+   "rank_delta": null
+  },
+  {
+   "repo": "Tim4Lu/NewsAppKotlinAgrregator-",
+   "heat": 18,
+   "pushes": 0,
+   "stars": 0,
+   "ac
