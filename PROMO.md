@@ -634,3 +634,25 @@ Hours 16-18 Aug 15 backfilled → 115h gapless, 18.69M events. Deployed HTTP 200
 - (e) Janfindl: one-shot return or a new shift pattern? zerotraceh1: 8h+ off = retired?
 - (f) ThatOneFrench: 5th hour at #1 — veteran status confirmed?
 - HN: 49310247 ~21h; URL post at ~13:10Z (24h spacing, dedupe slot) — RUN 39'S JOB.
+
+## RUN 39 NOTES — v5.25 (h7-h9 Aug 16): THE BIGGEST MAGAZINE EVER FIRES — DEEPEST DIP OF THE SIEGE, THEN 64.1% RE-BREACH
+- LEAD-TIME LIVE TEST #3 PASSED (5th consecutive win): the h5+h6 2,521-mint did NOT peak at h6 — factory minted 1,630 more at h7 (biggest single hour since the 2,002 record), then 867, then 608 = 5,626 accounts in 5h; h5-h7 triple = 4,151 in 3h = ALL-TIME 3h mint record.
+- WAVE followed the playbook exactly: h7 34.4% (-18.3pt = DEEPEST DIP OF THE WHOLE SIEGE; batch sat parked, same fake-out as 2,002->22.5% and 1,497->32.2%) -> h8 46.5% (+12.1pt) -> h9 64.1% (+17.6pt) RE-BREACH, a hair under the all-time top-10, wave radar SURGING. Mint->dip->breach in 2-4h (peak mint h7 -> breach h9 = 2h).
+- ugmoddev: decay now STRUCTURAL — 95 -> 102 -> 99 -> 74 (from the 364/hr peak), still 130/130 hours, eternal #1 (API-NEW-NAT-3- sole carrier).
+- elad-cmd: off 4h and counting (h6-h9) after his 11h marathon — the longest gap since the streak broke.
+- Janfindl: SHIFT WORKER confirmed, not a resurrected veteran — 123/77/89 (h6-h8), off h9; the same 3-on/1-off cadence as Aug 15.
+- zerotraceh1: NOT retired — back at h8 after 8 off-hours, at his LOWEST intensity ever (68/60 vs his usual 100-220). The cycler returns weaker each cycle.
+- ThatOneFrench: 4 hours at #1 then gone (h3-h6) = a shift worker, NOT the new veteran — crown RETRACTED.
+- NEW NAMING MUTATION at h9: hyphenated name + digit suffix (miller-e6513 83, brown-o53700 78, smithm87019 75, jackson-e552804 69) — the srjordan6 template with numbers bolted on.
+- DEMOTIONS h9 = 3,585 = NEW ALL-TIME RECORD (previous 3,095, Aug 11).
+- 130h gapless, 21,224,338 events; 60/130 hours >=50%. Ledger 29,149 (26,447 confirmed).
+- Report v5.25 VERDICT (green). Deployed HTTP 200, SMOKE PASS (live+archive+weekly), shot run39 (13,696px).
+- HN: 49310247 ALIVE at ~21h (score 3, no dead flag) — delayed-kill watch passed 3rd consecutive check. URL post (24h spacing, dedupe slot) -> queued for RUN 40 at ~13:10Z.
+
+## WATCH LIST RUN 40 (h10-h12 tick ~13:10Z)
+- (a) Factory still loading (608 at h9): another >=50% hour at h10-h12? Mint h9 -> breach h10+ = lead-time rule's outer edge (6th test).
+- (b) elad-cmd shift return timing (off since h6 = 4h+; historically 2-6h).
+- (c) Janfindl return at h10/h11 (3-on/1-off cadence).
+- (d) zerotraceh1: re-ramp or fade? (68/60 was his weakest ever).
+- (e) miller-e6513 batch (h9 debut): one-hit wonder or new shift?
+- (f) HN: URL post at ~13:10Z (24h spacing since 13:09Z Aug 15, dedupe slot). 49310247 still alive = full pass.
