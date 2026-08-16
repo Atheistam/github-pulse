@@ -1,0 +1,53 @@
+RUN 36 ANALYSIS (2026-08-16 ~01:10Z) — hours 19-23 Aug 15 + h0 Aug 16 · 121h gapless · 19,694,781 events
+============================================================================================
+
+(a) THE PEAK BECAME A PLATEAU — 8 STRAIGHT HOURS ≥65% ON A DEAD FACTORY
+    h16 46.7% → h17 65.5% → h18 65.8% → h19 67.5% → h20 69.7% → h21 68.3% → h22 69.0% → h23 68.6% → h0 65.5%
+    - The 65.8% "peak" (v5.21) did NOT collapse. It became a floor:
+      h19 67.5% (+1.7) → h20 69.7% = 2nd-highest hour EVER (behind h0's 71.4%)
+      → h21 68.3% → h22 69.0% → h23 68.6% → h0 65.5% (-3.1, first down-tick).
+    - EIGHT consecutive ≥50% hours (h17-h0), every single one ≥65% — the strongest
+      sustained run in 121h. The 10-hour siege (Aug14 h18→Aug15 h3) dipped into the
+      50s (52.6/50.5/54.4); this run's floor is 65.5. ALL-TIME: 54/121 hours ≥50%.
+    - The v5.21 "one-hour lull is the rhythm" was itself a transition: h16 was the
+      LAST dip. No h19 dip, no sawtooth — the sawtooth flattened into a high plateau.
+
+(b) MINTING — THE FACTORY IS EFFECTIVELY DEAD (longest idle stretch ever)
+    1,497 → 1,084 → 576 → 355 → 220 → 497 → 590 → 528 → 1,180 → 797 → 429 → 92 → 106
+      → 31 → 88 → 22 → 20 → 34 → 18
+    - h19-h0 minted just 31/88/22/20/34/18 fresh accounts = 213 across SIX hours
+      (vs the 2,002 single-hour record). The factory is dormant and the surge does
+      not care. The standing army IS the surge, permanently.
+    - Ledger shrank 27,057 → 26,167 (stale-actor prune outruns near-zero minting).
+
+(c) VETERANS — FULL-TIME REGIME
+    - ugmoddev: 121/121 tracked hours. Rate at h22/h23/h0 = 305/359/364/hr —
+      NEW ALL-TIME RATE RECORD (prev ~272-276), and it runs TWO repos in parallel
+      (API-NEW-NAT-3- + noti-api-server at h23/h0). #1 botnet-watch farm every hour.
+    - elad-cmd: FULL-TIME for the first time — h19-h0 = 87/111/126/153/131/183/hr,
+      zero gaps. The shift pattern (8,9 → 12 → 16) is dead; 121/121 ledger hours.
+    - zerotraceh1: ran h19-h23 (120/151/146/135/218) then cycled off at h0 —
+      multi-day cycler rhythm intact (runs 2-5h, gaps 1-8h).
+    - Janfindl: 12 straight silent hours (h13-h0) — RETIRED confirmed (or 12h+ cooldown).
+
+(d) NEW ACTORS — REAL-SOUNDING DISGUISES
+    - danialzivehdadr/qwen-codep: NEW #1 farm at h23-h0 (289/229/hr) — a real-looking
+      human name + a plausible repo name ("qwen-codep"). Disguise quality is rising.
+    - Kelisiqiang/markwon_formatter (164/hr h22): plausible library name.
+    - 3215colt/iluxbk (131/hr h0): digit-suffixed handle + gibberish repo.
+    - Template-A + 6-char gibberish repos still standard (ijkpuz, nwzsff, eturtk,
+      tvnykq, bukvis, dragbh, iluxbk).
+
+(e) DEMOTIONS — FOUR OF TOP-6 ALL-TIME IN THE LAST 4 WINDOWS
+    - h19 3,011 = 2nd-biggest demotion hour EVER (record 3,095 Aug 11 h1).
+    - h17 2,944 (3rd) | h18 2,853 (4th) | h20 2,852 (5th) — the enforcement is
+      running at record scale every single hour.
+    - Ledger 26,167 actors (23,096 confirmed). Wave radar: PEAK at h0 (-3.1pt → 65.5%).
+
+HN (see PROMO.md "RUN 36" notes)
+    - 49310247 (report.html slot): STILL ALIVE at 12.5h, score 3, zero real engagement.
+    - NEW DATA POINT: weekly.html URL post → story-toofast at 12.5h spacing (~100h
+      account age). Submission cooldown is >12.5h — submissions are ~1/day.
+    - The dedupe discovery (report.html = permanent slot) is the ONLY working channel;
+      any NEW URL hits the account-level throttle. Next attempt: ~24h spacing, try the
+      main site URL (github-pulse.surge.sh — never submitted) or report.html?v=.

@@ -1,4 +1,17 @@
-# 🚀 Launch post drafts — GitHub Pulse
+## RUN 36 FIELD NOTES (2026-08-16 ~01:10Z) — v5.22: THE PEAK BECAME A PLATEAU — 8 STRAIGHT HOURS ≥65% ON A DEAD FACTORY
+Hours 19-23 Aug 15 + h0 Aug 16 backfilled (6h; the 22:10Z tick was missed — Mac sleep) → 121h gapless, 19.69M events. Deployed HTTP 200, SMOKE PASS, shots run36, run36_analysis.cjs.
+
+- THE PEAK BECAME A FLOOR: h19 67.5% → h20 69.7% (2nd-highest hour EVER) → h21 68.3% → h22 69.0% → h23 68.6% → h0 65.5%. EIGHT consecutive ≥50% hours (h17-h0), EVERY ONE ≥65% — strongest sustained run in 121h (the 10-hour siege dipped into the 50s). The v5.21 "one-hour lull is the rhythm" was itself a transition — h16 was the LAST dip; the sawtooth flattened into a high plateau. 54/121 hours ≥50%.
+- FACTORY EFFECTIVELY DEAD: minting 31/88/22/20/34/18 = 213 fresh accounts across six hours (vs the 2,002 record single hour). Longest idle stretch ever measured. Ledger shrank 27,057 → 26,167 (stale-prune outruns minting).
+- ugmoddev: 121/121 hours, rate 305 → 359 → 364/hr = NEW ALL-TIME RATE RECORD, dual repos (API-NEW-NAT-3- + noti-api-server). #1 farm every hour.
+- elad-cmd went FULL-TIME for the first time (87/111/126/153/131/183/hr, zero gaps) — the shift pattern is dead.
+- zerotraceh1 cycled h19-h23 (120-218/hr) then off at h0 — multi-day cycler intact. Janfindl: 12 silent hours — RETIRED.
+- NEW real-sounding disguises: danialzivehdadr/qwen-codep (new #1 farm, 289/hr at h23 — plausible repo name), Kelisiqiang/markwon_formatter, 3215colt/iluxbk.
+- DEMOTIONS: h19 3,011 = 2nd-biggest hour EVER — FOUR of the top-6 all-time demotion hours now sit in the last 4 windows (h17 2,944, h18 2,853, h19 3,011, h20 2,852).
+- Report v5.22: amber VERDICT 'the peak became a plateau — 8 straight hours ≥65% on a dead factory', panel-03 subtitle, timeline entry. Deployed HTTP 200, SMOKE PASS, shots run36.
+- HN: 49310247 (report.html slot) ALIVE at 12.5h (score 3). NEW DATA POINT: weekly.html post → story-toofast at 12.5h spacing (~100h account age) — submission cooldown is >12.5h, submissions are ~1/day. Dedupe slot (report.html) is the only working channel; next attempt ~24h spacing with main-site URL or ?v= variant.
+
+## 🚀 Launch post drafts — GitHub Pulse
 
 ## Field notes — run 34 (2026-08-15, hours 13–15): THE PLATEAU BROKE — AND THE LULL LASTED EXACTLY ONE HOUR. Factory mints 1,180 in the crash hour; zerotraceh1 cycler confirmed; HN comments still auto-dead at 72h+ (post survives, comment dies)
 
