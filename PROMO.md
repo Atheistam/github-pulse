@@ -1,3 +1,21 @@
+## RUN 41 FIELD NOTES (2026-08-16 ~16:20Z) — v5.27: THE PEAK BECAME A PLATEAU, AGAIN — 7 STRAIGHT ≥50% HOURS; THE NOON RITUAL DECAYS (DAY SIX, −69% FROM PEAK); THE DEMOTION RECORD BOOKS GET REWRITTEN
+Hours 13–15 Aug 16 refreshed (all three live) → **136h gapless, 22.24M events (22,238,071)**. Deployed HTTP 200, SMOKE PASS (live+archive+weekly), shot_report_run41.png (14,132px), run41_analysis.cjs.
+
+- **WAVE: THE PEAK DID NOT COLLAPSE.** h13 53.4% → h14 59.0% → h15 58.2% → **SEVEN consecutive ≥50% hours (h9–h15: 64.1 → 62.7 → 51.7 → 55.4 → 53.4 → 59.0 → 58.2)** — the second-longest streak in 136h (record: the 10-hour siege h18→h3). The h11 dip (51.7%) recovered without a crash. Post-peak-collapse falsified a THIRD time: the plateau is the steady state.
+- **THE NOON RITUAL, DAY SIX — but decaying.** loganfoxdale/d3 pushed **109/hr at EXACTLY hour 12** and **ZERO pushes at h11, h13, h14, h15** — the h12-only fingerprint survived a full window of negative checks (6 straight days: 312/351/183/227/119/109). BUT the rate is −69% from its day-2 peak (351): the ritual is winding down. Watch: does day 7 (Aug 17 h12) land, and at what rate?
+- **ugmoddev: out of the top-15 farms the ENTIRE window** (84/0/62/hr) — the eternal #1's fade is now structural and complete. It survives only as the #1 persistent botnet: API-NEW-NAT-3- seen 11 of the last 13h (max 169/hr), still the most persistent repo-level farm ever measured.
+- **THE DEMOTION RECORD BOOKS GOT REWRITTEN:** h14 3,277 (#2 all-time) + h15 3,250 (#3) — **SIX of the top-12 all-time demotion hours now sit in the last 7 hours** (h9 3,585 #1, h10 3,225 #4, h13 2,993 #7, h11 2,900 #9). Enforcement is running hotter than the minting.
+- **FACTORY: steady-state production.** Minting 515/409/579 (~500/hr) — no single-hour magazine this window (the 214/449/440 re-arm answered as continuous production, not a burst). Demotion churn (3,000+/hr) ≈ minting ×6.
+- **elad-cmd: one-hour shifts confirmed.** Ran exactly ONE shift at h15 (70/hr, #1 farm, psycho-usage) after 4h off. Cadence now: 1h bursts, 4–5h gaps (h10 75 → off h11–h14 → h15 70).
+- **Janfindl: morning-shift pattern CONFIRMED** (h6–h8 both days: 123/77/89 + 105/76/90), off all window h13–h15. Botnet watch still lists Janfindl/AFL_Live (seen 3h = h6–h8) — shift worker, not retired.
+- **Real-word disguise tier = mid-duration shift workers, NOT one-hits:** twainswee + janbeoty persisted 5h each (h11–h15); spl1ce now spans 10h over 3 days. forgetpwd was the exception (1h).
+- **Synchronized squads, decaying rates:** h13 cluster all 92–101/hr (landerson9838/euikhr 101, avamoore8215 98, alex59183 96…) → h14 71–75 (ltmvx4d, turaobas, 1msmit0…) → h15 64–70 (elad-cmd, mason-wilson2888, longingha…). Naming templates rotate hourly: name+digits → mixed/gibberish → veteran+template.
+- **New-disguise sampler (h13–h15 first_seen):** 1msmit0, xuubur13 (minted h14 → top-6 farm h15), turaobas, thetetext, longingha, maruo50clave — plus the usual 400–580/hr of template-A (mason-wilson2888, emmabrown153962) and gibberish (flauxierget, soeltwinzcoot, oxinjan).
+- **Ledger 29,153 actors (26,845 confirmed). 66 of 136 hours ≥50%.**
+- **HN:** 49310247 (URL post) STILL ALIVE at 26.6h+ (score 3) — the surviving URL post keeps living; delayed-kill never came. Ask 49270205 alive 4.2 days (5 pts). 49319786 confirmed dead (the measured delayed-kill). **Karma = 3 — below the ≥5 boundary → NO new submissions** (throttle discipline held). Reddit: still no account; cross-post remains parked.
+
+**Next run (h16–h18, ~19:15Z):** (a) streak: does the 7-hour run beat the 10-hour record or collapse? (b) noon ritual day 7 — loganfoxdale h12 rate (decaying to what?), and is h12-only still the fingerprint? (c) ugmoddev: total fade or does it re-ramp into top-15? (d) elad-cmd next shift timing (gaps growing?); (e) Janfindl morning shift h6–h8 again? (f) real-word tier duration (5h → 6h+?); (g) HN: 3h check 49310247 (alive → new record for a new-account URL post); NO posts (karma 3). Report v5.28 with verdict.
+
 ## RUN 36 FIELD NOTES (2026-08-16 ~01:10Z) — v5.22: THE PEAK BECAME A PLATEAU — 8 STRAIGHT HOURS ≥65% ON A DEAD FACTORY
 Hours 19-23 Aug 15 + h0 Aug 16 backfilled (6h; the 22:10Z tick was missed — Mac sleep) → 121h gapless, 19.69M events. Deployed HTTP 200, SMOKE PASS, shots run36, run36_analysis.cjs.
 
