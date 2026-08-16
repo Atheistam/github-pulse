@@ -1,0 +1,168 @@
+=== LAST HOUR IN HISTORY: 2026-08-16-12 (n=133 hours, 21,727,097 events) ===
+
+=== (a) SPAM TRAJECTORY h1 -> h12 Aug16 (6th lead-time test: 608 minted h9) ===
+2026-08-16-1  spam= 53.3%  minted=  532  demoted=2161  events=167894  <-- >=50%
+2026-08-16-2  spam= 48.5%  minted=  192  demoted=2082  events=169389  (-4.8pt)
+2026-08-16-3  spam= 68.9%  minted=  274  demoted=2562  events=171389  (+20.4pt)  <-- >=50%
+2026-08-16-4  spam= 65.8%  minted=  131  demoted=2585  events=172784  (-3.1pt)  <-- >=50%
+2026-08-16-5  spam= 57.2%  minted=  968  demoted=2696  events=170116  (-8.6pt)  <-- >=50%
+2026-08-16-6  spam= 52.7%  minted= 1553  demoted=2740  events=169193  (-4.5pt)  <-- >=50%
+2026-08-16-7  spam= 34.4%  minted= 1630  demoted=2108  events=171189  (-18.3pt)
+2026-08-16-8  spam= 46.5%  minted=  867  demoted=2765  events=167128  (+12.1pt)
+2026-08-16-9  spam= 64.1%  minted=  608  demoted=3585  events=170475  (+17.6pt)  <-- >=50%
+2026-08-16-10  spam= 62.7%  minted=  214  demoted=3225  events=165492  (-1.4pt)  <-- >=50%
+2026-08-16-11  spam= 51.7%  minted=  449  demoted=2900  events=165981  (-11.0pt)  <-- >=50%
+2026-08-16-12  spam= 55.4%  minted=  440  demoted=2766  events=171286  (+3.7pt)  <-- >=50%
+
+=== (b) MINTING h5 -> h12 Aug16 (factory keeps 1,000+/hr or h6 1,553 peak?) ===
+5:968(c0)  6:1553(c0)  7:1630(c0)  8:867(c0)  9:608(c0)  10:214(c0)  11:449(c0)  12:440(c0)
+
+=== (a) BREACH STREAK (full history) ===
+current streak: 4 consecutive hours ending 2026-08-16-12
+total >=50% hours: 63/133; last 15: 2026-08-15-19, 2026-08-15-20, 2026-08-15-21, 2026-08-15-22, 2026-08-15-23, 2026-08-16-0, 2026-08-16-1, 2026-08-16-3, 2026-08-16-4, 2026-08-16-5, 2026-08-16-6, 2026-08-16-9, 2026-08-16-10, 2026-08-16-11, 2026-08-16-12
+
+=== ALL-TIME EXTREMES ===
+lowest 3: 2026-08-14-13 22.5% | 2026-08-13-5 23.4% | 2026-08-14-12 25.7%
+highest 10: 2026-08-15-0 71.4% | 2026-08-15-20 69.7% | 2026-08-15-22 69% | 2026-08-16-3 68.9% | 2026-08-15-23 68.6% | 2026-08-15-21 68.3% | 2026-08-15-19 67.5% | 2026-08-13-6 66.2% | 2026-08-15-18 65.8% | 2026-08-16-4 65.8%
+
+=== (c/d/e/f) VETERAN TRACE h1 -> h12 ===
+ugmoddev           1:324  2:213  3:169  4:122  5:149  6:95  7:102  8:99  9:74  10:158  11:158  12:0
+elad-cmd           1:138  2:122  3:111  4:106  5:77  6:0  7:0  8:0  9:0  10:75  11:0  12:0
+zerotraceh1        1:0  2:0  3:0  4:0  5:0  6:0  7:0  8:68  9:60  10:0  11:0  12:0
+Janfindl           1:0  2:0  3:0  4:0  5:0  6:123  7:77  8:89  9:0  10:0  11:0  12:0
+ThatOneFrench      1:0  2:0  3:196  4:168  5:141  6:134  7:0  8:0  9:0  10:0  11:0  12:0
+srjordan6          1:331  2:0  3:0  4:0  5:0  6:0  7:0  8:0  9:0  10:0  11:0  12:0
+danialzivehdadr    1:239  2:103  3:0  4:0  5:0  6:0  7:0  8:0  9:0  10:0  11:0  12:0
+loganfoxdale       1:0  2:0  3:0  4:0  5:0  6:0  7:0  8:0  9:0  10:0  11:0  12:109
+miller-e6513       1:0  2:0  3:0  4:0  5:0  6:0  7:0  8:0  9:83  10:0  11:64  12:0
+brown-o53700       1:0  2:0  3:0  4:0  5:0  6:0  7:0  8:0  9:78  10:0  11:0  12:0
+smithm87019        1:0  2:0  3:0  4:0  5:0  6:0  7:0  8:0  9:75  10:0  11:66  12:0
+jackson-e552804    1:0  2:0  3:0  4:0  5:0  6:0  7:0  8:0  9:69  10:0  11:0  12:0
+2awillican988      1:0  2:0  3:0  4:0  5:0  6:80  7:0  8:0  9:0  10:0  11:0  12:0
+rite83danil        1:0  2:0  3:0  4:0  5:0  6:77  7:0  8:0  9:0  10:0  11:0  12:0
+
+=== (c) ugmoddev DUAL-REPO trace h1 -> h12 ===
+2026-08-16-1  API-NEW-NAT-3-:205  noti-api-server:119
+2026-08-16-2  API-NEW-NAT-3-:213
+2026-08-16-3  API-NEW-NAT-3-:169
+2026-08-16-4  API-NEW-NAT-3-:122
+2026-08-16-5  API-NEW-NAT-3-:149
+2026-08-16-6  API-NEW-NAT-3-:95
+2026-08-16-7  API-NEW-NAT-3-:102
+2026-08-16-8  API-NEW-NAT-3-:99
+2026-08-16-9  API-NEW-NAT-3-:74
+2026-08-16-10  API-NEW-NAT-3-:93  noti-api-server:65
+2026-08-16-11  API-NEW-NAT-3-:91  noti-api-server:67
+2026-08-16-12  -
+
+=== (d) elad-cmd FULL TRACE (shift return timing) ===
+08-13-21:287  08-13-22:272  08-13-23:322  08-14-0:339  08-14-1:282  08-14-2:286  08-14-3:173  08-14-4:181  08-14-5:201  08-14-6:144  08-14-7:149  08-14-8:192  08-14-9:0  08-14-10:169  08-14-11:186  08-14-12:0  08-14-13:0  08-14-14:96  08-14-15:115  08-14-16:139  08-14-17:0  08-14-18:0  08-14-19:140  08-14-20:138  08-14-21:144  08-14-22:115  08-14-23:104  08-15-0:127  08-15-1:0  08-15-2:0  08-15-3:0  08-15-4:123  08-15-5:134  08-15-6:104  08-15-7:0  08-15-8:80  08-15-9:85  08-15-10:0  08-15-11:0  08-15-12:83  08-15-13:0  08-15-14:0  08-15-15:0  08-15-16:86  08-15-17:0  08-15-18:0  08-15-19:87  08-15-20:111  08-15-21:126  08-15-22:153  08-15-23:131  08-16-0:183  08-16-1:138  08-16-2:122  08-16-3:111  08-16-4:106  08-16-5:77  08-16-6:0  08-16-7:0  08-16-8:0  08-16-9:0  08-16-10:75  08-16-11:0  08-16-12:0
+
+=== (e) Janfindl FULL TRACE (3-on/1-off return?) ===
+08-14-5:0  08-14-6:0  08-14-7:0  08-14-8:0  08-14-9:0  08-14-10:0  08-14-11:0  08-14-12:0  08-14-13:0  08-14-14:0  08-14-15:0  08-14-16:0  08-14-17:0  08-14-18:0  08-14-19:0  08-14-20:0  08-14-21:0  08-14-22:0  08-14-23:0  08-15-0:0  08-15-1:0  08-15-2:0  08-15-3:0  08-15-4:0  08-15-5:0  08-15-6:105  08-15-7:76  08-15-8:90  08-15-9:0  08-15-10:0  08-15-11:103  08-15-12:99  08-15-13:0  08-15-14:0  08-15-15:0  08-15-16:0  08-15-17:0  08-15-18:0  08-15-19:0  08-15-20:0  08-15-21:0  08-15-22:0  08-15-23:0  08-16-0:0  08-16-1:0  08-16-2:0  08-16-3:0  08-16-4:0  08-16-5:0  08-16-6:123  08-16-7:77  08-16-8:89  08-16-9:0  08-16-10:0  08-16-11:0  08-16-12:0
+
+=== (d) zerotraceh1 FULL TRACE (re-ramp or fade) ===
+08-14-5:0  08-14-6:0  08-14-7:0  08-14-8:0  08-14-9:0  08-14-10:0  08-14-11:0  08-14-12:0  08-14-13:0  08-14-14:0  08-14-15:0  08-14-16:0  08-14-17:0  08-14-18:0  08-14-19:0  08-14-20:0  08-14-21:0  08-14-22:185  08-14-23:194  08-15-0:0  08-15-1:0  08-15-2:0  08-15-3:0  08-15-4:0  08-15-5:0  08-15-6:0  08-15-7:0  08-15-8:137  08-15-9:131  08-15-10:139  08-15-11:104  08-15-12:0  08-15-13:137  08-15-14:104  08-15-15:102  08-15-16:99  08-15-17:0  08-15-18:0  08-15-19:120  08-15-20:151  08-15-21:146  08-15-22:135  08-15-23:218  08-16-0:0  08-16-1:0  08-16-2:0  08-16-3:0  08-16-4:0  08-16-5:0  08-16-6:0  08-16-7:0  08-16-8:68  08-16-9:60  08-16-10:0  08-16-11:0  08-16-12:0
+
+=== (e) miller-e6513 + hyphen squad FULL TRACE (one-hit or new shift) ===
+2026-08-15-17  l-wilson25852:87  olivia-miller99723:84
+2026-08-15-18  l-thomas120257:98  noah-johnson153393:95  alex-brown04332:90  taylor-o50387:84  wilson-m78917:82  arioulsen-x:82
+2026-08-15-19  elad-cmd:87  say-geene15:73
+2026-08-15-20  elad-cmd:111  alex-miller4475:90  alex-taylor53155:88
+2026-08-15-21  elad-cmd:126  l-johnson895176:118  alex-taylor53155:98  alex-miller4475:98  smith-m2388:98
+2026-08-15-22  elad-cmd:153
+2026-08-15-23  elad-cmd:131
+2026-08-16-0  elad-cmd:183
+2026-08-16-1  elad-cmd:138
+2026-08-16-2  elad-cmd:122  johnson-s42112:105
+2026-08-16-3  elad-cmd:111  meri-yji:101  s-anderson3748:99
+2026-08-16-4  elad-cmd:106  karin-desanov:99
+2026-08-16-5  cick-ery2hory:78  elad-cmd:77  uwi-zz:75
+2026-08-16-6  -
+2026-08-16-7  olivia-miller99723:67  e-jackson110523:64  luna-moore551721:62
+2026-08-16-8  l-johnson7178:69  olivia-miller99723:63
+2026-08-16-9  miller-e6513:83  brown-o53700:78  jackson-e552804:69  in-wilek:59  jackson-l756552:59
+2026-08-16-10  elad-cmd:75  proplace-co:72  mia-thomas221619:65
+2026-08-16-11  emma-taylor203887:65  miller-e6513:64  thomas-o4370:62
+2026-08-16-12  panelzey-zueng:72
+
+=== (d) LEDGER PERSISTENCE (key actors) ===
+ugmoddev           first:2026-08-11-0 last:2026-08-16-9 hours:133 confirmed:undefined
+elad-cmd           first:2026-08-11-0 last:2026-08-16-9 hours:133 confirmed:undefined
+zerotraceh1        first:2026-08-11-0 last:2026-08-16-9 hours:102 confirmed:undefined
+Janfindl           NOT IN LEDGER
+ThatOneFrench      NOT IN LEDGER
+srjordan6          first:2026-08-11-11 last:2026-08-16-4 hours:26 confirmed:undefined
+danialzivehdadr    first:2026-08-15-21 last:2026-08-16-2 hours:6 confirmed:undefined
+loganfoxdale       first:2026-08-11-0 last:2026-08-16-9 hours:133 confirmed:undefined
+
+=== (e) NAMING TEMPLATES h10-h12 (top-15 farm actors) ===
+2026-08-16-10  winson-00178005, ugmoddev, wellenfern, rodrigueztricia09, elad-cmd
+2026-08-16-11  olivia5743, ugmoddev, sjd-nd, janbeoty, forgetpwd
+2026-08-16-12  loganfoxdale, stormart01, reinatomait, craigsonde, andersonsusan8983
+
+=== FARMS h10-h12 (bot_watch top-5 per hour) ===
+2026-08-16-10  n=15  ugmoddev/API-NEW-NAT-3-(93)  wellenfern/xyzmqy(75)  rodrigueztricia09/icvgxd(75)  elad-cmd/psycho-usage(75)  griffindaniel6/xpelsf(73)
+2026-08-16-11  n=15  olivia5743/bddvon(98)  ugmoddev/API-NEW-NAT-3-(91)  ugmoddev/noti-api-server(67)  anmirr25/ewawkm(67)  smithm87019/ktalqe(66)
+2026-08-16-12  n=15  loganfoxdale/d3(109)  stormart01/czbcyy(83)  reinatomait/cvabyf(79)  craigsonde/xrlwue(78)  andersonsusan8983/xuxuyn(76)
+
+=== BOTNET WATCH h10-h12 (persistent farms) ===
+2026-08-16-10  -
+2026-08-16-11  -
+2026-08-16-12  ugmoddev/API-NEW-NAT-3-(seen 12h)  elad-cmd/psycho-usage(seen 7h)  ugmoddev/noti-api-server(seen 4h)  ThatOneFrench/Yugioh-Artwork(seen 4h)  danialzivehdadr/qwen-codep(seen 3h)  Janfindl/AFL_Live(seen 3h)  moorel826125/jjzwpo(seen 3h)
+
+=== DEMOTIONS — all-time top 10 ===
+2026-08-16-9 3585 | 2026-08-16-10 3225 | 2026-08-11-1 3095 | 2026-08-15-19 3011 | 2026-08-15-17 2944 | 2026-08-16-11 2900 | 2026-08-15-18 2853 | 2026-08-15-20 2852 | 2026-08-15-12 2815 | 2026-08-12-8 2793
+
+=== DIGEST (latest) ===
+{
+ "hour": "2026-08-16-12",
+ "as_of": "2026-08-16T12:00:00Z",
+ "events": 171286,
+ "repos_seen": 32326,
+ "vs_prev": {
+  "events_pct": 3.2,
+  "repos_pct": 12.2
+ },
+ "hottest": [
+  {
+   "repo": "chevezkevin/PM-Smoke-Locator-Studio",
+   "heat": 22,
+   "pushes": 1,
+   "stars": 0,
+   "actors": 2,
+   "trend": "new",
+   "rank_delta": null
+  },
+  {
+   "repo": "l86385138-pixel/app-creator-apk",
+   "heat": 22,
+   "pushes": 1,
+   "stars": 0,
+   "actors": 2,
+   "trend": "new",
+   "rank_delta": null
+  },
+  {
+   "repo": "anywhere-labs/deepseek-harness-desktop",
+   "heat": 22,
+   "pushes": 0,
+   "stars": 2,
+   "actors": 2,
+   "trend": "new",
+   "rank_delta": null
+  },
+  {
+   "repo": "rohamaa/Koin-Core",
+   "heat": 19,
+   "pushes": 1,
+   "stars": 0,
+   "actors": 1,
+   "trend": "new",
+   "rank_delta": null
+  },
+  {
+   "repo": "sq6sfo/Qualcommax_NSS_Builder_wg",
+   "heat": 18,
+   "pushes": 0,
+   "stars": 0
