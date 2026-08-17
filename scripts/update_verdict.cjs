@@ -1,0 +1,14 @@
+// update_verdict.cjs — replace v5.28 verdict block with v5.29 in report.cjs
+const fs = require('fs');
+const p = 'pipeline/report.cjs';
+let src = fs.readFileSync(p, 'utf8');
+const startMark = '<b>VERDICT (v5.28)';
+const endMark = '22.74M events.</b></div>';
+const i0 = src.indexOf(startMark);
+const i1 = src.indexOf(endMark);
+if (i0 < 0 || i1 < 0 || i1 < i0) { console.error('markers not found', i0, i1); process.exit(1); }
+const iEnd = i1 + endMark.length;
+const verdict = `<b>VERDICT (v5.29): THE RECORD IS SHATTERED — A 16-HOUR SIEGE, STILL ALIVE, ON A DEAD FACTORY.</b> h19 65.6% → h20 64.7% → h21 64.1% → h22 66.2% → h23 63.9% → h0 64.9% = <b>SIXTEEN consecutive ≥50% hours (h9 Aug 16 → h0 Aug 17)</b> — the 10-hour all-time record, set by the Aug 14/15 siege and tied at v5.28, is obliterated — and the run is still ALIVE, hovering in a 63.9–66.2% band with zero decay at the end; post-peak-collapse is falsified a FIFTH time. The factory never re-armed: minting 174/146/64/26/94/63/99/122/42 (~92/hr vs the ~500/hr steady-state, h19's 26 the lowest mint hour ever) — the <b>third record-strength surge on a dead factory</b>: the standing army IS the wave. <b>THE NOON RITUAL IS A SCHEDULER, NOT AN ACTOR:</b> a full-history scan found <b>46 actors whose activity is confined ENTIRELY to hour 12</b> — loganfoxdale (6/6 days, decaying 312→351→183→227→119→109) plus a fresh 3–14-account cohort EVERY day since Aug 11 (base64, name+digits, and real-word templates all rotate through the noon slot; twainswee+spl1ce both exactly 75/hr were just the Aug 16 slice of it); h12 is the peak farm-push hour of the day (12,929 vs h11 12,321 vs h13 10,955). ugmoddev fired zombie bursts (0/75/0/0/115/0/0/0/187, API-NEW-NAT-3- back at #1 with 187/hr at h0) yet holds <b>145/145 ledger hours</b> — six days without one missed hour. elad-cmd: 2-hour shift (101/123) then off; Janfindl off-window as expected — <b>day-3 morning-shift test lands Aug 17 h6–h8</b>. New actors: ankitkapur1992-hlido/hlido-public (188/hr), rosskelsey8476 (145), noah07532 (167); danialzivehdadr returned for a 4-hour evening shift (h22–h1, 289/229/239/103). NEW OBSERVATION: <b>bogdanstancu1119-maker</b> — a -maker account churning 288–716 events/hr across 12 repos for 20+ hours, invisible to push-farm detection (commit-based churn, not pushes). Demotions eased but stayed hot (2,700→2,100/hr): <b>thirteen of the top-15 all-time demotion hours now sit in the last ~2 days</b>. Ledger 26,761 (25,062 confirmed) — <b>second consecutive decline</b> (pruning outran the ~92/hr mint). HN: 49310247 alive 36h+ (all-time URL-post record), 49319786 re-verified dead via Firebase API (delayed-kill held) — and a methodology lesson: the author /submitted view HIDES [dead] markers, only the API is trustworthy. <b>75 of 145 hours ≥50% · 23.74M events.</b></div>`;
+src = src.slice(0, i0) + verdict + src.slice(iEnd);
+fs.writeFileSync(p, src);
+console.log('verdict replaced OK');
