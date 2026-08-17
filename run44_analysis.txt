@@ -1,0 +1,214 @@
+=== HOURS: 148 first: 2026-08-11-0 last: 2026-08-17-3 ===
+=== (a) ALL-TIME >=50% STREAKS (top 6) ===
+18h: 2026-08-16-9 -> 2026-08-17-2
+10h: 2026-08-14-18 -> 2026-08-15-3
+9h: 2026-08-15-17 -> 2026-08-16-1
+6h: 2026-08-15-8 -> 2026-08-15-13
+5h: 2026-08-11-1 -> 2026-08-11-5
+5h: 2026-08-11-7 -> 2026-08-11-11
+BEST: 18
+
+=== (a) SPAM TRAJECTORY last 12h (streak check) ===
+2026-08-16-16 spam=5550.0% minted=0 demoted=2957 events=167895
+2026-08-16-17 spam=5800.0% minted=0 demoted=2904 events=169788
+2026-08-16-18 spam=6260.0% minted=0 demoted=2749 events=164987
+2026-08-16-19 spam=6560.0% minted=0 demoted=2707 events=165044
+2026-08-16-20 spam=6470.0% minted=0 demoted=2737 events=171400
+2026-08-16-21 spam=6410.0% minted=0 demoted=2454 events=163986
+2026-08-16-22 spam=6620.0% minted=0 demoted=2370 events=165476
+2026-08-16-23 spam=6390.0% minted=0 demoted=2100 events=166088
+2026-08-17-0 spam=6490.0% minted=0 demoted=2109 events=171569
+2026-08-17-1 spam=5850.0% minted=0 demoted=1821 events=166262
+2026-08-17-2 spam=6280.0% minted=0 demoted=2310 events=166174
+2026-08-17-3 spam=4220.0% minted=0 demoted=2006 events=170286
+
+=== (b) MINTING last 12h (factory re-arm?) ===
+16 minted=0
+17 minted=0
+18 minted=0
+19 minted=0
+20 minted=0
+21 minted=0
+22 minted=0
+23 minted=0
+0 minted=0
+1 minted=0
+2 minted=0
+3 minted=0
+
+=== LEDGER ===
+ledger entries: 26413
+confirmed (>=2h): 23414
+minted last 3h: 2026-08-17-1:75  2026-08-17-2:299  2026-08-17-3:1338
+mint total last 3h: 1712
+
+=== KEY ACTORS (ledger presence) ===
+ugmoddev               first:2026-08-11-0 last:2026-08-17-3 hours:148
+elad-cmd               first:2026-08-11-0 last:2026-08-17-3 hours:148
+zerotraceh1            first:2026-08-11-0 last:2026-08-17-3 hours:107
+loganfoxdale           first:2026-08-11-0 last:2026-08-17-3 hours:148
+danialzivehdadr        first:2026-08-15-21 last:2026-08-16-2 hours:6
+bogdanstancu1119-maker first:2026-08-14-14 last:2026-08-17-3 hours:62
+Fadil123-hah           first:2026-08-11-10 last:2026-08-17-3 hours:107
+ankitkapur1992-hlido   first:2026-08-13-21 last:2026-08-16-21 hours:4
+twainswee              first:2026-08-16-11 last:2026-08-16-16 hours:6
+spl1ce                 first:2026-08-14-13 last:2026-08-16-9 hours:10
+
+=== BOT WATCH last 3h (top 6 per hour) ===
+2026-08-17-1 n=15 srjordan6/twoai-content(212)  e-smith9013/sdbcth(179)  alex-johnson08401/daviwb(176)  miawilson8564/yjupch(172)  hxjxydudjbhc799-byte/lhooxz(171)  mia-johnson4457/fkewrs(167)
+2026-08-17-2 n=15 srjordan6/twoai-content(183)  ugmoddev/noti-api-server(158)  elad-cmd/psycho-usage(157)  a-miller12985/awyewe(152)  a-jackson41701/rqmgvi(152)  alex-smith8321/bbwker(151)
+2026-08-17-3 n=15 brown-a331646/zfbgev(110)  alex-smith8321/bbwker(101)  noah026497/mbscjs(98)  m-anderson1596/occrmr(92)  mia870570/ztynmu(91)  miawilson93758/bqcldf(90)
+
+=== TOP NON-SHARED ACTORS last 3h ===
+2026-08-17-1 bogdanstancu1119-maker(710)  flintassemblyduel(320)  Fueltricharge(316)  ugmoddev(266)  hxjxydudjbhc799-byte(232)  srjordan6(212)  johnsonerin74430(191)  e-smith9013(179)
+2026-08-17-2 bogdanstancu1119-maker(634)  ugmoddev(251)  Fueltricharge(210)  contrerasjake7319(200)  srjordan6(183)  hxjxydudjbhc799-byte(177)  SkinCorporal(169)  elad-cmd(157)
+2026-08-17-3 bogdanstancu1119-maker(353)  SailorEnliven(145)  ugmoddev(141)  contrerasjake7319(132)  brown-a331646(110)  animal-lover12(107)  alex-smith8321(101)  noah026497(98)
+
+=== DEMOTIONS last 3h ===
+2026-08-17-1 demoted=1821
+2026-08-17-2 demoted=2310
+2026-08-17-3 demoted=2006
+top-15 all-time: 2026-08-16-9:3585 | 2026-08-16-14:3277 | 2026-08-16-15:3250 | 2026-08-16-10:3225 | 2026-08-11-1:3095 | 2026-08-15-19:3011 | 2026-08-16-13:2993 | 2026-08-16-16:2957 | 2026-08-15-17:2944 | 2026-08-16-17:2904 | 2026-08-16-11:2900 | 2026-08-15-18:2853 | 2026-08-15-20:2852 | 2026-08-15-12:2815 | 2026-08-12-8:2793
+
+=== ugmoddev bot_watch presence last 24h ===
+2026-08-16-4 X
+2026-08-16-5 X
+2026-08-16-6 X
+2026-08-16-7 X
+2026-08-16-8 X
+2026-08-16-9 X
+2026-08-16-10 X
+2026-08-16-11 X
+2026-08-16-12 .
+2026-08-16-13 X
+2026-08-16-14 .
+2026-08-16-15 X
+2026-08-16-16 .
+2026-08-16-17 X
+2026-08-16-18 .
+2026-08-16-19 .
+2026-08-16-20 X
+2026-08-16-21 .
+2026-08-16-22 .
+2026-08-16-23 .
+2026-08-17-0 X
+2026-08-17-1 .
+2026-08-17-2 X
+2026-08-17-3 .
+
+=== elad-cmd bot_watch presence last 24h ===
+2026-08-16-4 X
+2026-08-16-5 X
+2026-08-16-6 .
+2026-08-16-7 .
+2026-08-16-8 .
+2026-08-16-9 .
+2026-08-16-10 X
+2026-08-16-11 .
+2026-08-16-12 .
+2026-08-16-13 .
+2026-08-16-14 .
+2026-08-16-15 X
+2026-08-16-16 .
+2026-08-16-17 X
+2026-08-16-18 .
+2026-08-16-19 X
+2026-08-16-20 X
+2026-08-16-21 .
+2026-08-16-22 .
+2026-08-16-23 .
+2026-08-17-0 .
+2026-08-17-1 X
+2026-08-17-2 X
+2026-08-17-3 X
+=== bogdanstancu: repo-level flags last 3h ===
+2026-08-17-1 bot_watch flagged: undefined:srjordan6/twoai-content, undefined:e-smith9013/sdbcth, undefined:alex-johnson08401/daviwb, undefined:miawilson8564/yjupch, undefined:hxjxydudjbhc799-byte/lhooxz, undefined:mia-johnson4457/fkewrs, undefined:sofiamiller92907/veunwe, undefined:elad-cmd/psycho-usage, undefined:olivia857310/skwmql, undefined:miawilson93758/bqcldf, undefined:smithl00264/fyemnr, undefined:m-anderson1268/scufda, undefined:lwilson2163/dstmtv, undefined:sofiataylor42332/xpfxbv, undefined:sofia40779/siycjk
+  bogdan in any list: no
+2026-08-17-2 bot_watch flagged: undefined:srjordan6/twoai-content, undefined:ugmoddev/noti-api-server, undefined:elad-cmd/psycho-usage, undefined:a-miller12985/awyewe, undefined:a-jackson41701/rqmgvi, undefined:alex-smith8321/bbwker, undefined:miawilson8564/yjupch, undefined:oliviajohnson71799/zjdunf, undefined:m-anderson1268/scufda, undefined:sofia6723/fmzprc, undefined:noah026497/mbscjs, undefined:thomas-l135786/kagegl, undefined:ataylor822114/qijvld, undefined:luna93029/ouukvf, undefined:mia870570/ztynmu
+  bogdan in any list: no
+2026-08-17-3 bot_watch flagged: undefined:brown-a331646/zfbgev, undefined:alex-smith8321/bbwker, undefined:noah026497/mbscjs, undefined:m-anderson1596/occrmr, undefined:mia870570/ztynmu, undefined:miawilson93758/bqcldf, undefined:lwilson2163/dstmtv, undefined:sofiaanderson6583/urkung, undefined:forbatherbers/lgrejo, undefined:elad-cmd/psycho-usage, undefined:mason-jackson639127/vyzzrb, undefined:luna93029/ouukvf, undefined:noah50847/doovwn, undefined:loraxpa/usewwv, undefined:millerl4203/zeychv
+  bogdan in any list: no
+
+=== bogdan: demoted entries last 3h ===
+2026-08-17-1 none
+2026-08-17-2 none
+2026-08-17-3 none
+
+=== loganfoxdale: any list presence h1-h3 ===
+2026-08-17-1 bot_watch: 0 demoted:  top_actors: -
+2026-08-17-2 bot_watch: 0 demoted:  top_actors: -
+2026-08-17-3 bot_watch: 0 demoted:  top_actors: -
+
+=== zerotraceh1: top_actors events last 48h ===
+2026-08-16-8 events:0 bw:zerotraceh1/er-forge-probe(68)
+2026-08-16-9 events:0 bw:zerotraceh1/er-forge-probe(60)
+
+=== Fadil123-hah: top_actors last 24h ===
+2026-08-16-16 events:0 bw:Fadil123-hah/DILZXJASHER(72)
+2026-08-16-17 events:0 bw:
+2026-08-16-18 events:0 bw:Fadil123-hah/DILZXJASHER(89)
+2026-08-16-19 events:108 bw:Fadil123-hah/DILZXJASHER(108)
+2026-08-16-20 events:130 bw:Fadil123-hah/DILZXJASHER(130)
+2026-08-16-21 events:156 bw:Fadil123-hah/DILZXJASHER(156)
+2026-08-16-22 events:148 bw:Fadil123-hah/DILZXJASHER(148)
+2026-08-16-23 events:0 bw:
+2026-08-17-0 events:0 bw:
+2026-08-17-1 events:0 bw:
+2026-08-17-2 events:0 bw:
+2026-08-17-3 events:0 bw:
+
+=== NEW real-word actors traces (top_actors, last 48h) ===
+flintassemblyduel    12:0 13:0 14:0 15:0 16:0 17:0 18:0 19:0 20:0 21:0 22:0 23:0 0:0 1:320 2:0 3:0
+Fueltricharge        12:0 13:0 14:0 15:0 16:0 17:0 18:0 19:0 20:0 21:0 22:0 23:0 0:0 1:316 2:210 3:0
+SkinCorporal         12:0 13:0 14:0 15:0 16:0 17:0 18:0 19:0 20:0 21:0 22:0 23:0 0:0 1:0 2:169 3:0
+SailorEnliven        12:0 13:0 14:0 15:0 16:0 17:0 18:0 19:0 20:0 21:0 22:0 23:0 0:0 1:0 2:0 3:145
+animal-lover12       12:0 13:0 14:0 15:0 16:89 17:0 18:119 19:122 20:0 21:135 22:150 23:145 0:169 1:0 2:0 3:107
+contrerasjake7319    12:0 13:0 14:0 15:0 16:0 17:0 18:0 19:0 20:0 21:0 22:0 23:0 0:0 1:0 2:200 3:132
+
+=== elad-cmd top_actors last 24h ===
+2026-08-16-4 106
+2026-08-16-10 75
+2026-08-16-15 70
+2026-08-16-20 123
+2026-08-17-2 157
+
+=== ALL-TIME MINT HOURS (top 10) ===
+2026-08-16-7 1630
+2026-08-16-6 1553
+2026-08-15-6 1497
+2026-08-17-3 1338
+2026-08-15-14 1180
+2026-08-15-7 1084
+2026-08-16-5 968
+2026-08-16-8 867
+2026-08-15-15 797
+2026-08-15-5 783
+
+=== ugmoddev last 6h: bot_watch repos ===
+2026-08-16-22 -
+2026-08-16-23 -
+2026-08-17-0 ugmoddev/API-NEW-NAT-3-(187)
+2026-08-17-1 -
+2026-08-17-2 ugmoddev/noti-api-server(158)
+2026-08-17-3 -
+ledger hours: 62 first: 2026-08-14-14 last: 2026-08-17-3 lastSeen: 2026-08-17-3
+2026-08-16-23 bot_watch: 0 top_actors: 643 farms: 0
+2026-08-16-3 bot_watch: 0 top_actors: 451 farms: 0
+2026-08-16-4 bot_watch: 0 top_actors: 427 farms: 0
+2026-08-16-5 bot_watch: 0 top_actors: 351 farms: 0
+2026-08-16-6 bot_watch: 0 top_actors: 318 farms: 0
+2026-08-16-7 bot_watch: 0 top_actors: 242 farms: 0
+2026-08-16-8 bot_watch: 0 top_actors: 259 farms: 0
+2026-08-16-9 bot_watch: 0 top_actors: 238 farms: 0
+2026-08-17-0 bot_watch: 0 top_actors: 716 farms: 0
+2026-08-17-1 bot_watch: 0 top_actors: 710 farms: 0
+2026-08-17-2 bot_watch: 0 top_actors: 634 farms: 0
+2026-08-17-3 bot_watch: 0 top_actors: 353 farms: 0
+cohort actors with archive activity outside h12: 5 of 46
+  loganfoxdale             17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h1:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h2:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 17-h3:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h1:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h2:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3 | 16-h3:loganfoxdale/d3
+  reinatomait              17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf | 17-h2:reinatomait/cvabyf
+  yonghuy                  17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq | 17-h2:yonghuy/pvwpiq
+  nuanton                  17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc | 17-h2:nuanton/azwqvc
+  avksarkar                16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h1:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h2:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq | 16-h3:avksarkar/tesijq
+cohort actors with NO activity in these 6 night hours: 41
+riveraaaron29, barnesjoseph119, ramirezjeffery3559, mccallglen1874, willischristopher68, flemingnicholas42, harrismisty4151, creephezs, ryojimovent, brioaj, lawsonkimberly845, oWaBFhwm31, VzmCQqDAxN03, ksHSbkGfGJaqi62, oLNebcboF19, CTEcGgeaX67, iOBjaRim89, williamsjacob1, floresjoseph4, wimcarm77, noahanderson828871, paxpylen, johnsonm444020, mia32693, hoku104, smithn29702, aanderson31430, luna-moore01471, mia-thomas446936, warlanage211, olivia-taylor554147, stormart01, craigsonde, andersonsusan8983, twainswee, spl1ce, sandeepkollu7359, jeepv46syj98, panelzey-zueng, awanahaupalio, cfdtrhyllc92
