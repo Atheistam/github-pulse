@@ -11,6 +11,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const HIST = path.join(ROOT, 'site', 'data', 'history');
 const OUT = path.join(ROOT, 'site', 'report.html');
+const SITE_DATA = path.join(ROOT, 'site', 'data');
 
 const files = fs.readdirSync(HIST)
   .filter(f => /^\d{4}-\d{2}-\d{2}-\d+\.json$/.test(f))
@@ -22,6 +23,12 @@ const files = fs.readdirSync(HIST)
 if (!files.length) { console.error('no history files'); process.exit(1); }
 
 const hours = files.map(f => JSON.parse(fs.readFileSync(path.join(HIST, f), 'utf8')));
+
+// ---------- spray-farm radar (v5.31: actors whose total push volume is high
+// but spread thin across many repos — every repo under the top-15 cutoff, so
+// they are invisible in bot_watch/demoted top lists) ----------
+let sprayRadar = null;
+try { sprayRadar = JSON.parse(fs.readFileSync(path.join(SITE_DATA, 'spray.json'), 'utf8')); } catch {}
 
 // ---------- aggregates ----------
 const series = hours.map(h => ({
@@ -328,6 +335,7 @@ td a:hover{color:var(--accent)}
 .tl-item .when{font-family:var(--mono);font-size:11.5px;color:var(--accent);letter-spacing:.06em}
 .tl-item h3{font-size:16px;font-weight:600;margin:3px 0 5px}
 .tl-item p{color:var(--dim);font-size:14px;max-width:780px}
+.badge-new{font-size:.72em;color:#fbbf24;border:1px solid #fbbf24;border-radius:8px;padding:1px 6px;margin-left:4px;font-weight:700}
 .anatomy{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
 .an{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
 .an .k{font-family:var(--mono);font-size:11px;color:var(--red);letter-spacing:.08em;text-transform:uppercase}
@@ -395,6 +403,20 @@ td a:hover{color:var(--accent)}
       ${cadenceTable}
     </table>
     ${hoursSincePeak !== null ? `<div class="lede" style="margin-top:16px;border-left:3px solid #22c55e;padding-left:12px"><b>VERDICT (v5.31): THE LEAD-TIME RULE IS REBORN — 7th LIVE PASS, AND THE FACTORY FIRED ITS LONGEST MAGAZINE YET. The collapse lasted exactly two hours: h3 42.2% → h4 29.6% (−12.6pt, the dip — the fresh batch parked) → h5 37.5% → h6 53.0% RE-BREACH (+15.5pt). Mint → dip → breach in 2–3h, the 7th consecutive live lead-time pass — and this time the factory did NOT stop at one magazine: 1,338 (h3) → 1,237 (h4) → 1,409 (h5) → 846 (h6) = <b>4,830 fresh accounts in 4 hours</b>, the biggest sustained minting burst in 44h, and the h3–h5 triple (3,984) is the 3rd-biggest 3h mint ever (behind 4,151/4,050). Mint-at-collapse is no longer a one-hour signature — it is now a 4-hour magazine. <b>Janfindl's day-3 morning shift FALSIFIED</b>: after two days of h6–h8 (105/76/90, then 123/77/89) it was a NO-SHOW at h6–h8 day 3 — a two-day pattern, not a cron; the shift-worker hypothesis dies with it. <b>zerotraceh1's return was a one-night micro-comeback</b>: 19/24/12 at h1–h3, then ZERO at h4–h6 — every cycle weaker (peak 555/hr Aug 12 → ~20/hr now); the cycler is winding down. <b>h2-shift CORRECTION + CONFIRMATION:</b> reinatomait/yonghuy/nuanton are NOT h2-only — raw-archive scans show them dripping 8–26 pushes/hr on the SAME repos (cvabyf/pvwpiq/azwqvc) at h2 AND h4 AND h5 AND h6 — steady low-rate pushers invisible to every top-list. But a TRUE h2-only cohort exists: <b>48 actors whose bot_watch activity is confined to h2 across 7 days</b> (8/11/1/3/9/14/3 per day, ~105–160/hr with 418/hr outliers) — the h2 shift mirrors the h12 cohort, and h2 total farm pushes (22,408) edge out h1 (22,188) and crush h3 (18,306): the scheduler runs BOTH an h2 and an h12 shift. bogdanstancu1119-maker STILL PUMPING (334/300/232 events h4–h6, #1 non-bot actor again; pushed 07:16Z per API, 13 repos) — the push-spray farm never sleeps. ugmoddev zombie pattern intact (157/66/68; 0/75/0/0/115/0/0/0/187/0/158/0/157/66/68 across 14h) yet holds 151/151 ledger hours; elad-cmd off h4–h5, back 73/hr at h6 (psycho-usage). New real-word one-hits: BailiffDisengage (112/119 h5–h6), jawabing (89 h4), zerian879 (87 h4). <b>Ledger 28,146 (25,603 confirmed) — the 4th-decline streak is BROKEN (+1,733)</b>: the 4,830-mint finally outran TTL pruning. Demotions 1,703/2,197/2,673 — no new all-time top-15. HN: 49310247 ALIVE 42h+ (all-time URL-post record), karma 3 → no posts. 78 of 151 hours ≥50% · 24.75M events.</b></div>` : ''}
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h2><span class="h-num">03b</span> The spray-farm radar</h2><span class="panel-sub">v5.31 — farms that spray pushes across many repos to stay under every cutoff</span></div>
+    <div class="lede">Some farms never appear in any top list: instead of pushing 150+/hr into ONE repo, they spread 100–700 total pushes across 4–15 repos at 15–55/repo/hr — every repo individually under the top-15 bot_watch cutoff. <b>bogdanstancu1119-maker</b> was the prototype (710/634/353 events/hr, 13 repos, invisible for 60+ hours until archive-traced). This panel scans the raw archive each hour for the spray signature: total ≥100 pushes/hr, ≥4 repos, max ≤70 pushes on any single repo. It is the counter to the "just under the cutoff" adaptation.</div>
+    ${sprayRadar && sprayRadar.farms && sprayRadar.farms.length ? `<div class="stats" style="margin:18px 0">
+      <div class="stat"><div class="stat-num">${sprayRadar.farms.length}</div><div class="stat-label">spray farms (hour ${esc(sprayRadar.hour)})</div></div>
+      <div class="stat"><div class="stat-num">${sprayRadar.farms.reduce((a, f) => a + f.total, 0)}</div><div class="stat-label">total pushes sprayed this hour</div></div>
+      <div class="stat"><div class="stat-num">${sprayRadar.farms.filter(f => !f.known).length}</div><div class="stat-label">not yet in the farm ledger</div></div>
+    </div>
+    <table style="margin-top:14px">
+      <tr><th>actor</th><th class="mono">total pushes</th><th class="mono">repos</th><th class="mono">max/repo</th><th class="mono">avg/repo</th><th>top repos (pushes)</th></tr>
+      ${sprayRadar.farms.map(f => `<tr><td><a href="https://github.com/${esc(f.actor)}" rel="noopener">${esc(f.actor)}</a>${f.known ? '' : ' <span class="badge-new">new</span>'}</td><td class="mono">${f.total}</td><td class="mono">${f.repos}</td><td class="mono">${f.max_repo}</td><td class="mono">${f.avg_repo}</td><td class="dim">${esc((f.top_repos || []).join(' · '))}</td></tr>`).join('')}
+    </table>` : '<div class="lede" style="margin-top:14px">No spray signature in the latest hour — the radar is watching.</div>'}
   </section>
 
   <section class="panel">

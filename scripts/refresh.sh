@@ -6,6 +6,7 @@ cd "$(dirname "$0")/.."
 
 echo "== [pulse] refresh $(date -u +%Y-%m-%dT%H:%M:%SZ) =="
 node pipeline/pulse.cjs
+node scripts/spray_radar.cjs
 node pipeline/report.cjs
 node scripts/gen_weekly.cjs
 node scripts/gen_api.cjs
