@@ -5,13 +5,41 @@
     <link>https://github-pulse.surge.sh/</link>
     <description>The busiest hour on GitHub, ranked: hottest repos, human signal, languages, releases and bot farms — fresh from the GH Archive every hour.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Aug 2026 13:31:54 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 17:08:55 GMT</lastBuildDate>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-17-16</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-17-16</guid>
+      <pubDate>Mon, 17 Aug 2026 16:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-17-16<br/>132,404 events · 60,351 repos<br/><br/>🔥 HOTTEST:<br/>  srobroek/agentic-packages — heat 55 (4 pushes, 0 PRs, +0★, 2👥)<br/>  openclaw/openclaw — heat 41 (8 pushes, 3 PRs, +0★, 5👥)<br/>  PostHog/posthog — heat 41 (14 pushes, 0 PRs, +0★, 9👥)<br/>  deepseek-ai/deepseek-harness — heat 33 (0 pushes, 0 PRs, +3★, 3👥)<br/>  awesome-dsh-plugin/awesome-dsh-plugin — heat 26 (4 pushes, 1 PRs, +1★, 3👥)<br/><br/>👤 busiest: github-actions[bot] (15910 events)<br/>🧠 human top: srobroek/agentic-packages (0 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (kaianuar/diskscope v0.1.0)<br/>🤖 bot watch: 15 push-farms · 26.5% of all pushes are spam — top: elad-cmd/psycho-usage (218 pushes, 1👥)<br/>🔭 star-only radar: 1 repos · 0 star-loops · 59 pure-watcher accounts — top: deepseek-ai/deepseek-harness (+3★, 3 lurker★)<br/>🚫 demoted 1059 farm repos (+1557 suspicious push-loops) from heat — top: elad-cmd/psycho-usage (218 pushes, 1👥, push-bot)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-17-15</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-17-15</guid>
+      <pubDate>Mon, 17 Aug 2026 15:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-17-15<br/>69,413 events · 37,962 repos<br/><br/>🔥 HOTTEST:<br/>  yjh051108/dsh-routing-suite — heat 44 (0 pushes, 0 PRs, +4★, 4👥)<br/>  deepseek-ai/deepseek-harness — heat 44 (0 pushes, 0 PRs, +4★, 4👥)<br/>  openclaw/openclaw — heat 36 (3 pushes, 3 PRs, +0★, 4👥)<br/>  PostHog/posthog — heat 35 (11 pushes, 0 PRs, +0★, 8👥)<br/>  carlosggar-arch/agenda-cultural-valparaiso-vina — heat 24 (15 pushes, 0 PRs, +0★, 3👥)<br/><br/>👤 busiest: github-actions[bot] (10515 events)<br/>🧠 human top: openclaw/openclaw (3 PRs, 2 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 14 (drkalexander1/llm-anchoring-evals r10-close-v1)<br/>🤖 bot watch: 15 push-farms · 25.8% of all pushes are spam — top: zerotraceh1/er-forge-probe (125 pushes, 1👥)<br/>🔭 star-only radar: 2 repos · 0 star-loops · 86 pure-watcher accounts — top: yjh051108/dsh-routing-suite (+4★, 3 lurker★)<br/>🚫 demoted 411 farm repos (+568 suspicious push-loops) from heat — top: zerotraceh1/er-forge-probe (125 pushes, 1👥, push-bot)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-17-14</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-17-14</guid>
+      <pubDate>Mon, 17 Aug 2026 14:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-17-14<br/>38,119 events · 20,624 repos<br/><br/>🔥 HOTTEST:<br/>  deepseek-ai/deepseek-harness — heat 33 (0 pushes, 0 PRs, +3★, 3👥)<br/>  mnfst/modelparams.dev — heat 23 (2 pushes, 0 PRs, +0★, 2👥)<br/>  dk0d/shki — heat 22 (1 pushes, 0 PRs, +0★, 2👥)<br/>  hashim21223445/Dev-Geeks — heat 21 (0 pushes, 3 PRs, +0★, 2👥)<br/>  xsovad06/sova — heat 21 (0 pushes, 3 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (4868 events)<br/>🧠 human top: xsovad06/sova (3 PRs, 1 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (ruslanlap/PowerToysRun-QuickAi v1.4.1)<br/>🤖 bot watch: 15 push-farms · 23.1% of all pushes are spam — top: arros85pow/wypxwd (68 pushes, 1👥)<br/>🔭 star-only radar: 1 repos · 0 star-loops · 80 pure-watcher accounts — top: deepseek-ai/deepseek-harness (+3★, 3 lurker★)<br/>🚫 demoted 260 farm repos (+448 suspicious push-loops) from heat — top: open-telemetry/shared-workflows (74 pushes, 1👥, push-loop)</description>
+    </item>
+    <item>
+      <title>GitHub Pulse — hour 2026-08-17-13</title>
+      <link>https://github-pulse.surge.sh/</link>
+      <guid isPermaLink="false">github-pulse-2026-08-17-13</guid>
+      <pubDate>Mon, 17 Aug 2026 13:00:00 GMT</pubDate>
+      <description>📡 GITHUB PULSE — hour 2026-08-17-13<br/>61,266 events · 20,580 repos<br/><br/>🔥 HOTTEST:<br/>  deepseek-ai/deepseek-harness — heat 33 (0 pushes, 0 PRs, +3★, 3👥)<br/>  microsoft/winget-pkgs — heat 24 (2 pushes, 2 PRs, +0★, 3👥)<br/>  cathrynlavery/diagram-design — heat 22 (0 pushes, 0 PRs, +2★, 2👥)<br/>  awesome-dsh-plugin/awesome-dsh-plugin — heat 22 (0 pushes, 0 PRs, +2★, 2👥)<br/>  ExaDev/documents.js — heat 22 (1 pushes, 0 PRs, +0★, 2👥)<br/><br/>👤 busiest: github-actions[bot] (4242 events)<br/>🧠 human top: eyass/ops_automation (0 PRs, 6 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (samirtak-dynatechconsultancy/timecalc-releases v1.5.2)<br/>🤖 bot watch: 15 push-farms · 18.3% of all pushes are spam — top: doubwhik5554/ouhuat (43 pushes, 1👥)<br/>🔭 star-only radar: 1 repos · 0 star-loops · 86 pure-watcher accounts — top: deepseek-ai/deepseek-harness (+3★, 3 lurker★)<br/>🚫 demoted 775 farm repos (+2244 suspicious push-loops) from heat — top: komatodetae/rvdxzg (44 pushes, 1👥, push-bot)</description>
+    </item>
     <item>
       <title>GitHub Pulse — hour 2026-08-17-12</title>
       <link>https://github-pulse.surge.sh/</link>
       <guid isPermaLink="false">github-pulse-2026-08-17-12</guid>
       <pubDate>Mon, 17 Aug 2026 12:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-17-12<br/>79,925 events · 25,319 repos<br/><br/>🔥 HOTTEST:<br/>  deepseek-ai/deepseek-harness — heat 55 (0 pushes, 0 PRs, +5★, 5👥)<br/>  PostHog/posthog — heat 34 (13 pushes, 0 PRs, +0★, 7👥)<br/>  LaoFeng-mouse/flyingmouse-format — heat 22 (0 pushes, 0 PRs, +2★, 2👥)<br/>  srobroek/agentic-packages — heat 22 (1 pushes, 0 PRs, +0★, 2👥)<br/>  Bavoch/hello-gitty — heat 21 (0 pushes, 0 PRs, +0★, 2👥)<br/><br/>👤 busiest: github-actions[bot] (5791 events)<br/>🧠 human top: deepseek-ai/deepseek-harness (0 PRs, 0 issues, +5★)<br/>🗣 top language: n/a<br/>🚀 releases: 20 (Uncode7/Plunder-s-Escalation-Alert---PEA v1.0.6)<br/>🤖 bot watch: 15 push-farms · 25.4% of all pushes are spam — top: loganfoxdale/d3 (93 pushes, 1👥)<br/>🔭 star-only radar: 1 repos · 0 star-loops · 67 pure-watcher accounts — top: deepseek-ai/deepseek-harness (+5★, 5 lurker★)<br/>🚫 demoted 1204 farm repos (+2791 suspicious push-loops) from heat — top: loganfoxdale/d3 (93 pushes, 1👥, push-bot)</description>
+      <description>📡 GITHUB PULSE — hour 2026-08-17-12<br/>79,925 events · 25,319 repos<br/>vs 2026-08-17-11: -3.3% events<br/><br/>🔥 HOTTEST:<br/>  deepseek-ai/deepseek-harness — heat 55 (0 pushes, 0 PRs, +5★, 5👥)<br/>  PostHog/posthog — heat 34 (13 pushes, 0 PRs, +0★, 7👥)<br/>  LaoFeng-mouse/flyingmouse-format — heat 22 (0 pushes, 0 PRs, +2★, 2👥) 🆕<br/>  srobroek/agentic-packages — heat 22 (1 pushes, 0 PRs, +0★, 2👥) 🆕<br/>  Bavoch/hello-gitty — heat 21 (0 pushes, 0 PRs, +0★, 2👥) 🆕<br/><br/>👤 busiest: github-actions[bot] (5791 events)<br/>🧠 human top: deepseek-ai/deepseek-harness (0 PRs, 0 issues, +5★)<br/>🗣 top language: Python<br/>🚀 releases: 20 (Uncode7/Plunder-s-Escalation-Alert---PEA v1.0.6)<br/>🤖 bot watch: 15 push-farms · 25.5% of all pushes are spam — top: loganfoxdale/d3 (93 pushes, 1👥)<br/>🔭 star-only radar: 1 repos · 0 star-loops · 67 pure-watcher accounts — top: deepseek-ai/deepseek-harness (+5★, 5 lurker★)<br/>🧟 botnet watch: 8 persistent farms (6+ hrs) — top: elad-cmd/psycho-usage (seen 6h, 164 pushes/hr)<br/>🚫 demoted 1207 farm repos (+2788 suspicious push-loops) from heat — top: loganfoxdale/d3 (93 pushes, 1👥, push-bot)</description>
     </item>
     <item>
       <title>GitHub Pulse — hour 2026-08-17-11</title>
@@ -145,34 +173,6 @@
       <guid isPermaLink="false">github-pulse-2026-08-16-17</guid>
       <pubDate>Sun, 16 Aug 2026 17:00:00 GMT</pubDate>
       <description>📡 GITHUB PULSE — hour 2026-08-16-17<br/>169,788 events · 31,597 repos<br/><br/>🔥 HOTTEST:<br/>  deepseek-ai/deepseek-harness — heat 33 (0 pushes, 0 PRs, +3★, 3👥)<br/>  rangoDJ/jellyfin-media-converter — heat 22 (1 pushes, 0 PRs, +0★, 2👥)<br/>  EvilNotch/Minecraft-Friendly-26.X — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/>  MrLynx93/starocie — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/>  Pab-69/Minkey-Syndicraft-v1 — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (7313 events)<br/>🧠 human top: deepseek-ai/deepseek-harness (0 PRs, 0 issues, +3★)<br/>🗣 top language: n/a<br/>🚀 releases: 11 (EvilNotch/Minecraft-Friendly-26.X DailyUpload-8/16/26)<br/>🤖 bot watch: 15 push-farms · 58% of all pushes are spam — top: smithl00264/fyemnr (92 pushes, 1👥)<br/>🔭 star-only radar: 1 repos · 0 star-loops · 30 pure-watcher accounts — top: deepseek-ai/deepseek-harness (+3★, 3 lurker★)<br/>🚫 demoted 2904 farm repos (+2661 suspicious push-loops) from heat — top: smithl00264/fyemnr (92 pushes, 1👥, push-bot)</description>
-    </item>
-    <item>
-      <title>GitHub Pulse — hour 2026-08-16-16</title>
-      <link>https://github-pulse.surge.sh/</link>
-      <guid isPermaLink="false">github-pulse-2026-08-16-16</guid>
-      <pubDate>Sun, 16 Aug 2026 16:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-16-16<br/>167,895 events · 30,813 repos<br/><br/>🔥 HOTTEST:<br/>  Nioris/project-forge — heat 22 (1 pushes, 0 PRs, +0★, 2👥)<br/>  123456789zws/jsc2js — heat 19 (1 pushes, 0 PRs, +0★, 1👥)<br/>  ram1234598766-dotcom/Physics — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/>  Iyadobo/Axon — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/>  BigCorps/MonitorIA — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (6509 events)<br/>🧠 human top: Nioris/project-forge (0 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 10 (ram1234598766-dotcom/Physics v2.3.0)<br/>🤖 bot watch: 15 push-farms · 55.5% of all pushes are spam — top: gudegp/lcogjo (78 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 22 pure-watcher accounts<br/>🚫 demoted 2957 farm repos (+2710 suspicious push-loops) from heat — top: winson-00178005/build-eye (94 pushes, 1👥, push-loop)</description>
-    </item>
-    <item>
-      <title>GitHub Pulse — hour 2026-08-16-15</title>
-      <link>https://github-pulse.surge.sh/</link>
-      <guid isPermaLink="false">github-pulse-2026-08-16-15</guid>
-      <pubDate>Sun, 16 Aug 2026 15:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-16-15<br/>168,274 events · 29,640 repos<br/>vs 2026-08-16-14: -2.3% events<br/><br/>🔥 HOTTEST:<br/>  deepseek-ai/deepseek-harness — heat 33 (0 pushes, 0 PRs, +3★, 3👥) 🆕<br/>  FlyXingByte/deepseek-harness-macos — heat 22 (1 pushes, 0 PRs, +0★, 2👥) 🆕<br/>  hydra-db/hydradb — heat 22 (0 pushes, 0 PRs, +2★, 2👥) 🆕<br/>  arasoi/yggdrasil-releases — heat 19 (1 pushes, 0 PRs, +0★, 1👥) 🆕<br/>  wsnxxxs/deepseek-harness-portable — heat 19 (1 pushes, 0 PRs, +0★, 1👥) 🆕<br/><br/>👤 busiest: github-actions[bot] (6197 events)<br/>🧠 human top: deepseek-ai/deepseek-harness (0 PRs, 0 issues, +3★)<br/>🗣 top language: Python<br/>🚀 releases: 14 (ViceMe-AI/cli v0.15.0)<br/>🤖 bot watch: 15 push-farms · 58.2% of all pushes are spam — top: elad-cmd/psycho-usage (70 pushes, 1👥)<br/>🔭 star-only radar: 1 repos · 0 star-loops · 27 pure-watcher accounts — top: deepseek-ai/deepseek-harness (+3★, 3 lurker★)<br/>🤖 bot-driven: 1 repos (pure automation churn, demoted ×0.3) — top: docker-hardened-images/log<br/>🧟 botnet watch: 6 persistent farms (11+ hrs) — top: ugmoddev/API-NEW-NAT-3- (seen 11h, 169 pushes/hr)<br/>🚫 demoted 3250 farm repos (+2837 suspicious push-loops) from heat — top: elad-cmd/psycho-usage (70 pushes, 1👥, push-bot)</description>
-    </item>
-    <item>
-      <title>GitHub Pulse — hour 2026-08-16-14</title>
-      <link>https://github-pulse.surge.sh/</link>
-      <guid isPermaLink="false">github-pulse-2026-08-16-14</guid>
-      <pubDate>Sun, 16 Aug 2026 14:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-16-14<br/>172,289 events · 27,829 repos<br/><br/>🔥 HOTTEST:<br/>  michael-maltsev/technion-histograms — heat 24 (9 pushes, 0 PRs, +0★, 5👥)<br/>  josh-project/josh — heat 20 (11 pushes, 0 PRs, +0★, 3👥)<br/>  syarb/tcc-patron-counts — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/>  hellowind777/hellogrok — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/>  yuzlyn/font-settings — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (5140 events)<br/>🧠 human top: NicDev-Studios/CraftRelay (3 PRs, 0 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 10 (syarb/tcc-patron-counts latest)<br/>🤖 bot watch: 15 push-farms · 59% of all pushes are spam — top: ltmvx4d/kvzxib (75 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 27 pure-watcher accounts<br/>🚫 demoted 3277 farm repos (+2688 suspicious push-loops) from heat — top: ltmvx4d/kvzxib (75 pushes, 1👥, push-bot)</description>
-    </item>
-    <item>
-      <title>GitHub Pulse — hour 2026-08-16-13</title>
-      <link>https://github-pulse.surge.sh/</link>
-      <guid isPermaLink="false">github-pulse-2026-08-16-13</guid>
-      <pubDate>Sun, 16 Aug 2026 13:00:00 GMT</pubDate>
-      <description>📡 GITHUB PULSE — hour 2026-08-16-13<br/>170,411 events · 30,636 repos<br/><br/>🔥 HOTTEST:<br/>  lenxeon/Monocle — heat 23 (2 pushes, 0 PRs, +0★, 2👥)<br/>  verbal76/Tartaria-RPG — heat 22 (1 pushes, 0 PRs, +0★, 2👥)<br/>  Alski-MPLS/4thealth — heat 20 (9 pushes, 1 PRs, +0★, 2👥)<br/>  zmb96/ZeroCkate_ServerApiPlugin — heat 19 (1 pushes, 0 PRs, +0★, 1👥)<br/>  luqmansungkar/notula — heat 18 (0 pushes, 0 PRs, +0★, 1👥)<br/><br/>👤 busiest: github-actions[bot] (7929 events)<br/>🧠 human top: Eru-Iluvatar-the-One/weaver (0 PRs, 3 issues, +0★)<br/>🗣 top language: n/a<br/>🚀 releases: 10 (luqmansungkar/notula v0.1.0)<br/>🤖 bot watch: 15 push-farms · 53.4% of all pushes are spam — top: landerson9838/euikhr (101 pushes, 1👥)<br/>🔭 star-only radar: 0 repos · 0 star-loops · 31 pure-watcher accounts<br/>🚫 demoted 2993 farm repos (+3020 suspicious push-loops) from heat — top: landerson9838/euikhr (101 pushes, 1👥, push-bot)</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,134 @@
+=== LAST HOUR IN HISTORY: 2026-08-17-16 (n=161 hours, 25,739,418 events) ===
+
+=== (a) SPAM TRAJECTORY h0 -> END (THE BIG TEST: mint->dip->breach after h12 356-mint?) ===
+2026-08-17-0  spam= 64.9%  minted=   42  demoted=2109  events=171569  <-- >=50%
+2026-08-17-1  spam= 58.5%  minted=   75  demoted=1821  events=166262  (-6.4pt)  <-- >=50%
+2026-08-17-2  spam= 62.8%  minted=  299  demoted=2310  events=166174  (+4.3pt)  <-- >=50%
+2026-08-17-3  spam= 42.2%  minted= 1338  demoted=2006  events=170286  (-20.6pt)  <-- SUB-50%
+2026-08-17-4  spam= 29.6%  minted= 1237  demoted=1703  events=168497  (-12.6pt)  <-- SUB-50%
+2026-08-17-5  spam= 37.5%  minted= 1409  demoted=2197  events=167676  (+7.9pt)  <-- SUB-50%
+2026-08-17-6  spam=   53%  minted=  846  demoted=2673  events=164446  (+15.5pt)  <-- >=50%
+2026-08-17-7  spam= 49.1%  minted=  335  demoted=2501  events=159391  (-3.9pt)  <-- SUB-50%
+2026-08-17-8  spam=   58%  minted=  157  demoted=2978  events=148658  (+8.9pt)  <-- >=50%
+2026-08-17-9  spam= 57.1%  minted=   39  demoted=2632  events=124180  (-0.9pt)  <-- >=50%
+2026-08-17-10  spam= 41.3%  minted=   17  demoted=1781  events=95787  (-15.8pt)  <-- SUB-50%
+2026-08-17-11  spam= 32.3%  minted=   64  demoted=1337  events=82630  (-9.0pt)  <-- SUB-50%
+2026-08-17-12  spam= 25.5%  minted=  356  demoted=1207  events=79925  (-6.8pt)  <-- SUB-50%
+2026-08-17-13  spam= 18.3%  minted=  240  demoted=775  events=61266  (-7.2pt)  <-- SUB-50%
+2026-08-17-14  spam= 23.1%  minted=   32  demoted=260  events=38119  (+4.8pt)  <-- SUB-50%
+2026-08-17-15  spam= 25.8%  minted=   35  demoted=411  events=69413  (+2.7pt)  <-- SUB-50%
+2026-08-17-16  spam= 26.7%  minted=  219  demoted=1063  events=132404  (+0.9pt)  <-- SUB-50%
+
+=== (a) ALL-TIME >=50% STREAKS (top 6) ===
+18h: 2026-08-16-9 -> 2026-08-17-2 | 10h: 2026-08-14-18 -> 2026-08-15-3 | 9h: 2026-08-15-17 -> 2026-08-16-1 | 6h: 2026-08-15-8 -> 2026-08-15-13 | 5h: 2026-08-11-1 -> 2026-08-11-5 | 5h: 2026-08-11-7 -> 2026-08-11-11
+
+=== (b) MINTING h10 -> END (factory after 356 at h12: magazine or one-shot?) ===
+10:17(c0)  11:64(c0)  12:356(c0)  13:240(c0)  14:32(c0)  15:35(c0)  16:219(c0)
+
+=== (b2) EVENTS RECOVERY: h13-h15 vs 7-day same-hour norm (farm-driven bounce or collapse?) ===
+h13: 7-day avg=164962  actual=61266  (-63% vs norm)
+h14: 7-day avg=162674  actual=38119  (-77% vs norm)
+h15: 7-day avg=157442  actual=69413  (-56% vs norm)
+
+=== (b3) FARM PUSH VOLUME (sum bot_watch pushes/hr, last 12h) ===
+2026-08-17-5  farm_pushes=1010  n_farms=15
+2026-08-17-6  farm_pushes=1052  n_farms=15
+2026-08-17-7  farm_pushes=1104  n_farms=15
+2026-08-17-8  farm_pushes=917  n_farms=15
+2026-08-17-9  farm_pushes=764  n_farms=15
+2026-08-17-10  farm_pushes=630  n_farms=15
+2026-08-17-11  farm_pushes=621  n_farms=15
+2026-08-17-12  farm_pushes=685  n_farms=15
+2026-08-17-13  farm_pushes=540  n_farms=15
+2026-08-17-14  farm_pushes=881  n_farms=15
+2026-08-17-15  farm_pushes=1560  n_farms=15
+2026-08-17-16  farm_pushes=2164  n_farms=15
+
+=== (c) loganfoxdale FULL TRACE (last 48h) + per-day h11/h12/h13 ===
+08-15-17:0  08-15-18:0  08-15-19:0  08-15-20:0  08-15-21:0  08-15-22:0  08-15-23:0  08-16-0:0  08-16-1:0  08-16-2:0  08-16-3:0  08-16-4:0  08-16-5:0  08-16-6:0  08-16-7:0  08-16-8:0  08-16-9:0  08-16-10:0  08-16-11:0  08-16-12:109  08-16-13:0  08-16-14:0  08-16-15:0  08-16-16:0  08-16-17:0  08-16-18:0  08-16-19:0  08-16-20:0  08-16-21:0  08-16-22:0  08-16-23:0  08-17-0:0  08-17-1:0  08-17-2:0  08-17-3:0  08-17-4:0  08-17-5:0  08-17-6:0  08-17-7:0  08-17-8:0  08-17-9:0  08-17-10:0  08-17-11:0  08-17-12:93  08-17-13:0  08-17-14:0  08-17-15:0  08-17-16:0
+2026-08-11  h11:0  h12:312  h13:0
+2026-08-12  h11:0  h12:351  h13:0
+2026-08-13  h11:0  h12:183  h13:0
+2026-08-14  h11:0  h12:227  h13:0
+2026-08-15  h11:0  h12:119  h13:0
+2026-08-16  h11:0  h12:109  h13:0
+2026-08-17  h11:0  h12:93  h13:0
+
+=== (c2) H12-ONLY COHORT Aug17 (recheck w/ h13-h15: did the noon cohort leak?) ===
+h12-only actors (n=59): loganfoxdale(1394), creephezs(164), ryojimovent(159), brioaj(158), lawsonkimberly845(157), williamsjacob1(152), riveraaaron29(151), barnesjoseph119(150), ramirezjeffery3559(143), mccallglen1874(142), willischristopher68(141), flemingnicholas42(141), floresjoseph4(141), harrismisty4151(138), wimcarm77(131)
+h12 top-12 pushers: loganfoxdale(1394)  ugmoddev(1181)  LiamBruhin(948)  loan96060-tech(810)  zerotraceh1(787)  elad-cmd(623)  itaalo67(248)  Hellohailey25(195)  xolirx(191)  creephezs(164)  pytho584(161)  ryojimovent(159)
+
+=== (d) SPRAY FARMS h13-h15 (bogdanstancu h15 = 592/hr?) ===
+bogdanstancu1119-maker 5:0 6:0 7:0 8:0 9:0 10:0 11:0 12:0 13:0 14:0 15:0 16:0
+BailiffDisengage       5:0 6:0 7:0 8:0 9:0 10:0 11:0 12:0 13:0 14:0 15:0 16:0
+hayesjonathan9829      5:0 6:0 7:0 8:0 9:0 10:0 11:0 12:0 13:0 14:0 15:0 16:0
+DevZonayed             5:0 6:0 7:0 8:0 9:0 10:0 11:0 12:0 13:0 14:0 15:0 16:0
+animal-lover12         5:0 6:0 7:0 8:0 9:0 10:0 11:0 12:0 13:0 14:0 15:0 16:0
+
+=== (d) TOP-12 ACTORS h13-h15 ===
+2026-08-17-14  github-actions[bot](4868)  dependabot[bot](549)  bogdanstancu1119-maker(244)  OpenHarmonySCM-noreply(212)  renovate[bot](138)  AceSeat(108)  ugmoddev(92)  udigarconal(69)  arros85pow(68)  Temple-Stuart(68)  yuastavan(66)  hxjxydudjbhc799-byte(65)
+2026-08-17-15  github-actions[bot](10515)  OpenHarmonySCM-noreply(836)  bogdanstancu1119-maker(592)  dependabot[bot](557)  pophilpo(269)  xuqssq(211)  renovate[bot](200)  ugmoddev(193)  zerotraceh1(125)  hxjxydudjbhc799-byte(116)  arros85pow(112)  alongkornmai-ui(111)
+2026-08-17-16  github-actions[bot](15910)  bogdanstancu1119-maker(801)  pull[bot](462)  ugmoddev(307)  renovate[bot](293)  elad-cmd(218)  reallakshman19(217)  hxjxydudjbhc799-byte(211)  cursor[bot](194)  github-merge-queue[bot](175)  zerotraceh1(164)  avamiller180768(157)
+
+=== TOP FARMS h13-h15 (bot_watch top-6) ===
+2026-08-17-14  n=15  arros85pow/wypxwd(68)  yuastavan/pnjmwr(66)  mathegsin22/qdmtno(61)  edaxex/nqvotg(60)  deg26/vwnolh(60)  kolnesuan/gfulxk(60)
+2026-08-17-15  n=15  zerotraceh1/er-forge-probe(125)  arros85pow/wypxwd(112)  alongkornmai-ui/streamget(111)  konkeywang/hkdaqh(111)  ugmoddev/noti-api-server(106)  heihami/nchhii(103)
+2026-08-17-16  n=15  elad-cmd/psycho-usage(218)  ugmoddev/noti-api-server(164)  zerotraceh1/er-forge-probe(164)  avamiller180768/jdqiol(157)  alongkornmai-ui/streamget(155)  thinktoshareWEBSITES/w(145)
+
+=== (e) zerotraceh1 FULL TRACE (last 120h, retirement watch) ===
+08-12-17:295  08-12-18:390  08-12-19:347  08-12-20:391  08-12-21:450  08-12-22:501  08-12-23:555  08-13-0:0  08-13-1:0  08-13-2:0  08-13-3:0  08-13-4:0  08-13-5:0  08-13-6:0  08-13-7:0  08-13-8:0  08-13-9:146  08-13-10:159  08-13-11:158  08-13-12:183  08-13-13:197  08-13-14:191  08-13-15:191  08-13-16:227  08-13-17:226  08-13-18:318  08-13-19:354  08-13-20:402  08-13-21:484  08-13-22:535  08-13-23:544  08-14-0:0  08-14-1:0  08-14-2:0  08-14-3:0  08-14-4:0  08-14-5:0  08-14-6:0  08-14-7:0  08-14-8:0  08-14-9:0  08-14-10:0  08-14-11:0  08-14-12:0  08-14-13:0  08-14-14:0  08-14-15:0  08-14-16:0  08-14-17:0  08-14-18:0  08-14-19:0  08-14-20:0  08-14-21:0  08-14-22:185  08-14-23:194  08-15-0:0  08-15-1:0  08-15-2:0  08-15-3:0  08-15-4:0  08-15-5:0  08-15-6:0  08-15-7:0  08-15-8:137  08-15-9:131  08-15-10:139  08-15-11:104  08-15-12:0  08-15-13:137  08-15-14:104  08-15-15:102  08-15-16:99  08-15-17:0  08-15-18:0  08-15-19:120  08-15-20:151  08-15-21:146  08-15-22:135  08-15-23:218  08-16-0:0  08-16-1:0  08-16-2:0  08-16-3:0  08-16-4:0  08-16-5:0  08-16-6:0  08-16-7:0  08-16-8:68  08-16-9:60  08-16-10:0  08-16-11:0  08-16-12:0  08-16-13:0  08-16-14:0  08-16-15:0  08-16-16:0  08-16-17:0  08-16-18:0  08-16-19:0  08-16-20:0  08-16-21:0  08-16-22:0  08-16-23:0  08-17-0:0  08-17-1:0  08-17-2:0  08-17-3:0  08-17-4:0  08-17-5:0  08-17-6:0  08-17-7:0  08-17-8:0  08-17-9:0  08-17-10:0  08-17-11:0  08-17-12:0  08-17-13:0  08-17-14:0  08-17-15:125  08-17-16:164
+
+=== (f) bogdanstancu1119-maker FULL TRACE (last 96h) ===
+08-13-17:0  08-13-18:0  08-13-19:0  08-13-20:0  08-13-21:0  08-13-22:0  08-13-23:0  08-14-0:0  08-14-1:0  08-14-2:0  08-14-3:0  08-14-4:0  08-14-5:0  08-14-6:0  08-14-7:0  08-14-8:0  08-14-9:0  08-14-10:0  08-14-11:0  08-14-12:0  08-14-13:0  08-14-14:0  08-14-15:0  08-14-16:0  08-14-17:0  08-14-18:0  08-14-19:0  08-14-20:0  08-14-21:0  08-14-22:0  08-14-23:0  08-15-0:0  08-15-1:0  08-15-2:0  08-15-3:0  08-15-4:0  08-15-5:0  08-15-6:0  08-15-7:0  08-15-8:0  08-15-9:0  08-15-10:0  08-15-11:0  08-15-12:0  08-15-13:0  08-15-14:0  08-15-15:0  08-15-16:0  08-15-17:0  08-15-18:0  08-15-19:0  08-15-20:0  08-15-21:0  08-15-22:0  08-15-23:0  08-16-0:0  08-16-1:0  08-16-2:0  08-16-3:0  08-16-4:0  08-16-5:0  08-16-6:0  08-16-7:0  08-16-8:0  08-16-9:0  08-16-10:0  08-16-11:0  08-16-12:0  08-16-13:0  08-16-14:0  08-16-15:0  08-16-16:0  08-16-17:0  08-16-18:0  08-16-19:0  08-16-20:0  08-16-21:0  08-16-22:0  08-16-23:0  08-17-0:0  08-17-1:0  08-17-2:0  08-17-3:0  08-17-4:0  08-17-5:0  08-17-6:0  08-17-7:0  08-17-8:0  08-17-9:0  08-17-10:0  08-17-11:0  08-17-12:0  08-17-13:0  08-17-14:0  08-17-15:0  08-17-16:0
+
+=== (g) ugmoddev FULL TRACE (last 96h) ===
+08-13-17:248  08-13-18:523  08-13-19:440  08-13-20:649  08-13-21:696  08-13-22:764  08-13-23:812  08-14-0:819  08-14-1:763  08-14-2:434  08-14-3:453  08-14-4:321  08-14-5:484  08-14-6:352  08-14-7:215  08-14-8:212  08-14-9:0  08-14-10:0  08-14-11:206  08-14-12:0  08-14-13:189  08-14-14:95  08-14-15:111  08-14-16:142  08-14-17:157  08-14-18:134  08-14-19:0  08-14-20:135  08-14-21:139  08-14-22:268  08-14-23:270  08-15-0:243  08-15-1:185  08-15-2:236  08-15-3:166  08-15-4:212  08-15-5:228  08-15-6:272  08-15-7:180  08-15-8:187  08-15-9:194  08-15-10:104  08-15-11:129  08-15-12:117  08-15-13:110  08-15-14:127  08-15-15:201  08-15-16:96  08-15-17:257  08-15-18:207  08-15-19:124  08-15-20:157  08-15-21:254  08-15-22:305  08-15-23:359  08-16-0:364  08-16-1:324  08-16-2:213  08-16-3:169  08-16-4:122  08-16-5:149  08-16-6:95  08-16-7:102  08-16-8:99  08-16-9:74  08-16-10:158  08-16-11:158  08-16-12:0  08-16-13:84  08-16-14:0  08-16-15:62  08-16-16:0  08-16-17:75  08-16-18:0  08-16-19:0  08-16-20:115  08-16-21:0  08-16-22:0  08-16-23:0  08-17-0:187  08-17-1:0  08-17-2:158  08-17-3:0  08-17-4:157  08-17-5:66  08-17-6:68  08-17-7:0  08-17-8:0  08-17-9:0  08-17-10:51  08-17-11:40  08-17-12:0  08-17-13:0  08-17-14:0  08-17-15:106  08-17-16:307
+
+=== (g) elad-cmd FULL TRACE (last 96h) ===
+08-13-17:0  08-13-18:220  08-13-19:247  08-13-20:262  08-13-21:287  08-13-22:272  08-13-23:322  08-14-0:339  08-14-1:282  08-14-2:286  08-14-3:173  08-14-4:181  08-14-5:201  08-14-6:144  08-14-7:149  08-14-8:192  08-14-9:0  08-14-10:169  08-14-11:186  08-14-12:0  08-14-13:0  08-14-14:96  08-14-15:115  08-14-16:139  08-14-17:0  08-14-18:0  08-14-19:140  08-14-20:138  08-14-21:144  08-14-22:115  08-14-23:104  08-15-0:127  08-15-1:0  08-15-2:0  08-15-3:0  08-15-4:123  08-15-5:134  08-15-6:104  08-15-7:0  08-15-8:80  08-15-9:85  08-15-10:0  08-15-11:0  08-15-12:83  08-15-13:0  08-15-14:0  08-15-15:0  08-15-16:86  08-15-17:0  08-15-18:0  08-15-19:87  08-15-20:111  08-15-21:126  08-15-22:153  08-15-23:131  08-16-0:183  08-16-1:138  08-16-2:122  08-16-3:111  08-16-4:106  08-16-5:77  08-16-6:0  08-16-7:0  08-16-8:0  08-16-9:0  08-16-10:75  08-16-11:0  08-16-12:0  08-16-13:0  08-16-14:0  08-16-15:70  08-16-16:0  08-16-17:80  08-16-18:0  08-16-19:101  08-16-20:123  08-16-21:0  08-16-22:0  08-16-23:0  08-17-0:0  08-17-1:164  08-17-2:157  08-17-3:88  08-17-4:0  08-17-5:0  08-17-6:73  08-17-7:75  08-17-8:59  08-17-9:0  08-17-10:0  08-17-11:0  08-17-12:0  08-17-13:0  08-17-14:56  08-17-15:97  08-17-16:218
+
+=== NEW ACTORS first_seen h13-h15 ===
+2026-08-17-13  n=240  warrenjohn443, jamettigru12m, fosterdonald9344, clarkdestiny06, wrightheather62, micholadge52, mokezee77, jarviserica863, wellscaitlin944, franklinkylie5195, jungjar69, tybhar99, davitjak827, corcalosto55719, wzengosen95, aenguyl8121, multhavr200, rjason990, henryronald173, linathbrujagy94, blike26seedfgf, eididdiago23, lionhome24, nava65afalm, rady0075, dowl12hew, hanja04, locascorm42, jii24268, feasz2932, frecedey99, awekj98, amdtes6991-oodia, filicog87, shrianpper47, rogyun18, bottute19, jw21043, joecu235ij, chrisholmes02, fariman909, cy02002, raim812, zaunsid46, rayek2005, dp1110, lkazrafin, najinty, eugestinetu, horch8mon, whojanu, cloudballomacked, linuquardtana, krisethanor, anisllyv, spekte-ubter, michael2carlem, jinyipp, pastataragac, asconseurdus, groundbalton, unimifoc, paiv0mad, danielforok, janxche, billefypy, sanddtak, rsoftr, anandin-d-xuy, jioglidio, j-usdia, dongarsangban, balialiono, eeklas, ase9s, otjuanson, arteprice, prsy-miceco, manapauboyner, yeunsoaltrarker7, olymisw3, jkkaonaz, shinhlardsemep, femicoolo, sciengalacha, plootshace, johnrorseus, jhanningleing, fbuxietis, binyij-ooir, nestdfill, roddcorn, elporgv, vuhignovshorp, billcj-zz, bunblewinferr, dan0ip, wheelerpenny0694, lamman1, johnenor, nshdds, obsefica, brownerica934, cirytran, aarikferredo, kahidibnduydiwin, jikricegreens, paglewegarp, salanbisios, smashneildhorren, tmarmers, trankseatskin-ff, bradzyrx, pyurley-zz-vli, kshaitpala, sebathkao, trbog, farmbie, hbuezez, alex28083, slogigen, ogantandinichart, ntriquni-run, gediano, centscatrinm, sgreame, luiscdcharkprino, drimk-grapub, jenny-illo, tobianchen, doff9b4ski, gsangragh, cubambasbumanged, vacioctubas, smellertjohnsan, acorvityn, joeweenasreto, pricebarbara2, markbrigner, catedieron, trammedwardjoo, lesando, cs-albaku, fenbelino, sysinesbutkh, colnathty, witple-ach, dollospenka, gwakius, fantollo, burymosilvarj, eviellimi, cantsstepheuncer, brazznameti-if, spacobert, fhcriza, martinmichael8412, butteroffi-mgr, icongin1, jeffrhamez, lluribereli, vlickwmt, amranies, loffbieg, fuaibellieoj, calepercode, arthuzkj4no, prot8ramirman, tinoxan, ugospen, persynatuan, yk1wer, damiantheoldmong, a2masre, rubillingran, madming9n, mayank-verma09, prozjin, gdowkinspong, cherrypel, alexteor, gionmin-barin, rejoshk3, hoodlecatwordlan, powdoc4r, klemadhhira, crimecmoots, ajamesquino, com-sdo, srivazekham, phone8jerbin, gherardofiori, doafnet, housarrelodah, bacebye, draklalus, crigwrd9petk2, thomasn789453, dkhmuto, chizipanyiro, briacascortn6, throngeo, tahommoe, starthoronik, zhangxores, afkattr, drace3work, alouzio, manjmines, falcame, worknutsomer, udeufounder333, mvimmus, hayangurn, puillaaaberryzwd, kepezwz, vatkinsen, dmillanwas, mariolman, andbem, fulcoraderzh, kpravakun, jcurcosgree, ediagt, dricubo, k2i40fg, kottyfc, zulov4vale, tiedi-grashe, equiltofdyo, singhrothanin, likronbouset1nuc, ff4avi, prusanbu, weidericazam, kud-zzv, watrijahn-mistin, arvaynechland, tratahhx, shohlevicd
+2026-08-17-14  n=32  sairaj2264, frandavid100, vetven964, cedriceckert85-wq, vsdragger8, omtjas, nigoldsver, systara, nutalindtic-igg, vlikhstamshiel, aldamold, diebphakes, digostead, arpalsagat, tpgdtft, aliebuttanbince, percarrell, bartrishnoadner, nocolexm, riju-rahaman, xcornzk, ayazahmad07, woodsmb, coltianealfray, adelolmo, aneartoviclet, hujyhang, emadisvice, roypil, periario, vinaythoke, chardiri
+2026-08-17-15  n=35  duranparker87, fevly34, knatte18, eslam21006-coding, alankk11, kwd421, jaydrama21-ai, hissecibaba, homecopparis, charles10roger01, rizalcuyyy, simonabadoiu, t2053000, teamleaderleo, harness-automation, thomasholknielsen, heather-equine, payker1, mika-maki, ananth2308, ovbaid, github-jyhackv, hrt14, notenog, cheekyfellastef, rinsakamo, jorgecaldeira62-gif, thongdieptinhyeu, r4g3runn3r, jiaosong, newbiezzzzz, w662000, dengduanglang111, onefreeman1337, tsingshitao-nuke
+2026-08-17-16  n=219  avamiller180768, miamiller9809, masonjohnson175938, rowlandmichael8732, woodarddavid74, hobbssavannah5852, harmonmary1286, gardnerscott38, crawfordkenneth3689, parkerwayne9684, rogersangela0886, morganedward756, wangmarissa325, baileytara0665, sullivanlevi310, meadowslisa3787, kennedywilliam6973, kelleyjustin3355, houstonlarry6369, millerchristina20, zamoravictoria0211, smithjuan1977, snyderchristopher7209, animi55, lanch42bear, umacian34, paraschops95, nesterspike95, dredead45eify, codedartion1999, gari43558, gaoge57faljerd, lixiang878, avamiller631693, luna1359, ogairishn701, alphaomega4748, piyushkumar481, vinit2776, cat99kendor, burhantasci72-png, rajyzki902, jagadeesho11, azad2022, phongtran278, timaixbcg10, jurulxand87, arrivederci444, sabbir6251, coco930118, mrspy02, samlegs31, whiv112, tarekwasfy01, yuna950, tomk1440-cmyk, yuuujin19-bot, michael1900, ravishankart05, haripriya1028, dudududi144-source, gywns0126, shahididrees121, hendrickschristian7540, hensleydylan9395, teammxag57, hendersonkaren084, if2675867, taylor-e9914, ava-brown860174, smith-l62603, n-anderson068942, sofia-smith0579, ava-jackson3049, taylor-l853918, taylorpamela0, rodriguezchristopher2, blackwellmichael6, robertsbrian0, munozmallory7, simonbryan1, colemankelly6, jensenteresa0, jarvisroberto7, ankiefenvycave, suyzab, anirenhybey, arcamone1, fjljramonsterl, platslunderson, ewbsqujandonguy, tipsij, neolbeq, mattsebowizou, bransterbabk, bmoze, jpablorz, cuecilin, ersanyaroyi, myrgeut, sangangefel, tkagupta, bodringaffedge, hakayean, lokitthay, patrua, jecleren, sepel-beara, huangwyen, bhamds, testiena, dicdoasting5o, leveejouninalembic, alexandhangro, garrilm, antkipps, dpiy1, billdl8xchd0l, ooker777, brandrl, timspingelopaloo, digboliaa, rphane, smthliv, dkarksun, siwolpercohen, liuxo-vlog, songuintong, vixupabrein, rayurazi, traikdude, huyoshi, harsh-2093, tr1hermiz, cjqkdn2n4e76, zcqsacl, srinathb-meta, sure23d8, kku1urz0ke6oe26, glob-zz, fraisasghar, openshift-bot, gandorax-g, fxbin, oliviaanderson751425, dxhc1suggkw10, xelanull, mylovec7, lojinhadd, kmingee, mayank99, lthomas350789, sofia199692, johnson-s27235, x9b4o1sjjyi44, robynawesome, power7t, mkleinbe, hackingteamoficial, thomasm055196, tristan-tm-poly, dhurkmans716, facundoalan81-cpu, saukakke, antiokh, haaliki, sakhandaru, dannynoonan420695, segunak, jelitox, ricciardi96-netizen, guanyu777, ronfsg, rasheadsca-star, meowsus, jonathansmanoel, skfk86, sole-llb, df3yixagiua57, perfectrich, jdlc86, babyandi, artnp, arquitecsystems-coder, gilbertchepkwony986-gif, shrinkshi, mahdi1910, aizanoianalytics, datadazzle24, frramilli-cell, manoj-kumar-selvaraj, hodaesu, dalenadux, vxc2vxohamz21, forgetfulposum, fatyab1907, fbatibay, wtfsayo, sriyamini985, sgonzalezang, drmaganti, nitinsukthe-g, shakinartem, eaglak, smoothing-us, 5cpneml2eyd77, eriolhsu-ucom, notisastranov, rooneyx-ae, genkipool, saliox, kian0122, dakarlem080-cmd, nabilrn, adityasshekhawat, rbrundage5, commonflower, xdaviadoyload, eoc5xsuxj1a98
+
+=== DEMOTIONS — all-time top 15 ===
+2026-08-16-9 3585 | 2026-08-16-14 3277 | 2026-08-16-15 3250 | 2026-08-16-10 3225 | 2026-08-11-1 3095 | 2026-08-15-19 3011 | 2026-08-16-13 2993 | 2026-08-17-8 2978 | 2026-08-16-16 2957 | 2026-08-15-17 2944 | 2026-08-16-17 2904 | 2026-08-16-11 2900 | 2026-08-15-18 2853 | 2026-08-15-20 2852 | 2026-08-15-12 2815
+h13-h15 demotions: 14:260  15:411  16:1063
+
+=== LEDGER ===
+ledger entries: 24471 (confirmed 0)  [run47: 26,890 / 25,027]
+
+=== LEDGER PERSISTENCE (key actors) ===
+ugmoddev               first:2026-08-11-0 last:2026-08-17-9 hours:161 confirmed:undefined
+elad-cmd               first:2026-08-11-0 last:2026-08-17-9 hours:161 confirmed:undefined
+zerotraceh1            first:2026-08-11-0 last:2026-08-17-8 hours:114 confirmed:undefined
+Janfindl               NOT IN LEDGER
+srjordan6              first:2026-08-11-11 last:2026-08-17-2 hours:31 confirmed:undefined
+loganfoxdale           first:2026-08-11-0 last:2026-08-17-9 hours:161 confirmed:undefined
+twainswee              first:2026-08-16-11 last:2026-08-16-16 hours:6 confirmed:undefined
+spl1ce                 first:2026-08-14-13 last:2026-08-16-9 hours:10 confirmed:undefined
+reinatomait            first:2026-08-16-11 last:2026-08-17-6 hours:16 confirmed:undefined
+yonghuy                first:2026-08-16-11 last:2026-08-17-7 hours:17 confirmed:undefined
+nuanton                first:2026-08-16-11 last:2026-08-17-7 hours:17 confirmed:undefined
+bogdanstancu1119-maker first:2026-08-14-14 last:2026-08-17-9 hours:75 confirmed:undefined
+animal-lover12         first:2026-08-12-10 last:2026-08-17-8 hours:116 confirmed:undefined
+BailiffDisengage       NOT IN LEDGER
+hayesjonathan9829      first:2026-08-17-6 last:2026-08-17-6 hours:1 confirmed:undefined
+DevZonayed             NOT IN LEDGER
+flintassemblyduel      first:2026-08-17-1 last:2026-08-17-1 hours:1 confirmed:undefined
+Fueltricharge          NOT IN LEDGER
+SkinCorporal           NOT IN LEDGER
+SailorEnliven          NOT IN LEDGER
+contrerasjake7319      first:2026-08-17-2 last:2026-08-17-3 hours:2 confirmed:undefined
+s741dev                first:2026-08-11-10 last:2026-08-17-9 hours:142 confirmed:undefined
+aerlansanat            first:2026-08-17-10 last:2026-08-17-9 hours:7 confirmed:undefined
+
+=== LAST 6 HOURS EVENTS / REPOS ===
+2026-08-17-11  events=82630  repos=21333  spam=32.3%
+2026-08-17-12  events=79925  repos=25319  spam=25.5%
+2026-08-17-13  events=61266  repos=20580  spam=18.3%
+2026-08-17-14  events=38119  repos=20624  spam=23.1%
+2026-08-17-15  events=69413  repos=37962  spam=25.8%
+2026-08-17-16  events=132404  repos=60351  spam=26.7%
