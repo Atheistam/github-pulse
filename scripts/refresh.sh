@@ -25,4 +25,7 @@ surge site github-pulse.surge.sh 2>&1 | tail -4
 # verify the deployment is actually live
 CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 https://github-pulse.surge.sh/)
 echo "== [pulse] live check: HTTP $CODE =="
+# GitHub platform status — verdict context (run 48 lesson: a GitHub incident
+# contaminated the mint->dip->breach test; always check platform state first)
+node scripts/gh_status.cjs || true
 echo "== [pulse] done =="
