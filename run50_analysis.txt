@@ -1,0 +1,148 @@
+=== LAST HOUR IN HISTORY: 2026-08-18-10 (n=179 hours, 28,308,589 events) ===
+
+=== (a) SPAM TRAJECTORY 2026-08-17-17 -> END ===
+2026-08-17-17  spam= 39.7%  minted= 1605  demoted=1830  events=123805  <-- SUB-50%
+2026-08-17-18  spam= 58.3%  minted=  264  demoted=2550  events=124136  (+18.6pt)  <-- >=50%
+2026-08-17-19  spam= 56.1%  minted=  101  demoted=2402  events=133260  (-2.2pt)  <-- >=50%
+2026-08-17-20  spam= 50.4%  minted=  108  demoted=2116  events=122978  (-5.7pt)  <-- >=50%
+2026-08-17-21  spam= 52.3%  minted=   18  demoted=2181  events=130277  (+1.9pt)  <-- >=50%
+2026-08-17-22  spam= 58.3%  minted=   38  demoted=2492  events=142399  (+6.0pt)  <-- >=50%
+2026-08-17-23  spam= 62.2%  minted=   22  demoted=2705  events=152389  (+3.9pt)  <-- >=50%
+2026-08-18-0  spam= 59.7%  minted=   47  demoted=2648  events=157724  (-2.5pt)  <-- >=50%
+2026-08-18-1  spam= 56.7%  minted=   62  demoted=2640  events=166884  (-3.0pt)  <-- >=50%
+2026-08-18-2  spam=   54%  minted=  327  demoted=2668  events=164085  (-2.7pt)  <-- >=50%
+2026-08-18-3  spam=   53%  minted=  288  demoted=2616  events=169186  (-1.0pt)  <-- >=50%
+2026-08-18-4  spam= 51.2%  minted=  638  demoted=2495  events=171283  (-1.8pt)  <-- >=50%
+2026-08-18-5  spam= 49.7%  minted=  430  demoted=2383  events=169382  (-1.5pt)  <-- SUB-50%
+2026-08-18-6  spam= 30.4%  minted= 1407  demoted=1768  events=167870  (-19.3pt)  <-- SUB-50%
+2026-08-18-7  spam= 26.9%  minted= 1377  demoted=1620  events=160080  (-3.5pt)  <-- SUB-50%
+2026-08-18-8  spam= 35.6%  minted=  133  demoted=1846  events=126260  (+8.7pt)  <-- SUB-50%
+2026-08-18-9  spam= 35.5%  minted=  277  demoted=1606  events=105049  (-0.1pt)  <-- SUB-50%
+2026-08-18-10  spam= 26.8%  minted=  165  demoted=1119  events=82124  (-8.7pt)  <-- SUB-50%
+
+=== (a2) ALL-TIME >=50% STREAKS (top 6) ===
+18h: 2026-08-16-9 -> 2026-08-17-2 | 11h: 2026-08-17-18 -> 2026-08-18-4 | 10h: 2026-08-14-18 -> 2026-08-15-3 | 9h: 2026-08-15-17 -> 2026-08-16-1 | 6h: 2026-08-15-8 -> 2026-08-15-13 | 5h: 2026-08-11-1 -> 2026-08-11-5
+
+=== (b) MINTING h17 -> END (factory after 1,605 magazine: re-arm or spent?) ===
+17:1605(c0)  18:264(c0)  19:101(c0)  20:108(c0)  21:18(c0)  22:38(c0)  23:22(c0)  0:47(c0)  1:62(c0)  2:327(c0)  3:288(c0)  4:638(c0)  5:430(c0)  6:1407(c0)  7:1377(c0)  8:133(c0)  9:277(c0)  10:165(c0)
+
+=== (c) EVENTS h20 -> h10 vs 7-day same-hour norm ===
+h20: 7-day avg=164022  actual=122978  (-25% vs norm)
+h21: 7-day avg=161551  actual=130277  (-19% vs norm)
+h22: 7-day avg=165059  actual=142399  (-14% vs norm)
+h23: 7-day avg=166570  actual=152389  (-9% vs norm)
+h0: 7-day avg=163671  actual=157724  (-4% vs norm)
+h1: 7-day avg=164217  actual=166884  (2% vs norm)
+h2: 7-day avg=166568  actual=164085  (-1% vs norm)
+h3: 7-day avg=168215  actual=169186  (1% vs norm)
+h4: 7-day avg=166474  actual=171283  (3% vs norm)
+h5: 7-day avg=166913  actual=169382  (1% vs norm)
+h6: 7-day avg=165266  actual=167870  (2% vs norm)
+h7: 7-day avg=164769  actual=160080  (-3% vs norm)
+h8: 7-day avg=162740  actual=126260  (-22% vs norm)
+h9: 7-day avg=158507  actual=105049  (-34% vs norm)
+h10: 7-day avg=153890  actual=82124  (-47% vs norm)
+
+=== (c2) FARM PUSH VOLUME (sum bot_watch pushes/hr, last 20h) ===
+2026-08-17-15  farm_pushes=1560  n_farms=15
+2026-08-17-16  farm_pushes=2164  n_farms=15
+2026-08-17-17  farm_pushes=804  n_farms=15
+2026-08-17-18  farm_pushes=1039  n_farms=15
+2026-08-17-19  farm_pushes=1147  n_farms=15
+2026-08-17-20  farm_pushes=1184  n_farms=15
+2026-08-17-21  farm_pushes=1378  n_farms=15
+2026-08-17-22  farm_pushes=1656  n_farms=15
+2026-08-17-23  farm_pushes=1937  n_farms=15
+2026-08-18-0  farm_pushes=2090  n_farms=15
+2026-08-18-1  farm_pushes=2296  n_farms=15
+2026-08-18-2  farm_pushes=2068  n_farms=15
+2026-08-18-3  farm_pushes=1922  n_farms=15
+2026-08-18-4  farm_pushes=1761  n_farms=15
+2026-08-18-5  farm_pushes=1922  n_farms=15
+2026-08-18-6  farm_pushes=1126  n_farms=15
+2026-08-18-7  farm_pushes=977  n_farms=15
+2026-08-18-8  farm_pushes=794  n_farms=15
+2026-08-18-9  farm_pushes=867  n_farms=15
+2026-08-18-10  farm_pushes=691  n_farms=15
+
+=== (d) loganfoxdale FULL TRACE (last 60h) ===
+08-15-23:0  08-16-0:0  08-16-1:0  08-16-2:0  08-16-3:0  08-16-4:0  08-16-5:0  08-16-6:0  08-16-7:0  08-16-8:0  08-16-9:0  08-16-10:0  08-16-11:0  08-16-12:109  08-16-13:0  08-16-14:0  08-16-15:0  08-16-16:0  08-16-17:0  08-16-18:0  08-16-19:0  08-16-20:0  08-16-21:0  08-16-22:0  08-16-23:0  08-17-0:0  08-17-1:0  08-17-2:0  08-17-3:0  08-17-4:0  08-17-5:0  08-17-6:0  08-17-7:0  08-17-8:0  08-17-9:0  08-17-10:0  08-17-11:0  08-17-12:93  08-17-13:0  08-17-14:0  08-17-15:0  08-17-16:0  08-17-17:0  08-17-18:0  08-17-19:0  08-17-20:0  08-17-21:0  08-17-22:0  08-17-23:0  08-18-0:0  08-18-1:0  08-18-2:0  08-18-3:0  08-18-4:0  08-18-5:0  08-18-6:0  08-18-7:0  08-18-8:0  08-18-9:0  08-18-10:0
+per-day h11/h12/h13: 2026-08-11 h11:0 h12:312 h13:0  2026-08-12 h11:0 h12:351 h13:0  2026-08-13 h11:0 h12:183 h13:0  2026-08-14 h11:0 h12:227 h13:0  2026-08-15 h11:0 h12:119 h13:0  2026-08-16 h11:0 h12:109 h13:0  2026-08-17 h11:0 h12:93 h13:0  2026-08-18 h11:0 h12:0 h13:0
+loganfoxdale h20->h10 nonzero hours: NONE (clean negative window)
+
+=== (e) zerotraceh1 TRACE (last 72h) ===
+08-15-11:104  08-15-12:0  08-15-13:137  08-15-14:104  08-15-15:102  08-15-16:99  08-15-17:0  08-15-18:0  08-15-19:120  08-15-20:151  08-15-21:146  08-15-22:135  08-15-23:218  08-16-0:0  08-16-1:0  08-16-2:0  08-16-3:0  08-16-4:0  08-16-5:0  08-16-6:0  08-16-7:0  08-16-8:68  08-16-9:60  08-16-10:0  08-16-11:0  08-16-12:0  08-16-13:0  08-16-14:0  08-16-15:0  08-16-16:0  08-16-17:0  08-16-18:0  08-16-19:0  08-16-20:0  08-16-21:0  08-16-22:0  08-16-23:0  08-17-0:0  08-17-1:0  08-17-2:0  08-17-3:0  08-17-4:0  08-17-5:0  08-17-6:0  08-17-7:0  08-17-8:0  08-17-9:0  08-17-10:0  08-17-11:0  08-17-12:0  08-17-13:0  08-17-14:0  08-17-15:125  08-17-16:164  08-17-17:0  08-17-18:0  08-17-19:74  08-17-20:130  08-17-21:125  08-17-22:111  08-17-23:188  08-18-0:0  08-18-1:0  08-18-2:0  08-18-3:0  08-18-4:0  08-18-5:0  08-18-6:0  08-18-7:0  08-18-8:0  08-18-9:0  08-18-10:44
+
+=== (f) bogdanstancu1119-maker TRACE (last 40h) ===
+08-16-19:0  08-16-20:0  08-16-21:0  08-16-22:0  08-16-23:0  08-17-0:0  08-17-1:0  08-17-2:0  08-17-3:0  08-17-4:0  08-17-5:0  08-17-6:0  08-17-7:0  08-17-8:0  08-17-9:0  08-17-10:0  08-17-11:0  08-17-12:0  08-17-13:0  08-17-14:0  08-17-15:0  08-17-16:0  08-17-17:0  08-17-18:0  08-17-19:0  08-17-20:0  08-17-21:0  08-17-22:0  08-17-23:0  08-18-0:0  08-18-1:0  08-18-2:0  08-18-3:0  08-18-4:0  08-18-5:0  08-18-6:0  08-18-7:0  08-18-8:0  08-18-9:0  08-18-10:0
+
+=== (g) ugmoddev TRACE (last 48h) ===
+08-16-11:158  08-16-12:0  08-16-13:84  08-16-14:0  08-16-15:62  08-16-16:0  08-16-17:75  08-16-18:0  08-16-19:0  08-16-20:115  08-16-21:0  08-16-22:0  08-16-23:0  08-17-0:187  08-17-1:0  08-17-2:158  08-17-3:0  08-17-4:157  08-17-5:66  08-17-6:68  08-17-7:0  08-17-8:0  08-17-9:0  08-17-10:51  08-17-11:40  08-17-12:0  08-17-13:0  08-17-14:0  08-17-15:106  08-17-16:307  08-17-17:0  08-17-18:0  08-17-19:0  08-17-20:82  08-17-21:90  08-17-22:107  08-17-23:0  08-18-0:0  08-18-1:0  08-18-2:0  08-18-3:143  08-18-4:0  08-18-5:129  08-18-6:72  08-18-7:0  08-18-8:0  08-18-9:0  08-18-10:0
+
+=== (g2) elad-cmd TRACE (last 48h) ===
+08-16-11:0  08-16-12:0  08-16-13:0  08-16-14:0  08-16-15:70  08-16-16:0  08-16-17:80  08-16-18:0  08-16-19:101  08-16-20:123  08-16-21:0  08-16-22:0  08-16-23:0  08-17-0:0  08-17-1:164  08-17-2:157  08-17-3:88  08-17-4:0  08-17-5:0  08-17-6:73  08-17-7:75  08-17-8:59  08-17-9:0  08-17-10:0  08-17-11:0  08-17-12:0  08-17-13:0  08-17-14:56  08-17-15:97  08-17-16:218  08-17-17:0  08-17-18:0  08-17-19:0  08-17-20:0  08-17-21:0  08-17-22:0  08-17-23:0  08-18-0:146  08-18-1:0  08-18-2:145  08-18-3:0  08-18-4:114  08-18-5:130  08-18-6:0  08-18-7:0  08-18-8:0  08-18-9:0  08-18-10:48
+
+=== (h) AUG17 h12-ONLY COHORT leak check h20 -> h10 ===
+Aug17 h12-only actors: n=15
+NO LEAKS (all 59 stayed h12-only)
+
+=== (i) LEDGER ===
+ledger entries: 25264 (confirmed 0)  [run49: 25,742]
+
+=== TOP-12 ACTORS h20 -> h10 ===
+2026-08-17-20  github-actions[bot](6134)  wadjakdad(801)  dependabot[bot](608)  bogdanstancu1119-maker(293)  pull[bot](212)  ugmoddev(153)  renovate[bot](136)  zerotraceh1(130)  swa-runner-app[bot](118)  github-merge-queue[bot](106)  mistune(97)  hxjxydudjbhc799-byte(94)
+2026-08-17-21  github-actions[bot](7467)  wadjakdad(1280)  dependabot[bot](889)  bogdanstancu1119-maker(361)  renovate[bot](283)  swa-runner-app[bot](187)  ugmoddev(174)  pull[bot](160)  zerotraceh1(125)  github-merge-queue[bot](117)  ankitkapur1992-hlido(114)  cursor[bot](100)
+2026-08-17-22  github-actions[bot](9172)  dependabot[bot](814)  wadjakdad(603)  bogdanstancu1119-maker(442)  renovate[bot](361)  swa-runner-app[bot](301)  pull[bot](229)  ugmoddev(178)  cursor[bot](143)  github-merge-queue[bot](142)  hxjxydudjbhc799-byte(132)  DevZonayed(125)
+2026-08-17-23  github-actions[bot](10141)  dependabot[bot](853)  wadjakdad(800)  bogdanstancu1119-maker(535)  swa-runner-app[bot](365)  pull[bot](224)  ugmoddev(215)  renovate[bot](212)  zerotraceh1(188)  hxjxydudjbhc799-byte(169)  StratumBrawler(147)  github-merge-queue[bot](142)
+2026-08-18-0  github-actions[bot](15491)  wadjakdad(880)  dependabot[bot](576)  swa-runner-app[bot](343)  opencodeweb[bot](318)  renovate[bot](311)  pull[bot](239)  udeufounder333(208)  AreaUnderpass(205)  StratumBrawler(195)  cursor[bot](194)  ugmoddev(192)
+2026-08-18-1  github-actions[bot](19797)  ABsUP(1600)  wadjakdad(1274)  bogdanstancu1119-maker(559)  renovate[bot](495)  dependabot[bot](484)  AttoSwiftAlternator(356)  srjordan6(328)  swa-runner-app[bot](271)  deanrhonda2(255)  pull[bot](239)  ugmoddev(232)
+2026-08-18-2  github-actions[bot](10921)  wadjakdad(1241)  bogdanstancu1119-maker(578)  dependabot[bot](499)  renovate[bot](417)  Visibleoofire(347)  ugmoddev(234)  pull[bot](228)  cursor[bot](175)  hxjxydudjbhc799-byte(172)  lori83795219(145)  elad-cmd(145)
+2026-08-18-3  github-actions[bot](9798)  wadjakdad(1375)  bogdanstancu1119-maker(530)  dependabot[bot](485)  ugmoddev(242)  johnsonm865946(226)  abrown600541(223)  pull[bot](181)  hxjxydudjbhc799-byte(170)  renovate[bot](154)  2742692803(147)  cursor[bot](135)
+2026-08-18-4  github-actions[bot](9456)  wadjakdad(1155)  bogdanstancu1119-maker(517)  dependabot[bot](496)  abrown600541(230)  thomass099229(201)  ugmoddev(196)  pull[bot](195)  VedantKh(185)  renovate[bot](178)  cursor[bot](126)  hxjxydudjbhc799-byte(125)
+2026-08-18-5  github-actions[bot](10470)  wadjakdad(559)  bogdanstancu1119-maker(518)  dependabot[bot](494)  renovate[bot](277)  ugmoddev(203)  olivia47268(197)  miathomas885285(190)  cursor[bot](168)  pull[bot](159)  hxjxydudjbhc799-byte(149)  olivia-miller236225(144)
+2026-08-18-6  github-actions[bot](6175)  dependabot[bot](357)  bogdanstancu1119-maker(313)  miathomas885285(147)  ugmoddev(137)  renovate[bot](125)  cursor[bot](119)  pull[bot](115)  swa-runner-app[bot](92)  tayloro5878(88)  github-merge-queue[bot](86)  karen094892(84)
+2026-08-18-7  github-actions[bot](4275)  dependabot[bot](256)  bogdanstancu1119-maker(229)  pull[bot](126)  ugmoddev(96)  cursor[bot](95)  hxjxydudjbhc799-byte(80)  renovate[bot](78)  a-wilson878278(77)  taylor-l853918(73)  eric114674(72)  github-merge-queue[bot](71)
+2026-08-18-8  github-actions[bot](3829)  dependabot[bot](260)  bogdanstancu1119-maker(205)  pull[bot](94)  ugmoddev(87)  a-wilson878278(84)  github-merge-queue[bot](79)  renovate[bot](72)  cursor[bot](67)  hxjxydudjbhc799-byte(62)  carrollana8839(60)  millerjesse003(59)
+2026-08-18-9  github-actions[bot](3470)  dependabot[bot](244)  bogdanstancu1119-maker(168)  ugmoddev(85)  cursor[bot](84)  pull[bot](83)  jacksona09219(78)  github-merge-queue[bot](64)  EtoTochnoNeYa(62)  stricklandlisa3850(61)  smithbradley963(61)  summersbrian1508(61)
+2026-08-18-10  github-actions[bot](3471)  dependabot[bot](245)  bogdanstancu1119-maker(140)  pull[bot](125)  renovate[bot](93)  cursor[bot](78)  ugmoddev(63)  github-merge-queue[bot](62)  adrienne3544989(60)  joandoglune(54)  rachel87310470(52)  hxjxydudjbhc799-byte(49)
+
+=== TOP FARMS (bot_watch top-5) h20 -> h10 ===
+2026-08-17-20  n=15  zerotraceh1/zerotraceh1/er-forge-probe(130)  ugmoddev/ugmoddev/API-NEW-NAT-3-(82)  meredith1199748/meredith1199748/hltgms(80)  shane7100052/shane7100052/doouok(77)  hxjxydudjbhc799-byte/hxjxydudjbhc799-byte/wascmeqs(76)
+2026-08-17-21  n=15  zerotraceh1/zerotraceh1/er-forge-probe(125)  ankitkapur1992-hlido/ankitkapur1992-hlido/hlido-public(114)  erika5233200/erika5233200/nqzsiu(92)  anna6293817/anna6293817/mzyjgt(91)  alan764759/alan764759/icgiym(90)
+2026-08-17-22  n=15  DevZonayed/DevZonayed/nexalance-skill-mastra-ai-mastra(125)  debra4277699/debra4277699/krhhck(113)  jacqueline1498076/jacqueline1498076/rleneu(112)  linda8196776/linda8196776/iasort(112)  courtney958154/courtney958154/wbqsoz(111)
+2026-08-17-23  n=15  zerotraceh1/zerotraceh1/er-forge-probe(188)  jeffery6682797/jeffery6682797/lskwfh(136)  hxjxydudjbhc799-byte/hxjxydudjbhc799-byte/yxuuf(131)  adam503084/adam503084/nkirba(127)  amber18677496/amber18677496/uvpyzg(127)
+2026-08-18-0  n=15  udeufounder333/udeufounder333/udeu-feed(208)  elad-cmd/elad-cmd/psycho-usage(146)  jacqueline1498076/jacqueline1498076/rleneu(142)  ashley346194/ashley346194/duugky(142)  george1704990/george1704990/rlfivv(137)
+2026-08-18-1  n=15  srjordan6/srjordan6/twoai-content(328)  matthew9592125/matthew9592125/zwmebk(147)  eric97490966/eric97490966/drrdwk(147)  lisa22531247/lisa22531247/almhgu(147)  emily0809090/emily0809090/bxmupp(145)
+2026-08-18-2  n=15  lori83795219/lori83795219/jcolzp(145)  elad-cmd/elad-cmd/psycho-usage(145)  jocelyn512362/jocelyn512362/bmpkjk(141)  kevin1543263/kevin1543263/wxsvgi(140)  brian4391734/brian4391734/acbnqr(140)
+2026-08-18-3  n=15  ugmoddev/ugmoddev/API-NEW-NAT-3-(143)  anthanathan-code/anthanathan-code/coevpv(131)  dmrnow/dmrnow/anbana(129)  rimerloz/rimerloz/crvaqo(129)  carolyn54096012/carolyn54096012/ehgkce(129)
+2026-08-18-4  n=15  frank1066660/frank1066660/saooyl(125)  natalie9166434/natalie9166434/dfftsz(124)  marie3002883/marie3002883/cczkfa(122)  mary76905427/mary76905427/wklkvt(121)  kimberly6975816/kimberly6975816/tdseql(121)
+2026-08-18-5  n=15  olivia-miller236225/olivia-miller236225/mcpzgs(144)  mooreo1994/mooreo1994/rugvic(136)  mia698571/mia698571/kglnoi(132)  diffwudripedlta/diffwudripedlta/whbter(130)  elad-cmd/elad-cmd/psycho-usage(130)
+2026-08-18-6  n=15  karen094892/karen094892/fcijbj(84)  aljri12/aljri12/gszqog(82)  bumsmbow268/bumsmbow268/nekptk(79)  sausla91/sausla91/iqufja(77)  sand34bofxx/sand34bofxx/lvmpel(76)
+2026-08-18-7  n=15  taylor-l853918/taylor-l853918/zacqei(73)  eric114674/eric114674/ysyhym(72)  shepherdanne7152/shepherdanne7152/lcmejr(71)  stephenspaul164/stephenspaul164/apywna(67)  solomoncristina9882/solomoncristina9882/yquyxs(66)
+2026-08-18-8  n=15  lanecraig0420/lanecraig0420/vzfbeb(58)  ianejiang/ianejiang/qlddnt(55)  smithpatricia1/smithpatricia1/mzbdvs(54)  renee23081837/renee23081837/ymxrcn(54)  jennifer76141487/jennifer76141487/vknvmj(53)
+2026-08-18-9  n=15  stricklandlisa3850/stricklandlisa3850/oxftiv(61)  smithbradley963/smithbradley963/kntuyx(61)  summersbrian1508/summersbrian1508/qmdfaf(61)  simonrobert84/simonrobert84/wsjdjv(61)  shahallison77/shahallison77/jidvjq(60)
+2026-08-18-10  n=15  adrienne3544989/adrienne3544989/fbanzy(60)  joandoglune/joandoglune/tqeteb(54)  rachel87310470/rachel87310470/jarfae(52)  elad-cmd/elad-cmd/psycho-usage(48)  jeffery29776841/jeffery29776841/tpkhio(46)
+
+=== NEW ACTORS first_seen h20 -> h10 (first 40 each) ===
+2026-08-17-20  n=0  
+2026-08-17-21  n=0  
+2026-08-17-22  n=0  
+2026-08-17-23  n=0  
+2026-08-18-0  n=0  
+2026-08-18-1  n=0  
+2026-08-18-2  n=0  
+2026-08-18-3  n=0  
+2026-08-18-4  n=0  
+2026-08-18-5  n=0  
+2026-08-18-6  n=0  
+2026-08-18-7  n=0  
+2026-08-18-8  n=0  
+2026-08-18-9  n=0  
+2026-08-18-10  n=0  
+
+=== DEMOTIONS — all-time top 15 ===
+2026-08-16-9 3585 | 2026-08-16-14 3277 | 2026-08-16-15 3250 | 2026-08-16-10 3225 | 2026-08-11-1 3095 | 2026-08-15-19 3011 | 2026-08-16-13 2993 | 2026-08-17-8 2978 | 2026-08-16-16 2957 | 2026-08-15-17 2944 | 2026-08-16-17 2904 | 2026-08-16-11 2900 | 2026-08-15-18 2853 | 2026-08-15-20 2852 | 2026-08-15-12 2815
+h20->h10 demotions: 20:2116  21:2181  22:2492  23:2705  0:2648  1:2640  2:2668  3:2616  4:2495  5:2383  6:1768  7:1620  8:1846  9:1606  10:1119
+
+=== BOTNET WATCH h10 (5+ hr persistent) ===
+/elad-cmd/psycho-usage(undefined/hr, 5h)
